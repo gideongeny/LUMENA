@@ -1,6 +1,6 @@
 <div align="center">
- <img src="<img width="704" height="659" alt="Screenshot 2025-12-06 215217" src="https://github.com/user-attachments/assets/73bd72c8-cd01-457f-a971-652a433ff2d1" />
-" />
+ <img width="704" height="659" alt="Screenshot 2025-12-06 215217" src="https://github.com/user-attachments/assets/73bd72c8-cd01-457f-a971-652a433ff2d1" />
+</div>
 
   # Lumena
 
