@@ -26,10 +26,14 @@ fun AppDetails(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(R.drawable.ic_launcher_foreground_bitmap),
+            painter = painterResource(R.drawable.ic_launcher_foreground),
             contentDescription = null,
             modifier = Modifier
                 .size(200.dp)
+                .graphicsLayer {
+                    scaleX = 2f
+                    scaleY = 2f
+                }
         )
 
         Text(
