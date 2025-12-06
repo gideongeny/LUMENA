@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="fastlane/metadata/android/en-US/images/icon-fit.png" width="200px" />
+  <img src="<img width="704" height="659" alt="Screenshot 2025-12-06 215217" src="https://github.com/user-attachments/assets/96d68070-f0ff-468d-a0cd-183576b299b3" />
+" />
 
   # Lumena
 
