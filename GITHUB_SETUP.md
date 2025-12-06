@@ -4,7 +4,7 @@
 
 1. Go to [https://github.com/new](https://github.com/new)
 2. Fill in the repository details:
-   - **Repository name**: `lumena`
+   - **Repository name**: `LUMENA`
    - **Description**: Music player for Android - Lumena
    - **Visibility**: Choose Public or Private
    - **DO NOT** initialize with README, .gitignore, or license (we already have these)
@@ -43,7 +43,7 @@ git push -u origin main
 
 ## Step 3: Verify
 
-After pushing, visit: [https://github.com/gideongeny/lumena](https://github.com/gideongeny/lumena)
+After pushing, visit: [https://github.com/gideongeny/LUMENA](https://github.com/gideongeny/LUMENA)
 
 Your code should now be visible on GitHub!
 

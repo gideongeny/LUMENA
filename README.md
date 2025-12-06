@@ -30,7 +30,7 @@
 - Designed with [Material You](https://m3.material.io/) and supports dynamic color palettes
 
 ## Download
-Latest stable version is available on [GitHub releases](https://github.com/gideongeny/lumena/releases/latest)
+Latest stable version is available on [GitHub releases](https://github.com/gideongeny/LUMENA/releases/latest)
 
 ## Support
 If you enjoy using Lumena, consider providing feedback or contributing to the project!
@@ -39,7 +39,7 @@ If you enjoy using Lumena, consider providing feedback or contributing to the pr
 1. **Get the Source Code**  
    - Clone the repository or download the source code:
      ```bash
-     git clone https://github.com/gideongeny/lumena.git
+     git clone https://github.com/gideongeny/LUMENA.git
      ```
 
 2. **Open project in Android Studio**  
