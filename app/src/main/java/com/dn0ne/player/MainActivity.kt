@@ -182,6 +182,36 @@ class MainActivity : ComponentActivity() {
                 }
             }
 
+        var pendingExportContent: String? = null
+        var pendingExportFileName: String? = null
+        val exportPlaylistLauncher =
+            registerForActivityResult(ActivityResultContracts.CreateDocument("audio/x-mpegurl")) { uri ->
+                uri?.let {
+                    pendingExportContent?.let { content ->
+                        lifecycleScope.launch {
+                            try {
+                                contentResolver.openOutputStream(it)?.use { output ->
+                                    output.write(content.toByteArray(Charsets.UTF_8))
+                                }
+                                SnackbarController.sendEvent(
+                                    SnackbarEvent(
+                                        message = R.string.exported_successfully
+                                    )
+                                )
+                            } catch (e: Exception) {
+                                SnackbarController.sendEvent(
+                                    SnackbarEvent(
+                                        message = R.string.failed_to_export_playlist
+                                    )
+                                )
+                            }
+                            pendingExportContent = null
+                            pendingExportFileName = null
+                        }
+                    }
+                }
+            }
+
         val startDestination = if (checkAudioPermission() && setupState.isComplete) {
             Routes.Player
         } else Routes.Setup
@@ -367,6 +397,31 @@ class MainActivity : ComponentActivity() {
 
                             ObserveAsEvents(pickedPlaylistChannel.receiveAsFlow()) { (name, content) ->
                                 viewModel.parseM3U(name, content)
+                            }
+
+                            ObserveAsEvents(viewModel.pendingPlaylistExport) { playlist ->
+                                lifecycleScope.launch {
+                                    try {
+                                        val m3uContent = viewModel.exportPlaylistToM3U(playlist)
+                                        val fileName = "${playlist.name ?: "playlist"}.m3u"
+                                        
+                                        // Create file using SAF
+                                        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                                            addCategory(Intent.CATEGORY_OPENABLE)
+                                            type = "audio/x-mpegurl"
+                                            putExtra(Intent.EXTRA_TITLE, fileName)
+                                        }
+                                        exportPlaylistLauncher.launch(intent)
+                                        pendingExportContent = m3uContent
+                                        pendingExportFileName = fileName
+                                    } catch (e: Exception) {
+                                        SnackbarController.sendEvent(
+                                            SnackbarEvent(
+                                                message = R.string.failed_to_export_playlist
+                                            )
+                                        )
+                                    }
+                                }
                             }
 
                             if (viewModel.settings.scanOnAppLaunch.value) {

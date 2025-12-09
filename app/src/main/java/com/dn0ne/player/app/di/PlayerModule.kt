@@ -5,6 +5,8 @@ import com.dn0ne.player.app.data.LyricsReader
 import com.dn0ne.player.app.data.LyricsReaderImpl
 import com.dn0ne.player.app.data.MetadataWriter
 import com.dn0ne.player.app.data.MetadataWriterImpl
+import com.dn0ne.player.app.data.FavoritesManager
+import com.dn0ne.player.app.data.RecentlyPlayedManager
 import com.dn0ne.player.app.data.SavedPlayerState
 import com.dn0ne.player.app.data.remote.lyrics.LrclibLyricsProvider
 import com.dn0ne.player.app.data.remote.lyrics.LyricsProvider
@@ -42,6 +44,18 @@ val playerModule = module {
 
     single<SavedPlayerState> {
         SavedPlayerState(
+            context = androidContext()
+        )
+    }
+
+    single<RecentlyPlayedManager> {
+        RecentlyPlayedManager(
+            context = androidContext()
+        )
+    }
+
+    single<FavoritesManager> {
+        FavoritesManager(
             context = androidContext()
         )
     }
@@ -123,7 +137,9 @@ val playerModule = module {
             unsupportedArtworkEditFormats = get<MetadataWriter>().unsupportedArtworkEditFormats,
             settings = get(),
             musicScanner = get(),
-            equalizerController = get()
+            equalizerController = get(),
+            recentlyPlayedManager = get(),
+            favoritesManager = get()
         )
     }
 }

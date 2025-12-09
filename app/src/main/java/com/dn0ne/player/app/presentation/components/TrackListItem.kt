@@ -39,6 +39,8 @@ fun TrackListItem(
     onGoToAlbumClick: () -> Unit,
     onGoToArtistClick: () -> Unit,
     onRemoveFromPlaylistClick: (() -> Unit)? = null,
+    onToggleFavoriteClick: (() -> Unit)? = null,
+    isFavorite: Boolean = false,
     dragHandle: (@Composable () -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
@@ -99,7 +101,9 @@ fun TrackListItem(
                 onViewTrackInfoClick = onViewTrackInfoClick,
                 onGoToAlbumClick = onGoToAlbumClick,
                 onGoToArtistClick = onGoToArtistClick,
-                onRemoveFromPlaylistClick = onRemoveFromPlaylistClick
+                onRemoveFromPlaylistClick = onRemoveFromPlaylistClick,
+                onToggleFavoriteClick = onToggleFavoriteClick,
+                isFavorite = isFavorite
             )
 
             dragHandle?.invoke()

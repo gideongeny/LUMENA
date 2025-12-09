@@ -61,6 +61,8 @@ fun SettingsSheet(
     onScanFoldersClick: () -> Unit,
     onCloseClick: () -> Unit,
     dominantColorState: DominantColorState<ImageBitmap>,
+    onExportPlaylistClick: ((com.dn0ne.player.app.domain.track.Playlist) -> Unit)? = null,
+    playlists: List<com.dn0ne.player.app.domain.track.Playlist> = emptyList(),
     modifier: Modifier = Modifier
 ) {
     AnimatedVisibility(
@@ -257,6 +259,8 @@ fun SettingsSheet(
                     PlaylistsSettings(
                         settings = state.settings,
                         onPlaylistPick = onPlaylistPick,
+                        onExportPlaylistClick = onExportPlaylistClick,
+                        playlists = playlists,
                         onBackClick = {
                             navController.navigateUp()
                         },
@@ -287,6 +291,18 @@ fun SettingsSheet(
 
                 composable<SettingsRoutes.About> {
                     AboutPage(
+                        onBackClick = {
+                            navController.navigateUp()
+                        },
+                        onPrivacyPolicyClick = {
+                            navController.navigate(SettingsRoutes.PrivacyPolicy)
+                        },
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+                
+                composable<SettingsRoutes.PrivacyPolicy> {
+                    PrivacyPolicyPage(
                         onBackClick = {
                             navController.navigateUp()
                         },
@@ -323,4 +339,7 @@ sealed interface SettingsRoutes {
 
     @Serializable
     data object About : SettingsRoutes
+    
+    @Serializable
+    data object PrivacyPolicy : SettingsRoutes
 }

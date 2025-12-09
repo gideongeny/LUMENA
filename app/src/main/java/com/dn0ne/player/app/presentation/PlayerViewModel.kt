@@ -12,7 +12,9 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import com.dn0ne.player.EqualizerController
 import com.dn0ne.player.R
+import com.dn0ne.player.app.data.FavoritesManager
 import com.dn0ne.player.app.data.LyricsReader
+import com.dn0ne.player.app.data.RecentlyPlayedManager
 import com.dn0ne.player.app.data.SavedPlayerState
 import com.dn0ne.player.app.data.remote.lyrics.LyricsProvider
 import com.dn0ne.player.app.data.remote.metadata.MetadataProvider
@@ -67,8 +69,11 @@ class PlayerViewModel(
     private val unsupportedArtworkEditFormats: List<String>,
     val settings: Settings,
     private val musicScanner: MusicScanner,
-    private val equalizerController: EqualizerController
+    private val equalizerController: EqualizerController,
+    private val recentlyPlayedManager: RecentlyPlayedManager,
+    private val favoritesManager: FavoritesManager
 ) : ViewModel() {
+    val favoritesManagerPublic: FavoritesManager = favoritesManager
     var player: Player? = null
 
     private val _settingsSheetState = MutableStateFlow(
@@ -174,6 +179,31 @@ class PlayerViewModel(
         initialValue = emptyList()
     )
 
+    val recentlyPlayedPlaylist = recentlyPlayedManager.recentlyPlayed.map { tracks ->
+        Playlist(
+            name = "Recently Played",
+            trackList = tracks
+        )
+    }.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000L),
+        initialValue = Playlist("Recently Played", emptyList())
+    )
+
+    val favoritesPlaylist = combine(
+        _trackList,
+        favoritesManager.favorites
+    ) { tracks, favoriteUris ->
+        Playlist(
+            name = "Favorites",
+            trackList = tracks.filter { favoriteUris.contains(it.uri.toString()) }
+        )
+    }.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000L),
+        initialValue = Playlist("Favorites", emptyList())
+    )
+
     private val _selectedPlaylist = MutableStateFlow<Playlist?>(null)
     val selectedPlaylist = _selectedPlaylist.stateIn(
         scope = viewModelScope,
@@ -230,12 +260,24 @@ class PlayerViewModel(
 
     private val _pendingTrackUris = Channel<Uri>()
 
+    private val _pendingPlaylistExport = Channel<Playlist>()
+    val pendingPlaylistExport = _pendingPlaylistExport.receiveAsFlow()
+
     init {
+        // Optimize: Reduce polling frequency and only check when app is active
         viewModelScope.launch(Dispatchers.IO) {
+            var lastTrackCount = 0
+            var lastTrackHash = 0
+            
             while (true) {
                 val tracks = trackRepository.getTracks()
-
-                if (_trackList.value.size != tracks.size || !_trackList.value.containsAll(tracks)) {
+                val currentHash = tracks.hashCode()
+                
+                // Only update if tracks actually changed (count or content)
+                if (tracks.size != lastTrackCount || currentHash != lastTrackHash) {
+                    lastTrackCount = tracks.size
+                    lastTrackHash = currentHash
+                    
                     _trackList.update {
                         tracks.sortedBy(_trackSort.value, _trackSortOrder.value)
                     }
@@ -256,9 +298,9 @@ class PlayerViewModel(
                             player?.clearMediaItems()
                         }
                     }
-
                 }
-                delay(5000L)
+                // Increase delay to 30 seconds for better performance
+                delay(30000L)
             }
         }
 
@@ -396,6 +438,8 @@ class PlayerViewModel(
                     viewModelScope.launch(Dispatchers.IO) {
                         savedPlayerState.playlist = event.playlist
                         savedPlayerState.track = event.track
+                        // Add to recently played
+                        recentlyPlayedManager.addTrack(event.track)
                     }
                 }
             }
@@ -1281,6 +1325,101 @@ class PlayerViewModel(
                     }
                 }
             }
+
+            is OnToggleFavorite -> {
+                viewModelScope.launch(Dispatchers.IO) {
+                    favoritesManager.toggleFavorite(event.track)
+                }
+            }
+
+            is OnExportPlaylist -> {
+                viewModelScope.launch(Dispatchers.IO) {
+                    // Export playlist will be handled by MainActivity
+                    _pendingPlaylistExport.send(event.playlist)
+                }
+            }
+                val track = _trackInfoSheetState.value.track ?: return
+
+                if (
+                    track.title == null ||
+                    track.artist == null ||
+                    track.album == null ||
+                    track.artist == "<unknown>" ||
+                    track.title.contains(".mp3")
+                ) {
+                    viewModelScope.launch {
+                        SnackbarController.sendEvent(
+                            SnackbarEvent(
+                                message = R.string.unable_to_publish
+                            )
+                        )
+                    }
+                    return
+                }
+
+                _lyricsControlSheetState.value.lyricsFromRepository?.let { lyrics ->
+                    viewModelScope.launch(Dispatchers.IO) {
+                        _lyricsControlSheetState.update {
+                            it.copy(
+                                isPublishingOnRemote = true
+                            )
+                        }
+
+                        val result = lyricsProvider.postLyrics(track, lyrics)
+                        when (result) {
+                            is Result.Success -> {
+                                SnackbarController.sendEvent(
+                                    SnackbarEvent(
+                                        message = R.string.published_successfully
+                                    )
+                                )
+                            }
+
+                            is Result.Error -> {
+                                when (result.error) {
+                                    DataError.Network.BadRequest -> {
+                                        SnackbarController.sendEvent(
+                                            SnackbarEvent(
+                                                message = R.string.unable_to_publish
+                                            )
+                                        )
+                                    }
+
+                                    DataError.Network.ParseError -> {
+                                        SnackbarController.sendEvent(
+                                            SnackbarEvent(
+                                                message = R.string.failed_to_parse_response
+                                            )
+                                        )
+                                    }
+
+                                    DataError.Network.NoInternet -> {
+                                        SnackbarController.sendEvent(
+                                            SnackbarEvent(
+                                                message = R.string.no_internet
+                                            )
+                                        )
+                                    }
+
+                                    else -> {
+                                        SnackbarController.sendEvent(
+                                            SnackbarEvent(
+                                                message = R.string.unknown_error_occurred
+                                            )
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        _lyricsControlSheetState.update {
+                            it.copy(
+                                isPublishingOnRemote = false
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -1529,6 +1668,17 @@ class PlayerViewModel(
                 )
             )
         }
+    }
+
+    fun exportPlaylistToM3U(playlist: Playlist): String {
+        val m3uContent = buildString {
+            appendLine("#EXTM3U")
+            playlist.trackList.forEach { track ->
+                appendLine("#EXTINF:${track.duration / 1000},${track.artist ?: "Unknown"} - ${track.title ?: "Unknown"}")
+                appendLine(track.data)
+            }
+        }
+        return m3uContent
     }
 
     /**

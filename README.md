@@ -26,9 +26,15 @@
 ## Features
 - Enjoy your favorite music in a variety of formats, including MP3, FLAC, OGG, WAV, and more
 - Easily browse tracks, albums, artists, and genres, and create custom playlists
+- **Recently Played** - Automatically track your last 50 played songs for quick access
+- **Favorites** - Mark your favorite tracks and access them instantly from a dedicated tab
+- **Export Playlists** - Export your playlists as M3U files to share or backup
+- **Sleep Timer** - Set a timer to automatically stop playback
 - Enhance your listening experience with synchronized lyrics from [LRCLIB](https://lrclib.net/)
 - Manually update track details or fetch accurate info from [MusicBrainz](https://musicbrainz.org/)
 - Designed with [Material You](https://m3.material.io/) and supports dynamic color palettes
+- **Privacy Policy** - Full transparency about data handling and privacy
+- **Performance Optimized** - Faster loading and smoother experience
 
 ## Download
 Latest stable version is available on [GitHub releases](https://github.com/gideongeny/LUMENA/releases/latest)

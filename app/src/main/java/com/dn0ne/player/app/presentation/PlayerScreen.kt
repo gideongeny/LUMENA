@@ -275,10 +275,13 @@ fun PlayerScreen(
                     composable<PlayerRoutes.Main> {
                         val trackList by viewModel.trackList.collectAsState()
                         val playlists by viewModel.playlists.collectAsState()
+                        val recentlyPlayedPlaylist by viewModel.recentlyPlayedPlaylist.collectAsState()
+                        val favoritesPlaylist by viewModel.favoritesPlaylist.collectAsState()
                         val albumPlaylists by viewModel.albumPlaylists.collectAsState()
                         val artistPlaylists by viewModel.artistPlaylists.collectAsState()
                         val genrePlaylists by viewModel.genrePlaylists.collectAsState()
                         val folderPlaylists by viewModel.folderPlaylists.collectAsState()
+                        val favoritesManager = viewModel.favoritesManagerPublic
 
                         val gridState = rememberLazyGridState()
                         val gridPlaylists by viewModel.settings.gridPlaylists.collectAsState()
@@ -368,7 +371,15 @@ fun PlayerScreen(
                                 navController.popBackStack(PlayerRoutes.Main, false)
                                 navController.navigate(PlayerRoutes.Playlist)
                             },
+                            onToggleFavoriteClick = { track ->
+                                viewModel.onEvent(PlayerScreenEvent.OnToggleFavorite(track))
+                            },
+                            isFavorite = { track ->
+                                favoritesManager.isFavorite(track)
+                            },
                             playlists = playlists,
+                            recentlyPlayedPlaylist = recentlyPlayedPlaylist,
+                            favoritesPlaylist = favoritesPlaylist,
                             albumPlaylists = albumPlaylists,
                             artistPlaylists = artistPlaylists,
                             genrePlaylists = genrePlaylists,
@@ -909,6 +920,7 @@ fun PlayerScreen(
                 }
 
                 val settingsSheetState by viewModel.settingsSheetState.collectAsState()
+                val playlistsForExport by viewModel.playlists.collectAsState()
                 SettingsSheet(
                     state = settingsSheetState,
                     onFolderPick = onFolderPick,
@@ -920,6 +932,10 @@ fun PlayerScreen(
                         viewModel.onEvent(PlayerScreenEvent.OnCloseSettingsClick)
                     },
                     dominantColorState = dominantColorState,
+                    onExportPlaylistClick = { playlist ->
+                        viewModel.onEvent(PlayerScreenEvent.OnExportPlaylist(playlist))
+                    },
+                    playlists = playlistsForExport,
                     modifier = Modifier.fillMaxSize()
                 )
             }
@@ -942,7 +958,11 @@ fun MainPlayerScreen(
     onViewTrackInfoClick: (Track) -> Unit,
     onGoToAlbumClick: (Track) -> Unit,
     onGoToArtistClick: (Track) -> Unit,
+    onToggleFavoriteClick: (Track) -> Unit,
+    isFavorite: (Track) -> Boolean,
     playlists: List<Playlist>,
+    recentlyPlayedPlaylist: Playlist,
+    favoritesPlaylist: Playlist,
     albumPlaylists: List<Playlist>,
     artistPlaylists: List<Playlist>,
     genrePlaylists: List<Playlist>,
@@ -1304,6 +1324,8 @@ fun MainPlayerScreen(
                         onViewTrackInfoClick = onViewTrackInfoClick,
                         onGoToAlbumClick = onGoToAlbumClick,
                         onGoToArtistClick = onGoToArtistClick,
+                        onToggleFavoriteClick = { onToggleFavoriteClick(it) },
+                        isFavorite = { isFavorite(it) },
                         onLongClick = {
                             isInSelectionMode = true
                             selectedTracks.add(it)
@@ -1312,6 +1334,106 @@ fun MainPlayerScreen(
                 } else {
                     selectionList(
                         trackList = trackList.filterTracks(searchFieldValue),
+                        selectedTracks = selectedTracks,
+                        onTrackClick = {
+                            if (it in selectedTracks) {
+                                selectedTracks.remove(it)
+                            } else selectedTracks.add(it)
+
+                            if (selectedTracks.isEmpty()) {
+                                isInSelectionMode = false
+                            }
+                        }
+                    )
+                }
+            }
+
+            Tab.RecentlyPlayed -> {
+                if (!isInSelectionMode) {
+                    trackList(
+                        trackList = recentlyPlayedPlaylist.trackList.filterTracks(searchFieldValue),
+                        currentTrack = currentTrack,
+                        onTrackClick = {
+                            onTrackClick(
+                                it,
+                                Playlist(
+                                    name = recentlyPlayedPlaylist.name,
+                                    trackList = if (replaceSearchWithFilter) {
+                                        recentlyPlayedPlaylist.trackList.filterTracks(searchFieldValue)
+                                    } else recentlyPlayedPlaylist.trackList
+                                )
+                            )
+                        },
+                        onPlayNextClick = onPlayNextClick,
+                        onAddToQueueClick = {
+                            onAddToQueueClick(listOf(it))
+                        },
+                        onAddToPlaylistClick = {
+                            onAddToPlaylistClick(listOf(it))
+                        },
+                        onViewTrackInfoClick = onViewTrackInfoClick,
+                        onGoToAlbumClick = onGoToAlbumClick,
+                        onGoToArtistClick = onGoToArtistClick,
+                        onToggleFavoriteClick = { onToggleFavoriteClick(it) },
+                        isFavorite = { isFavorite(it) },
+                        onLongClick = {
+                            isInSelectionMode = true
+                            selectedTracks.add(it)
+                        }
+                    )
+                } else {
+                    selectionList(
+                        trackList = recentlyPlayedPlaylist.trackList.filterTracks(searchFieldValue),
+                        selectedTracks = selectedTracks,
+                        onTrackClick = {
+                            if (it in selectedTracks) {
+                                selectedTracks.remove(it)
+                            } else selectedTracks.add(it)
+
+                            if (selectedTracks.isEmpty()) {
+                                isInSelectionMode = false
+                            }
+                        }
+                    )
+                }
+            }
+
+            Tab.Favorites -> {
+                if (!isInSelectionMode) {
+                    trackList(
+                        trackList = favoritesPlaylist.trackList.filterTracks(searchFieldValue),
+                        currentTrack = currentTrack,
+                        onTrackClick = {
+                            onTrackClick(
+                                it,
+                                Playlist(
+                                    name = favoritesPlaylist.name,
+                                    trackList = if (replaceSearchWithFilter) {
+                                        favoritesPlaylist.trackList.filterTracks(searchFieldValue)
+                                    } else favoritesPlaylist.trackList
+                                )
+                            )
+                        },
+                        onPlayNextClick = onPlayNextClick,
+                        onAddToQueueClick = {
+                            onAddToQueueClick(listOf(it))
+                        },
+                        onAddToPlaylistClick = {
+                            onAddToPlaylistClick(listOf(it))
+                        },
+                        onViewTrackInfoClick = onViewTrackInfoClick,
+                        onGoToAlbumClick = onGoToAlbumClick,
+                        onGoToArtistClick = onGoToArtistClick,
+                        onToggleFavoriteClick = { onToggleFavoriteClick(it) },
+                        isFavorite = { isFavorite(it) },
+                        onLongClick = {
+                            isInSelectionMode = true
+                            selectedTracks.add(it)
+                        }
+                    )
+                } else {
+                    selectionList(
+                        trackList = favoritesPlaylist.trackList.filterTracks(searchFieldValue),
                         selectedTracks = selectedTracks,
                         onTrackClick = {
                             if (it in selectedTracks) {

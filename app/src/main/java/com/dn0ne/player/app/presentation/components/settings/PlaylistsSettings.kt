@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
+import androidx.compose.material.icons.rounded.FileDownload
 import androidx.compose.material.icons.rounded.FilterList
 import androidx.compose.material.icons.rounded.Folder
 import androidx.compose.material.icons.rounded.Queue
@@ -36,6 +37,8 @@ import com.dn0ne.player.core.data.Settings
 fun PlaylistsSettings(
     settings: Settings,
     onPlaylistPick: () -> Unit,
+    onExportPlaylistClick: ((com.dn0ne.player.app.domain.track.Playlist) -> Unit)? = null,
+    playlists: List<com.dn0ne.player.app.domain.track.Playlist> = emptyList(),
     onBackClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -104,5 +107,22 @@ fun PlaylistsSettings(
             onButtonClick = onPlaylistPick,
             modifier = Modifier.fillMaxWidth()
         )
+
+        if (onExportPlaylistClick != null && playlists.isNotEmpty()) {
+            HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
+
+            com.dn0ne.player.app.presentation.components.settings.SettingGroup(
+                items = playlists.map { playlist ->
+                    com.dn0ne.player.app.presentation.components.settings.SettingsItem(
+                        title = playlist.name ?: context.resources.getString(R.string.unknown),
+                        supportingText = context.resources.getString(R.string.export_playlist_explain),
+                        icon = Icons.Rounded.FileDownload,
+                        onClick = {
+                            onExportPlaylistClick(playlist)
+                        }
+                    )
+                }
+            )
+        }
     }
 }

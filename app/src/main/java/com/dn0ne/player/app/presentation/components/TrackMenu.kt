@@ -12,6 +12,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.PlaylistAdd
 import androidx.compose.material.icons.rounded.AddToQueue
 import androidx.compose.material.icons.rounded.Album
+import androidx.compose.material.icons.rounded.Favorite
+import androidx.compose.material.icons.rounded.FavoriteBorder
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.material.icons.rounded.Person
@@ -45,7 +47,9 @@ fun TrackMenu(
     onViewTrackInfoClick: () -> Unit,
     onGoToAlbumClick: () -> Unit,
     onGoToArtistClick: () -> Unit,
-    onRemoveFromPlaylistClick: (() -> Unit)? = null
+    onRemoveFromPlaylistClick: (() -> Unit)? = null,
+    onToggleFavoriteClick: (() -> Unit)? = null,
+    isFavorite: Boolean = false
 ) {
     DropdownMenu(
         expanded = isExpanded,
@@ -115,6 +119,39 @@ fun TrackMenu(
                     Icon(
                         imageVector = Icons.Rounded.PlaylistRemove,
                         contentDescription = null
+                    )
+                }
+            )
+        }
+
+        onToggleFavoriteClick?.let {
+            DropdownMenuItem(
+                text = {
+                    Text(
+                        text = if (isFavorite) {
+                            context.resources.getString(R.string.remove_from_favorites)
+                        } else {
+                            context.resources.getString(R.string.add_to_favorites)
+                        }
+                    )
+                },
+                onClick = {
+                    onToggleFavoriteClick()
+                    onDismissRequest()
+                },
+                leadingIcon = {
+                    Icon(
+                        imageVector = if (isFavorite) {
+                            Icons.Rounded.Favorite
+                        } else {
+                            Icons.Rounded.FavoriteBorder
+                        },
+                        contentDescription = null,
+                        tint = if (isFavorite) {
+                            MaterialTheme.colorScheme.error
+                        } else {
+                            MaterialTheme.colorScheme.onSurface
+                        }
                     )
                 }
             )
@@ -203,6 +240,8 @@ fun TrackMenuButton(
     onGoToAlbumClick: () -> Unit,
     onGoToArtistClick: () -> Unit,
     onRemoveFromPlaylistClick: (() -> Unit)? = null,
+    onToggleFavoriteClick: (() -> Unit)? = null,
+    isFavorite: Boolean = false
 ) {
     Box {
         var isMenuExpanded by remember {
@@ -231,7 +270,9 @@ fun TrackMenuButton(
             onViewTrackInfoClick = onViewTrackInfoClick,
             onGoToAlbumClick = onGoToAlbumClick,
             onGoToArtistClick = onGoToArtistClick,
-            onRemoveFromPlaylistClick = onRemoveFromPlaylistClick
+            onRemoveFromPlaylistClick = onRemoveFromPlaylistClick,
+            onToggleFavoriteClick = onToggleFavoriteClick,
+            isFavorite = isFavorite
         )
     }
 }
