@@ -22,6 +22,12 @@
     <string name="explain_audio_permission_requirement">Lumena needs it to play your wonderful music</string>
     <string name="grant_permission">Grant permission</string>
     <string name="next">Next</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="previous_track">Previous Track</string>
+    <string name="next_track">Next Track</string>
+    <string name="album_art">Album Art</string>
+    <string name="widget_description">Music Player Widget</string>
     <string name="grant_permission_in_settings">Please, grant permission in Settings</string>
 
     <!-- Track metadata fields -->
@@ -37,6 +43,8 @@
     <string name="size">Size</string>
     <string name="path">Path</string>
     <string name="date_modified">Date Modified</string>
+    <string name="play_count">Play Count</string>
+    <string name="last_played">Last Played</string>
 
     <string name="unknown_title">Unknown Title</string>
     <string name="unknown_album">Unknown Album</string>
@@ -269,6 +277,9 @@
     <string name="equalizer_explain">Manually adjust sound</string>
     <string name="jump_to_beginning">Jump to beginning</string>
     <string name="jump_to_beginning_explain">Restart current track on first press of previous button</string>
+    <string name="crossfade">Crossfade</string>
+    <string name="crossfade_explain">Smoothly fade between tracks</string>
+    <string name="crossfade_duration">Crossfade duration</string>
 
     <!-- Tabs settings -->
     <string name="tabs">Tabs</string>

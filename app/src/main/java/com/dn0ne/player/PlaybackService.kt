@@ -214,7 +214,8 @@ class PlaybackService : MediaSessionService() {
     override fun onCreate() {
         super.onCreate()
 
-        val shouldHandleAudioFocus = get<Settings>().handleAudioFocus
+        val settings = get<Settings>()
+        val shouldHandleAudioFocus = settings.handleAudioFocus
         val audioAttributes = AudioAttributes.Builder()
             .setUsage(C.USAGE_MEDIA)
             .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
@@ -224,6 +225,9 @@ class PlaybackService : MediaSessionService() {
             .setAudioAttributes(audioAttributes, shouldHandleAudioFocus)
             .setHandleAudioBecomingNoisy(true)
             .build()
+
+        player.setCrossFadeEnabled(settings.crossfadeEnabled)
+        player.setCrossFadeDurationMillis(settings.crossfadeDurationMs.toLong())
 
         player.addListener(object : Player.Listener {
             @OptIn(UnstableApi::class)

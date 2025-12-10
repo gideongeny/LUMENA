@@ -50,6 +50,25 @@
                 <action android:name="androidx.media3.session.MediaSessionService" />
             </intent-filter>
         </service>
+
+        <receiver android:name=".app.widget.MusicPlayerWidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+
+        <receiver android:name=".app.widget.WidgetActionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.dn0ne.player.widget.ACTION_PLAY_PAUSE" />
+                <action android:name="com.dn0ne.player.widget.ACTION_NEXT" />
+                <action android:name="com.dn0ne.player.widget.ACTION_PREVIOUS" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

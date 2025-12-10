@@ -30,6 +30,13 @@
 - **Favorites** - Mark your favorite tracks and access them instantly from a dedicated tab
 - **Export Playlists** - Export your playlists as M3U files to share or backup
 - **Sleep Timer** - Set a timer to automatically stop playback
+- **Home Screen Widget** - Control playback directly from your home screen with track info and controls
+- **Crossfade & Gapless Playback** - Smooth transitions between tracks with customizable crossfade duration
+- **Play Statistics** - Track play counts and last played dates, sort by most played or recently played
+- **Advanced Sorting** - Sort tracks by title, album, artist, genre, year, track number, date modified, play count, or last played
+- **Equalizer** - Built-in audio equalizer with customizable band levels and presets
+- **Queue Management** - View, reorder, and manage your playback queue
+- **Search Functionality** - Quickly find tracks, albums, or artists in your library
 - Enhance your listening experience with synchronized lyrics from [LRCLIB](https://lrclib.net/)
 - Manually update track details or fetch accurate info from [MusicBrainz](https://musicbrainz.org/)
 - Designed with [Material You](https://m3.material.io/) and supports dynamic color palettes

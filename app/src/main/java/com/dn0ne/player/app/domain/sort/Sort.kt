@@ -1,5 +1,6 @@
 package com.dn0ne.player.app.domain.sort
 
+import com.dn0ne.player.app.data.PlayStatsManager
 import com.dn0ne.player.app.domain.track.Playlist
 import com.dn0ne.player.app.domain.track.Track
 
@@ -8,10 +9,10 @@ enum class SortOrder {
 }
 
 enum class TrackSort {
-    Title, Album, Artist, Genre, Year, TrackNumber, DateModified
+    Title, Album, Artist, Genre, Year, TrackNumber, DateModified, PlayCount, LastPlayed
 }
 
-fun List<Track>.sortedBy(sort: TrackSort, order: SortOrder): List<Track> {
+fun List<Track>.sortedBy(sort: TrackSort, order: SortOrder, playStatsManager: PlayStatsManager? = null): List<Track> {
     return when (order) {
         SortOrder.Ascending -> {
             when (sort) {
@@ -26,6 +27,8 @@ fun List<Track>.sortedBy(sort: TrackSort, order: SortOrder): List<Track> {
                     } else it.trackNumber?.toIntOrNull()
                 }
                 TrackSort.DateModified -> sortedBy { it.dateModified }
+                TrackSort.PlayCount -> sortedBy { playStatsManager?.getPlayCount(it) ?: 0 }
+                TrackSort.LastPlayed -> sortedBy { playStatsManager?.getLastPlayed(it) ?: 0L }
             }
         }
 
@@ -42,6 +45,8 @@ fun List<Track>.sortedBy(sort: TrackSort, order: SortOrder): List<Track> {
                     } else it.trackNumber?.toIntOrNull()
                 }
                 TrackSort.DateModified -> sortedByDescending { it.dateModified }
+                TrackSort.PlayCount -> sortedByDescending { playStatsManager?.getPlayCount(it) ?: 0 }
+                TrackSort.LastPlayed -> sortedByDescending { playStatsManager?.getLastPlayed(it) ?: 0L }
             }
         }
     }

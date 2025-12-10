@@ -131,6 +131,22 @@ fun TrackSortButton(
                 }
             )
 
+            SortButton(
+                isSelected = sort == TrackSort.PlayCount,
+                text = context.resources.getString(R.string.play_count),
+                onClick = {
+                    onSortChange(TrackSort.PlayCount)
+                }
+            )
+
+            SortButton(
+                isSelected = sort == TrackSort.LastPlayed,
+                text = context.resources.getString(R.string.last_played),
+                onClick = {
+                    onSortChange(TrackSort.LastPlayed)
+                }
+            )
+
             SortOrderButtonsRow(
                 order = order,
                 onClick = onSortOrderChange

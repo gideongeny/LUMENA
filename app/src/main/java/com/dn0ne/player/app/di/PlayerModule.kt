@@ -8,6 +8,7 @@ import com.dn0ne.player.app.data.MetadataWriterImpl
 import com.dn0ne.player.app.data.FavoritesManager
 import com.dn0ne.player.app.data.RecentlyPlayedManager
 import com.dn0ne.player.app.data.SavedPlayerState
+import com.dn0ne.player.app.data.PlayStatsManager
 import com.dn0ne.player.app.data.remote.lyrics.LrclibLyricsProvider
 import com.dn0ne.player.app.data.remote.lyrics.LyricsProvider
 import com.dn0ne.player.app.data.remote.metadata.MetadataProvider
@@ -50,6 +51,12 @@ val playerModule = module {
 
     single<RecentlyPlayedManager> {
         RecentlyPlayedManager(
+            context = androidContext()
+        )
+    }
+
+    single<PlayStatsManager> {
+        PlayStatsManager(
             context = androidContext()
         )
     }
@@ -139,7 +146,8 @@ val playerModule = module {
             musicScanner = get(),
             equalizerController = get(),
             recentlyPlayedManager = get(),
-            favoritesManager = get()
+            favoritesManager = get(),
+            playStatsManager = get()
         )
     }
 }
