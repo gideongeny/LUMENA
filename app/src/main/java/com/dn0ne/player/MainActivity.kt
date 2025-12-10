@@ -405,15 +405,12 @@ class MainActivity : ComponentActivity() {
                                         val m3uContent = viewModel.exportPlaylistToM3U(playlist)
                                         val fileName = "${playlist.name ?: "playlist"}.m3u"
                                         
-                                        // Create file using SAF
-                                        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-                                            addCategory(Intent.CATEGORY_OPENABLE)
-                                            type = "audio/x-mpegurl"
-                                            putExtra(Intent.EXTRA_TITLE, fileName)
-                                        }
-                                        exportPlaylistLauncher.launch(intent)
+                                        // Store content before launching
                                         pendingExportContent = m3uContent
                                         pendingExportFileName = fileName
+                                        
+                                        // Create file using SAF - CreateDocument expects filename string
+                                        exportPlaylistLauncher.launch(fileName)
                                     } catch (e: Exception) {
                                         SnackbarController.sendEvent(
                                             SnackbarEvent(
