@@ -111,7 +111,7 @@ fun PlaylistsSettings(
         if (onExportPlaylistClick != null && playlists.isNotEmpty()) {
             HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
 
-            com.dn0ne.player.app.presentation.components.settings.SettingGroup(
+            com.dn0ne.player.app.presentation.components.settings.SettingsGroup(
                 items = playlists.map { playlist ->
                     com.dn0ne.player.app.presentation.components.settings.SettingsItem(
                         title = playlist.name ?: context.resources.getString(R.string.unknown),
