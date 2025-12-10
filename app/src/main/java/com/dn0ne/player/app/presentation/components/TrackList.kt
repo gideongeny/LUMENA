@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.dn0ne.player.app.domain.track.Track
@@ -27,18 +28,19 @@ fun LazyListScope.trackList(
     onLongClick: (Track) -> Unit = {}
 ) {
     if (trackList.isEmpty()) {
-        item {
+        item(key = "empty") {
             NothingYet()
         }
+        return
     }
 
     items(
         items = trackList,
-        key = { it.uri }
+        key = { it.uri.toString() }
     ) { track ->
         TrackListItem(
             track = track,
-            isCurrent = currentTrack == track,
+            isCurrent = currentTrack?.uri == track.uri,
             onClick = { onTrackClick(track) },
             onLongClick = { onLongClick(track) },
             onPlayNextClick = { onPlayNextClick(track) },
@@ -74,18 +76,19 @@ fun LazyGridScope.trackList(
     onLongClick: (Track) -> Unit,
 ) {
     if (trackList.isEmpty()) {
-        item {
+        item(key = "empty") {
             NothingYet()
         }
+        return
     }
 
     items(
         items = trackList,
-        key = { it.uri }
+        key = { it.uri.toString() }
     ) { track ->
         TrackListItem(
             track = track,
-            isCurrent = currentTrack == track,
+            isCurrent = currentTrack?.uri == track.uri,
             onClick = { onTrackClick(track) },
             onLongClick = { onLongClick(track) },
             onPlayNextClick = { onPlayNextClick(track) },

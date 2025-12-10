@@ -16,6 +16,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -61,6 +62,13 @@ fun TrackListItem(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         val context = LocalContext.current
+        val titleText = remember(track.title) { 
+            track.title ?: context.resources.getString(R.string.unknown_title) 
+        }
+        val artistText = remember(track.artist) { 
+            track.artist ?: context.resources.getString(R.string.unknown_artist) 
+        }
+        
         Row(
             modifier = Modifier.fillMaxWidth(.8f),
             verticalAlignment = Alignment.CenterVertically
@@ -77,13 +85,13 @@ fun TrackListItem(
 
             Column {
                 Text(
-                    text = track.title ?: context.resources.getString(R.string.unknown_title),
+                    text = titleText,
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.basicMarquee()
                 )
                 Text(
-                    text = track.artist ?: context.resources.getString(R.string.unknown_artist),
+                    text = artistText,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.basicMarquee()

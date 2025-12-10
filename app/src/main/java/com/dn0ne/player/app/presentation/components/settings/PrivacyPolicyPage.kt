@@ -74,12 +74,17 @@ fun PrivacyPolicyPage(
             .fillMaxSize()
             .safeDrawingPadding()
     ) {
+        val scrollState = rememberScrollState()
         Text(
-            text = context.resources.getString(R.string.privacy_policy_content),
+            text = try {
+                context.resources.getString(R.string.privacy_policy_content)
+            } catch (e: Exception) {
+                "Privacy Policy content is loading..."
+            },
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
+                .verticalScroll(scrollState)
                 .padding(vertical = 8.dp)
         )
     }
