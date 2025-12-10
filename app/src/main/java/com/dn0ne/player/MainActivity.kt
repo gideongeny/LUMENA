@@ -59,8 +59,12 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.get
 import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
+    
+    // Inject PlayerViewModel as a property for use in lifecycle methods
+    private val playerViewModel: PlayerViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -467,7 +471,8 @@ class MainActivity : ComponentActivity() {
                             p0: String?,
                             p1: Uri?
                         ) {
-                            getViewModel<PlayerViewModel>().playTrackFromUri(uri)
+                            // Use the injected ViewModel property
+                            playerViewModel.playTrackFromUri(uri)
                         }
                     }
                 )
