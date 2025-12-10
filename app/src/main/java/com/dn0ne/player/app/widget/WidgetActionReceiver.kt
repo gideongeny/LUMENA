@@ -3,10 +3,10 @@ package com.dn0ne.player.app.widget
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import androidx.media3.common.Player
 import androidx.media3.session.MediaController
 import androidx.media3.session.SessionToken
 import com.dn0ne.player.PlaybackService
+import com.dn0ne.player.app.widget.WidgetActions
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.common.util.concurrent.MoreExecutors
 import kotlinx.coroutines.CoroutineScope
@@ -22,8 +22,12 @@ class WidgetActionReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         receiverScope.launch {
-            val sessionToken = SessionToken(context, android.content.ComponentName(context, PlaybackService::class.java))
-            val controllerFuture: ListenableFuture<MediaController> = MediaController.Builder(context, sessionToken).buildAsync()
+            val sessionToken = SessionToken(
+                context,
+                android.content.ComponentName(context, PlaybackService::class.java)
+            )
+            val controllerFuture: ListenableFuture<MediaController> = 
+                MediaController.Builder(context, sessionToken).buildAsync()
             
             try {
                 val controller = suspendCancellableCoroutine<MediaController> { continuation ->
@@ -66,10 +70,3 @@ class WidgetActionReceiver : BroadcastReceiver() {
         }
     }
 }
-
-object WidgetActions {
-    const val ACTION_PLAY_PAUSE = "com.dn0ne.player.widget.ACTION_PLAY_PAUSE"
-    const val ACTION_NEXT = "com.dn0ne.player.widget.ACTION_NEXT"
-    const val ACTION_PREVIOUS = "com.dn0ne.player.widget.ACTION_PREVIOUS"
-}
-

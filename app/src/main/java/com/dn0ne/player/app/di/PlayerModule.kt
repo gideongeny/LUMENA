@@ -11,6 +11,9 @@ import com.dn0ne.player.app.data.SavedPlayerState
 import com.dn0ne.player.app.data.PlayStatsManager
 import com.dn0ne.player.app.data.remote.lyrics.LrclibLyricsProvider
 import com.dn0ne.player.app.data.remote.lyrics.LyricsProvider
+import coil3.ImageLoader
+import coil3.SingletonImageLoader
+import com.dn0ne.player.app.data.remote.metadata.MetadataFetcher
 import com.dn0ne.player.app.data.remote.metadata.MetadataProvider
 import com.dn0ne.player.app.data.remote.metadata.MusicBrainzMetadataProvider
 import com.dn0ne.player.app.data.repository.LyricsJson
@@ -87,6 +90,22 @@ val playerModule = module {
             context = androidContext(),
             client = get()
         )
+    }
+
+    single<MetadataFetcher> {
+        MetadataFetcher(
+            client = get()
+        )
+    }
+
+    single<ImageLoader> {
+        try {
+            SingletonImageLoader.get(androidContext())
+        } catch (e: Exception) {
+            // Fallback: create a new ImageLoader if singleton not initialized
+            ImageLoader.Builder(androidContext())
+                .build()
+        }
     }
 
     single<MetadataWriter> {

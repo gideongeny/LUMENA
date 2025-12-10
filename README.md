@@ -24,24 +24,39 @@
 </div>
 
 ## Features
-- Enjoy your favorite music in a variety of formats, including MP3, FLAC, OGG, WAV, and more
-- Easily browse tracks, albums, artists, and genres, and create custom playlists
+
+### Core Music & Library Features
+- **Multiple Audio Formats** - Enjoy your favorite music in MP3, FLAC, OGG, WAV, and more
+- **Smart Library Organization** - Easily browse tracks, albums, artists, and genres
+- **Custom Playlists** - Create and manage your own playlists with full control
 - **Recently Played** - Automatically track your last 50 played songs for quick access
-- **Favorites** - Mark your favorite tracks and access them instantly from a dedicated tab
+- **Favorites System** - Mark your favorite tracks and access them instantly from a dedicated tab
 - **Export Playlists** - Export your playlists as M3U files to share or backup
-- **Sleep Timer** - Set a timer to automatically stop playback
-- **Home Screen Widget** - Control playback directly from your home screen with track info and controls
+- **Advanced Search** - Quickly find tracks, albums, or artists in your library with powerful search functionality
+- **Advanced Sorting & Filtering** - Sort tracks by title, album, artist, genre, year, track number, date modified, play count, or last played date
+
+### Playback Features
+- **Queue Management** - View, reorder, and manage your playback queue with intuitive controls
 - **Crossfade & Gapless Playback** - Smooth transitions between tracks with customizable crossfade duration
 - **Play Statistics** - Track play counts and last played dates, sort by most played or recently played
-- **Advanced Sorting** - Sort tracks by title, album, artist, genre, year, track number, date modified, play count, or last played
-- **Equalizer** - Built-in audio equalizer with customizable band levels and presets
-- **Queue Management** - View, reorder, and manage your playback queue
-- **Search Functionality** - Quickly find tracks, albums, or artists in your library
-- Enhance your listening experience with synchronized lyrics from [LRCLIB](https://lrclib.net/)
-- Manually update track details or fetch accurate info from [MusicBrainz](https://musicbrainz.org/)
-- Designed with [Material You](https://m3.material.io/) and supports dynamic color palettes
+- **Sleep Timer** - Set a timer to automatically stop playback after a specified duration
+- **Equalizer** - Built-in audio equalizer with customizable band levels and presets for fine-tuning your audio experience
+
+### UI & UX Enhancements
+- **Home Screen Widget** - Control playback directly from your home screen with track info, album art, and playback controls
+- **Material You Design** - Beautiful UI designed with [Material You](https://m3.material.io/) and supports dynamic color palettes
+- **Dark Theme** - Full dark theme support with system integration
+- **Smooth Animations** - Polished animations and transitions throughout the app
+
+### Lyrics & Metadata
+- **Synchronized Lyrics** - Enhance your listening experience with synchronized lyrics from [LRCLIB](https://lrclib.net/)
+- **Metadata Management** - Manually update track details or fetch accurate info from [MusicBrainz](https://musicbrainz.org/)
+- **Tag Editor** - Edit track metadata including title, artist, album, genre, and more
+
+### Privacy & Performance
 - **Privacy Policy** - Full transparency about data handling and privacy
-- **Performance Optimized** - Faster loading and smoother experience
+- **Performance Optimized** - Faster loading and smoother experience with optimized code
+- **Offline Playback** - Play your music without an internet connection
 
 ## Download
 Latest stable version is available on [GitHub releases](https://github.com/gideongeny/LUMENA/releases/latest)

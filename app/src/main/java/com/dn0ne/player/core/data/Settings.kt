@@ -56,9 +56,6 @@ class Settings(context: Context) {
 
     private val gridPlaylistsKey = "grid-playlists"
 
-    private val crossfadeEnabledKey = "crossfade-enabled"
-    private val crossfadeDurationKey = "crossfade-duration-ms"
-
     var handleAudioFocus: Boolean
         get() = sharedPreferences.getBoolean(handleAudioFocusKey, true)
         set(value) {
@@ -390,22 +387,4 @@ class Settings(context: Context) {
             apply()
         }
     }
-
-    var crossfadeEnabled: Boolean
-        get() = sharedPreferences.getBoolean(crossfadeEnabledKey, false)
-        set(value) {
-            with(sharedPreferences.edit()) {
-                putBoolean(crossfadeEnabledKey, value)
-                apply()
-            }
-        }
-
-    var crossfadeDurationMs: Int
-        get() = sharedPreferences.getInt(crossfadeDurationKey, 5000)
-        set(value) {
-            with(sharedPreferences.edit()) {
-                putInt(crossfadeDurationKey, value)
-                apply()
-            }
-        }
 }

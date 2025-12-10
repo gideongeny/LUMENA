@@ -55,6 +55,7 @@
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.dn0ne.player.PlaybackService.ACTION_PLAYER_STATE_CHANGED" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"

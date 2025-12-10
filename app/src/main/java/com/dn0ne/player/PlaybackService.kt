@@ -208,7 +208,12 @@ class EqualizerController(context: Context) {
 }
 
 class PlaybackService : MediaSessionService() {
+    companion object {
+        const val ACTION_PLAYER_STATE_CHANGED = "com.dn0ne.player.PLAYER_STATE_CHANGED"
+    }
+    
     private var mediaSession: MediaSession? = null
+    private var player: ExoPlayer? = null
     private val equalizerController = get<EqualizerController>()
 
     override fun onCreate() {
@@ -221,7 +226,7 @@ class PlaybackService : MediaSessionService() {
             .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
             .build()
 
-        val player = ExoPlayer.Builder(this)
+        player = ExoPlayer.Builder(this)
             .setAudioAttributes(audioAttributes, shouldHandleAudioFocus)
             .setHandleAudioBecomingNoisy(true)
             .build()
@@ -229,20 +234,29 @@ class PlaybackService : MediaSessionService() {
         // Note: Crossfade functionality requires custom audio processing implementation
         // The settings are stored but crossfade needs to be implemented via audio effects
 
-        player.addListener(object : Player.Listener {
+        val currentPlayer = player!!
+        currentPlayer.addListener(object : Player.Listener {
             @OptIn(UnstableApi::class)
             override fun onPlaybackStateChanged(playbackState: Int) {
                 if (playbackState == Player.STATE_READY || playbackState == Player.STATE_BUFFERING) {
-                    val audioSessionId = player.audioSessionId
+                    val audioSessionId = currentPlayer.audioSessionId
                     if (audioSessionId != C.AUDIO_SESSION_ID_UNSET) {
                         equalizerController.updateEqualizer(audioSessionId)
                     }
                 }
             }
+            
+            override fun onIsPlayingChanged(isPlaying: Boolean) {
+                notifyWidget()
+            }
+            
+            override fun onMediaItemTransition(mediaItem: androidx.media3.common.MediaItem?, reason: Int) {
+                notifyWidget()
+            }
         })
 
         SleepTimer.addOnFinishCallback {
-            player.stop()
+            currentPlayer.stop()
         }
 
         val intent = Intent(this, MainActivity::class.java).apply {
@@ -256,9 +270,14 @@ class PlaybackService : MediaSessionService() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        mediaSession = MediaSession.Builder(this, player)
+        mediaSession = MediaSession.Builder(this, currentPlayer)
             .setSessionActivity(pendingIntent)
             .build()
+    }
+
+    private fun notifyWidget() {
+        val intent = Intent(ACTION_PLAYER_STATE_CHANGED)
+        sendBroadcast(intent)
     }
 
     override fun onTaskRemoved(rootIntent: Intent?) {
