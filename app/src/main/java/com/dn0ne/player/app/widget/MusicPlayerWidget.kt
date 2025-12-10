@@ -22,7 +22,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
 class MusicPlayerWidget : AppWidgetProvider() {
     private val widgetScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
@@ -60,11 +62,18 @@ class MusicPlayerWidget : AppWidgetProvider() {
         val controllerFuture: ListenableFuture<MediaController> = MediaController.Builder(context, sessionToken).buildAsync()
         
         try {
-            val controller = controllerFuture.await()
-            val player = controller.player
+            val controller = suspendCancellableCoroutine<MediaController> { continuation ->
+                controllerFuture.addListener({
+                    try {
+                        continuation.resume(controllerFuture.get())
+                    } catch (e: Exception) {
+                        continuation.resumeWithException(e)
+                    }
+                }, MoreExecutors.directExecutor())
+            }
             
-            val currentTrack = player.currentMediaItem?.mediaMetadata
-            val isPlaying = player.isPlaying
+            val currentTrack = controller.currentMediaItem?.mediaMetadata
+            val isPlaying = controller.isPlaying
             val artwork = currentTrack?.artworkUri
             
             appWidgetIds.forEach { appWidgetId ->

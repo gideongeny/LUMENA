@@ -226,8 +226,8 @@ class PlaybackService : MediaSessionService() {
             .setHandleAudioBecomingNoisy(true)
             .build()
 
-        player.setCrossFadeEnabled(settings.crossfadeEnabled)
-        player.setCrossFadeDurationMillis(settings.crossfadeDurationMs.toLong())
+        // Note: Crossfade functionality requires custom audio processing implementation
+        // The settings are stored but crossfade needs to be implemented via audio effects
 
         player.addListener(object : Player.Listener {
             @OptIn(UnstableApi::class)

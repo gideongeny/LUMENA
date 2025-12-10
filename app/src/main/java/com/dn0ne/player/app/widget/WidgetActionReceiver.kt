@@ -13,7 +13,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
 class WidgetActionReceiver : BroadcastReceiver() {
     private val receiverScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
@@ -24,25 +26,32 @@ class WidgetActionReceiver : BroadcastReceiver() {
             val controllerFuture: ListenableFuture<MediaController> = MediaController.Builder(context, sessionToken).buildAsync()
             
             try {
-                val controller = controllerFuture.await()
-                val player = controller.player
+                val controller = suspendCancellableCoroutine<MediaController> { continuation ->
+                    controllerFuture.addListener({
+                        try {
+                            continuation.resume(controllerFuture.get())
+                        } catch (e: Exception) {
+                            continuation.resumeWithException(e)
+                        }
+                    }, MoreExecutors.directExecutor())
+                }
                 
                 when (intent.action) {
                     WidgetActions.ACTION_PLAY_PAUSE -> {
-                        if (player.isPlaying) {
-                            player.pause()
+                        if (controller.isPlaying) {
+                            controller.pause()
                         } else {
-                            player.play()
+                            controller.play()
                         }
                     }
                     WidgetActions.ACTION_NEXT -> {
-                        if (player.hasNextMediaItem()) {
-                            player.seekToNextMediaItem()
+                        if (controller.hasNextMediaItem()) {
+                            controller.seekToNextMediaItem()
                         }
                     }
                     WidgetActions.ACTION_PREVIOUS -> {
-                        if (player.hasPreviousMediaItem()) {
-                            player.seekToPreviousMediaItem()
+                        if (controller.hasPreviousMediaItem()) {
+                            controller.seekToPreviousMediaItem()
                         }
                     }
                 }
