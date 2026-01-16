@@ -170,4 +170,10 @@ val playerModule = module {
             favoritesManager = get()
         )
     }
+
+    viewModel {
+        com.dn0ne.player.app.presentation.search.SearchViewModel(
+            youTubeRepository = get()
+        )
+    }
 }

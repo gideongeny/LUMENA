@@ -4,6 +4,7 @@ import com.dn0ne.player.BuildConfig
 import com.dn0ne.player.app.data.online.SpotifyAuthManager
 import com.dn0ne.player.app.data.online.SpotifyRepository
 import com.dn0ne.player.app.data.remote.lyrics.YouTubeTranscriptsProvider
+import com.dn0ne.player.app.data.online.YouTubeRepository
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
@@ -29,5 +30,9 @@ val onlineFeaturesModule = module {
             context = androidContext(),
             client = get()
         ) 
+    }
+
+    single {
+        YouTubeRepository()
     }
 }

@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -443,6 +444,36 @@ class MainActivity : ComponentActivity() {
                                     )
                                 }
                             }
+                            // Handle returning from Search with a track
+                            val savedStateHandle = navController.currentBackStackEntry?.savedStateHandle
+                            val trackJson by savedStateHandle?.getStateFlow<String?>("play_track_json", null)?.collectAsState() ?: mutableStateOf(null)
+                            
+                            LaunchedEffect(trackJson) {
+                                trackJson?.let { json ->
+                                    val track = kotlinx.serialization.json.Json.decodeFromString(com.dn0ne.player.app.domain.track.Track.serializer(), json)
+                                    viewModel.onEvent(
+                                        com.dn0ne.player.app.presentation.PlayerScreenEvent.OnTrackClick(
+                                            track = track,
+                                            playlist = com.dn0ne.player.app.domain.track.Playlist(
+                                                name = "YouTube Search",
+                                                trackList = listOf(track)
+                                            )
+                                        )
+                                    )
+                                    savedStateHandle?.remove<String>("play_track_json")
+                                }
+                            }
+                        }
+
+                        composable<com.dn0ne.player.core.presentation.Routes.Search> {
+                             com.dn0ne.player.app.presentation.search.SearchScreen(
+                                navController = navController,
+                                onTrackClick = { track ->
+                                    val json = kotlinx.serialization.json.Json.encodeToString(com.dn0ne.player.app.domain.track.Track.serializer(), track)
+                                    navController.previousBackStackEntry?.savedStateHandle?.set("play_track_json", json)
+                                    navController.popBackStack()
+                                }
+                            )
                         }
                     }
                 }

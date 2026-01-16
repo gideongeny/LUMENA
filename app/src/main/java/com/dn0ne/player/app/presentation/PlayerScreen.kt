@@ -33,6 +33,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.PlaylistAdd
 import androidx.compose.material.icons.automirrored.rounded.ViewList
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.rounded.AddToQueue
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.FilterList
@@ -457,9 +458,9 @@ fun PlayerScreen(
                             replaceSearchWithFilter = replaceSearchWithFilter,
                             gridPlaylists = gridPlaylists,
                             onGridPlaylistsClick = {
-                                viewModel.settings.updateGridPlaylists(
-                                    !gridPlaylists
-                                )
+                            },
+                            onOnlineSearchClick = {
+                                navController.navigate(com.dn0ne.player.core.presentation.Routes.Search)
                             }
                         )
                     }
@@ -981,7 +982,8 @@ fun MainPlayerScreen(
     replaceSearchWithFilter: Boolean,
     gridPlaylists: Boolean,
     onGridPlaylistsClick: () -> Unit,
-    onSettingsClick: () -> Unit
+    onSettingsClick: () -> Unit,
+    onOnlineSearchClick: () -> Unit
 ) {
     val context = LocalContext.current
 
@@ -1062,6 +1064,15 @@ fun MainPlayerScreen(
                                         contentDescription = context.resources.getString(
                                             R.string.settings
                                         )
+                                    )
+                                }
+
+                                IconButton(
+                                    onClick = onOnlineSearchClick
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.Search,
+                                        contentDescription = "Search Online"
                                     )
                                 }
 

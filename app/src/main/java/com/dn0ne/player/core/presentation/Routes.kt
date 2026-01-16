@@ -8,4 +8,6 @@ sealed interface Routes {
     data object Setup: Routes
     @Serializable
     data object Player: Routes
+    @Serializable
+    object Search: Routes
 }

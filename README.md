@@ -58,9 +58,9 @@
 - **Tag Editor** - Edit track metadata including title, artist, album, genre, and more
 
 ### Online Features
-- **YouTube Search** - Search and discover music on YouTube directly from the app
-- **Spotify Integration** - Search Spotify tracks and open them in the Spotify app (when available)
+- **YouTube Search & Streaming** - Search for any track on YouTube and stream it instantly via NewPipe
 - **Unified Search Interface** - One search button that intelligently searches your local library, with easy access to online search
+- **Spotify Integration** - Search Spotify tracks and open them in the Spotify app (when available)
 
 ### Privacy & Performance
 - **Privacy Policy** - Full transparency about data handling and privacy (Play Store compliant)
