@@ -43,6 +43,7 @@ fun TrackListItem(
     onToggleFavoriteClick: (() -> Unit)? = null,
     isFavorite: Boolean = false,
     dragHandle: (@Composable () -> Unit)? = null,
+    trackNumber: Int? = null,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -73,6 +74,17 @@ fun TrackListItem(
             modifier = Modifier.fillMaxWidth(.8f),
             verticalAlignment = Alignment.CenterVertically
         ) {
+            // Track number
+            trackNumber?.let { number ->
+                Text(
+                    text = "$number",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier
+                        .width(32.dp)
+                        .padding(end = 8.dp)
+                )
+            }
 
             CoverArt(
                 uri = track.coverArtUri,

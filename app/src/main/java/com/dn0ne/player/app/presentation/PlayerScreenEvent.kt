@@ -68,6 +68,7 @@ sealed interface PlayerScreenEvent {
     data object OnCopyLyricsFromTagClick: PlayerScreenEvent
     data object OnWriteLyricsToTagClick: PlayerScreenEvent
     data object OnFetchLyricsFromRemoteClick: PlayerScreenEvent
+    data object OnFetchLyricsFromYouTubeClick: PlayerScreenEvent
     data object OnPublishLyricsOnRemoteClick: PlayerScreenEvent
 
     data class OnToggleFavorite(val track: Track): PlayerScreenEvent

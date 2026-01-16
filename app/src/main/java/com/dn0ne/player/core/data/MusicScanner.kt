@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Context.CLIPBOARD_SERVICE
+import android.util.Log
 import android.media.MediaScannerConnection
 import android.os.Environment
 import com.dn0ne.player.R
@@ -76,42 +77,18 @@ class MusicScanner(
                 }
             } catch (e: Exception) {
                 if (!showMessages) return@withContext
+                Log.e("MusicScanner", "Failed to refresh media", e)
                 SnackbarController.sendEvent(
                     SnackbarEvent(
-                        message = R.string.failed_to_refresh,
-                        action = SnackbarAction(
-                            name = R.string.copy_error,
-                            action = {
-                                val clipboardManager =
-                                    context.getSystemService(CLIPBOARD_SERVICE) as? ClipboardManager
-                                val clip =
-                                    ClipData.newPlainText(
-                                        null,
-                                        e.message + "\n" + e.stackTrace.joinToString("\n")
-                                    )
-                                clipboardManager?.setPrimaryClip(clip)
-                            }
-                        )
+                        message = R.string.failed_to_refresh
                     )
                 )
             } catch (e: java.lang.Exception) {
                 if (!showMessages) return@withContext
+                Log.e("MusicScanner", "Failed to refresh media (Java)", e)
                 SnackbarController.sendEvent(
                     SnackbarEvent(
-                        message = R.string.failed_to_refresh,
-                        action = SnackbarAction(
-                            name = R.string.copy_error,
-                            action = {
-                                val clipboardManager =
-                                    context.getSystemService(CLIPBOARD_SERVICE) as? ClipboardManager
-                                val clip =
-                                    ClipData.newPlainText(
-                                        null,
-                                        e.message + "\n" + e.stackTrace.joinToString("\n")
-                                    )
-                                clipboardManager?.setPrimaryClip(clip)
-                            }
-                        )
+                        message = R.string.failed_to_refresh
                     )
                 )
             }
@@ -135,38 +112,17 @@ class MusicScanner(
                     )
                 )
             } catch (e: Exception) {
+                Log.e("MusicScanner", "Failed to scan folder", e)
                 SnackbarController.sendEvent(
                     SnackbarEvent(
-                        message = R.string.failed_to_scan,
-                        action = SnackbarAction(
-                            name = R.string.copy_error,
-                            action = {
-                                val clipboardManager =
-                                    context.getSystemService(CLIPBOARD_SERVICE) as? ClipboardManager
-                                val clip =
-                                    ClipData.newPlainText(
-                                        null,
-                                        e.message + "\n" + e.stackTrace.joinToString("\n")
-                                    )
-                                clipboardManager?.setPrimaryClip(clip)
-                            }
-                        )
+                        message = R.string.failed_to_scan
                     )
                 )
             } catch (e: java.lang.Exception) {
+                Log.e("MusicScanner", "Failed to scan folder (Java)", e)
                 SnackbarController.sendEvent(
                     SnackbarEvent(
-                        message = R.string.failed_to_scan,
-                        action = SnackbarAction(
-                            name = R.string.copy_error,
-                            action = {
-                                val clipboardManager =
-                                    context.getSystemService(CLIPBOARD_SERVICE) as? ClipboardManager
-                                val clip =
-                                    ClipData.newPlainText(null, e.stackTrace.joinToString("\n"))
-                                clipboardManager?.setPrimaryClip(clip)
-                            }
-                        )
+                        message = R.string.failed_to_scan
                     )
                 )
             }

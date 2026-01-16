@@ -1,6 +1,7 @@
 package com.dn0ne.player.app.presentation.components.settings
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,6 +31,9 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp
+import androidx.compose.ui.text.font.FontWeight
+import android.util.Log
+import androidx.compose.material.icons.rounded.Info
 import com.dn0ne.player.R
 import com.dn0ne.player.app.presentation.components.topbar.ColumnWithCollapsibleTopBar
 import com.dn0ne.player.core.presentation.AppDetails
@@ -38,6 +42,7 @@ import com.dn0ne.player.core.presentation.AppDetails
 fun AboutPage(
     onBackClick: () -> Unit,
     onPrivacyPolicyClick: () -> Unit = {},
+    onPlayStoreComplianceClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
@@ -97,7 +102,11 @@ fun AboutPage(
                     supportingText = context.resources.getString(R.string.repo_explain),
                     icon = repoIcon,
                     onClick = {
-                        uriHandler.openUri(context.resources.getString(R.string.repo_url))
+                        try {
+                            uriHandler.openUri(context.resources.getString(R.string.repo_url))
+                        } catch (e: Exception) {
+                            android.util.Log.e("AboutPage", "Failed to open repository URL", e)
+                        }
                     }
                 ),
                 SettingsItem(
@@ -105,7 +114,11 @@ fun AboutPage(
                     supportingText = context.resources.getString(R.string.feedback_explain),
                     icon = Icons.Rounded.QuestionAnswer,
                     onClick = {
-                        uriHandler.openUri(context.resources.getString(R.string.feedback_url))
+                        try {
+                            uriHandler.openUri(context.resources.getString(R.string.feedback_url))
+                        } catch (e: Exception) {
+                            android.util.Log.e("AboutPage", "Failed to open feedback URL", e)
+                        }
                     }
                 )
             )
@@ -118,6 +131,12 @@ fun AboutPage(
                     supportingText = context.resources.getString(R.string.privacy_policy_explain),
                     icon = Icons.Rounded.PrivacyTip,
                     onClick = onPrivacyPolicyClick
+                ),
+                SettingsItem(
+                    title = "Play Store Compliance",
+                    supportingText = "View Play Store compliance information",
+                    icon = Icons.Rounded.Info,
+                    onClick = onPlayStoreComplianceClick
                 )
             )
         )

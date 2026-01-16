@@ -175,8 +175,13 @@ fun LazyGridWithCollapsibleTabsTopBar(
         }
     }
 
-    var selectedTab by rememberSaveable {
+    var selectedTab by rememberSaveable(defaultSelectedTab) {
         mutableStateOf(defaultSelectedTab)
+    }
+    
+    // Sync with defaultSelectedTab when it changes
+    LaunchedEffect(defaultSelectedTab) {
+        selectedTab = defaultSelectedTab
     }
     var showTabRow by remember {
         mutableStateOf(false)

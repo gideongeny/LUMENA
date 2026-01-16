@@ -127,34 +127,35 @@ fun PlaybackSettings(
             }
         )
 
-        var crossfadeEnabled by remember { mutableStateOf(settings.crossfadeEnabled) }
-        SettingSwitch(
-            title = context.resources.getString(R.string.crossfade),
-            supportingText = context.resources.getString(R.string.crossfade_explain),
-            icon = Icons.Rounded.Toll,
-            isChecked = crossfadeEnabled,
-            onCheckedChange = {
-                crossfadeEnabled = it
-                settings.crossfadeEnabled = it
-            }
-        )
-
-        var crossfadeDuration by remember {
-            mutableFloatStateOf(settings.crossfadeDurationMs.toFloat())
-        }
-        AnimatedVisibility(visible = crossfadeEnabled) {
-            SettingSlider(
-                title = context.resources.getString(R.string.crossfade_duration),
-                value = crossfadeDuration,
-                valueToShow = "${crossfadeDuration.toInt() / 1000f}s",
-                onValueChange = {
-                    crossfadeDuration = it
-                    settings.crossfadeDurationMs = it.toInt()
-                },
-                onValueChangeFinished = {},
-                valueRange = 0f..12000f,
-            )
-        }
+        // Crossfade settings - temporarily commented out until Settings class is updated
+        // var crossfadeEnabled by remember { mutableStateOf<Boolean>(false) }
+        // SettingSwitch(
+        //     title = context.resources.getString(R.string.crossfade),
+        //     supportingText = context.resources.getString(R.string.crossfade_explain),
+        //     icon = Icons.Rounded.Toll,
+        //     isChecked = crossfadeEnabled,
+        //     onCheckedChange = {
+        //         crossfadeEnabled = it
+        //         // settings.crossfadeEnabled = it
+        //     }
+        // )
+        //
+        // var crossfadeDuration by remember {
+        //     mutableFloatStateOf(0f)
+        // }
+        // AnimatedVisibility(visible = crossfadeEnabled) {
+        //     SettingSlider(
+        //         title = context.resources.getString(R.string.crossfade_duration),
+        //         value = crossfadeDuration,
+        //         valueToShow = "${crossfadeDuration.toInt() / 1000f}s",
+        //         onValueChange = {
+        //             crossfadeDuration = it
+        //             // settings.crossfadeDurationMs = it.toInt()
+        //         },
+        //         onValueChangeFinished = {},
+        //         valueRange = 0f..12000f,
+        //     )
+        // }
 
         val isEqEnabled by equalizerController.isEqEnabled.collectAsState()
         SettingSwitch(

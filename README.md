@@ -28,11 +28,13 @@
 ### Core Music & Library Features
 - **Multiple Audio Formats** - Enjoy your favorite music in MP3, FLAC, OGG, WAV, and more
 - **Smart Library Organization** - Easily browse tracks, albums, artists, and genres
+- **Alphabetical Grouping** - Tracks are automatically organized by first letter with section headers (A-Z, # for numbers)
+- **Track Numbering** - See numbered tracks in your library for easy navigation
 - **Custom Playlists** - Create and manage your own playlists with full control
 - **Recently Played** - Automatically track your last 50 played songs for quick access
 - **Favorites System** - Mark your favorite tracks and access them instantly from a dedicated tab
 - **Export Playlists** - Export your playlists as M3U files to share or backup
-- **Advanced Search** - Quickly find tracks, albums, or artists in your library with powerful search functionality
+- **Unified Search** - Search your local library and discover music online in one place
 - **Advanced Sorting & Filtering** - Sort tracks by title, album, artist, genre, year, track number, date modified, play count, or last played date
 
 ### Playback Features
@@ -49,14 +51,24 @@
 - **Smooth Animations** - Polished animations and transitions throughout the app
 
 ### Lyrics & Metadata
-- **Synchronized Lyrics** - Enhance your listening experience with synchronized lyrics from [LRCLIB](https://lrclib.net/)
+- **Synchronized Lyrics** - Enhance your listening experience with synchronized lyrics from [LRCLIB](https://lrclib.net/) and YouTube transcripts
+- **Multiple Lyrics Sources** - Choose to fetch lyrics from LRCLIB, YouTube captions, or local tags with separate buttons for each source
+- **Smart Lyrics Fallback** - Automatically tries multiple sources if one fails (LRCLIB → YouTube → Local tags)
 - **Metadata Management** - Manually update track details or fetch accurate info from [MusicBrainz](https://musicbrainz.org/)
 - **Tag Editor** - Edit track metadata including title, artist, album, genre, and more
 
+### Online Features
+- **YouTube Search** - Search and discover music on YouTube directly from the app
+- **Spotify Integration** - Search Spotify tracks and open them in the Spotify app (when available)
+- **Unified Search Interface** - One search button that intelligently searches your local library, with easy access to online search
+
 ### Privacy & Performance
-- **Privacy Policy** - Full transparency about data handling and privacy
-- **Performance Optimized** - Faster loading and smoother experience with optimized code
+- **Privacy Policy** - Full transparency about data handling and privacy (Play Store compliant)
+- **Play Store Compliance** - Meets all Google Play Store requirements and guidelines
+- **Performance Optimized** - Faster loading and smoother experience with optimized code and background initialization
 - **Offline Playback** - Play your music without an internet connection
+- **Local-First** - All your music and data stored locally on your device
+- **No Data Collection** - We don't collect, transmit, or store your personal information
 
 ## Download
 Latest stable version is available on [GitHub releases](https://github.com/gideongeny/LUMENA/releases/latest)

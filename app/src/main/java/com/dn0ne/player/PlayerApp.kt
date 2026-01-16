@@ -1,6 +1,7 @@
 package com.dn0ne.player
 
 import android.app.Application
+import com.dn0ne.player.app.di.onlineFeaturesModule
 import com.dn0ne.player.app.di.playerModule
 import com.dn0ne.player.core.di.appModule
 import com.dn0ne.player.setup.di.setupModule
@@ -13,7 +14,7 @@ class PlayerApp: Application() {
 
         startKoin {
             androidContext(this@PlayerApp)
-            modules(appModule, setupModule, playerModule)
+            modules(appModule, setupModule, playerModule, onlineFeaturesModule)
         }
     }
 }

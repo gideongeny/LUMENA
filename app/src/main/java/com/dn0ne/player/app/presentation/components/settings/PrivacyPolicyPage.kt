@@ -75,12 +75,57 @@ fun PrivacyPolicyPage(
             .safeDrawingPadding()
     ) {
         val scrollState = rememberScrollState()
+        val privacyPolicyText = """
+            Privacy Policy for Lumena Music Player
+            
+            Last Updated: December 2024
+            
+            1. Introduction
+            Welcome to Lumena Music Player. We respect your privacy and are committed to protecting your personal data.
+            
+            2. Data Collection
+            Lumena Music Player is designed with privacy in mind:
+            
+            • Local Storage Only: All your music files, playlists, and preferences are stored locally on your device. We do not collect, transmit, or store your personal data on external servers.
+            
+            • No Account Required: You can use Lumena without creating an account or providing any personal information.
+            
+            • Media Library Access: The app requires permission to access your device's media library to play your music files. This access is used solely for music playback and playlist management.
+            
+            3. Third-Party Services
+            Lumena may use the following third-party services:
+            
+            • YouTube Data API: Used for online music search functionality. Your search queries may be sent to YouTube's servers.
+            
+            • MusicBrainz: Used for metadata lookup (artist, album, genre information). No personal data is transmitted.
+            
+            • LRCLIB: Used for lyrics lookup. Only track metadata (title, artist) is sent, not personal information.
+            
+            4. Permissions
+            The app requests the following permissions:
+            
+            • READ_MEDIA_AUDIO / READ_EXTERNAL_STORAGE: Required to access and play your music files.
+            
+            • INTERNET: Required for online features like YouTube search and lyrics fetching.
+            
+            5. Data Security
+            All data is stored locally using Android's standard storage mechanisms. We do not have access to your data.
+            
+            6. Children's Privacy
+            Our app does not knowingly collect personal information from children under 13.
+            
+            7. Changes to This Policy
+            We may update this privacy policy from time to time. Changes will be reflected in the app.
+            
+            8. Contact
+            For questions about this privacy policy, please contact us through the app's feedback option.
+            
+            9. Compliance
+            This app complies with Google Play Store policies regarding user privacy and data handling.
+        """.trimIndent()
+        
         Text(
-            text = try {
-                context.resources.getString(R.string.privacy_policy_content)
-            } catch (e: Exception) {
-                "Privacy Policy content is loading..."
-            },
+            text = privacyPolicyText,
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier
                 .fillMaxSize()

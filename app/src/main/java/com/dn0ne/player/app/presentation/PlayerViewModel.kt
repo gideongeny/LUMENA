@@ -14,7 +14,6 @@ import com.dn0ne.player.EqualizerController
 import com.dn0ne.player.R
 import com.dn0ne.player.app.data.FavoritesManager
 import com.dn0ne.player.app.data.LyricsReader
-import com.dn0ne.player.app.data.PlayStatsManager
 import com.dn0ne.player.app.data.RecentlyPlayedManager
 import com.dn0ne.player.app.data.SavedPlayerState
 import com.dn0ne.player.app.data.remote.lyrics.LyricsProvider
@@ -72,8 +71,7 @@ class PlayerViewModel(
     private val musicScanner: MusicScanner,
     private val equalizerController: EqualizerController,
     private val recentlyPlayedManager: RecentlyPlayedManager,
-    private val favoritesManager: FavoritesManager,
-    private val playStatsManager: PlayStatsManager
+    private val favoritesManager: FavoritesManager
 ) : ViewModel() {
     val favoritesManagerPublic: FavoritesManager = favoritesManager
     var player: Player? = null
@@ -281,7 +279,7 @@ class PlayerViewModel(
                     lastTrackHash = currentHash
                     
                     _trackList.update {
-                        tracks.sortedBy(_trackSort.value, _trackSortOrder.value, playStatsManager)
+                        tracks.sortedBy(_trackSort.value, _trackSortOrder.value)
                     }
 
                     if (_trackInfoSheetState.value.track != null) {
@@ -442,7 +440,6 @@ class PlayerViewModel(
                         savedPlayerState.track = event.track
                         // Add to recently played
                         recentlyPlayedManager.addTrack(event.track)
-                        playStatsManager.onTrackPlayed(event.track)
                     }
                 }
             }
@@ -987,8 +984,7 @@ class PlayerViewModel(
                 _trackList.update {
                     it.sortedBy(
                         sort = _trackSort.value,
-                        order = _trackSortOrder.value,
-                        playStatsManager = playStatsManager
+                        order = _trackSortOrder.value
                     )
                 }
 
@@ -996,8 +992,7 @@ class PlayerViewModel(
                     it?.copy(
                         trackList = it.trackList.sortedBy(
                             sort = _trackSort.value,
-                            order = _trackSortOrder.value,
-                            playStatsManager = playStatsManager
+                            order = _trackSortOrder.value
                         )
                     )
                 }
@@ -1342,6 +1337,10 @@ class PlayerViewModel(
                     // Export playlist will be handled by MainActivity
                     _pendingPlaylistExport.send(event.playlist)
                 }
+            }
+            
+            else -> {
+                Log.d("PlayerViewModel", "Unhandled event: $event")
             }
         }
     }

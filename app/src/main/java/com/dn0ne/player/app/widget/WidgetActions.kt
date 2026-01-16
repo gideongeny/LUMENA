@@ -6,3 +6,5 @@ object WidgetActions {
     const val ACTION_PREVIOUS = "com.dn0ne.player.widget.ACTION_PREVIOUS"
 }
 
+
+

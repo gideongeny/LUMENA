@@ -127,59 +127,19 @@ class MetadataWriterImpl(
 
             return Result.Error(DataError.Local.NoWritePermission)
         } catch (e: CannotWriteException) {
-            Log.d(logTag, e.message, e)
-            val clipboardManager =
-                context.getSystemService(CLIPBOARD_SERVICE) as? ClipboardManager
-            val clip =
-                ClipData.newPlainText(
-                    null,
-                    e.message + "\n" + e.stackTrace.joinToString("\n")
-                )
-            clipboardManager?.setPrimaryClip(clip)
+            Log.e(logTag, "Cannot write metadata", e)
             return Result.Error(DataError.Local.NoWritePermission)
         } catch (e: CannotReadException) {
-            Log.d(logTag, e.message, e)
-            val clipboardManager =
-                context.getSystemService(CLIPBOARD_SERVICE) as? ClipboardManager
-            val clip =
-                ClipData.newPlainText(
-                    null,
-                    e.message + "\n" + e.stackTrace.joinToString("\n")
-                )
-            clipboardManager?.setPrimaryClip(clip)
+            Log.e(logTag, "Cannot read metadata", e)
             return Result.Error(DataError.Local.NoReadPermission)
         } catch (e: NoWritePermissionsException) {
-            Log.d(logTag, e.message, e)
-            val clipboardManager =
-                context.getSystemService(CLIPBOARD_SERVICE) as? ClipboardManager
-            val clip =
-                ClipData.newPlainText(
-                    null,
-                    e.message + "\n" + e.stackTrace.joinToString("\n")
-                )
-            clipboardManager?.setPrimaryClip(clip)
+            Log.e(logTag, "No write permissions", e)
             return Result.Error(DataError.Local.NoWritePermission)
         } catch (e: Exception) {
-            Log.d(logTag, e.message, e)
-            val clipboardManager =
-                context.getSystemService(CLIPBOARD_SERVICE) as? ClipboardManager
-            val clip =
-                ClipData.newPlainText(
-                    null,
-                    e.message + "\n" + e.stackTrace.joinToString("\n")
-                )
-            clipboardManager?.setPrimaryClip(clip)
+            Log.e(logTag, "Unknown error writing metadata", e)
             return Result.Error(DataError.Local.Unknown)
         } catch (e: java.lang.Exception) {
-            Log.d(logTag, e.message, e)
-            val clipboardManager =
-                context.getSystemService(CLIPBOARD_SERVICE) as? ClipboardManager
-            val clip =
-                ClipData.newPlainText(
-                    null,
-                    e.message + "\n" + e.stackTrace.joinToString("\n")
-                )
-            clipboardManager?.setPrimaryClip(clip)
+            Log.e(logTag, "Unknown java error writing metadata", e)
             return Result.Error(DataError.Local.Unknown)
         }
     }

@@ -10,6 +10,7 @@ import com.dn0ne.player.app.data.RecentlyPlayedManager
 import com.dn0ne.player.app.data.SavedPlayerState
 import com.dn0ne.player.app.data.PlayStatsManager
 import com.dn0ne.player.app.data.remote.lyrics.LrclibLyricsProvider
+import com.dn0ne.player.app.data.remote.lyrics.LyricsManager
 import com.dn0ne.player.app.data.remote.lyrics.LyricsProvider
 import coil3.ImageLoader
 import coil3.SingletonImageLoader
@@ -112,6 +113,7 @@ val playerModule = module {
         MetadataWriterImpl(context = androidContext())
     }
 
+    // LyricsProvider kept for backward compatibility, but LyricsManager is preferred
     single<LyricsProvider> {
         LrclibLyricsProvider(
             context = androidContext(),
@@ -165,8 +167,7 @@ val playerModule = module {
             musicScanner = get(),
             equalizerController = get(),
             recentlyPlayedManager = get(),
-            favoritesManager = get(),
-            playStatsManager = get()
+            favoritesManager = get()
         )
     }
 }

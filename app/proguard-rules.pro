@@ -20,7 +20,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--dontobfuscate
+# -dontobfuscate
 
 -keep class org.jaudiotagger.** { *; }
 
@@ -35,3 +35,12 @@
 -dontwarn javax.imageio.stream.ImageInputStream
 -dontwarn javax.imageio.stream.ImageOutputStream
 -dontwarn javax.swing.filechooser.FileFilter
+
+# NewPipe Extractor / Rhino rules
+-dontwarn javax.script.**
+-dontwarn org.mozilla.javascript.**
+-keep class org.mozilla.javascript.** { *; }
+-keep class org.schabi.newpipe.extractor.** { *; }
+
+# Coil
+-dontwarn coil3.**

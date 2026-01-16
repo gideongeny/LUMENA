@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -9,6 +12,12 @@ plugins {
 val splitApks = !project.hasProperty("noSplits")
 val abiFilterList = (properties["ABI_FILTERS"] as? String)?.split(';').orEmpty()
 val abiCodes = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 3, "x86_64" to 4)
+
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+}
 
 android {
     namespace = "com.dn0ne.player"
@@ -37,6 +46,10 @@ android {
         }
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        buildConfigField("String", "YOUTUBE_API_KEY", "\"AIzaSyDbTHAbBxPWdvKWjbWG_xcd8-09t3w-CCI\"")
+        buildConfigField("String", "SPOTIFY_CLIENT_ID", "\"019e0b38fdbf4846a6af3860d1aa03fa\"")
+        buildConfigField("String", "SPOTIFY_CLIENT_SECRET", "\"9ff2c719cb124a54b3ac353e71676554\"")
     }
 
     androidComponents {
@@ -63,6 +76,19 @@ android {
         }
     }
 
+signingConfigs {
+        create("release") {
+            keyAlias = keystoreProperties["keyAlias"] as String?
+            keyPassword = keystoreProperties["keyPassword"] as String?
+            storeFile = if (keystoreProperties.containsKey("storeFile")) {
+                file(keystoreProperties["storeFile"] as String)
+            } else {
+                null
+            }
+            storePassword = keystoreProperties["storePassword"] as String?
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -72,9 +98,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            // TODO: For Play Store release, create a proper release signing config
-            // signingConfig = signingConfigs.getByName("release")
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 
@@ -94,6 +118,14 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+    
+    packaging {
+        resources {
+            excludes += "META-INF/DEPENDENCIES"
+            excludes += "META-INF/INDEX.LIST"
+        }
     }
 
     dependenciesInfo {
@@ -143,4 +175,10 @@ dependencies {
     implementation(libs.realm.library.base)
     implementation(libs.reorderable)
     implementation(libs.scrollbars)
+    implementation("com.github.TeamNewPipe:NewPipeExtractor:v0.24.8")
+    implementation("com.google.api-client:google-api-client-android:2.6.0")
+    implementation("com.google.http-client:google-http-client-jackson2:1.43.3")
+    implementation("com.google.apis:google-api-services-youtube:v3-rev20231011-2.0.0")
+    implementation("com.spotify.android:auth:1.2.5")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
 }

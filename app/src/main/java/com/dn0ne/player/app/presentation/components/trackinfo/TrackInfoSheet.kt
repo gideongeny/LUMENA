@@ -72,6 +72,7 @@ fun TrackInfoSheet(
     onLyricsControlClick: () -> Unit,
     onDeleteLyricsClick: () -> Unit,
     onFetchLyricsFromRemoteClick: () -> Unit,
+    onFetchLyricsFromYouTubeClick: () -> Unit = {},
     onPickLyricsClick: () -> Unit,
     onCopyLyricsFromTagClick: () -> Unit,
     onWriteLyricsToTagClick: () -> Unit,
@@ -329,26 +330,31 @@ fun TrackInfoSheet(
                     )
                 }
                 composable<TrackInfoRoutes.Changes> {
-                    ChangesSheet(
-                        track = state.track!!,
-                        state = state.changesSheetState,
+                    state.track?.let { track ->
+                        ChangesSheet(
+                            track = track,
+                            state = state.changesSheetState,
                         onBackClick = {
                             navController.navigateUp()
                         },
-                        onOverwriteClick = {
-                            onOverwriteMetadataClick(it)
-                            navController.popBackStack(
-                                route = TrackInfoRoutes.Info,
-                                inclusive = false
-                            )
-                        },
-                        modifier = Modifier.fillMaxSize()
-                    )
+                            onOverwriteClick = {
+                                onOverwriteMetadataClick(it)
+                                navController.popBackStack(
+                                    route = TrackInfoRoutes.Info,
+                                    inclusive = false
+                                )
+                            },
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    } ?: run {
+                        navController.popBackStack()
+                    }
                 }
 
                 composable<TrackInfoRoutes.ManualEditing> {
-                    ManualInfoEditSheet(
-                        track = state.track!!,
+                    state.track?.let { track ->
+                        ManualInfoEditSheet(
+                            track = track,
                         state = state.manualInfoEditSheetState,
                         isCoverArtEditable = state.isCoverArtEditable,
                         onPickCoverArtClick = onPickCoverArtClick,
@@ -357,11 +363,14 @@ fun TrackInfoSheet(
                             onConfirmMetadataEditClick(it)
                             navController.navigate(TrackInfoRoutes.Changes)
                         },
-                        onBackClick = {
-                            navController.navigateUp()
-                        },
-                        modifier = Modifier.fillMaxSize()
-                    )
+                            onBackClick = {
+                                navController.navigateUp()
+                            },
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    } ?: run {
+                        navController.popBackStack()
+                    }
                 }
 
                 composable<TrackInfoRoutes.LyricsControl> {
@@ -369,6 +378,7 @@ fun TrackInfoSheet(
                         state = state.lyricsControlSheetState,
                         onDeleteLyricsClick = onDeleteLyricsClick,
                         onFetchLyricsFromRemoteClick = onFetchLyricsFromRemoteClick,
+                        onFetchLyricsFromYouTubeClick = onFetchLyricsFromYouTubeClick,
                         onPickLyricsClick = onPickLyricsClick,
                         onCopyLyricsFromTagClick = onCopyLyricsFromTagClick,
                         onWriteLyricsToTagClick = onWriteLyricsToTagClick,

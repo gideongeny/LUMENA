@@ -51,6 +51,7 @@ fun LyricsControlSheet(
     state: LyricsControlSheetState,
     onDeleteLyricsClick: () -> Unit,
     onFetchLyricsFromRemoteClick: () -> Unit,
+    onFetchLyricsFromYouTubeClick: () -> Unit = {},
     onPickLyricsClick: () -> Unit,
     onCopyLyricsFromTagClick: () -> Unit,
     onWriteLyricsToTagClick: () -> Unit,
@@ -119,6 +120,7 @@ fun LyricsControlSheet(
             onCopyFromTagClick = onCopyLyricsFromTagClick,
             onWriteToTagClick = onWriteLyricsToTagClick,
             onFetchFromRemoteClick = onFetchLyricsFromRemoteClick,
+            onFetchFromYouTubeClick = onFetchLyricsFromYouTubeClick,
             onPublishOnRemoteClick = onPublishLyricsOnRemoteClick
         )
     }
@@ -209,6 +211,7 @@ fun LyricsActions(
     onWriteToTagClick: () -> Unit,
     onImportFromFileClick: () -> Unit,
     onFetchFromRemoteClick: () -> Unit,
+    onFetchFromYouTubeClick: () -> Unit = {},
     onPublishOnRemoteClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -316,7 +319,7 @@ fun LyricsActions(
             AssistChip(
                 onClick = onFetchFromRemoteClick,
                 label = {
-                    Text(text = context.resources.getString(R.string.fetch_from_lrclib))
+                    Text(text = "Fetch from LRCLIB")
                 },
                 leadingIcon = {
                     if (!state.isFetchingFromRemote) {
@@ -331,7 +334,28 @@ fun LyricsActions(
                         )
                     }
                 },
-                enabled = enableChips
+                enabled = enableChips && !state.isFetchingFromYouTube
+            )
+
+            AssistChip(
+                onClick = onFetchFromYouTubeClick,
+                label = {
+                    Text(text = "Fetch from YouTube")
+                },
+                leadingIcon = {
+                    if (!state.isFetchingFromYouTube) {
+                        Icon(
+                            imageVector = Icons.Rounded.Download,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp)
+                        )
+                    } else {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(16.dp)
+                        )
+                    }
+                },
+                enabled = enableChips && !state.isFetchingFromRemote
             )
 
             /*state.lyricsFromRepository?.let {

@@ -8,5 +8,6 @@ data class LyricsControlSheetState(
     val isWritingToTag: Boolean = false,
     val isReadingFromFile: Boolean = false,
     val isFetchingFromRemote: Boolean = false,
+    val isFetchingFromYouTube: Boolean = false,
     val isPublishingOnRemote: Boolean = false
 )
