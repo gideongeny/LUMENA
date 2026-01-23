@@ -114,6 +114,8 @@ import com.kmpalette.rememberDominantColorState
 import com.materialkolor.DynamicMaterialTheme
 import com.materialkolor.PaletteStyle
 import com.materialkolor.ktx.toHct
+import dev.chrisbanes.haze.haze
+import dev.chrisbanes.haze.hazeChild
 import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 
@@ -202,9 +204,11 @@ fun PlayerScreen(
             LocalContentColor provides MaterialTheme.colorScheme.onSurface
         ) {
 
+            val hazeState = remember { dev.chrisbanes.haze.HazeState() }
             Box(
                 modifier = modifier
                     .background(color = MaterialTheme.colorScheme.background)
+                    .haze(state = hazeState)
             ) {
                 val context = LocalContext.current
                 val playbackState by viewModel.playbackState.collectAsState()
@@ -865,6 +869,9 @@ fun PlayerScreen(
                                 },
                                 onToggleFavorite = {
                                     viewModel.onEvent(PlayerScreenEvent.OnToggleFavorite(it))
+                                },
+                                onTranslateLyricsClick = {
+                                    viewModel.onEvent(PlayerScreenEvent.OnTranslateLyricsClick)
                                 },
                                 modifier = Modifier
                                     .align(alignment = Alignment.CenterHorizontally)

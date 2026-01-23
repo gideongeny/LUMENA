@@ -23,6 +23,7 @@ sealed interface PlayerScreenEvent {
 
     data object OnPlaybackModeClick: PlayerScreenEvent
     data object OnLyricsClick: PlayerScreenEvent
+    data object OnTranslateLyricsClick: PlayerScreenEvent
 
     data class OnPlayNextClick(val track: Track): PlayerScreenEvent
     data class OnAddToQueueClick(val tracks: List<Track>): PlayerScreenEvent

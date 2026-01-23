@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.util.Log
 import android.widget.RemoteViews
 import androidx.media3.common.MediaMetadata
 import androidx.media3.common.Player
@@ -35,7 +36,8 @@ import org.koin.core.component.inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
-class MusicPlayerWidget : AppWidgetProvider(), KoinComponent {
+open class MusicPlayerWidget : AppWidgetProvider(), KoinComponent {
+    protected open val layoutId: Int = R.layout.widget_music_player
     private val widgetScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
     
     private val imageLoader: ImageLoader by inject()
@@ -73,16 +75,17 @@ class MusicPlayerWidget : AppWidgetProvider(), KoinComponent {
         }
     }
 
-    private suspend fun updateWidgets(
+    protected open suspend fun updateWidgets(
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        val sessionToken = SessionToken(context, ComponentName(context, PlaybackService::class.java))
-        val controllerFuture: ListenableFuture<MediaController> = MediaController.Builder(context, sessionToken).buildAsync()
+        val sessionToken = SessionToken(context.applicationContext, ComponentName(context, PlaybackService::class.java))
+        val controllerFuture: ListenableFuture<MediaController> = MediaController.Builder(context.applicationContext, sessionToken).buildAsync()
         
+        var controller: MediaController? = null
         try {
-            val controller = suspendCancellableCoroutine<MediaController> { continuation ->
+            controller = suspendCancellableCoroutine<MediaController> { continuation ->
                 controllerFuture.addListener({
                     try {
                         continuation.resume(controllerFuture.get())
@@ -101,77 +104,88 @@ class MusicPlayerWidget : AppWidgetProvider(), KoinComponent {
             }
             
             appWidgetIds.forEach { appWidgetId ->
-                val views = RemoteViews(context.packageName, R.layout.widget_music_player)
-                
-                // Set track info
-                views.setTextViewText(R.id.widget_track_title, currentTrack?.title ?: context.getString(R.string.unknown_title))
-                views.setTextViewText(R.id.widget_track_artist, currentTrack?.artist ?: context.getString(R.string.unknown_artist))
-                
-                // Set artwork
-                if (artworkBitmap != null) {
-                    views.setImageViewBitmap(R.id.widget_artwork, artworkBitmap)
-                } else {
-                    views.setImageViewResource(R.id.widget_artwork, R.mipmap.ic_launcher)
+                try {
+                    val views = RemoteViews(context.packageName, layoutId)
+                    
+                    // Set track info
+                    views.setTextViewText(R.id.widget_track_title, currentTrack?.title ?: context.getString(R.string.unknown_title))
+                    views.setTextViewText(R.id.widget_track_artist, currentTrack?.artist ?: context.getString(R.string.unknown_artist))
+                    
+                    // Set album for large widget if the view exists
+                    val albumTitle = currentTrack?.albumTitle?.toString()
+                    if (albumTitle != null && layoutId == R.layout.widget_music_player_large) {
+                        views.setTextViewText(R.id.widget_track_album, albumTitle)
+                    }
+                    
+                    // Set artwork
+                    if (artworkBitmap != null) {
+                        views.setImageViewBitmap(R.id.widget_artwork, artworkBitmap)
+                    } else {
+                        views.setImageViewResource(R.id.widget_artwork, R.mipmap.ic_launcher)
+                    }
+                    
+                    // Set play/pause button - using Android built-in icons
+                    val playPauseIcon = if (isPlaying) {
+                        android.R.drawable.ic_media_pause
+                    } else {
+                        android.R.drawable.ic_media_play
+                    }
+                    views.setImageViewResource(R.id.widget_play_pause, playPauseIcon)
+                    
+                    // Set click intents
+                    val mainIntent = Intent(context, MainActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    }
+                    val mainPendingIntent = PendingIntent.getActivity(
+                        context, 0, mainIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                    )
+                    views.setOnClickPendingIntent(R.id.widget_container, mainPendingIntent)
+                    
+                    val playPauseIntent = Intent(context, WidgetActionReceiver::class.java).apply {
+                        action = WidgetActions.ACTION_PLAY_PAUSE
+                    }
+                    val playPausePendingIntent = PendingIntent.getBroadcast(
+                        context, 0, playPauseIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                    )
+                    views.setOnClickPendingIntent(R.id.widget_play_pause, playPausePendingIntent)
+                    
+                    val nextIntent = Intent(context, WidgetActionReceiver::class.java).apply {
+                        action = WidgetActions.ACTION_NEXT
+                    }
+                    val nextPendingIntent = PendingIntent.getBroadcast(
+                        context, 0, nextIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                    )
+                    views.setOnClickPendingIntent(R.id.widget_next, nextPendingIntent)
+                    
+                    val prevIntent = Intent(context, WidgetActionReceiver::class.java).apply {
+                        action = WidgetActions.ACTION_PREVIOUS
+                    }
+                    val prevPendingIntent = PendingIntent.getBroadcast(
+                        context, 0, prevIntent,
+                        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                    )
+                    views.setOnClickPendingIntent(R.id.widget_previous, prevPendingIntent)
+                    
+                    appWidgetManager.updateAppWidget(appWidgetId, views)
+                } catch (e: Exception) {
+                    android.util.Log.e("MusicPlayerWidget", "Failed to update widget $appWidgetId", e)
                 }
-                
-                // Set play/pause button - using Android built-in icons
-                val playPauseIcon = if (isPlaying) {
-                    android.R.drawable.ic_media_pause
-                } else {
-                    android.R.drawable.ic_media_play
-                }
-                views.setImageViewResource(R.id.widget_play_pause, playPauseIcon)
-                
-                // Set click intents
-                val mainIntent = Intent(context, MainActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                }
-                val mainPendingIntent = PendingIntent.getActivity(
-                    context, 0, mainIntent,
-                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-                )
-                views.setOnClickPendingIntent(R.id.widget_container, mainPendingIntent)
-                
-                val playPauseIntent = Intent(context, WidgetActionReceiver::class.java).apply {
-                    action = WidgetActions.ACTION_PLAY_PAUSE
-                }
-                val playPausePendingIntent = PendingIntent.getBroadcast(
-                    context, 0, playPauseIntent,
-                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-                )
-                views.setOnClickPendingIntent(R.id.widget_play_pause, playPausePendingIntent)
-                
-                val nextIntent = Intent(context, WidgetActionReceiver::class.java).apply {
-                    action = WidgetActions.ACTION_NEXT
-                }
-                val nextPendingIntent = PendingIntent.getBroadcast(
-                    context, 0, nextIntent,
-                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-                )
-                views.setOnClickPendingIntent(R.id.widget_next, nextPendingIntent)
-                
-                val prevIntent = Intent(context, WidgetActionReceiver::class.java).apply {
-                    action = WidgetActions.ACTION_PREVIOUS
-                }
-                val prevPendingIntent = PendingIntent.getBroadcast(
-                    context, 0, prevIntent,
-                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-                )
-                views.setOnClickPendingIntent(R.id.widget_previous, prevPendingIntent)
-                
-                appWidgetManager.updateAppWidget(appWidgetId, views)
             }
-            
-            controller.release()
         } catch (e: Exception) {
-            // Widget update failed, use default state
+            android.util.Log.e("MusicPlayerWidget", "Failed to get MediaController for widget update", e)
+            // Fallback: Update to empty state if controller can't be reached
             appWidgetIds.forEach { appWidgetId ->
-                val views = RemoteViews(context.packageName, R.layout.widget_music_player)
+                val views = RemoteViews(context.packageName, layoutId)
                 views.setTextViewText(R.id.widget_track_title, context.getString(R.string.unknown_title))
                 views.setTextViewText(R.id.widget_track_artist, context.getString(R.string.unknown_artist))
                 views.setImageViewResource(R.id.widget_artwork, R.mipmap.ic_launcher)
                 appWidgetManager.updateAppWidget(appWidgetId, views)
             }
+        } finally {
+            controller?.release()
         }
     }
 
@@ -200,9 +214,10 @@ class MusicPlayerWidget : AppWidgetProvider(), KoinComponent {
             return null
         }
         
-        // Build and execute the ImageRequest
+        // Build and execute the ImageRequest with explicit size to prevent TransactionTooLargeException
         val request = ImageRequest.Builder(context)
             .data(finalUri)
+            .size(300, 300) // Limit size for widgets
             .build()
         
         val result = imageLoader.execute(request)
@@ -214,7 +229,9 @@ class MusicPlayerWidget : AppWidgetProvider(), KoinComponent {
                 val bitmap = result.image.toBitmap()
                 // Ensure software bitmap for RemoteViews (hardware bitmaps are not supported)
                 // Always copy to ARGB_8888 to ensure compatibility
-                if (bitmap.config != android.graphics.Bitmap.Config.ARGB_8888) {
+                val isHardware = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O && 
+                                bitmap.config == android.graphics.Bitmap.Config.HARDWARE
+                if (bitmap.config != android.graphics.Bitmap.Config.ARGB_8888 || isHardware) {
                     bitmap.copy(android.graphics.Bitmap.Config.ARGB_8888, false)
                 } else {
                     bitmap
@@ -227,16 +244,19 @@ class MusicPlayerWidget : AppWidgetProvider(), KoinComponent {
     companion object {
         fun updateWidget(context: Context) {
             val appWidgetManager = AppWidgetManager.getInstance(context)
-            val appWidgetIds = appWidgetManager.getAppWidgetIds(
+            
+            // Update Small Widget
+            val smallIds = appWidgetManager.getAppWidgetIds(
                 ComponentName(context, MusicPlayerWidget::class.java)
             )
-            
-            // Create intent with ACTION_APPWIDGET_UPDATE and send as broadcast
-            val updateIntent = Intent(context, MusicPlayerWidget::class.java).apply {
+            val smallIntent = Intent(context, MusicPlayerWidget::class.java).apply {
                 action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
-                putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds)
+                putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, smallIds)
             }
-            context.sendBroadcast(updateIntent)
+            context.sendBroadcast(smallIntent)
+
+            // Update Large Widget
+            MusicPlayerWidgetLarge.updateWidget(context)
         }
     }
 }

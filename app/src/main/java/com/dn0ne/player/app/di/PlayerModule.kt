@@ -168,12 +168,14 @@ val playerModule = module {
             equalizerController = get(),
             recentlyPlayedManager = get(),
             favoritesManager = get(),
-            youTubeRepository = get()
+            youTubeRepository = get(),
+            sponsorBlockRepository = get(),
+            translationRepository = get()
         )
     }
 
     single {
-        com.dn0ne.player.app.data.online.YouTubeRepository()
+        com.dn0ne.player.app.data.online.YouTubeRepository(context = androidContext())
     }
 
     viewModel {

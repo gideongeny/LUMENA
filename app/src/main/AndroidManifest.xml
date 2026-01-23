@@ -55,11 +55,22 @@
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.dn0ne.player.PlaybackService.ACTION_PLAYER_STATE_CHANGED" />
+                <action android:name="com.dn0ne.player.PLAYER_STATE_CHANGED" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_info" />
+        </receiver>
+
+        <receiver android:name=".app.widget.MusicPlayerWidgetLarge"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.dn0ne.player.PLAYER_STATE_CHANGED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info_large" />
         </receiver>
 
         <receiver android:name=".app.widget.WidgetActionReceiver"

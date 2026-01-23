@@ -12,7 +12,7 @@ media3 = "1.5.1"
 iconsExtended = "1.7.6"
 koinBom = "4.0.0"
 navigationCompose = "2.8.5"
-kotlinxSerializationPlugin = "2.0.21"
+kotlinxSerializationPlugin = "2.0.20"
 kotlinxSerializationJson = "1.7.3"
 coil = "3.0.1"
 kmpalette = "3.1.0"
@@ -23,6 +23,9 @@ reorderable = "2.4.2"
 splashScreen = "1.0.1"
 jaudiotagger = "3.0.1"
 scrollbars = "2.2.0"
+haze = "1.1.1"
+ytdlp = "0.18.1"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -61,6 +64,10 @@ realm-library-base = { group = "io.realm.kotlin", name = "library-base", version
 reorderable = { group = "sh.calvin.reorderable", name = "reorderable", version.ref = "reorderable" }
 jaudiotagger = { group = "net.jthink", name = "jaudiotagger", version.ref = "jaudiotagger" }
 scrollbars = { group = "com.github.nanihadesuka", name = "LazyColumnScrollbar", version.ref = "scrollbars" }
+haze = { module = "dev.chrisbanes.haze:haze", version.ref = "haze" }
+haze-materials = { module = "dev.chrisbanes.haze:haze-materials", version.ref = "haze" }
+ytdlp-android = { module = "io.github.junkfood02.youtubedl-android:library", version.ref = "ytdlp" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

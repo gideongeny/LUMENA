@@ -26,7 +26,7 @@ fun AppDetails(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(R.drawable.ic_launcher_foreground_new),
+            painter = painterResource(R.mipmap.ic_launcher),
             contentDescription = null,
             modifier = Modifier
                 .size(100.dp)

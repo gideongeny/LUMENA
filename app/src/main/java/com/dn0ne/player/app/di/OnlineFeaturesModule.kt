@@ -33,6 +33,21 @@ val onlineFeaturesModule = module {
     }
 
     single {
-        YouTubeRepository()
+        YouTubeRepository(context = androidContext())
+    }
+
+    single {
+        com.dn0ne.player.app.data.online.SponsorBlockRepository(client = get())
+    }
+
+    single {
+        com.dn0ne.player.app.data.online.ReturnYouTubeDislikeRepository(client = get())
+    }
+
+    single {
+        com.dn0ne.player.app.data.online.TranslationRepository(
+            apiKey = BuildConfig.YOUTUBE_API_KEY,
+            client = get()
+        )
     }
 }

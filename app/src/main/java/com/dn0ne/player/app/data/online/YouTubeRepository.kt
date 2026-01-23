@@ -14,7 +14,7 @@ import java.net.URL
 import java.net.URLEncoder
 import org.json.JSONObject
 
-class YouTubeRepository {
+class YouTubeRepository(private val context: android.content.Context) {
     companion object {
         fun extractVideoId(url: String): String {
             return when {
@@ -37,6 +37,15 @@ class YouTubeRepository {
             } else {
                 android.util.Log.d("YouTubeRepository", "NewPipe already initialized")
             }
+            
+            // Initialize YoutubeDL
+            try {
+                com.yausername.youtubedl_android.YoutubeDL.getInstance().init(context)
+                android.util.Log.d("YouTubeRepository", "YoutubeDL initialized")
+            } catch (e: Exception) {
+                android.util.Log.e("YouTubeRepository", "Failed to initialize YoutubeDL", e)
+            }
+            
         } catch (e: Exception) {
             android.util.Log.e("YouTubeRepository", "Failed to initialize NewPipe", e)
             e.printStackTrace()
@@ -352,8 +361,35 @@ class YouTubeRepository {
             android.util.Log.e("YouTubeRepository", "NewPipe extraction failed: ${e.message}", e)
         }
 
+        // True last resort: Try YoutubeDL if available
+        try {
+            android.util.Log.d("YouTubeRepository", "Trying YoutubeDL as true last resort")
+            val url = getStreamUrlWithYoutubeDL(videoId)
+            if (url != null) {
+                android.util.Log.d("YouTubeRepository", "YoutubeDL extraction successful: $url")
+                return@withContext Result.success(url)
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("YouTubeRepository", "YoutubeDL extraction failed: ${e.message}", e)
+        }
+
         android.util.Log.e("YouTubeRepository", "All extraction methods failed for video: $videoId")
         Result.failure(Exception("All extraction methods failed. Video may be restricted or unavailable."))
+    }
+
+    private suspend fun getStreamUrlWithYoutubeDL(videoId: String): String? {
+        return withContext(Dispatchers.IO) {
+            try {
+                val url = "https://www.youtube.com/watch?v=$videoId"
+                val request = com.yausername.youtubedl_android.YoutubeDLRequest(url)
+                request.addOption("-f", "bestaudio")
+                val streamInfo = com.yausername.youtubedl_android.YoutubeDL.getInstance().getInfo(request)
+                streamInfo.url
+            } catch (e: Exception) {
+                android.util.Log.e("YouTubeRepository", "YoutubeDL extraction failed for $videoId", e)
+                null
+            }
+        }
     }
 
     private fun getStreamUrlWithInnerTube(videoId: String, clientType: String): String? {

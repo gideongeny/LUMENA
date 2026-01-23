@@ -15,8 +15,10 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.material.icons.rounded.Translate
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -76,6 +78,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp
 import androidx.compose.ui.util.fastFirstOrNull
+import dev.chrisbanes.haze.haze
 import com.dn0ne.player.R
 import com.dn0ne.player.app.presentation.components.topbar.LazyColumnWithCollapsibleTopBar
 import com.dn0ne.player.app.presentation.components.ProviderText
@@ -94,6 +97,7 @@ fun LyricsSheet(
     contentColor: Color,
     onBackClick: () -> Unit,
     onSeekTo: (Long) -> Unit,
+    onTranslateClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     BackHandler {
@@ -188,6 +192,18 @@ fun LyricsSheet(
                                 .alpha(2 * (collapseFraction - 0.5f))
                         )
                     }
+                    
+                    IconButton(
+                        onClick = onTranslateClick,
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                            .padding(horizontal = 12.dp, vertical = 4.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Rounded.Translate,
+                            contentDescription = "Translate Lyrics"
+                        )
+                    }
                 }
             },
             collapseFraction = {
@@ -197,7 +213,7 @@ fun LyricsSheet(
             contentPadding = PaddingValues(horizontal = 24.dp),
             enableScrollbar = false,
             modifier = modifier
-                .background(color = containerColor)
+                .background(color = containerColor.copy(alpha = 0.7f))
                 .clickable(enabled = false, onClick = {})
                 .safeDrawingPadding()
         ) {
@@ -308,6 +324,17 @@ fun LyricsSheet(
                                 )
                             }
                         }
+                    } ?: run {
+                        // Fallback when showSyncedLyrics is true but lyrics.synced is null
+                        item {
+                            Column(
+                                modifier = Modifier.fillMaxSize(),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
+                            ) {
+                                Text(text = context.resources.getString(R.string.cant_find_lyrics))
+                            }
+                        }
                     }
                 }
 
@@ -336,6 +363,17 @@ fun LyricsSheet(
                                     textAlign = TextAlign.Center,
                                     modifier = Modifier.fillMaxWidth()
                                 )
+                            }
+                        }
+                    } ?: run {
+                        // Fallback when showSyncedLyrics is false but lyrics.plain is null
+                        item {
+                            Column(
+                                modifier = Modifier.fillMaxSize(),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
+                            ) {
+                                Text(text = context.resources.getString(R.string.cant_find_lyrics))
                             }
                         }
                     }

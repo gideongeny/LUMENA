@@ -75,7 +75,9 @@ class PlayerViewModel(
     private val equalizerController: EqualizerController,
     private val recentlyPlayedManager: RecentlyPlayedManager,
     private val favoritesManager: FavoritesManager,
-    private val youTubeRepository: YouTubeRepository
+    private val youTubeRepository: YouTubeRepository,
+    private val sponsorBlockRepository: com.dn0ne.player.app.data.online.SponsorBlockRepository,
+    private val translationRepository: com.dn0ne.player.app.data.online.TranslationRepository
 ) : ViewModel() {
     val favoritesManagerPublic: FavoritesManager = favoritesManager
     var player: Player? = null
@@ -230,6 +232,7 @@ class PlayerViewModel(
     )
 
     private var positionUpdateJob: Job? = null
+    private val skipSegments = MutableStateFlow<List<com.dn0ne.player.app.data.online.SkipSegment>>(emptyList())
 
     private val _infoSearchSheetState = MutableStateFlow(InfoSearchSheetState())
     private val _changesSheetState = MutableStateFlow(ChangesSheetState())
@@ -391,6 +394,11 @@ class PlayerViewModel(
 
                         if (_playbackState.value.isLyricsSheetExpanded) {
                             loadLyrics()
+                        }
+
+                        // Fetch SponsorBlock segments
+                        if (mediaItem != null) {
+                            fetchSponsorBlockSegments(mediaItem)
                         }
 
                         positionUpdateJob?.cancel()
@@ -619,6 +627,10 @@ class PlayerViewModel(
 
             OnLyricsClick -> {
                 loadLyrics()
+            }
+
+            OnTranslateLyricsClick -> {
+                translateCurrentLyrics()
             }
 
             is OnRemoveFromQueueClick -> {
@@ -1478,12 +1490,53 @@ class PlayerViewModel(
         return viewModelScope.launch {
             player?.let { player ->
                 while (_playbackState.value.isPlaying) {
+                    val currentPos = player.currentPosition
                     _playbackState.update {
                         it.copy(
-                            position = player.currentPosition
+                            position = currentPos
                         )
                     }
-                    delay(50)
+                    
+                    // SponsorBlock skip logic
+                    val segments = skipSegments.value
+                    if (segments.isNotEmpty()) {
+                        val currentPosSeconds = currentPos / 1000.0
+                        val segmentToSkip = segments.find { segment ->
+                            currentPosSeconds >= segment.startTime && currentPosSeconds < segment.endTime
+                        }
+                        
+                        segmentToSkip?.let { segment ->
+                            Log.d("PlayerViewModel", "Skipping sponsor segment: ${segment.category} at ${segment.startTime}-${segment.endTime}")
+                            withContext(Dispatchers.Main) {
+                                player.seekTo((segment.endTime * 1000).toLong())
+                            }
+                        }
+                    }
+                    
+                    delay(500) // Increased delay for skip check to 500ms
+                }
+            }
+        }
+    }
+
+    private fun fetchSponsorBlockSegments(mediaItem: MediaItem) {
+        viewModelScope.launch(Dispatchers.IO) {
+            skipSegments.value = emptyList()
+            val videoId = try {
+                // Try to extract videoId from mediaId or request metadata
+                // Usually it's in the mediaId for YouTube tracks in Lumena
+                if (mediaItem.mediaId.length == 11) mediaItem.mediaId 
+                else YouTubeRepository.extractVideoId(mediaItem.localConfiguration?.uri.toString())
+            } catch (e: Exception) {
+                null
+            }
+
+            if (videoId != null && videoId.length == 11) {
+                sponsorBlockRepository.getSkipSegments(videoId).onSuccess { segments ->
+                    Log.d("PlayerViewModel", "Fetched ${segments.size} skip segments for $videoId")
+                    skipSegments.value = segments
+                }.onFailure {
+                    Log.e("PlayerViewModel", "Failed to fetch skip segments", it)
                 }
             }
         }
@@ -1686,5 +1739,35 @@ class PlayerViewModel(
      */
     private fun <T> List<T>.nextAfterOrNull(index: Int): T? {
         return getOrNull((index + 1) % size)
+    }
+
+    private fun translateCurrentLyrics() {
+        val currentLyrics = _playbackState.value.lyrics ?: return
+        if (currentLyrics.plain.isNullOrEmpty()) return
+        
+        viewModelScope.launch {
+            _playbackState.update { it.copy(isLoadingLyrics = true) }
+            val textToTranslate = currentLyrics.plain?.joinToString("\n") ?: ""
+            translationRepository.translateLyrics(textToTranslate).onSuccess { translated ->
+                val lines = translated.split("\n")
+                _playbackState.update { 
+                    it.copy(
+                        lyrics = currentLyrics.copy(
+                            plain = lines,
+                            synced = if (lines.size == (currentLyrics.synced?.size ?: 0)) {
+                                currentLyrics.synced?.zip(lines) { original, trans ->
+                                    original.copy(second = trans)
+                                }
+                            } else currentLyrics.synced
+                        ),
+                        isLoadingLyrics = false
+                    )
+                }
+            }.onFailure {
+                Log.e("PlayerViewModel", "Translation failed", it)
+                _playbackState.update { it.copy(isLoadingLyrics = false) }
+                SnackbarController.sendEvent(SnackbarEvent(rawMessage = "Translation failed: ${it.message}"))
+            }
+        }
     }
 }

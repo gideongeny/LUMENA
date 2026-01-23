@@ -14,7 +14,9 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dn0ne.player.app.domain.track.Track
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 val alphabet = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ#").map { it.toString() }
 
@@ -27,28 +29,29 @@ fun AlphabetFastScroller(
     val coroutineScope = rememberCoroutineScope()
     
     // Map of letter to first index in the list
-    val letterToIndex = remember(tracks) {
-        val map = mutableMapOf<String, Int>()
-        var currentIndex = 0
-        // This depends on how the list is grouped in TrackList.kt
-        // If sticky headers are used, we need to account for header items too.
-        // For simplicity, let's just find the first track index for each letter.
-        // In TrackList.kt: headers + tracks.
-        // It's better to calculate the exact item index including headers.
-        
-        val grouped = tracks.groupBy { track ->
-            val firstChar = track.title?.firstOrNull()?.uppercaseChar() ?: '#'
-            if (firstChar.isLetter()) firstChar.toString() else "#"
-        }.toSortedMap { a, b ->
-            if (a == "#") 1 else if (b == "#") -1 else a.compareTo(b)
+    // Map of letter to first index in the list, calculated on background thread
+    val letterToIndex by produceState(initialValue = mapOf(), key1 = tracks) {
+        value = withContext(Dispatchers.Default) {
+            val map = mutableMapOf<String, Int>()
+            
+            // This depends on how the list is grouped in TrackList.kt
+            // For simplicity, let's just find the first track index for each letter.
+            // In TrackList.kt: headers + tracks.
+            
+            val grouped = tracks.groupBy { track ->
+                val firstChar = track.title?.firstOrNull()?.uppercaseChar() ?: '#'
+                if (firstChar.isLetter()) firstChar.toString() else "#"
+            }.toSortedMap { a, b ->
+                if (a == "#") 1 else if (b == "#") -1 else a.compareTo(b)
+            }
+            
+            var totalOffset = 0
+            grouped.forEach { (letter, groupTracks) ->
+                map[letter] = totalOffset
+                totalOffset += 1 + groupTracks.size // 1 for header + groupTracks.size
+            }
+            map
         }
-        
-        var totalOffset = 0
-        grouped.forEach { (letter, groupTracks) ->
-            map[letter] = totalOffset
-            totalOffset += 1 + groupTracks.size // 1 for header + groupTracks.size
-        }
-        map
     }
 
     Column(

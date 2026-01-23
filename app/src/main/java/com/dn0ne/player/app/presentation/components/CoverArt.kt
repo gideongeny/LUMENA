@@ -23,7 +23,7 @@ import coil3.toBitmap
 @Composable
 fun CoverArt(
     uri: Uri,
-    onCoverArtLoaded: (ImageBitmap?) -> Unit = {},
+    onCoverArtLoaded: ((ImageBitmap?) -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -46,10 +46,16 @@ fun CoverArt(
                 .data(uri)
                 .build(),
             onSuccess = {
-                onCoverArtLoaded(it.result.image.toBitmap().asImageBitmap())
+                if (onCoverArtLoaded != null) {
+                    onCoverArtLoaded(it.result.image.toBitmap().asImageBitmap())
+                }
             },
             onError = {
-                onCoverArtLoaded(it.result.image?.toBitmap()?.asImageBitmap())
+                if (onCoverArtLoaded != null) {
+                    it.result.image?.toBitmap()?.asImageBitmap()?.let { bitmap ->
+                        onCoverArtLoaded(bitmap)
+                    }
+                }
             },
             contentScale = ContentScale.Crop,
             contentDescription = null,

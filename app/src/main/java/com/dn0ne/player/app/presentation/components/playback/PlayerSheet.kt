@@ -97,6 +97,7 @@ import com.dn0ne.player.app.presentation.components.isSystemInLandscapeOrientati
 import com.dn0ne.player.app.presentation.components.settings.Theme
 import com.dn0ne.player.core.data.Settings
 import kotlinx.coroutines.flow.StateFlow
+import dev.chrisbanes.haze.haze
 import kotlinx.coroutines.launch
 import kotlin.math.absoluteValue
 
@@ -125,6 +126,7 @@ fun PlayerSheet(
     onReorderingQueue: (Int, Int) -> Unit,
     onTrackClick: (Track, Playlist) -> Unit,
     onToggleFavorite: (Track) -> Unit,
+    onTranslateLyricsClick: () -> Unit,
     settings: Settings,
     modifier: Modifier = Modifier
 ) {
@@ -231,6 +233,7 @@ fun PlayerSheet(
             false -> {
                 BottomPlayer(
                     playbackStateFlow = playbackStateFlow,
+
                     onClick = {
                         onPlayerExpandedChange(true)
                         translationY.updateBounds(
@@ -309,6 +312,7 @@ fun PlayerSheet(
                     onReorderingQueue = onReorderingQueue,
                     onTrackClick = onTrackClick,
                     onToggleFavorite = onToggleFavorite,
+                    onTranslateLyricsClick = onTranslateLyricsClick,
                     modifier = Modifier.clickable(
                         onClick = {},
                         interactionSource = null,
@@ -328,6 +332,7 @@ fun BottomPlayer(
     onPauseClick: () -> Unit,
     onSeekToNextClick: () -> Unit,
     onCoverArtLoaded: (ImageBitmap?) -> Unit,
+
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -498,6 +503,7 @@ fun ExpandedPlayer(
     onReorderingQueue: (Int, Int) -> Unit,
     onTrackClick: (Track, Playlist) -> Unit,
     onToggleFavorite: (Track) -> Unit,
+    onTranslateLyricsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     BackHandler {
@@ -932,6 +938,7 @@ fun ExpandedPlayer(
                 containerColor = lyricsContainerColor,
                 contentColor = lyricsContentColor,
                 onSeekTo = onSeekTo,
+                onTranslateClick = onTranslateLyricsClick,
                 modifier = Modifier.fillMaxSize()
             )
         }

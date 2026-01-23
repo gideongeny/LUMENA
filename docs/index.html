@@ -1,104 +1,580 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumena Music Player</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumena - Music, Illuminated</title>
+  <meta name="description"
+    content="A beautiful, material design music player for Android with synced lyrics and dynamic themes.">
 
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(135deg, #6200ea 0%, #3700b3 100%);
-            color: white;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+  <style>
+    :root {
+      --bg-color: #050505;
+      --text-color: #ffffff;
+      --primary-color: #d0bcff;
+      --secondary-color: #381e72;
+      --accent-color: #6200ea;
+      --surface-color: rgba(255, 255, 255, 0.03);
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
 
-        .Hero-subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .Content {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      overflow-x: hidden;
+    }
 
-        .Button {
-            display: inline-block;
-            background: #03dac6;
-            color: #000;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: transform 0.2s;
-        }
+    #app {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .Button:hover {
-            transform: translateY(-2px);
-        }
+    /* Utilities */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
 
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #666;
-        }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
-        a {
-            color: #6200ea;
-        }
-    </style>
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .btn-sponsor {
+      background: #db61a2;
+      /* GitHub Sponsors Pink */
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 99px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.2s;
+    }
+
+    .btn-sponsor:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(219, 97, 162, 0.4);
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 0.8rem 1.6rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: white;
+      color: black;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      padding-top: 8rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero .container {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      width: 100%;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 1.05;
+      font-weight: 800;
+      margin: 0 0 1.5rem 0;
+      background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: #a1a1aa;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .phone-mockup {
+      width: 300px;
+      border-radius: 40px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transform: rotate(-3deg);
+      transition: transform 0.5s ease;
+      position: relative;
+      z-index: 2;
+      border: 6px solid #2a2a2a;
+      overflow: hidden;
+    }
+
+    .phone-mockup img {
+      width: 100%;
+      display: block;
+    }
+
+    .phone-mockup:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    /* Gallery */
+    .gallery-section {
+      padding: 4rem 0;
+      overflow: hidden;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery-item {
+      flex: 0 0 280px;
+      border-radius: 20px;
+      overflow: hidden;
+      scroll-snap-align: center;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Features */
+    .features {
+      padding: 8rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .section-header h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      grid-auto-rows: minmax(200px, auto);
+    }
+
+    .bento-card {
+      background: var(--surface-color);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2rem;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .bento-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-5px);
+    }
+
+    .bento-card h3 {
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+    }
+
+    .bento-card p {
+      color: #a1a1aa;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .bento-card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .span-2 {
+      grid-column: span 2;
+    }
+
+    .span-3 {
+      grid-column: span 3;
+    }
+
+    /* About Me */
+    .about-me {
+      padding: 6rem 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(98, 0, 234, 0.05) 100%);
+    }
+
+    .profile-container {
+      display: flex;
+      align-items: center;
+      /* Cleaner look without box */
+      padding: 2rem;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      /* Subtle float effect */
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 4px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .support-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .btn-bmc {
+      background: #FFDD00;
+      color: #000000;
+      padding: 0.5rem 1rem;
+      border-radius: 99px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.2s;
+    }
+
+    .btn-bmc:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 221, 0, 0.4);
+    }
+
+    .profile-content h2 {
+      margin-top: 0;
+      font-size: 2.5rem;
+    }
+
+    .profile-content p {
+      font-size: 1.1rem;
+      color: #d4d4d8;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem 0;
+      border-top: 1px solid var(--glass-border);
+      margin-top: auto;
+      text-align: center;
+      color: #71717a;
+    }
+
+    @media (max-width: 1024px) {
+      .hero .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero {
+        padding-top: 6rem;
+      }
+
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .span-2,
+      .span-3 {
+        grid-column: span 1;
+      }
+
+      .profile-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .cta-group {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <h1>Lumena</h1>
-        <p class="Hero-subtitle">A beautiful, material design music player for Android</p>
-    </header>
+  <div id="app">
+    <nav class="glass">
+      <div class="container nav-content">
+        <a href="#" class="logo-container">
+          <img src="logo.png" alt="Lumena Logo" class="logo-img">
+          <span class="logo-text">Lumena</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#about">About</a>
+          <a href="https://github.com/sponsors/gideongeny" target="_blank" class="btn-sponsor">
+            <span>❤️ Sponsor</span>
+          </a>
+          <a href="https://buymeacoffee.com/gideongeny" target="_blank" class="btn-bmc" style="margin-left: 10px;">
+            <span>☕ Buy me a coffee</span>
+          </a>
+        </div>
+      </div>
+    </nav>
 
-    <div class="Content">
-        <h2>About Lumena</h2>
-        <p>Lumena is a modern, feature-rich music player designed with Material 3 principles. It offers a seamless
-            listening experience with advanced features like:</p>
-        <ul>
-            <li>Synced lyrics support</li>
-            <li>Tag editor</li>
-            <li>Material You dynamic theming</li>
-            <li>YouTube transcripts integration</li>
-            <li>Spotify metadata search</li>
-        </ul>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Music,<br>Illuminated.</h1>
+          <p class="subtitle">Lumena isn't just a player. It's a fluid, offline-first experience designed to make your
+            local library feel alive again. No ads, no tracking, just music.</p>
+          <div class="cta-group">
+            <a href="https://github.com/gideongeny/LUMENA/releases" class="btn btn-primary btn-lg">Download APK</a>
+            <a href="#features" class="btn btn-secondary btn-lg">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="phone-mockup">
+            <img src="screenshot.png" alt="Lumena App Interface">
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <h2>Privacy & Terms</h2>
-        <p>We value your privacy. Lumena is designed to respect your data.</p>
-        <p>
-            <a href="privacy-policy.html" class="Button">Read Privacy Policy</a>
-        </p>
-    </div>
+    <section id="gallery" class="gallery-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Visual Experience</h2>
+        </div>
+      </div>
+      <div class="gallery-track">
+        <!-- Screenshots -->
+        <div class="gallery-item"><img src="screenshot.png" alt="Screenshot 1"></div>
+        <div class="gallery-item"><img src="screenshot2.png" alt="Screenshot 2"></div>
+        <div class="gallery-item"><img src="screenshot3.png" alt="Screenshot 3"></div>
+        <div class="gallery-item"><img src="screenshot4.png" alt="Screenshot 4"></div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Packed with Power</h2>
+        </div>
+        <div class="bento-grid">
+          <div class="bento-card span-2">
+            <div class="icon">📝</div>
+            <h3>Synced Lyrics</h3>
+            <p>Enjoy time-synced lyrics that scroll automatically. Sourced from LRCLIB and YouTube, so you never miss a
+              beat.</p>
+          </div>
+          <div class="bento-card">
+            <div class="icon">🎨</div>
+            <h3>Material You</h3>
+            <p>Dynamic colors extracted from your wallpaper. True Android aesthetics.</p>
+          </div>
+          <div class="bento-card">
+            <div class="icon">🚫</div>
+            <h3>No Ads</h3>
+            <p>Completely free and open source. No interruptions, ever.</p>
+          </div>
+          <div class="bento-card span-2">
+            <div class="icon">🔒</div>
+            <h3>Privacy First</h3>
+            <p>All data stays on your device. We respect your privacy by design. No analytics, no tracking.</p>
+          </div>
+          <div class="bento-card">
+            <div class="icon">🎧</div>
+            <h3>Format Support</h3>
+            <p>MP3, FLAC, OGG, WAV - play everything in high fidelity.</p>
+          </div>
+          <div class="bento-card">
+            <div class="icon">😴</div>
+            <h3>Sleep Timer</h3>
+            <p>Fall asleep to your favorite tunes without draining battery.</p>
+          </div>
+          <div class="bento-card">
+            <div class="icon">🏷️</div>
+            <h3>Tag Editor</h3>
+            <p>Fix messy libraries directly within the app.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-me">
+      <div class="container">
+        <div class="profile-container">
+          <img src="profile.jpg" alt="Gideon Geny" class="profile-img">
+          <div class="profile-content">
+            <h2>Meet the Creator</h2>
+            <p>Hi, I'm Gideon Geny. My vision for Lumena was simple: to build the most fluid and beautiful music player
+              for Android.</p>
+            <p>In a world of subscription services, I wanted to create a home for your local library that feels premium,
+              modern, and personal. I believe software should be fast, respect your privacy, and look stunning. Lumena
+              is my contribution to that ideal.</p>
+            <div class="support-buttons">
+              <a href="https://github.com/sponsors/gideongeny" target="_blank" class="btn btn-primary">❤️ GitHub
+                Sponsors</a>
+              <a href="https://buymeacoffee.com/gideongeny" target="_blank" class="btn-bmc"
+                style="font-size: 1rem; padding: 0.8rem 1.6rem;">☕ Buy me a coffee</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 GideonGeny. All rights reserved.</p>
+      <div class="container">
+        <p>&copy; 2026 GideonGeny. Licensed under GPL-3.0.</p>
+        <br>
+        <a href="https://github.com/gideongeny/LUMENA" style="color: inherit; text-decoration: none;">GitHub
+          Repository</a>
+      </div>
     </footer>
+  </div>
 </body>
 
 </html>

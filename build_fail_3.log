@@ -1,0 +1,322 @@
+﻿> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:generateDebugBuildConfig
+> Task :app:generateDebugResValues
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:checkDebugAarMetadata
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:mergeDebugResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:javaPreCompileDebug
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:compressDebugAssets
+> Task :app:mergeDebugJniLibFolders
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processApplicationManifestDebugForBundle
+> Task :app:parseDebugIntegrityConfig UP-TO-DATE
+> Task :app:processDebugManifestForPackage
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeLibDexDebug
+> Task :app:mergeDebugNativeLibs
+
+> Task :app:stripDebugDebugSymbols
+.\gradlew.bat : C:/Us
+ers/mukht/AppData/Loc
+al/Android/Sdk/ndk/27
+.0.12077973/toolchain
+s/llvm/prebuilt/windo
+ws-x86_64/bin/llvm-st
+rip.exe: error: 'C:\U
+sers\mukht\Desktop\An
+droid\Lumena\app\buil
+d\intermediates\merge
+d_native_libs\debug\m
+ergeDebugNativeLibs\o
+ut\lib\armeabi-v7a\li
+bpython.zip.so': The 
+file was not 
+recognized as a 
+valid object file
+At line:1 char:1
++ .\gradlew.bat 
+clean assembleDebug 
+bundleDebug *>&1 | 
+Out-File -FilePa ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (C:/User   
+ s/mukht/...lid o    
+bject file:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+
+C:/Users/mukht/AppDat
+a/Local/Android/Sdk/n
+dk/27.0.12077973/tool
+chains/llvm/prebuilt/
+windows-x86_64/bin/ll
+vm-strip.exe: error: 
+'C:\Users\mukht\Deskt
+op\Android\Lumena\app
+\build\intermediates\
+merged_native_libs\de
+bug\mergeDebugNativeL
+ibs\out\lib\arm64-v8a
+\libpython.zip.so': 
+The file was not 
+recognized as a 
+valid object file
+
+C:/Users/mukht/AppDat
+a/Local/Android/Sdk/n
+dk/27.0.12077973/tool
+chains/llvm/prebuilt/
+windows-x86_64/bin/ll
+vm-strip.exe: error: 
+'C:\Users\mukht\Deskt
+op\Android\Lumena\app
+\build\intermediates\
+merged_native_libs\de
+bug\mergeDebugNativeL
+ibs\out\lib\x86\libpy
+thon.zip.so': The 
+file was not 
+recognized as a 
+valid object file
+
+C:/Users/mukht/AppDat
+a/Local/Android/Sdk/n
+dk/27.0.12077973/tool
+chains/llvm/prebuilt/
+windows-x86_64/bin/ll
+vm-strip.exe: error: 
+'C:\Users\mukht\Deskt
+op\Android\Lumena\app
+\build\intermediates\
+merged_native_libs\de
+bug\mergeDebugNativeL
+ibs\out\lib\x86_64\li
+bpython.zip.so': The 
+file was not 
+recognized as a 
+valid object file
+
+Unable to strip the following libraries, packaging them as they are: libpython.zip.so.
+
+> Task :app:processDebugResources
+> Task :app:bundleDebugResources
+> Task :app:mergeExtDexDebug
+
+> Task :app:compileDebugKotlin FAILED
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/di/PlayerModule.k
+t:171:13 No value 
+passed for parameter 
+'sponsorBlockReposito
+ry'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/di/PlayerModule.k
+t:171:13 No value 
+passed for parameter 
+'translationRepositor
+y'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/di/PlayerModule.k
+t:176:59 No value 
+passed for parameter 
+'context'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/Play
+erScreen.kt:209:22 
+Unresolved reference 
+'hazeSource'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/Play
+erViewModel.kt:1746:3
+2 Only safe (?.) or 
+non-null asserted 
+(!!.) calls are 
+allowed on a 
+nullable receiver of 
+type 'kotlin.collecti
+ons.List<kotlin.Strin
+g>?'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/Play
+erViewModel.kt:1750:5
+4 Only safe (?.) or 
+non-null asserted 
+(!!.) calls are 
+allowed on a 
+nullable receiver of 
+type 'kotlin.collecti
+ons.List<kotlin.Strin
+g>?'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/Play
+erViewModel.kt:1757:7
+6 Only safe (?.) or 
+non-null asserted 
+(!!.) calls are 
+allowed on a 
+nullable receiver of 
+type 'kotlin.collecti
+ons.List<kotlin.Pair<
+kotlin.Int, 
+kotlin.String>>?'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/Play
+erViewModel.kt:1758:5
+3 Only safe (?.) or 
+non-null asserted 
+(!!.) calls are 
+allowed on a 
+nullable receiver of 
+type 'kotlin.collecti
+ons.List<kotlin.Pair<
+kotlin.Int, 
+kotlin.String>>?'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/comp
+onents/playback/Lyric
+sSheet.kt:217:18 
+Unresolved reference 
+'hazeEffect'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/comp
+onents/playback/Lyric
+sSheet.kt:218:21 
+Unresolved reference 
+'backgroundColor'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/comp
+onents/playback/Playe
+rSheet.kt:340:14 
+Unresolved reference 
+'hazeEffect'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/comp
+onents/playback/Playe
+rSheet.kt:344:17 
+Unresolved reference 
+'blurEnabled'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/comp
+onents/playback/Playe
+rSheet.kt:945:21 
+Unresolved reference 
+'onEvent'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/comp
+onents/playback/Playe
+rSheet.kt:945:29 
+Unresolved reference 
+'PlayerScreenEvent'.
+e: file:///C:/Users/m
+ukht/Desktop/Android/
+Lumena/app/src/main/j
+ava/com/dn0ne/player/
+app/presentation/comp
+onents/playback/Playe
+rSheet.kt:947:29 
+Unresolved reference 
+'hazeState'.
+
+FAILURE: Build 
+failed with an 
+exception.
+
+* What went wrong:
+Execution failed for 
+task ':app:compileDeb
+ugKotlin'.
+> A failure occurred 
+while executing org.j
+etbrains.kotlin.compi
+lerRunner.GradleCompi
+lerRunnerWithWorkers$
+GradleKotlinCompilerW
+orkAction
+   > Compilation 
+error. See log for 
+more details
+
+* Try:
+> Run with 
+--stacktrace option 
+to get the stack 
+trace.
+> Run with --info or 
+--debug option to 
+get more log output.
+> Run with --scan to 
+get full insights.
+> Get more help at ht
+tps://help.gradle.org
+.
+
+BUILD FAILED in 35s
+33 actionable tasks: 32 executed, 1 up-to-date

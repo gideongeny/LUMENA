@@ -138,6 +138,14 @@ tasks.withType<com.android.build.gradle.internal.tasks.CompileArtProfileTask> {
     enabled = false
 }
 
+configurations.all {
+    resolutionStrategy {
+        force("androidx.activity:activity:1.9.3")
+        force("androidx.activity:activity-ktx:1.9.3")
+        force("androidx.activity:activity-compose:1.9.3")
+    }
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -177,6 +185,9 @@ dependencies {
     implementation(libs.realm.library.base)
     implementation(libs.reorderable)
     implementation(libs.scrollbars)
+    implementation(libs.haze)
+    implementation(libs.haze.materials)
+    implementation(libs.ytdlp.android)
     implementation("com.github.TeamNewPipe:NewPipeExtractor:v0.25.0")
     implementation("com.google.api-client:google-api-client-android:2.6.0")
     implementation("com.google.http-client:google-http-client-jackson2:1.43.3")
