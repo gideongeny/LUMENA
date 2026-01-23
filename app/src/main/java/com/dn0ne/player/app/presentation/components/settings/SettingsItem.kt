@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -21,11 +23,14 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEachIndexed
 
+import androidx.compose.ui.graphics.Color
+
 data class SettingsItem(
     val title: String,
     val supportingText: String,
     val icon: ImageVector,
     val onClick: () -> Unit,
+    val iconTint: Color? = null
 )
 
 @Composable
@@ -35,16 +40,18 @@ fun SettingsItem(
 ) {
     Row(
         modifier = modifier
+            .fillMaxWidth()
+            .heightIn(min = 84.dp)
             .background(color = MaterialTheme.colorScheme.surfaceContainer)
             .clickable {
                 item.onClick()
             }
-            .padding(horizontal = 24.dp, vertical = 16.dp),
+            .padding(horizontal = 24.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
             imageVector = item.icon,
-            tint = MaterialTheme.colorScheme.onSurface,
+            tint = item.iconTint ?: MaterialTheme.colorScheme.onSurface,
             contentDescription = null
         )
 

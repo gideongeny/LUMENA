@@ -9,6 +9,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -75,19 +76,65 @@ fun SearchScreen(
         }
     ) { padding ->
         Box(modifier = Modifier.padding(padding).fillMaxSize()) {
-            if (isLoading) {
-                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
-            } else {
-                LazyColumn(modifier = Modifier.fillMaxSize()) {
-                    items(items = searchResults, key = { it.data }) { track ->
-                       TrackItem(track = track, onClick = {
-                           viewModel.resolveStreamUrl(track) { streamUrl ->
-                               // Create a new track object with the resolved URL (or keep data if it supports it, but Player needs direct URL)
-                               val playableTrack = track.copy(data = streamUrl)
-                               onTrackClick(playableTrack)
-                           }
-                       })
+            when {
+                isLoading -> {
+                    CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                }
+                searchResults.isNotEmpty() -> {
+                    LazyColumn(modifier = Modifier.fillMaxSize()) {
+                        // Separate local and YouTube results
+                        val localResults = searchResults.filter { !it.data.startsWith("http") }
+                        val youtubeResults = searchResults.filter { it.data.startsWith("http") }
+                        
+                        // Local results section
+                        if (localResults.isNotEmpty()) {
+                            item {
+                                Text(
+                                    text = "Local Songs (${localResults.size})",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    modifier = Modifier.padding(16.dp),
+                                    color = MaterialTheme.colorScheme.primary
+                                )
+                            }
+                            items(items = localResults, key = { it.data }) { track ->
+                               TrackItem(track = track, onClick = {
+                                   viewModel.resolveStreamUrl(track) { streamUrl ->
+                                       val playableTrack = track.copy(data = streamUrl)
+                                       onTrackClick(playableTrack)
+                                   }
+                               })
+                            }
+                        }
+                        
+                        // YouTube results section
+                        if (youtubeResults.isNotEmpty()) {
+                            item {
+                                Text(
+                                    text = "YouTube (${youtubeResults.size})",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    modifier = Modifier.padding(16.dp),
+                                    color = MaterialTheme.colorScheme.secondary
+                                )
+                            }
+                            items(items = youtubeResults, key = { it.data }) { track ->
+                               TrackItem(track = track, onClick = {
+                                   viewModel.resolveStreamUrl(track) { streamUrl ->
+                                       val playableTrack = track.copy(data = streamUrl)
+                                       onTrackClick(playableTrack)
+                                   }
+                               })
+                            }
+                        }
                     }
+                }
+                else -> {
+                    val errorMsg by viewModel.errorMessage.collectAsState()
+                    Text(
+                        text = errorMsg ?: "Search for local or online songs",
+                        modifier = Modifier.align(Alignment.Center),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                 }
             }
         }

@@ -359,7 +359,7 @@ class Settings(context: Context) {
     }
 
     var defaultTab: Tab
-        get() = Tab.entries[sharedPreferences.getInt(defaultTabKey, 1)]
+        get() = Tab.entries[sharedPreferences.getInt(defaultTabKey, 0)]
         set(value) {
             with(sharedPreferences.edit()) {
                 putInt(defaultTabKey, value.ordinal)

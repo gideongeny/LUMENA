@@ -326,6 +326,9 @@ class MainActivity : ComponentActivity() {
                                     onPlaylistPick = {
                                         playlistPicker.launch(arrayOf("audio/x-mpegurl"))
                                     },
+                                    onOnlineSearchClick = {
+                                        navController.navigate(Routes.Search)
+                                    },
                                     modifier = Modifier.fillMaxSize()
                                 )
                             }

@@ -41,7 +41,7 @@ class LrclibLyricsProvider(
         "${context.resources.getString(R.string.app_name)}/${context.getAppVersionName()} ( gideongeng@gmail.com )"
 
     override suspend fun getLyrics(track: Track): Result<Lyrics, DataError.Network> {
-        if (track.title == null || track.artist == null) {
+        if (track.title == null) {
             return Result.Error(DataError.Network.BadRequest)
         }
 
@@ -49,8 +49,21 @@ class LrclibLyricsProvider(
             client.get(lrclibEndpoint) {
                 url {
                     appendPathSegments("get")
-                    parameters.append("track_name", track.title)
-                    parameters.append("artist_name", track.artist)
+                    
+                    var searchTitle = track.title ?: ""
+                    var searchArtist = track.artist ?: ""
+
+                    // Fix for "Browser Downloaded" songs (Artist - Title.mp3)
+                    if ((searchArtist.isBlank() || searchArtist.contains("Unknown", ignoreCase = true)) && searchTitle.contains(" - ")) {
+                        val parts = searchTitle.split(" - ", limit = 2)
+                        if (parts.size == 2) {
+                            searchArtist = parts[0].trim()
+                            searchTitle = parts[1].trim()
+                        }
+                    }
+
+                    parameters.append("track_name", searchTitle)
+                    parameters.append("artist_name", searchArtist)
                     track.album?.let {
                         parameters.append("album_name", it)
                     }

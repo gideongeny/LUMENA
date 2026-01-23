@@ -90,6 +90,8 @@ fun MutablePlaylist(
     onGoToAlbumClick: (Track) -> Unit,
     onGoToArtistClick: (Track) -> Unit,
     onTrackListReorder: (List<Track>) -> Unit,
+    onToggleFavorite: (Track) -> Unit,
+    isFavorite: (Track) -> Boolean,
     onBackClick: () -> Unit,
     replaceSearchWithFilter: Boolean
 ) {
@@ -451,11 +453,13 @@ fun MutablePlaylist(
                         onViewTrackInfoClick = { onViewTrackInfoClick(track) },
                         onGoToAlbumClick = { onGoToAlbumClick(track) },
                         onGoToArtistClick = { onGoToArtistClick(track) },
+                        onToggleFavoriteClick = { onToggleFavorite(track) },
+                        isFavorite = isFavorite(track),
                         onLongClick = {
                             isInSelectionMode = true
                             selectedTracks.add(track)
                         },
-                        dragHandle = {
+                        dragHandle = @Composable {
                             IconButton(
                                 onClick = {},
                                 modifier = Modifier.draggableHandle(

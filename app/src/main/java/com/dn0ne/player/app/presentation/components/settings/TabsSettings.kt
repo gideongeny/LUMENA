@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -90,6 +91,7 @@ fun TabsSettings(
         contentPadding = PaddingValues(horizontal = 28.dp),
         contentHorizontalAlignment = Alignment.CenterHorizontally,
         contentVerticalArrangement = Arrangement.spacedBy(16.dp),
+        scrollable = false,
         modifier = modifier
             .fillMaxSize()
             .safeDrawingPadding()
@@ -109,7 +111,7 @@ fun TabsSettings(
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(400.dp)
+                .fillMaxHeight()
         )
     }
 }

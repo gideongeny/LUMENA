@@ -167,13 +167,19 @@ val playerModule = module {
             musicScanner = get(),
             equalizerController = get(),
             recentlyPlayedManager = get(),
-            favoritesManager = get()
+            favoritesManager = get(),
+            youTubeRepository = get()
         )
+    }
+
+    single {
+        com.dn0ne.player.app.data.online.YouTubeRepository()
     }
 
     viewModel {
         com.dn0ne.player.app.presentation.search.SearchViewModel(
-            youTubeRepository = get()
+            youTubeRepository = get(),
+            trackRepository = get()
         )
     }
 }

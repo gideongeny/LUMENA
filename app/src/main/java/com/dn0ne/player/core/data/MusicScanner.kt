@@ -1,9 +1,6 @@
 package com.dn0ne.player.core.data
 
-import android.content.ClipData
-import android.content.ClipboardManager
 import android.content.Context
-import android.content.Context.CLIPBOARD_SERVICE
 import android.util.Log
 import android.media.MediaScannerConnection
 import android.os.Environment

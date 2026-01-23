@@ -49,6 +49,7 @@ import com.dn0ne.player.app.domain.sort.TrackSort
 import com.dn0ne.player.app.domain.track.Playlist
 import com.dn0ne.player.app.domain.track.Track
 import com.dn0ne.player.app.domain.track.filterTracks
+import com.dn0ne.player.app.presentation.components.AlphabetFastScroller
 import com.dn0ne.player.app.presentation.components.TrackSortButton
 import com.dn0ne.player.app.presentation.components.selection.selectionList
 import com.dn0ne.player.app.presentation.components.topbar.LazyColumnWithCollapsibleTopBar
@@ -71,6 +72,8 @@ fun Playlist(
     trackSort: TrackSort,
     trackSortOrder: SortOrder,
     onTrackSortChange: (TrackSort?, SortOrder?) -> Unit,
+    onToggleFavorite: (Track) -> Unit,
+    isFavorite: (Track) -> Boolean,
     onBackClick: () -> Unit,
     replaceSearchWithFilter: Boolean
 ) {
@@ -109,7 +112,12 @@ fun Playlist(
         }
     }
 
-    LazyColumnWithCollapsibleTopBar(
+    val filteredTracks = remember(playlist.trackList, searchFieldValue) {
+        playlist.trackList.filterTracks(searchFieldValue)
+    }
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        LazyColumnWithCollapsibleTopBar(
         listState = listState,
         topBarContent = {
             Text(
@@ -336,14 +344,14 @@ fun Playlist(
     ) {
         if (!isInSelectionMode) {
             trackList(
-                trackList = playlist.trackList.filterTracks(searchFieldValue),
+                trackList = filteredTracks,
                 currentTrack = currentTrack,
                 onTrackClick = { track ->
                     onTrackClick(
                         track,
                         if (replaceSearchWithFilter) {
                             playlist.copy(
-                                trackList = playlist.trackList.filterTracks(searchFieldValue)
+                                trackList = filteredTracks
                             )
                         } else playlist
                     )
@@ -354,6 +362,8 @@ fun Playlist(
                 onViewTrackInfoClick = onViewTrackInfoClick,
                 onGoToAlbumClick = onGoToAlbumClick,
                 onGoToArtistClick = onGoToArtistClick,
+                onToggleFavoriteClick = onToggleFavorite,
+                isFavorite = isFavorite,
                 onLongClick = {
                     isInSelectionMode = true
                     selectedTracks.add(it)
@@ -375,4 +385,15 @@ fun Playlist(
             )
         }
     }
+
+    if (!isInSelectionMode) {
+        AlphabetFastScroller(
+            tracks = filteredTracks,
+            listState = listState,
+            modifier = Modifier
+                .align(Alignment.CenterEnd)
+                .padding(end = 4.dp, top = 100.dp, bottom = 100.dp)
+        )
+    }
+}
 }

@@ -28,8 +28,9 @@ fun ScaffoldWithSnackbarEvents(
         coroutineScope.launch {
             snackbarHostState.currentSnackbarData?.dismiss()
 
+            val messageText = event.rawMessage ?: event.message?.let { context.resources.getString(it) } ?: ""
             val result = snackbarHostState.showSnackbar(
-                message = context.resources.getString(event.message),
+                message = messageText,
                 actionLabel = event.action?.let { context.resources.getString(it.name) }
             )
 

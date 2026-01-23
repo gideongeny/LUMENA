@@ -41,6 +41,50 @@
 -dontwarn org.mozilla.javascript.**
 -keep class org.mozilla.javascript.** { *; }
 -keep class org.schabi.newpipe.extractor.** { *; }
+-keep interface org.schabi.newpipe.extractor.** { *; }
+-keep class org.mozilla.javascript.** { *; }
+-keep interface org.mozilla.javascript.** { *; }
+-keepattributes Signature, InnerClasses, EnclosingMethod
 
 # Coil
 -dontwarn coil3.**
+
+# Google API, gRPC, and re2j rules
+-dontwarn com.google.api.**
+-dontwarn com.google.cloud.**
+-dontwarn com.google.re2j.**
+-dontwarn com.google.common.**
+-dontwarn io.grpc.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+-dontwarn org.apache.http.**
+-dontwarn org.ietf.jgss.**
+-dontwarn org.conscrypt.**
+-dontwarn sun.misc.Unsafe
+-dontwarn sun.security.**
+
+-keep class com.google.api.** { *; }
+-keep class com.google.re2j.** { *; }
+-keep class com.google.common.** { *; }
+-keep class io.grpc.** { *; }
+
+
+# Media3
+-dontwarn androidx.media3.**
+-keep class androidx.media3.** { *; }
+
+# kotlinx.serialization rules
+-keepclassmembers class ** {
+    @kotlinx.serialization.Serializable <fields>;
+}
+-keep class *$$Companion {
+    *;
+}
+-keepclassmembers class ** {
+    public static final kotlinx.serialization.KSerializer serializer(...);
+}
+-keep class *$$serializer {
+    *;
+}
+-keepnames @kotlinx.serialization.Serializable class *
+

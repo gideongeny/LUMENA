@@ -27,8 +27,8 @@ android {
         applicationId = "com.dn0ne.lumena"
         minSdk = 24
         targetSdk = 35
-        versionCode = 1_002_000
-        versionName = "1.2.0"
+        versionCode = 130
+        versionName = "1.3.0"
 
         if (splitApks) {
             splits {
@@ -159,6 +159,8 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.material.icons)
     implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.exoplayer.hls)
+    implementation(libs.androidx.media3.exoplayer.dash)
     implementation(libs.androidx.media3.session)
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.androidx.compose)
@@ -175,7 +177,7 @@ dependencies {
     implementation(libs.realm.library.base)
     implementation(libs.reorderable)
     implementation(libs.scrollbars)
-    implementation("com.github.TeamNewPipe:NewPipeExtractor:v0.24.8")
+    implementation("com.github.TeamNewPipe:NewPipeExtractor:v0.25.0")
     implementation("com.google.api-client:google-api-client-android:2.6.0")
     implementation("com.google.http-client:google-http-client-jackson2:1.43.3")
     implementation("com.google.apis:google-api-services-youtube:v3-rev20231011-2.0.0")

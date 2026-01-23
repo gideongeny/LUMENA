@@ -49,6 +49,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.QueueMusic
 import androidx.compose.material.icons.rounded.ExpandMore
+import androidx.compose.material.icons.rounded.Favorite
+import androidx.compose.material.icons.rounded.FavoriteBorder
 import androidx.compose.material.icons.rounded.Lyrics
 import androidx.compose.material.icons.rounded.Pause
 import androidx.compose.material.icons.rounded.PlayArrow
@@ -122,6 +124,7 @@ fun PlayerSheet(
     onRemoveFromQueueClick: (Int) -> Unit,
     onReorderingQueue: (Int, Int) -> Unit,
     onTrackClick: (Track, Playlist) -> Unit,
+    onToggleFavorite: (Track) -> Unit,
     settings: Settings,
     modifier: Modifier = Modifier
 ) {
@@ -305,6 +308,7 @@ fun PlayerSheet(
                     onRemoveFromQueueClick = onRemoveFromQueueClick,
                     onReorderingQueue = onReorderingQueue,
                     onTrackClick = onTrackClick,
+                    onToggleFavorite = onToggleFavorite,
                     modifier = Modifier.clickable(
                         onClick = {},
                         interactionSource = null,
@@ -493,6 +497,7 @@ fun ExpandedPlayer(
     onRemoveFromQueueClick: (Int) -> Unit,
     onReorderingQueue: (Int, Int) -> Unit,
     onTrackClick: (Track, Playlist) -> Unit,
+    onToggleFavorite: (Track) -> Unit,
     modifier: Modifier = Modifier
 ) {
     BackHandler {
@@ -654,19 +659,55 @@ fun ExpandedPlayer(
                         },
                         modifier = Modifier.fillMaxWidth()
                     ) { track ->
+                        val context = LocalContext.current
                         Column(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            val context = LocalContext.current
-                            Text(
-                                text = track.title
-                                    ?: context.resources.getString(R.string.unknown_title),
-                                style = MaterialTheme.typography.headlineMedium,
-                                fontWeight = FontWeight.SemiBold,
-                                color = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.basicMarquee()
-                            )
+                            // Title with favorite icon inline
+                            Row(
+                                modifier = Modifier.fillMaxWidth(0.9f),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Text(
+                                    text = track.title
+                                        ?: context.resources.getString(R.string.unknown_title),
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    fontWeight = FontWeight.SemiBold,
+                                    color = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier
+                                        .weight(1f, fill = false)
+                                        .basicMarquee()
+                                )
+                                
+                                Spacer(modifier = Modifier.width(8.dp))
+                                
+                                // Favorite icon inline with title
+                                IconButton(
+                                    onClick = { onToggleFavorite(track) },
+                                    modifier = Modifier.size(32.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = if (playbackState.isFavorite) {
+                                            Icons.Rounded.Favorite
+                                        } else {
+                                            Icons.Rounded.FavoriteBorder
+                                        },
+                                        contentDescription = if (playbackState.isFavorite) {
+                                            context.resources.getString(R.string.remove_from_favorites)
+                                        } else {
+                                            context.resources.getString(R.string.add_to_favorites)
+                                        },
+                                        tint = if (playbackState.isFavorite) {
+                                            MaterialTheme.colorScheme.primary
+                                        } else {
+                                            MaterialTheme.colorScheme.onSurfaceVariant
+                                        },
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                }
+                            }
 
                             Text(
                                 text = track.artist
@@ -676,7 +717,6 @@ fun ExpandedPlayer(
                                 modifier = Modifier.basicMarquee()
                             )
                         }
-
                     }
 
                     Spacer(modifier = Modifier.height(20.dp))

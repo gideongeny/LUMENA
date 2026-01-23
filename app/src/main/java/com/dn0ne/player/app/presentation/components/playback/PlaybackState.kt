@@ -16,4 +16,6 @@ data class PlaybackState(
 
     val isPlayerExpanded: Boolean = false,
     val isLyricsSheetExpanded: Boolean = false,
+    val isFavorite: Boolean = false,
+    val isLoading: Boolean = false
 )

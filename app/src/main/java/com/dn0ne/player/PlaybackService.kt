@@ -14,9 +14,13 @@ import androidx.media3.common.AudioAttributes
 import androidx.media3.common.C
 import androidx.media3.common.Player
 import androidx.media3.common.util.UnstableApi
+import androidx.media3.datasource.DefaultDataSource
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.hls.HlsMediaSource
+import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import androidx.media3.session.MediaSession
 import androidx.media3.session.MediaSessionService
+import com.dn0ne.player.app.data.online.LumenaDownloader
 import com.dn0ne.player.core.data.Settings
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -215,6 +219,7 @@ class PlaybackService : MediaSessionService() {
     private var mediaSession: MediaSession? = null
     private var player: ExoPlayer? = null
     private val equalizerController = get<EqualizerController>()
+    private val youTubeRepository = get<com.dn0ne.player.app.data.online.YouTubeRepository>()
 
     override fun onCreate() {
         super.onCreate()
@@ -226,7 +231,19 @@ class PlaybackService : MediaSessionService() {
             .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
             .build()
 
+        // Create a data source factory with the same User-Agent as our downloader
+        val httpDataSourceFactory = androidx.media3.datasource.DefaultHttpDataSource.Factory()
+            .setUserAgent(LumenaDownloader.USER_AGENT)
+            .setDefaultRequestProperties(mapOf("Referer" to "https://www.youtube.com/"))
+            .setAllowCrossProtocolRedirects(true)
+            
+        val dataSourceFactory = DefaultDataSource.Factory(this, httpDataSourceFactory)
+        
+        // Create a media source factory that can handle HLS (YouTube) and other formats
+        val mediaSourceFactory = DefaultMediaSourceFactory(dataSourceFactory)
+        
         player = ExoPlayer.Builder(this)
+            .setMediaSourceFactory(mediaSourceFactory)
             .setAudioAttributes(audioAttributes, shouldHandleAudioFocus)
             .setHandleAudioBecomingNoisy(true)
             .build()

@@ -9,6 +9,7 @@ import androidx.compose.ui.util.fastMap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.media3.common.MediaItem
+import androidx.media3.common.MimeTypes
 import androidx.media3.common.Player
 import com.dn0ne.player.EqualizerController
 import com.dn0ne.player.R
@@ -58,6 +59,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+import com.dn0ne.player.app.data.online.YouTubeRepository
+
 class PlayerViewModel(
     private val savedPlayerState: SavedPlayerState,
     private val trackRepository: TrackRepository,
@@ -71,7 +74,8 @@ class PlayerViewModel(
     private val musicScanner: MusicScanner,
     private val equalizerController: EqualizerController,
     private val recentlyPlayedManager: RecentlyPlayedManager,
-    private val favoritesManager: FavoritesManager
+    private val favoritesManager: FavoritesManager,
+    private val youTubeRepository: YouTubeRepository
 ) : ViewModel() {
     val favoritesManagerPublic: FavoritesManager = favoritesManager
     var player: Player? = null
@@ -212,12 +216,18 @@ class PlayerViewModel(
     )
 
     private val _playbackState = MutableStateFlow(PlaybackState())
-    val playbackState = _playbackState
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000L),
-            initialValue = PlaybackState()
+    val playbackState = combine(
+        _playbackState,
+        favoritesManager.favorites
+    ) { state, favorites ->
+        state.copy(
+            isFavorite = state.currentTrack?.let { favorites.contains(it.uri.toString()) } ?: false
         )
+    }.stateIn(
+        scope = viewModelScope,
+        started = SharingStarted.WhileSubscribed(5000L),
+        initialValue = PlaybackState()
+    )
 
     private var positionUpdateJob: Job? = null
 
@@ -357,6 +367,15 @@ class PlayerViewModel(
                         }
                     }
 
+                    override fun onPlayerError(error: androidx.media3.common.PlaybackException) {
+                        Log.e("PlayerViewModel", "Player error: ${error.message}", error)
+                        viewModelScope.launch {
+                            SnackbarController.sendEvent(
+                                SnackbarEvent(rawMessage = "Playback error: ${error.errorCodeName}")
+                            )
+                        }
+                    }
+
                     override fun onMediaItemTransition(
                         mediaItem: MediaItem?,
                         reason: Int
@@ -413,33 +432,91 @@ class PlayerViewModel(
 
         when (event) {
             is OnTrackClick -> {
-                player?.let { player ->
-                    if (_playbackState.value.playlist != event.playlist) {
-                        player.clearMediaItems()
-                        player.addMediaItems(
-                            event.playlist.trackList.fastMap { track -> track.mediaItem }
-                        )
-                        player.prepare()
-                    }
-                    player.seekTo(
-                        event.playlist.trackList.indexOfFirst { it == event.track },
-                        0L
-                    )
-                    player.play()
+                viewModelScope.launch {
+                    val track = event.track
+                    var resolvedTrack = track
+                    var playlistToSend = event.playlist
 
-                    _playbackState.update {
-                        it.copy(
-                            playlist = event.playlist,
-                            currentTrack = event.track,
-                            position = 0
-                        )
+                    // Check if YouTube track and resolve stream URL
+                    if (track.data.contains("youtube.com") || track.data.contains("youtu.be")) {
+                        try {
+                            _playbackState.update { it.copy(isLoading = true) }
+                            val videoId = YouTubeRepository.extractVideoId(track.data)
+                            val result = youTubeRepository.getStreamUrl(videoId)
+                            
+                            result.onSuccess { streamUrl ->
+                                Log.d("PlayerViewModel", "Resolved stream URL: $streamUrl")
+                                val uri = Uri.parse(streamUrl)
+                                val isHls = streamUrl.contains("m3u8") || 
+                                            streamUrl.contains("hls")
+                                val isDash = streamUrl.contains(".mpd") || 
+                                             streamUrl.contains("manifest/dash")
+                                
+                                val mediaItem = when {
+                                    isHls -> MediaItem.Builder()
+                                        .setUri(uri)
+                                        .setMimeType(MimeTypes.APPLICATION_M3U8)
+                                        .build()
+                                    isDash -> MediaItem.Builder()
+                                        .setUri(uri)
+                                        .setMimeType(MimeTypes.APPLICATION_MPD)
+                                        .build()
+                                    else -> MediaItem.fromUri(uri)
+                                }
+                                resolvedTrack = track.copy(
+                                    uri = uri,
+                                    mediaItem = mediaItem
+                                )
+                                // Update the track in the playlist
+                                val updatedTracks = event.playlist.trackList.map { 
+                                    if (it.data == track.data) resolvedTrack else it 
+                                }
+                                playlistToSend = event.playlist.copy(trackList = updatedTracks)
+                            }.onFailure {
+                                Log.e("PlayerViewModel", "Failed to resolve stream URL", it)
+                                SnackbarController.sendEvent(
+                                    SnackbarEvent(rawMessage = "Failed to resolve stream: ${it.message}")
+                                )
+                            }
+                            _playbackState.update { it.copy(isLoading = false) }
+                        } catch (e: Exception) {
+                            Log.e("PlayerViewModel", "Error resolving YouTube URL", e)
+                            _playbackState.update { it.copy(isLoading = false) }
+                        }
                     }
 
-                    viewModelScope.launch(Dispatchers.IO) {
-                        savedPlayerState.playlist = event.playlist
-                        savedPlayerState.track = event.track
-                        // Add to recently played
-                        recentlyPlayedManager.addTrack(event.track)
+                    withContext(Dispatchers.Main) {
+                        player?.let { player ->
+                            if (_playbackState.value.playlist?.name != playlistToSend.name || 
+                                _playbackState.value.playlist?.trackList != playlistToSend.trackList) {
+                                player.clearMediaItems()
+                                player.addMediaItems(
+                                    playlistToSend.trackList.fastMap { it.mediaItem }
+                                )
+                                player.prepare()
+                            }
+                            
+                            val index = playlistToSend.trackList.indexOfFirst { it.data == resolvedTrack.data }
+                            if (index != -1) {
+                                player.seekTo(index, 0L)
+                                player.play()
+                            }
+
+                            _playbackState.update {
+                                it.copy(
+                                    playlist = playlistToSend,
+                                    currentTrack = resolvedTrack,
+                                    position = 0
+                                )
+                            }
+
+                            viewModelScope.launch(Dispatchers.IO) {
+                                savedPlayerState.playlist = playlistToSend
+                                savedPlayerState.track = resolvedTrack
+                                // Add to recently played (use original track data/metadata)
+                                recentlyPlayedManager.addTrack(track)
+                            }
+                        }
                     }
                 }
             }

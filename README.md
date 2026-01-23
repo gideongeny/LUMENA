@@ -1,5 +1,5 @@
 <div align="center">
- <img width="704" height="659" alt="Screenshot 2025-12-06 215217" src="https://github.com/user-attachments/assets/73bd72c8-cd01-457f-a971-652a433ff2d1" />
+  <img width="600" alt="Lumena Logo" src="logo/LUMENA_NEW.png" />
 </div>
 
   # Lumena
@@ -50,17 +50,14 @@
 - **Dark Theme** - Full dark theme support with system integration
 - **Smooth Animations** - Polished animations and transitions throughout the app
 
-### Lyrics & Metadata
-- **Synchronized Lyrics** - Enhance your listening experience with synchronized lyrics from [LRCLIB](https://lrclib.net/) and YouTube transcripts
-- **Multiple Lyrics Sources** - Choose to fetch lyrics from LRCLIB, YouTube captions, or local tags with separate buttons for each source
-- **Smart Lyrics Fallback** - Automatically tries multiple sources if one fails (LRCLIB → YouTube → Local tags)
-- **Metadata Management** - Manually update track details or fetch accurate info from [MusicBrainz](https://musicbrainz.org/)
-- **Tag Editor** - Edit track metadata including title, artist, album, genre, and more
+### Online & Discovery Features
+- **YouTube Search & Streaming** - Find any track on YouTube and stream it instantly (optimized for music content)
+- **Multi-Client Stream Recovery** - Intelligent fallback system (Android Music, TV, iOS) to ensure reliable playback
+- **Unified Search Interface** - One search button for both local library and online discovery
+- **Spotify Discovery** - Search Spotify tracks and quickly jump to the Spotify app
+- **Synchronized Lyrics** - Real-time lyrics from LRCLIB and YouTube transcripts with automatic source fallback
+- **Metadata Fetching** - Automatically fetch and apply track info from MusicBrainz and YouTube
 
-### Online Features
-- **YouTube Search & Streaming** - Search for any track on YouTube and stream it instantly via NewPipe
-- **Unified Search Interface** - One search button that intelligently searches your local library, with easy access to online search
-- **Spotify Integration** - Search Spotify tracks and open them in the Spotify app (when available)
 
 ### Privacy & Performance
 - **Privacy Policy** - Full transparency about data handling and privacy (Play Store compliant)

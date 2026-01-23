@@ -6,6 +6,19 @@
    See https://developer.android.com/about/versions/12/backup-restore
 -->
 <full-backup-content>
+    <!-- Include app settings (SharedPreferences) -->
     <include domain="sharedpref" path="."/>
-
+    
+    <!-- Include all files first, then exclude specific paths -->
+    <include domain="file" path="."/>
+    
+    <!-- Exclude Realm database files (they should be recreated on restore) -->
+    <exclude domain="file" path="databases/"/>
+    <exclude domain="file" path="realm/"/>
+    
+    <!-- Exclude cache files -->
+    <exclude domain="file" path="cache/"/>
+    
+    <!-- Exclude crash logs (sensitive information) -->
+    <exclude domain="file" path="crash_logs/"/>
 </full-backup-content>

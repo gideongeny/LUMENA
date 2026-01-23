@@ -11,6 +11,7 @@
     <string name="repo_url" translatable="false">https://github.com/gideongeny</string>
     <!-- Feedback mail link -->
     <string name="feedback_url" translatable="false">mailto:gideongeng@gmail.com</string>
+    <string name="donate_url" translatable="false">https://buymeacoffee.com/Gideongeny</string>
 
     <!-- Common back button -->
     <string name="back">Back</string>
@@ -345,6 +346,8 @@
     <string name="feedback_explain">Contact to suggest a feature or report a problem</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="privacy_policy_explain">Read our privacy policy</string>
+    <string name="donate">Donate</string>
+    <string name="donate_explain">Support development</string>
     <string name="privacy_policy_content">Privacy Policy for Lumena Music Player\n\nLast Updated: [Date]\n\n1. Introduction\nWelcome to Lumena Music Player. We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we handle information when you use our app.\n\n2. Data Collection\nLumena Music Player is designed with privacy in mind:\n\n• Local Storage Only: All your music files, playlists, and preferences are stored locally on your device. We do not collect, transmit, or store your personal data on external servers.\n\n• No Account Required: You can use Lumena without creating an account or providing any personal information.\n\n• Media Library Access: The app requires permission to access your device\'s media library to play your music files. This access is used solely for music playback and playlist management.\n\n3. Third-Party Services\nLumena may use the following third-party services:\n\n• MusicBrainz: Used for metadata lookup (album art, track information). Queries are sent to MusicBrainz servers, but no personal data is transmitted.\n\n• LRCLIB: Used for lyrics lookup. Only track metadata (title, artist, album) is sent for lyrics retrieval.\n\n4. Permissions\nLumena requests the following permissions:\n\n• READ_MEDIA_AUDIO / READ_EXTERNAL_STORAGE: Required to access and play your music files.\n\n• WRITE_EXTERNAL_STORAGE: Required to edit metadata tags in your music files (optional feature).\n\n• INTERNET: Required for metadata and lyrics lookup (optional features).\n\n5. Data Security\nYour music files and data remain on your device. We do not have access to your files or personal information.\n\n6. Children\'s Privacy\nLumena does not knowingly collect information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.\n\n7. Changes to This Policy\nWe may update this privacy policy from time to time. We will notify you of any changes by updating the \"Last Updated\" date.\n\n8. Contact Us\nIf you have questions about this privacy policy, please contact us through the feedback option in the app settings.\n\n9. Your Rights\nYou have full control over your data:\n\n• All data is stored locally on your device\n• You can uninstall the app at any time to remove all app data\n• No data is shared with third parties except for optional metadata/lyrics lookups\n\nBy using Lumena Music Player, you agree to this privacy policy.</string>
 
     <!-- Open a track with "Open with..." dialog -->

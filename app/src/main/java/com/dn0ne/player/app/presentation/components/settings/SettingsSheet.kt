@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.PlaylistPlay
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
@@ -40,7 +41,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp
@@ -48,7 +52,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.dn0ne.player.R
-import com.dn0ne.player.app.presentation.components.topbar.ColumnWithCollapsibleTopBar
+import com.dn0ne.player.app.presentation.components.topbar.LazyColumnWithCollapsibleTopBar
 import com.kmpalette.DominantColorState
 import kotlinx.serialization.Serializable
 
@@ -107,11 +111,65 @@ fun SettingsSheet(
             ) {
                 composable<SettingsRoutes.Main> {
                     val context = LocalContext.current
+                    val uriHandler = LocalUriHandler.current
                     var collapseFraction by remember {
                         mutableFloatStateOf(0f)
                     }
 
-                    ColumnWithCollapsibleTopBar(
+                    val settings = remember {
+                        listOf(
+                            SettingsItem(
+                                title = context.resources.getString(R.string.playback),
+                                supportingText = context.resources.getString(R.string.playback_supporting_text),
+                                icon = Icons.Rounded.MusicNote,
+                                onClick = {
+                                    navController.navigate(SettingsRoutes.Playback)
+                                }
+                            ),
+                            SettingsItem(
+                                title = context.resources.getString(R.string.music_scan),
+                                supportingText = context.resources.getString(R.string.music_scan_supporting_text),
+                                icon = Icons.Rounded.Radar,
+                                onClick = {
+                                    navController.navigate(SettingsRoutes.MusicScan)
+                                }
+                            ),
+                            SettingsItem(
+                                title = context.resources.getString(R.string.tabs),
+                                supportingText = context.resources.getString(R.string.tabs_supporting_text),
+                                icon = Icons.Rounded.TableChart,
+                                onClick = {
+                                    navController.navigate(SettingsRoutes.Tabs)
+                                }
+                            ),
+                            SettingsItem(
+                                title = context.resources.getString(R.string.playlists),
+                                supportingText = context.resources.getString(R.string.playlists_supporting_text),
+                                icon = Icons.AutoMirrored.Rounded.PlaylistPlay,
+                                onClick = {
+                                    navController.navigate(SettingsRoutes.Playlists)
+                                }
+                            ),
+                            SettingsItem(
+                                title = context.resources.getString(R.string.theme),
+                                supportingText = context.resources.getString(R.string.theme_supporting_text),
+                                icon = Icons.Rounded.ColorLens,
+                                onClick = {
+                                    navController.navigate(SettingsRoutes.Theme)
+                                }
+                            ),
+                            SettingsItem(
+                                title = context.resources.getString(R.string.lyrics),
+                                supportingText = context.resources.getString(R.string.lyrics_supporting_text),
+                                icon = Icons.Rounded.Lyrics,
+                                onClick = {
+                                    navController.navigate(SettingsRoutes.Lyrics)
+                                }
+                            )
+                        )
+                    }
+
+                    LazyColumnWithCollapsibleTopBar(
                         topBarContent = {
                             IconButton(
                                 onClick = onCloseClick,
@@ -148,75 +206,44 @@ fun SettingsSheet(
                             .fillMaxSize()
                             .safeDrawingPadding()
                     ) {
-                        val settings = remember {
-                            listOf(
-                                SettingsItem(
-                                    title = context.resources.getString(R.string.playback),
-                                    supportingText = context.resources.getString(R.string.playback_supporting_text),
-                                    icon = Icons.Rounded.MusicNote,
-                                    onClick = {
-                                        navController.navigate(SettingsRoutes.Playback)
-                                    }
-                                ),
-                                SettingsItem(
-                                    title = context.resources.getString(R.string.music_scan),
-                                    supportingText = context.resources.getString(R.string.music_scan_supporting_text),
-                                    icon = Icons.Rounded.Radar,
-                                    onClick = {
-                                        navController.navigate(SettingsRoutes.MusicScan)
-                                    }
-                                ),
-                                SettingsItem(
-                                    title = context.resources.getString(R.string.tabs),
-                                    supportingText = context.resources.getString(R.string.tabs_supporting_text),
-                                    icon = Icons.Rounded.TableChart,
-                                    onClick = {
-                                        navController.navigate(SettingsRoutes.Tabs)
-                                    }
-                                ),
-                                SettingsItem(
-                                    title = context.resources.getString(R.string.playlists),
-                                    supportingText = context.resources.getString(R.string.playlists_supporting_text),
-                                    icon = Icons.AutoMirrored.Rounded.PlaylistPlay,
-                                    onClick = {
-                                        navController.navigate(SettingsRoutes.Playlists)
-                                    }
-                                ),
-                                SettingsItem(
-                                    title = context.resources.getString(R.string.theme),
-                                    supportingText = context.resources.getString(R.string.theme_supporting_text),
-                                    icon = Icons.Rounded.ColorLens,
-                                    onClick = {
-                                        navController.navigate(SettingsRoutes.Theme)
-                                    }
-                                ),
-                                SettingsItem(
-                                    title = context.resources.getString(R.string.lyrics),
-                                    supportingText = context.resources.getString(R.string.lyrics_supporting_text),
-                                    icon = Icons.Rounded.Lyrics,
-                                    onClick = {
-                                        navController.navigate(SettingsRoutes.Lyrics)
-                                    }
-                                )
+
+                        items(settings) { item ->
+                            SettingsGroup(
+                                items = listOf(item)
                             )
                         }
 
-                        SettingsGroup(
-                            items = settings
-                        )
-
-                        SettingsGroup(
-                            items = listOf(
-                                SettingsItem(
-                                    title = context.resources.getString(R.string.about_app),
-                                    supportingText = context.resources.getString(R.string.about_explain),
-                                    icon = Icons.Rounded.Info,
-                                    onClick = {
-                                        navController.navigate(SettingsRoutes.About)
-                                    }
+                        item {
+                            SettingsGroup(
+                                items = listOf(
+                                    SettingsItem(
+                                        title = context.resources.getString(R.string.donate),
+                                        supportingText = context.resources.getString(R.string.donate_explain),
+                                        icon = ImageVector.vectorResource(R.drawable.ic_buymeacoffee),
+                                        iconTint = androidx.compose.ui.graphics.Color.Unspecified,
+                                        onClick = {
+                                            try {
+                                                uriHandler.openUri(context.resources.getString(R.string.donate_url))
+                                            } catch (e: Exception) {
+                                                android.util.Log.e(
+                                                    "SettingsSheet",
+                                                    "Failed to open donate URL",
+                                                    e
+                                                )
+                                            }
+                                        }
+                                    ),
+                                    SettingsItem(
+                                        title = context.resources.getString(R.string.about_app),
+                                        supportingText = context.resources.getString(R.string.about_explain),
+                                        icon = Icons.Rounded.Info,
+                                        onClick = {
+                                            navController.navigate(SettingsRoutes.About)
+                                        }
+                                    )
                                 )
                             )
-                        )
+                        }
                     }
                 }
 
@@ -295,6 +322,9 @@ fun SettingsSheet(
                             navController.navigateUp()
                         },
                         onPrivacyPolicyClick = {
+                            navController.navigate(SettingsRoutes.PrivacyPolicy)
+                        },
+                        onPlayStoreComplianceClick = {
                             navController.navigate(SettingsRoutes.PrivacyPolicy)
                         },
                         modifier = Modifier.fillMaxSize()

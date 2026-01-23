@@ -20,4 +20,4 @@ dependencyResolutionManagement {
 
 // NEW LINE: Include the cloned source project
 include(":app")
-includeBuild("newpipe-extractor")
+// includeBuild("newpipe-extractor")

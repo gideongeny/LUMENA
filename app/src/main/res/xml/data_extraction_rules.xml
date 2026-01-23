@@ -5,8 +5,21 @@
 -->
 <data-extraction-rules>
     <cloud-backup>
+        <!-- Include app settings (SharedPreferences) -->
         <include domain="sharedpref" path="."/>
-
+        
+        <!-- Include all files first, then exclude specific paths -->
+        <include domain="file" path="."/>
+        
+        <!-- Exclude Realm database files -->
+        <exclude domain="file" path="databases/"/>
+        <exclude domain="file" path="realm/"/>
+        
+        <!-- Exclude cache files -->
+        <exclude domain="file" path="cache/"/>
+        
+        <!-- Exclude crash logs -->
+        <exclude domain="file" path="crash_logs/"/>
     </cloud-backup>
     <!--
     <device-transfer>

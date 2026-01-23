@@ -56,6 +56,7 @@ fun ColumnWithCollapsibleTopBar(
     contentHorizontalAlignment: Alignment.Horizontal = Alignment.Start,
     contentVerticalArrangement: Arrangement.Vertical = Arrangement.Top,
     modifier: Modifier = Modifier,
+    scrollable: Boolean = true,
     content: @Composable ColumnScope.() -> Unit
 ) {
     val density = LocalDensity.current
@@ -130,17 +131,31 @@ fun ColumnWithCollapsibleTopBar(
                     .height(with(density) { topBarHeight.value.toDp() })
             )
 
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .verticalScroll(contentScrollState)
-                    .padding(contentPadding),
-                horizontalAlignment = contentHorizontalAlignment,
-                verticalArrangement = contentVerticalArrangement
-            ) {
-                content()
+            if (scrollable) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(contentScrollState)
+                        .padding(contentPadding),
+                    horizontalAlignment = contentHorizontalAlignment,
+                    verticalArrangement = contentVerticalArrangement
+                ) {
+                    content()
 
-                Spacer(modifier = Modifier.height(200.dp))
+                    Spacer(modifier = Modifier.height(200.dp))
+                }
+            } else {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(contentPadding),
+                    horizontalAlignment = contentHorizontalAlignment,
+                    verticalArrangement = contentVerticalArrangement
+                ) {
+                    content()
+
+                    Spacer(modifier = Modifier.height(200.dp))
+                }
             }
         }
 

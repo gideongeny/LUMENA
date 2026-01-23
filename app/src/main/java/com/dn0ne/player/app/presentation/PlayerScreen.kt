@@ -84,7 +84,7 @@ import com.dn0ne.player.R
 import com.dn0ne.player.app.domain.sort.PlaylistSort
 import com.dn0ne.player.app.domain.sort.SortOrder
 import com.dn0ne.player.app.domain.sort.TrackSort
-import com.dn0ne.player.app.domain.track.Playlist
+import com.dn0ne.player.app.domain.track.Playlist as PlaylistModel
 import com.dn0ne.player.app.domain.track.Track
 import com.dn0ne.player.app.domain.track.filterPlaylists
 import com.dn0ne.player.app.domain.track.filterTracks
@@ -125,6 +125,7 @@ fun PlayerScreen(
     onFolderPick: (scan: Boolean) -> Unit,
     onLyricsPick: () -> Unit,
     onPlaylistPick: () -> Unit,
+    onOnlineSearchClick: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     val useDynamicColor by viewModel.settings.useDynamicColor.collectAsState()
@@ -459,9 +460,7 @@ fun PlayerScreen(
                             gridPlaylists = gridPlaylists,
                             onGridPlaylistsClick = {
                             },
-                            onOnlineSearchClick = {
-                                navController.navigate(com.dn0ne.player.core.presentation.Routes.Search)
-                            }
+                            onOnlineSearchClick = onOnlineSearchClick
                         )
                     }
 
@@ -554,6 +553,12 @@ fun PlayerScreen(
                                             order
                                         )
                                     )
+                                },
+                                onToggleFavorite = {
+                                    viewModel.onEvent(PlayerScreenEvent.OnToggleFavorite(it))
+                                },
+                                isFavorite = {
+                                    viewModel.favoritesManagerPublic.isFavorite(it)
                                 },
                                 onBackClick = {
                                     navController.navigateUp()
@@ -677,6 +682,12 @@ fun PlayerScreen(
                                     )
                                     changedTrackList = it
                                 },
+                                onToggleFavorite = {
+                                    viewModel.onEvent(PlayerScreenEvent.OnToggleFavorite(it))
+                                },
+                                isFavorite = {
+                                    viewModel.favoritesManagerPublic.isFavorite(it)
+                                },
                                 onBackClick = {
                                     navController.navigateUp()
                                 },
@@ -785,37 +796,49 @@ fun PlayerScreen(
                                 onCoverArtLoaded = {
                                     coverArtBitmap = it
                                 },
-                                onPlayNextClick = {
-                                    viewModel.onEvent(PlayerScreenEvent.OnPlayNextClick(it))
+                                 onPlayNextClick = {
+                                    currentTrack?.let {
+                                        viewModel.onEvent(PlayerScreenEvent.OnPlayNextClick(it))
+                                    }
                                 },
                                 onAddToQueueClick = {
-                                    viewModel.onEvent(
-                                        PlayerScreenEvent.OnAddToQueueClick(
-                                            listOf(it)
+                                    currentTrack?.let {
+                                        viewModel.onEvent(
+                                            PlayerScreenEvent.OnAddToQueueClick(
+                                                listOf(it)
+                                            )
                                         )
-                                    )
+                                    }
                                 },
                                 onAddToPlaylistClick = {
-                                    showAddToOrCreatePlaylistSheet = true
-                                    showCreatePlaylistOnly = false
-                                    tracksToAddToPlaylist = listOf(it)
+                                    currentTrack?.let {
+                                        showAddToOrCreatePlaylistSheet = true
+                                        showCreatePlaylistOnly = false
+                                        tracksToAddToPlaylist = listOf(it)
+                                    }
                                 },
                                 onViewTrackInfoClick = {
-                                    viewModel.onEvent(
-                                        PlayerScreenEvent.OnViewTrackInfoClick(it)
-                                    )
+                                    currentTrack?.let {
+                                        viewModel.onEvent(
+                                            PlayerScreenEvent.OnViewTrackInfoClick(it)
+                                        )
+                                    }
                                 },
                                 onGoToAlbumClick = {
-                                    viewModel.onEvent(PlayerScreenEvent.OnGoToAlbumClick(it))
-                                    viewModel.onEvent(PlayerScreenEvent.OnPlayerExpandedChange(false))
-                                    navController.popBackStack(PlayerRoutes.Main, false)
-                                    navController.navigate(PlayerRoutes.Playlist)
+                                    currentTrack?.let {
+                                        viewModel.onEvent(PlayerScreenEvent.OnGoToAlbumClick(it))
+                                        viewModel.onEvent(PlayerScreenEvent.OnPlayerExpandedChange(false))
+                                        navController.popBackStack(PlayerRoutes.Main, false)
+                                        navController.navigate(PlayerRoutes.Playlist)
+                                    }
                                 },
                                 onGoToArtistClick = {
-                                    viewModel.onEvent(PlayerScreenEvent.OnGoToArtistClick(it))
-                                    viewModel.onEvent(PlayerScreenEvent.OnPlayerExpandedChange(false))
-                                    navController.popBackStack(PlayerRoutes.Main, false)
-                                    navController.navigate(PlayerRoutes.Playlist)
+                                    currentTrack?.let {
+                                        viewModel.onEvent(PlayerScreenEvent.OnGoToArtistClick(it))
+                                        viewModel.onEvent(PlayerScreenEvent.OnPlayerExpandedChange(false))
+                                        navController.popBackStack(PlayerRoutes.Main, false)
+                                        navController.navigate(PlayerRoutes.Playlist)
+                                    }
                                 },
                                 onLyricsSheetExpandedChange = {
                                     viewModel.onEvent(
@@ -839,6 +862,9 @@ fun PlayerScreen(
                                             playlist = playlist
                                         )
                                     )
+                                },
+                                onToggleFavorite = {
+                                    viewModel.onEvent(PlayerScreenEvent.OnToggleFavorite(it))
                                 },
                                 modifier = Modifier
                                     .align(alignment = Alignment.CenterHorizontally)
@@ -952,7 +978,7 @@ fun MainPlayerScreen(
     onTabChange: (Tab) -> Unit = {},
     trackList: List<Track>,
     currentTrack: Track?,
-    onTrackClick: (Track, Playlist) -> Unit,
+    onTrackClick: (Track, PlaylistModel) -> Unit,
     onPlayNextClick: (Track) -> Unit,
     onAddToQueueClick: (List<Track>) -> Unit,
     onAddToPlaylistClick: (List<Track>) -> Unit,
@@ -961,24 +987,24 @@ fun MainPlayerScreen(
     onGoToArtistClick: (Track) -> Unit,
     onToggleFavoriteClick: (Track) -> Unit,
     isFavorite: (Track) -> Boolean,
-    playlists: List<Playlist>,
-    recentlyPlayedPlaylist: Playlist,
-    favoritesPlaylist: Playlist,
-    albumPlaylists: List<Playlist>,
-    artistPlaylists: List<Playlist>,
-    genrePlaylists: List<Playlist>,
-    folderPlaylists: List<Playlist>,
+    playlists: List<PlaylistModel>,
+    recentlyPlayedPlaylist: PlaylistModel,
+    favoritesPlaylist: PlaylistModel,
+    albumPlaylists: List<PlaylistModel>,
+    artistPlaylists: List<PlaylistModel>,
+    genrePlaylists: List<PlaylistModel>,
+    folderPlaylists: List<PlaylistModel>,
     trackSort: TrackSort,
     trackSortOrder: SortOrder,
     playlistSort: PlaylistSort,
     playlistSortOrder: SortOrder,
     onTrackSortChange: (TrackSort?, SortOrder?) -> Unit,
     onPlaylistSortChange: (PlaylistSort?, SortOrder?) -> Unit,
-    onPlaylistSelection: (Playlist) -> Unit,
-    onAlbumPlaylistSelection: (Playlist) -> Unit,
-    onArtistPlaylistSelection: (Playlist) -> Unit,
-    onGenrePlaylistSelection: (Playlist) -> Unit,
-    onFolderPlaylistSelection: (Playlist) -> Unit,
+    onPlaylistSelection: (PlaylistModel) -> Unit,
+    onAlbumPlaylistSelection: (PlaylistModel) -> Unit,
+    onArtistPlaylistSelection: (PlaylistModel) -> Unit,
+    onGenrePlaylistSelection: (PlaylistModel) -> Unit,
+    onFolderPlaylistSelection: (PlaylistModel) -> Unit,
     replaceSearchWithFilter: Boolean,
     gridPlaylists: Boolean,
     onGridPlaylistsClick: () -> Unit,
@@ -1005,7 +1031,7 @@ fun MainPlayerScreen(
         mutableStateListOf<Track>()
     }
     val selectedPlaylists = remember {
-        mutableStateListOf<Playlist>()
+        mutableStateListOf<PlaylistModel>()
     }
 
     val topBarContent by remember {
@@ -1067,14 +1093,7 @@ fun MainPlayerScreen(
                                     )
                                 }
 
-                                IconButton(
-                                    onClick = onOnlineSearchClick
-                                ) {
-                                    Icon(
-                                        imageVector = Icons.Default.Search,
-                                        contentDescription = "Search Online"
-                                    )
-                                }
+
 
                                 if (tab == Tab.Tracks) {
                                     TrackSortButton(
@@ -1121,7 +1140,11 @@ fun MainPlayerScreen(
 
                                 IconButton(
                                     onClick = {
-                                        showSearchField = true
+                                        if (replaceSearchWithFilter && tab == Tab.Tracks) {
+                                            showSearchField = true
+                                        } else {
+                                            onOnlineSearchClick()
+                                        }
                                     }
                                 ) {
                                     Icon(
@@ -1310,14 +1333,15 @@ fun MainPlayerScreen(
     ) { tab ->
         when (tab) {
             Tab.Tracks -> {
-                if (!isInSelectionMode) {
-                    trackList(
-                        trackList = trackList.filterTracks(searchFieldValue),
+                try {
+                    if (!isInSelectionMode) {
+                        trackList(
+                            trackList = trackList.filterTracks(searchFieldValue),
                         currentTrack = currentTrack,
                         onTrackClick = {
                             onTrackClick(
                                 it,
-                                Playlist(
+                                PlaylistModel(
                                     name = null,
                                     trackList = if (replaceSearchWithFilter) {
                                         trackList.filterTracks(searchFieldValue)
@@ -1356,10 +1380,14 @@ fun MainPlayerScreen(
                             }
                         }
                     )
+                    }
+                } catch (e: Exception) {
+                    android.util.Log.e("PlayerScreen", "Error rendering Tracks tab", e)
                 }
             }
 
             Tab.RecentlyPlayed -> {
+                try {
                 if (!isInSelectionMode) {
                     trackList(
                         trackList = recentlyPlayedPlaylist.trackList.filterTracks(searchFieldValue),
@@ -1367,7 +1395,7 @@ fun MainPlayerScreen(
                         onTrackClick = {
                             onTrackClick(
                                 it,
-                                Playlist(
+                                PlaylistModel(
                                     name = recentlyPlayedPlaylist.name,
                                     trackList = if (replaceSearchWithFilter) {
                                         recentlyPlayedPlaylist.trackList.filterTracks(searchFieldValue)
@@ -1406,10 +1434,14 @@ fun MainPlayerScreen(
                             }
                         }
                     )
+                    }
+                } catch (e: Exception) {
+                    android.util.Log.e("PlayerScreen", "Error rendering RecentlyPlayed tab", e)
                 }
             }
 
             Tab.Favorites -> {
+                try {
                 if (!isInSelectionMode) {
                     trackList(
                         trackList = favoritesPlaylist.trackList.filterTracks(searchFieldValue),
@@ -1417,7 +1449,7 @@ fun MainPlayerScreen(
                         onTrackClick = {
                             onTrackClick(
                                 it,
-                                Playlist(
+                                PlaylistModel(
                                     name = favoritesPlaylist.name,
                                     trackList = if (replaceSearchWithFilter) {
                                         favoritesPlaylist.trackList.filterTracks(searchFieldValue)
@@ -1456,6 +1488,9 @@ fun MainPlayerScreen(
                             }
                         }
                     )
+                    }
+                } catch (e: Exception) {
+                    android.util.Log.e("PlayerScreen", "Error rendering Favorites tab", e)
                 }
             }
 
@@ -1867,7 +1902,7 @@ fun ScrollToTopAndLocateButtons(
 }
 
 @Serializable
-private sealed interface PlayerRoutes {
+sealed interface PlayerRoutes {
     @Serializable
     data object Main : PlayerRoutes
 

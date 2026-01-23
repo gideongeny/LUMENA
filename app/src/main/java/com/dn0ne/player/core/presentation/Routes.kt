@@ -9,5 +9,10 @@ sealed interface Routes {
     @Serializable
     data object Player: Routes
     @Serializable
-    object Search: Routes
+    data object Search: Routes
+    @Serializable
+    data object Playlist : Routes
+
+    @Serializable
+    data object MutablePlaylist : Routes
 }

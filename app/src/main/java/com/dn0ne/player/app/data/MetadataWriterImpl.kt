@@ -1,10 +1,7 @@
 package com.dn0ne.player.app.data
 
 import android.app.RecoverableSecurityException
-import android.content.ClipData
-import android.content.ClipboardManager
 import android.content.Context
-import android.content.Context.CLIPBOARD_SERVICE
 import android.content.IntentSender
 import android.media.MediaScannerConnection
 import android.os.Build

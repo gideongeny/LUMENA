@@ -11,12 +11,16 @@ import java.io.InputStream
 
 class LumenaDownloader : Downloader() {
     companion object {
-        private const val USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        const val USER_AGENT = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36"
     }
 
     override fun execute(request: Request): Response {
         val httpMethod = request.httpMethod()
-        val url = URL(request.url())
+        val urlString = request.url()
+        val url = URL(urlString)
+        
+        android.util.Log.d("LumenaDownloader", "Executing $httpMethod request to: $urlString")
+        
         val con = url.openConnection() as HttpURLConnection
         con.requestMethod = httpMethod
         con.readTimeout = 30000
@@ -37,14 +41,25 @@ class LumenaDownloader : Downloader() {
         val code = con.responseCode
         val message = con.responseMessage
         
+        android.util.Log.d("LumenaDownloader", "Response Code: $code, Message: $message")
+        
         // Read response body
-        val inputStream: InputStream = try {
+        val inputStream: InputStream? = try {
             con.inputStream
         } catch (e: IOException) {
             con.errorStream
         }
 
         val body = inputStream?.readBytes() ?: ByteArray(0)
+        val bodyString = String(body, java.nio.charset.StandardCharsets.UTF_8)
+        
+        if (code != 200) {
+            android.util.Log.w("LumenaDownloader", "Non-200 response. Body snippet: ${bodyString.take(500)}")
+        } else if (bodyString.contains("playabilityStatus")) {
+             // Log a bit of the playability status for debugging YouTube specifically
+             val index = bodyString.indexOf("playabilityStatus")
+             android.util.Log.d("LumenaDownloader", "Playability snippet: ${bodyString.substring(index, (index + 200).coerceAtMost(bodyString.length))}")
+        }
         
         val headers = mutableMapOf<String, List<String>>()
         con.headerFields.forEach { (key, value) ->
@@ -53,6 +68,6 @@ class LumenaDownloader : Downloader() {
             }
         }
 
-        return Response(code, message, headers, String(body, java.nio.charset.StandardCharsets.UTF_8), null) // latestUrl is null for now
+        return Response(code, message, headers, bodyString, null)
     }
 }
