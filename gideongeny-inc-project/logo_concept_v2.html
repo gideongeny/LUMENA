@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #0c0d11;
+            /* Dark mode for better glow contrast */
+            font-family: 'Outfit', 'Inter', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 60px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        }
+
+        .logo-preview {
+            width: 320px;
+            height: 320px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #888;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <svg class="logo-preview" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#00F5FF;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#7B61FF;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#FF3DBC;stop-opacity:1" />
+                </linearGradient>
+                <radialGradient id="innerGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:#7B61FF;stop-opacity:0" />
+                </radialGradient>
+                <filter id="ultraGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="12" result="blur1" />
+                    <feGaussianBlur stdDeviation="24" result="blur2" />
+                    <feMerge>
+                        <feMergeNode in="blur2" />
+                        <feMergeNode in="blur1" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- Exterior Ring Segment -->
+            <path d="M400,256 C400,335.5 335.5,400 256,400 C176.5,400 112,335.5 112,256 C112,176.5 176.5,112 256,112"
+                fill="none" stroke="url(#mainGrad)" stroke-width="50" stroke-linecap="round" filter="url(#ultraGlow)" />
+
+            <!-- Interior L Segment -->
+            <path d="M256,160 L256,336 C256,347 265,356 276,356 L360,356" fill="none" stroke="#ffffff" stroke-width="25"
+                stroke-linecap="round" filter="url(#ultraGlow)" />
+
+            <!-- Floating Data/Light Particles -->
+            <circle cx="256" cy="112" r="12" fill="#00F5FF" filter="url(#ultraGlow)" />
+            <circle cx="440" cy="256" r="8" fill="#FF3DBC" filter="url(#ultraGlow)" opacity="0.6" />
+
+            <!-- Core Core Flare -->
+            <circle cx="256" cy="256" r="40" fill="url(#innerGlow)" opacity="0.3" />
+        </svg>
+        <h2>LUMENA</h2>
+        <p>CONCEPT: "NEON CORE"</p>
+    </div>
+</body>
+
+</html>

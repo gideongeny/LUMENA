@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Назад</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Начать</string>
+    <string name="permissions">Разрешения</string>
+    <string name="audio">Аудио</string>
+    <string name="explain_audio_permission_requirement">Lumena требует его, чтобы воспроизводить вашу замечательную музыку</string>
+    <string name="grant_permission">Дать разрешение</string>
+    <string name="next">Далее</string>
+    <string name="grant_permission_in_settings">Пожалуйста, дайте разрешение в настройках</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Название</string>
+    <string name="album">Альбом</string>
+    <string name="artist">Исполнитель</string>
+    <string name="album_artist">Исполн. альбома</string>
+    <string name="genre">Жанр</string>
+    <string name="year">Год</string>
+    <string name="track_number">Номер трека</string>
+    <string name="bitrate">Битрейт</string>
+    <string name="duration">Длительность</string>
+    <string name="size">Размер</string>
+    <string name="path">Путь</string>
+    <string name="date_modified">Дата изменения</string>
+
+    <string name="unknown_title">Название неизвестно</string>
+    <string name="unknown_album">Альбом неизвестен</string>
+    <string name="unknown_artist">Исполнитель неизвестен</string>
+    <string name="unknown_album_artist">Исполни. альбома неизвестен</string>
+    <string name="unknown_genre">Жанр неизвестен</string>
+    <string name="unknown_year">Год неизвестен</string>
+    <string name="unknown_track_number">Номер трека неизвестен</string>
+    <string name="unknown_bitrate">Битрейт неизвестен</string>
+    <string name="unknown">Неизвестный</string>
+
+    <!-- Track dropdown menu -->
+    <string name="track_menu_button">Кнопка меню трека</string>
+    <string name="play_next">Воспроизвести следующим</string>
+    <string name="add_to_queue">Добавить в очередь</string>
+    <string name="remove_from_playlist">Удалить из плейлиста</string>
+    <string name="go_to_album">Перейти к альбому</string>
+    <string name="go_to_artist">Перейти к исполнителю</string>
+
+    <!-- Tabs' names -->
+    <string name="tracks">Треки</string>
+    <string name="albums">Альбомы</string>
+    <string name="artists">Исполнители</string>
+    <string name="genres">Жанры</string>
+    <string name="playlists">Плейлисты</string>
+    <string name="folders">Папки</string>
+
+    <!-- Sorting dialog -->
+    <string name="sort_order">Порядок сортировки</string>
+    <string name="sort_ascending">Сортировать по возрастанию</string>
+    <string name="sort_descending">Сортировать по убыванию</string>
+    <string name="track_count">Количество треков</string>
+
+    <!-- Track search -->
+    <string name="close_track_search">Закрыть поиск трека</string>
+    <string name="track_search">Поиск трека</string>
+
+    <!-- Scroll to buttons -->
+    <string name="scroll_to_top">Прокрутить к началу</string>
+    <string name="scroll_to_current_track">Прокрутить до текущего трека</string>
+
+    <!-- Expanded player sheet -->
+    <string name="close_player_sheet">Свернуть плеер</string>
+    <string name="playback_mode_toggle">Переключить режим воспроизведения</string>
+    <string name="show_lyrics">Показать текст трека</string>
+    <string name="set_sleep_timer">Установить таймер сна</string>
+    <string name="sleep_timer">Таймер сна</string>
+    <string name="short_minutes">мин</string>
+    <string name="stop_timer">Стоп</string>
+    <string name="start_timer">Старт</string>
+
+    <!-- Play queue -->
+    <string name="remove_from_queue">Убрать из очереди</string>
+    <string name="queue">Очередь</string>
+    <string name="show_queue">Показать очередь</string>
+
+    <!-- Track info screen -->
+    <string name="track_info">О треке</string>
+    <string name="close_track_info_sheet">Закрыть экран о треке</string>
+    <string name="look_for_metadata">Искать метаданные</string>
+    <string name="edit_manually">Редактировать вручную</string>
+    <string name="back_to_track_info">Назад к экрану о треке</string>
+
+    <!-- Risks of metadata editing dialog -->
+    <string name="risks_of_metadata_editing">Риски редактирования метаданных</string>
+    <string name="risks_of_metadata_editing_explain">Редактирование метаданных является мощной функцией, но иногда все может пойти не так, как ожидалось, и теги аудиофайлов могут вести себя непредсказуемо.\n\nМы рекомендуем создавать резервные копии ваших аудиофайлов перед внесением изменений - лучше перестраховаться, чем потом жалеть! \Нажимая \"Принять\", вы соглашаетесь с тем, что несете ответственность за свои файлы, сделали необходимые резервные копии, и понимаете, что мы не можем нести ответственность, если случится что-то непредсказуемое.\n\nНажмите \"Отменить\", если не желаете продолжать.</string>
+    <string name="accept">Принять</string>
+    <string name="cancel">Отменить</string>
+
+    <!-- Metadata search screen -->
+    <string name="search">Поиск</string>
+    <string name="description">Описание</string>
+    <string name="album_description">Описание альбома</string>
+    <string name="no_description">Нет описания</string>
+    <string name="back_to_info_search">Назад к экрану поиска метаданных</string>
+    <string name="search_menu">Выпадающее меню экрана поиска метаданных</string>
+    <string name="search_results_provided_by">Результаты предоставлены MusicBrainz</string>
+
+    <!-- Search tips dialog -->
+    <string name="got_it">Понятно</string>
+    <string name="search_tips">Советы по поиску</string>
+    <string name="search_explain">Мы используем MusicBrainz API, чтобы помочь Вам найти информацию о треке. Вы можете сделать поиск более точным с помощью простых фильтров.</string>
+    <string name="quotes_explain_header">Кавычки для точных совпадений</string>
+    <string name="quotes_explain">Используйте кавычки, чтобы найти определенные слова или фразы:</string>
+    <string name="quotes_example_1">\"4:44\"</string>
+    <string name="quotes_example_2"><![CDATA[\"7 Weeks & 3 Days\"]]></string>
+    <string name="field_explain_header">Поиск по исполнителю или альбому</string>
+    <string name="field_explain">Вы можете искать определенного исполнителя или альбом следующим образом:</string>
+    <string name="field_example_1">artist:\"Jay-Z\"</string>
+    <string name="field_example_2">release:\"Over You\"</string>
+    <string name="combine_explain_header">Объединение фильтров</string>
+    <string name="combine_explain">Используйте \"AND\" для объединения разных фильтров:</string>
+    <string name="combine_example">\"4:44\" AND artist:\"Jay-Z\" AND release:\"4:44\"</string>
+
+    <!-- Search errors -->
+    <string name="unknown_error_occurred">Возникла неизвестная ошибка. Пожалуйста, попробуйте еще раз.</string>
+    <string name="query_was_corrupted">Запрос был поврежден. Пожалуйста, попробуйте еще раз.</string>
+    <string name="musicbrainz_server_error">Ошибка со стороны MusicBrainz. Пожалуйста, попробуйте еще раз.</string>
+    <string name="musicbrainz_is_unavailable">MusicBrainz недоступен. Пожалуйста, попробуйте позже.</string>
+    <string name="failed_to_parse_response">Не удалось разобрать ответ. Пожалуйста, попробуйте еще раз.</string>
+    <string name="no_internet">Похоже, вы не в сети. Подключитесь к интернету и попробуйте еще раз.</string>
+
+    <!-- Changes screen -->
+    <string name="changes">Изменения</string>
+    <string name="old_cover_art">Старая обложка</string>
+    <string name="new_cover_art">Новая обложка</string>
+    <string name="overwrite">Перезаписать</string>
+    <string name="select_fields_to_overwrite">Выберите поля для перезаписи:</string>
+    <string name="metadata_change_succeed">Информация о треке успешно изменена. Изменения вступят в силу через несколько секунд.</string>
+    <string name="important_to_know">Важно знать</string>
+    <string name="artwork_change_note">Если обложка альбома с этим треком присутствует на вашем устройстве, она будет использоваться независимо от выбранной обложки.</string>
+    <string name="cover_art_from_gallery_note">Для отображения обложки из галереи может потребоваться перезапуск приложения или устройства.</string>
+
+    <!-- Changes errors -->
+    <string name="failed_to_load_cover_art_album_id_corrupted">Не удалось загрузить обложку. Похоже, идентификатор альбома для этого трека поврежден.</string>
+    <string name="cover_art_not_found">К сожалению, обложки к этому треку не найдено.</string>
+    <string name="cover_art_archive_is_unavailable">Не удалось загрузить обложку. Cover Art Archive недоступен. Пожалуйста, попробуйте позже.</string>
+    <string name="failed_to_load_cover_art_request_timeout">Не удалось загрузить обложку за 3 минуты. Пожалуйста, проверьте качество сети и попробуйте еще раз.</string>
+
+    <!-- Metadata writing errors -->
+    <string name="write_permission_denied">Не удалось перезаписать метаданные. В разрешении отказано. Попробуйте еще раз.</string>
+    <string name="no_read_permission">Нет разрешения на чтение. Пожалуйста, предоставьте его или попробуйте еще раз.</string>
+    <string name="no_write_permission">Нет разрешения на запись. Пожалуйста, предоставьте его или попробуйте еще раз.</string>
+    <string name="failed_to_read">Не удалось прочитать файл. Пожалуйста, попробуйте еще раз.</string>
+    <string name="failed_to_write">Не удалось записать файл. Пожалуйста, попробуйте еще раз.</string>
+
+    <!-- Manual editing screen -->
+    <string name="edit">Редактирование</string>
+    <string name="pick_art">Выбрать обложку</string>
+    <string name="restore_art">Восстановить</string>
+    <string name="restore_tag">Восстановить значение тега</string>
+
+    <!-- Lyrics control screen -->
+    <string name="lyrics_control">Управление текстом</string>
+    <string name="lyrics_in_tag">Текст в теге</string>
+    <string name="lyrics_in_tag_explain">Текст, хранящийся в теге аудио файла</string>
+    <string name="lyrics_in_local_database">Текст в локальной базе данных</string>
+    <string name="lyrics_in_local_database_explain">Текст скопированный из тега, взятый из LRCLIB или добавленный из файла. Его вы видите на экране текста</string>
+    <string name="lyrics_actions">Действия с текстом</string>
+    <string name="lyrics_tools_explained">Действия по управлению или изменению текста в локальной базе данных</string>
+    <string name="clear_db_entry">Очистить запись в БД</string>
+    <string name="copy_from_tag">Скопировать из тега</string>
+    <string name="import_from_file">Импортировать из файла</string>
+    <string name="write_to_tag">Записать в тег</string>
+    <string name="fetch_from_lrclib">Взять из LRCLIB</string>
+    <string name="publish_on_lrclib">Опубликовать на LRCLIB</string>
+    <string name="unable_to_publish">Невозможно опубликовать: не указаны название, исполнитель или альбом.</string>
+    <string name="published_successfully">Опубликован успешно.</string>
+    <string name="solving_challenge">Решаем задачу...</string>
+
+    <!-- Lyrics sheet -->
+    <string name="lyrics">Текст</string>
+    <string name="close_lyrics_sheet">Закрыть текст трека</string>
+    <string name="loading_lyrics">Загрузка текста</string>
+    <string name="synced">Синхр.</string>
+    <string name="plain">Обычный</string>
+
+    <!-- Lyrics screen errors -->
+    <string name="cant_look_for_lyrics_title_or_artist_is_missing">Не удается найти текст. Для этого трека не указано название или исполнитель.</string>
+    <string name="lyrics_not_found">К сожалению, на LRCLIB текст к этому треку найти не удалось.</string>
+    <string name="cant_find_lyrics">Текст не найден.</string>
+    <string name="lyrics_provided_by">Текст предоставлен LRCLIB</string>
+
+    <!-- Playlists related -->
+    <string name="create_playlist">Создать плейлист</string>
+    <string name="add_to_playlist">Добавить в плейлист</string>
+    <string name="back_to_add_to_playlist">Назад к добавлению в плейлист</string>
+    <string name="name">Название</string>
+    <string name="new_playlist_title_placeholder">напр. Любимые</string>
+    <string name="create">Создать</string>
+    <string name="reorder_track">Изменить положение трека</string>
+    <string name="delete_playlist">Удалить плейлист</string>
+    <string name="rename_playlist">Переименовать плейлист</string>
+    <string name="rename">Переименовать</string>
+    <string name="delete">Удалить</string>
+    <string name="delete_playlist_dialog_title">Удалить плейлист?</string>
+    <string name="delete_playlist_dialog_text">Это не повлияет на треки в нем.</string>
+    <string name="nothing_yet">Пока ничего нет.</string>
+    <string name="unknown_folder">Неизвестная папка</string>
+    <string name="enable_list_view">Отображать списком</string>
+    <string name="enable_grid_view">Отображать сеткой</string>
+
+    <!-- Playlists errors -->
+    <string name="blank_playlist_name_error">Пожалуйста, назовите плейлист.</string>
+    <string name="playlist_already_exists_error">Это название уже использовано.</string>
+    <string name="track_is_already_on_playlist">Этот трек уже в плейлисте.</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Настройки</string>
+    <string name="close_settings_sheet">Закрыть настройки</string>
+    <string name="theme">Тема</string>
+    <string name="theme_supporting_text">Оформление, палитра</string>
+    <string name="lyrics_supporting_text">Параметры шрифта, выравнивание</string>
+    <string name="playback">Воспроизведение</string>
+    <string name="playback_supporting_text">Фокус аудио, эквалайзер</string>
+    <string name="about_app">О приложении</string>
+    <string name="about_explain">Версия, репозиторий, обратная связь</string>
+    <string name="music_scan">Сканирование музыки</string>
+    <string name="music_scan_supporting_text">Режим фильтра, управление папками, сканирование</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Оформление</string>
+    <string name="appearance_system">Системное</string>
+    <string name="appearance_light">Светлое</string>
+    <string name="appearance_dark">Тёмное</string>
+
+    <string name="palette_style">Стиль палитры</string>
+    <string name="palette_tonal_spot">Тональное пятно</string>
+    <string name="palette_neutral">Нейтральная</string>
+    <string name="palette_vibrant">Яркая</string>
+    <string name="palette_expressive">Выразительная</string>
+    <string name="palette_rainbow">Радужная</string>
+    <string name="palette_fruit_salad">Фруктовый салат</string>
+    <string name="palette_monochrome">Монохромная</string>
+    <string name="palette_fidelity">Верность</string>
+    <string name="palette_content">Содержимое</string>
+
+    <string name="black_theme">Чёрная тема</string>
+    <string name="black_theme_explain">Сделать тёмную тему по-настоящему тёмной</string>
+    <string name="use_system_key_colors">Системные цвета</string>
+    <string name="use_system_key_colors_explain">Использовать акцентные цвета системы</string>
+    <string name="use_album_art_color">Цвет обложки</string>
+    <string name="use_album_art_color_explain">Использовать доминирующий цвет обложки текущего трека</string>
+
+    <!-- Playback settings -->
+    <string name="audio_focus">Фокус аудио</string>
+    <string name="audio_focus_explain">Приостановить воспроизведение, когда другому приложению нужно воспроизвести аудио</string>
+    <string name="changes_will_take_effect_on_next_launch">Изменения вступят в силу со следующего запуска.</string>
+    <string name="equalizer">Эквалайзер</string>
+    <string name="equalizer_explain">Ручное регулирование звука</string>
+
+    <!-- Tabs settings -->
+    <string name="tabs">Вкладки</string>
+    <string name="tabs_supporting_text">Вкладка по умолчанию и порядок</string>
+    <string name="default_tab_and_order">Вкладка по умолчанию и порядок</string>
+    <string name="reorder_tab">Изменить порядок вкладки</string>
+    <string name="jump_to_beginning">Перейти к началу</string>
+    <string name="jump_to_beginning_explain">Перезапускать текущий трек при первом нажатии кнопки перехода к предыдущему</string>
+
+    <!-- Playlists settings -->
+    <string name="filter_instead_of_search">Фильтр вместо поиска</string>
+    <string name="filter_instead_of_search_explain">Заменить поиск в плейлисте на фильтр</string>
+    <string name="playlists_supporting_text">Поле поиска, импорт</string>
+    <string name="filter">Фильтр</string>
+    <string name="import_playlist">Импортировать плейлист</string>
+    <string name="import_playlist_explain">Добавить плейлист из M3U файла</string>
+    <string name="imported_successfully">Импортировано успешно.</string>
+
+    <!-- Lyrics settings -->
+    <string name="dark_theme_for_lyrics">Тёмное оформление для текста</string>
+    <string name="dark_theme_for_lyrics_explain">Применять темную тему к тексту, даже если активен светлый режим</string>
+    <string name="lyrics_preview_string">Эта очень очень очень длинная строка показывает, как текст трека с этими настройками будет выглядеть на соответствующем экране</string>
+    <string name="font_size">Размер шрифта</string>
+    <string name="font_weight">Вес шрифта</string>
+    <string name="line_height">Высота строки</string>
+    <string name="letter_spacing">Интервал между буквами</string>
+    <string name="alignment">Выравнивание</string>
+    <string name="start">По левому краю</string>
+    <string name="center">По центру</string>
+    <string name="end">По правому краю</string>
+    <string name="reset">Сбросить</string>
+
+    <!-- Music scan settings -->
+    <string name="include_music_folder">Включить папку Музыка</string>
+    <string name="include_music_folder_explain">Показывать музыку из папки "Музыка" по умолчанию</string>
+    <string name="included_folders">Включенные папки</string>
+    <string name="pick_folder_to_include_in_scanning">Выберите папку, которую нужно включить в сканирование</string>
+    <string name="remove_folder_from_included_in_scanning">Удалить папку из числа включенных в сканирование</string>
+    <string name="folders_with_audio">Папки с аудио</string>
+    <string name="include_folder_in_scanning">Включить папку в сканирование</string>
+    <string name="scan_for_folders_with_audio">Найти папки со звуком</string>
+    <string name="filter_mode">Режим фильтра</string>
+    <string name="filter_mode_explain">Показывать музыку из указанных папок или из всех кроме них</string>
+    <string name="inclusive">Включение</string>
+    <string name="exclusive">Исключение</string>
+    <string name="excluded_folders">Исключенные папки</string>
+    <string name="pick_folder_to_exclude_from_scanning">Выберите папку, которую нужно исключить из сканирования</string>
+    <string name="remove_folder_from_excluded_from_scanning">Удаление папки из исключенных из сканирования</string>
+    <string name="exclude_folder_from_scanning">Исключить папку из сканирования</string>
+    <string name="scanned_successfully">Сканирование успешно завершено</string>
+    <string name="refresh_on_app_launch">Обновление при запуске</string>
+    <string name="refresh_on_app_launch_explain">Обновлять данные в MediaStore при запуске приложения</string>
+    <string name="refresh">Обновить MediaStore</string>
+    <string name="refresh_explain">Обновить данные, уже имеющиеся в MediaStore</string>
+    <string name="scan_folder">Отсканировать папку</string>
+    <string name="scan_folder_explain">Отсканировать папку для включения новых данных в MediaStore</string>
+    <string name="failed_to_scan">Сканирование не удалось</string>
+    <string name="nothing_to_refresh">Обновлять нечего</string>
+    <string name="refreshed_successfully">Успешно обновлено</string>
+    <string name="failed_to_refresh">Не удалось обновить</string>
+    <string name="ignore_short_tracks">Игнорировать короткие треки</string>
+    <string name="ignore_short_tracks_explain">Не показывать треки короче 30 секунд</string>
+
+    <!-- About screen -->
+    <string name="repo">Репозиторий</string>
+    <string name="repo_explain">Ознакомьтесь с репозиторием проекта</string>
+    <string name="feedback">Обратная связь</string>
+    <string name="feedback_explain">Свяжитесь с нами, чтобы предложить функцию или сообщить о проблеме</string>
+
+    <!-- Open a track with "Open with..." dialog -->
+    <string name="track_is_not_found_in_media_store">К сожалению, этот трек недоступен для плеера. Возможно, это потому, что он находится в папке, не включенной в сканирование.</string>
+
+    <string name="copy_error">Скопировать ошибку</string>
+    <string name="select_all">Выбрать все</string>
+</resources>

@@ -1,0 +1,590 @@
+﻿> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+
+> Task :app:compileDebugKotlin FAILED
+.\gradlew.bat : e: or
+g.jetbrains.kotlin.ut
+il.FileAnalysisExcept
+ion: While analysing 
+C:/Users/mukht/Deskto
+p/Android/Lumena/app/
+src/main/java/com/dn0
+ne/player/MainActivit
+y.kt:66:5: java.lang.
+IllegalArgumentExcept
+ion: source must not 
+be null
+At line:1 char:1
++ .\gradlew.bat 
+assembleDebug *>&1 | 
+Out-File -FilePath 
+build_fail.log  ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (e: org.   
+ jetbrain...ust n    
+ot be null:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+	at org.jetbrains.kot
+lin.util.AnalysisExce
+ptionsKt.wrapIntoFile
+AnalysisExceptionIfNe
+eded(AnalysisExceptio
+ns.kt:57)
+	at org.jetbrains.kot
+lin.fir.FirCliExcepti
+onHandler.handleExcep
+tionOnFileAnalysis(Ut
+ils.kt:249)
+	at org.jetbrains.kot
+lin.fir.pipeline.Anal
+yseKt.runCheckers(ana
+lyse.kt:46)
+	at org.jetbrains.kot
+lin.fir.pipeline.FirU
+tilsKt.resolveAndChec
+kFir(firUtils.kt:77)
+	at org.jetbrains.kot
+lin.fir.pipeline.FirU
+tilsKt.buildResolveAn
+dCheckFirViaLightTree
+(firUtils.kt:88)
+	at org.jetbrains.kot
+lin.cli.jvm.compiler.
+pipeline.JvmCompilerP
+ipelineKt.compileModu
+leToAnalyzedFir(jvmCo
+mpilerPipeline.kt:319
+)
+	at org.jetbrains.kot
+lin.cli.jvm.compiler.
+pipeline.JvmCompilerP
+ipelineKt.compileModu
+lesUsingFrontendIrAnd
+LightTree(jvmCompiler
+Pipeline.kt:118)
+	at org.jetbrains.kot
+lin.cli.jvm.K2JVMComp
+iler.doExecute(K2JVMC
+ompiler.kt:148)
+	at org.jetbrains.kot
+lin.cli.jvm.K2JVMComp
+iler.doExecute(K2JVMC
+ompiler.kt:43)
+	at org.jetbrains.kot
+lin.cli.common.CLICom
+piler.execImpl(CLICom
+piler.kt:103)
+	at org.jetbrains.kot
+lin.cli.common.CLICom
+piler.execImpl(CLICom
+piler.kt:49)
+	at org.jetbrains.kot
+lin.cli.common.CLIToo
+l.exec(CLITool.kt:101
+)
+	at org.jetbrains.kot
+lin.incremental.Incre
+mentalJvmCompilerRunn
+er.runCompiler(Increm
+entalJvmCompilerRunne
+r.kt:464)
+	at org.jetbrains.kot
+lin.incremental.Incre
+mentalJvmCompilerRunn
+er.runCompiler(Increm
+entalJvmCompilerRunne
+r.kt:73)
+	at org.jetbrains.kot
+lin.incremental.Incre
+mentalCompilerRunner.
+doCompile(Incremental
+CompilerRunner.kt:506
+)
+	at org.jetbrains.kot
+lin.incremental.Incre
+mentalCompilerRunner.
+compileImpl(Increment
+alCompilerRunner.kt:4
+23)
+	at org.jetbrains.kot
+lin.incremental.Incre
+mentalCompilerRunner.
+compileNonIncremental
+ly(IncrementalCompile
+rRunner.kt:301)
+	at org.jetbrains.kot
+lin.incremental.Incre
+mentalCompilerRunner.
+compile(IncrementalCo
+mpilerRunner.kt:129)
+	at org.jetbrains.kot
+lin.daemon.CompileSer
+viceImplBase.execIncr
+ementalCompiler(Compi
+leServiceImpl.kt:675)
+	at org.jetbrains.kot
+lin.daemon.CompileSer
+viceImplBase.access$e
+xecIncrementalCompile
+r(CompileServiceImpl.
+kt:92)
+	at org.jetbrains.kot
+lin.daemon.CompileSer
+viceImpl.compile(Comp
+ileServiceImpl.kt:166
+0)
+	at java.base/jdk.int
+ernal.reflect.DirectM
+ethodHandleAccessor.i
+nvoke(DirectMethodHan
+dleAccessor.java:103)
+	at java.base/java.la
+ng.reflect.Method.inv
+oke(Method.java:580)
+	at java.rmi/sun.rmi.
+server.UnicastServerR
+ef.dispatch(UnicastSe
+rverRef.java:360)
+	at java.rmi/sun.rmi.
+transport.Transport$1
+.run(Transport.java:2
+00)
+	at java.rmi/sun.rmi.
+transport.Transport$1
+.run(Transport.java:1
+97)
+	at java.base/java.se
+curity.AccessControll
+er.doPrivileged(Acces
+sController.java:714)
+	at java.rmi/sun.rmi.
+transport.Transport.s
+erviceCall(Transport.
+java:196)
+	at java.rmi/sun.rmi.
+transport.tcp.TCPTran
+sport.handleMessages(
+TCPTransport.java:598
+)
+	at java.rmi/sun.rmi.
+transport.tcp.TCPTran
+sport$ConnectionHandl
+er.run0(TCPTransport.
+java:844)
+	at java.rmi/sun.rmi.
+transport.tcp.TCPTran
+sport$ConnectionHandl
+er.lambda$run$0(TCPTr
+ansport.java:721)
+	at java.base/java.se
+curity.AccessControll
+er.doPrivileged(Acces
+sController.java:400)
+	at java.rmi/sun.rmi.
+transport.tcp.TCPTran
+sport$ConnectionHandl
+er.run(TCPTransport.j
+ava:720)
+	at java.base/java.ut
+il.concurrent.ThreadP
+oolExecutor.runWorker
+(ThreadPoolExecutor.j
+ava:1144)
+	at java.base/java.ut
+il.concurrent.ThreadP
+oolExecutor$Worker.ru
+n(ThreadPoolExecutor.
+java:642)
+	at java.base/java.la
+ng.Thread.run(Thread.
+java:1583)
+Caused by: java.lang.
+IllegalArgumentExcept
+ion: source must not 
+be null
+	at org.jetbrains.kot
+lin.diagnostics.KtDia
+gnosticReportHelpersK
+t.requireNotNull(KtDi
+agnosticReportHelpers
+.kt:68)
+	at org.jetbrains.kot
+lin.diagnostics.KtDia
+gnosticReportHelpersK
+t.reportOn(KtDiagnost
+icReportHelpers.kt:39
+)
+	at org.jetbrains.kot
+lin.diagnostics.KtDia
+gnosticReportHelpersK
+t.reportOn$default(Kt
+DiagnosticReportHelpe
+rs.kt:31)
+	at org.jetbrains.kot
+lin.fir.analysis.chec
+kers.expression.FirIn
+compatibleClassExpres
+sionChecker.checkSour
+ceElement(FirIncompat
+ibleClassExpressionCh
+ecker.kt:50)
+	at org.jetbrains.kot
+lin.fir.analysis.chec
+kers.expression.FirIn
+compatibleClassExpres
+sionChecker.checkType
+$checkers(FirIncompat
+ibleClassExpressionCh
+ecker.kt:42)
+	at org.jetbrains.kot
+lin.fir.analysis.chec
+kers.type.FirIncompat
+ibleClassTypeChecker.
+check(FirIncompatible
+ClassTypeChecker.kt:1
+7)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.components.Typ
+eCheckersDiagnosticCo
+mponent.check(TypeChe
+ckersDiagnosticCompon
+ent.kt:81)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.components.Typ
+eCheckersDiagnosticCo
+mponent.visitResolved
+TypeRef(TypeCheckersD
+iagnosticComponent.kt
+:53)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.components.Typ
+eCheckersDiagnosticCo
+mponent.visitResolved
+TypeRef(TypeCheckersD
+iagnosticComponent.kt
+:19)
+	at org.jetbrains.kot
+lin.fir.types.FirReso
+lvedTypeRef.accept(Fi
+rResolvedTypeRef.kt:2
+8)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.CheckerRunning
+DiagnosticCollectorVi
+sitor.checkElement(Ch
+eckerRunningDiagnosti
+cCollectorVisitor.kt:
+24)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitResolvedTypeRef(
+AbstractDiagnosticCol
+lectorVisitor.kt:248)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitResolvedTypeRef(
+AbstractDiagnosticCol
+lectorVisitor.kt:30)
+	at org.jetbrains.kot
+lin.fir.types.FirReso
+lvedTypeRef.accept(Fi
+rResolvedTypeRef.kt:2
+8)
+	at org.jetbrains.kot
+lin.fir.declarations.
+impl.FirSimpleFunctio
+nImpl.acceptChildren(
+FirSimpleFunctionImpl
+.kt:63)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitNestedElements(A
+bstractDiagnosticColl
+ectorVisitor.kt:38)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitWithDeclarationA
+ndReceiver(AbstractDi
+agnosticCollectorVisi
+tor.kt:311)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitSimpleFunction(A
+bstractDiagnosticColl
+ectorVisitor.kt:118)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitSimpleFunction(A
+bstractDiagnosticColl
+ectorVisitor.kt:30)
+	at org.jetbrains.kot
+lin.fir.declarations.
+FirSimpleFunction.acc
+ept(FirSimpleFunction
+.kt:51)
+	at org.jetbrains.kot
+lin.fir.declarations.
+impl.FirRegularClassI
+mpl.acceptChildren(Fi
+rRegularClassImpl.kt:
+63)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitNestedElements(A
+bstractDiagnosticColl
+ectorVisitor.kt:38)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitWithDeclarationA
+ndReceiver(AbstractDi
+agnosticCollectorVisi
+tor.kt:311)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitClassAndChildren
+(AbstractDiagnosticCo
+llectorVisitor.kt:87)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitRegularClass(Abs
+tractDiagnosticCollec
+torVisitor.kt:92)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitRegularClass(Abs
+tractDiagnosticCollec
+torVisitor.kt:30)
+	at org.jetbrains.kot
+lin.fir.declarations.
+FirRegularClass.accep
+t(FirRegularClass.kt:
+48)
+	at org.jetbrains.kot
+lin.fir.declarations.
+impl.FirFileImpl.acce
+ptChildren(FirFileImp
+l.kt:57)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitNestedElements(A
+bstractDiagnosticColl
+ectorVisitor.kt:38)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitFile(AbstractDia
+gnosticCollectorVisit
+or.kt:1151)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollectorVisitor.
+visitFile(AbstractDia
+gnosticCollectorVisit
+or.kt:30)
+	at org.jetbrains.kot
+lin.fir.declarations.
+FirFile.accept(FirFil
+e.kt:42)
+	at org.jetbrains.kot
+lin.fir.analysis.coll
+ectors.AbstractDiagno
+sticCollector.collect
+Diagnostics(AbstractD
+iagnosticCollector.kt
+:36)
+	at org.jetbrains.kot
+lin.fir.pipeline.Anal
+yseKt.runCheckers(ana
+lyse.kt:34)
+	... 33 more
+
+e: file:///C:/Users/m
+ukht/.gradle/caches/8
+.13/transforms/278b97
+78622324c7353bbe0d841
+01504/transformed/haz
+e-materials-release-a
+pi.jar!/META-INF/haze
+-materials_release.ko
+tlin_module Module 
+was compiled with an 
+incompatible version 
+of Kotlin. The 
+binary version of 
+its metadata is 
+2.2.0, expected 
+version is 2.0.0.
+e: file:///C:/Users/m
+ukht/.gradle/caches/8
+.13/transforms/52a64b
+7572ef239a3c88341e283
+6c4be/transformed/haz
+e-release-api.jar!/ME
+TA-INF/haze_release.k
+otlin_module Module 
+was compiled with an 
+incompatible version 
+of Kotlin. The 
+binary version of 
+its metadata is 
+2.2.0, expected 
+version is 2.0.0.
+e: file:///C:/Users/m
+ukht/.gradle/caches/m
+odules-2/files-2.1/or
+g.jetbrains.kotlin/ko
+tlin-stdlib/2.2.21/fa
+374a986e128314c3db00a
+20aae55f72a258511/kot
+lin-stdlib-2.2.21.jar
+!/META-INF/kotlin-std
+lib-jdk7.kotlin_modul
+e Module was 
+compiled with an 
+incompatible version 
+of Kotlin. The 
+binary version of 
+its metadata is 
+2.2.0, expected 
+version is 2.0.0.
+e: file:///C:/Users/m
+ukht/.gradle/caches/m
+odules-2/files-2.1/or
+g.jetbrains.kotlin/ko
+tlin-stdlib/2.2.21/fa
+374a986e128314c3db00a
+20aae55f72a258511/kot
+lin-stdlib-2.2.21.jar
+!/META-INF/kotlin-std
+lib-jdk8.kotlin_modul
+e Module was 
+compiled with an 
+incompatible version 
+of Kotlin. The 
+binary version of 
+its metadata is 
+2.2.0, expected 
+version is 2.0.0.
+e: file:///C:/Users/m
+ukht/.gradle/caches/m
+odules-2/files-2.1/or
+g.jetbrains.kotlin/ko
+tlin-stdlib/2.2.21/fa
+374a986e128314c3db00a
+20aae55f72a258511/kot
+lin-stdlib-2.2.21.jar
+!/META-INF/kotlin-std
+lib.kotlin_module 
+Module was compiled 
+with an incompatible 
+version of Kotlin. 
+The binary version 
+of its metadata is 
+2.2.0, expected 
+version is 2.0.0.
+
+FAILURE: Build 
+failed with an 
+exception.
+
+* What went wrong:
+Execution failed for 
+task ':app:compileDeb
+ugKotlin'.
+> A failure occurred 
+while executing org.j
+etbrains.kotlin.compi
+lerRunner.GradleCompi
+lerRunnerWithWorkers$
+GradleKotlinCompilerW
+orkAction
+   > Internal 
+compiler error. See 
+log for more details
+
+* Try:
+> Run with 
+--stacktrace option 
+to get the stack 
+trace.
+> Run with --info or 
+--debug option to 
+get more log output.
+> Run with --scan to 
+get full insights.
+> Get more help at ht
+tps://help.gradle.org
+.
+
+BUILD FAILED in 16s
+29 actionable tasks: 1 executed, 28 up-to-date
