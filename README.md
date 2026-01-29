@@ -6,9 +6,19 @@
 
   ### Music player for Android
   
+  **Inspired by African heritage and cultural music traditions**
+  
+  Lumena (inspired by Swahili and East African musical traditions) is a powerful, user-focused music player that celebrates the joy of music from all cultures, with special appreciation for African roots and rhythms.
+  
 </div>
 
-## Screenshots
+## About Lumena
+
+Lumena is built with the belief that music is a universal language that connects cultures and communities. The name draws inspiration from Swahili and East African musical traditions, reflecting our commitment to celebrating African cultural heritage while creating tools that serve all music lovers globally.
+
+**Our Mission:** Empower users to enjoy, discover, and celebrate music from their local libraries and the wider world, with special appreciation for African and world music traditions.
+
+
 
 <div align="center">
   <div>
