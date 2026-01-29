@@ -131,6 +131,9 @@ signingConfigs {
             excludes += "META-INF/DEPENDENCIES"
             excludes += "META-INF/INDEX.LIST"
         }
+        jniLibs {
+            excludes += "**/libpython.zip.so"
+        }
     }
 
     dependenciesInfo {
@@ -193,7 +196,6 @@ dependencies {
     implementation(libs.scrollbars)
     implementation(libs.haze)
     implementation(libs.haze.materials)
-    implementation(libs.ytdlp.android)
     implementation("com.github.TeamNewPipe:NewPipeExtractor:v0.25.0")
     implementation("com.google.api-client:google-api-client-android:2.6.0")
     implementation("com.google.http-client:google-http-client-jackson2:1.43.3")
