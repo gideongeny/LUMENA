@@ -224,6 +224,34 @@ fun AboutPage(
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // Cultural Heritage Section
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+            )
+        ) {
+            Column(
+                modifier = Modifier.padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                Text(
+                    text = context.resources.getString(R.string.cultural_heritage),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.primary
+                )
+
+                Text(
+                    text = context.resources.getString(R.string.cultural_heritage_message),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
         val uriHandler = LocalUriHandler.current
         android.util.Log.d("AboutPage", "UriHandler obtained: ${uriHandler != null}")
         if (uriHandler == null) {
