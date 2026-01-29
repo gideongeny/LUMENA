@@ -7,7 +7,7 @@
   ### Music player for Android
   **🇰🇪 Built in Kenya, Celebrating African Music**
   
-  Lumena is a powerful, user-focused music player built by Kenyan developer, inspired by Swahili and East African musical traditions. We're committed to creating world-class technology from Africa and celebrating African cultural heritage.
+  Lumena is a powerful, user-focused music player built by Kenyan developer, inspired by Swahili and East African musical traditions. I am committed to creating world-class technology from Africa and celebrating African cultural heritage.
   
 </div>
 
