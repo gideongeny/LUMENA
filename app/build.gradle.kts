@@ -104,6 +104,12 @@ signingConfigs {
                 "proguard-rules.pro"
             )
             signingConfig = signingConfigs.getByName("release")
+            // Disable splits for bundle builds
+            splits {
+                abi {
+                    isEnable = false
+                }
+            }
         }
     }
 
