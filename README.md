@@ -5,18 +5,25 @@
   # Lumena
 
   ### Music player for Android
+  **🇰🇪 Built in Kenya, Celebrating African Music**
   
-  **Inspired by African heritage and cultural music traditions**
-  
-  Lumena (inspired by Swahili and East African musical traditions) is a powerful, user-focused music player that celebrates the joy of music from all cultures, with special appreciation for African roots and rhythms.
+  Lumena is a powerful, user-focused music player built by Kenyan developers, inspired by Swahili and East African musical traditions. We're committed to creating world-class technology from Africa and celebrating African cultural heritage.
   
 </div>
 
 ## About Lumena
 
-Lumena is built with the belief that music is a universal language that connects cultures and communities. The name draws inspiration from Swahili and East African musical traditions, reflecting our commitment to celebrating African cultural heritage while creating tools that serve all music lovers globally.
+Lumena is built in Kenya with the belief that music is a universal language that connects cultures and communities. We celebrate African technological innovation while creating tools that serve music lovers globally.
 
 **Our Mission:** Empower users to enjoy, discover, and celebrate music from their local libraries and the wider world, with special appreciation for African and world music traditions.
+
+**Developer:** Gideon C. Ngeno - Kenya 🇰🇪
+
+**Why Lumena Matters:**
+- 🌍 African-built technology serving the world
+- 🎵 Celebrating Swahili and East African musical heritage
+- 💡 Demonstrating tech innovation from Africa
+- 🤝 Contributing to global open-source community
 
 
 
@@ -33,7 +40,16 @@ Lumena is built with the belief that music is a universal language that connects
   </div>
 </div>
 
-## Features
+## Developer
+
+**Gideon C. Ngeno**
+- Location: 🇰🇪 Kenya
+- Passion: Music, Technology, African Innovation
+- Vision: Creating world-class Android apps that celebrate African culture
+
+Building LUMENA is part of a broader mission to showcase that innovative, high-quality technology can be built and contributed to the world from Africa. Every line of code represents commitment to African tech excellence.
+
+
 
 ### Core Music & Library Features
 - **Multiple Audio Formats** - Enjoy your favorite music in MP3, FLAC, OGG, WAV, and more

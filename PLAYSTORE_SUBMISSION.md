@@ -50,8 +50,13 @@ Music player with YouTube search & local file support
 
 **Full Description (4000 char max):**
 ```
-LUMENA is a feature-rich music player that seamlessly combines local music 
-library management with online streaming capabilities via YouTube.
+LUMENA is a feature-rich music player built in Kenya, celebrating African music heritage 
+while serving music lovers worldwide.
+
+🎵 A Music Player Built in Africa, for the World
+
+LUMENA combines local music library management with online streaming capabilities via YouTube, 
+all built with pride in Kenya and inspired by Swahili and East African musical traditions.
 
 Features:
 • Local Music Library: Browse, organize, and play your downloaded music
@@ -63,6 +68,11 @@ Features:
 • Dark Mode Support: Easy on the eyes in any lighting
 • High Refresh Rate Support: Smooth 120Hz+ display optimization
 • No Ads: Clean, distraction-free experience
+
+🇰🇪 African-Built Technology
+LUMENA represents innovation and excellence from Africa. We're proud to contribute 
+world-class Android applications to the global community while celebrating African 
+cultural heritage and Swahili musical traditions.
 
 LUMENA prioritizes performance, ease of use, and user privacy.
 ```

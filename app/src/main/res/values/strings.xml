@@ -238,12 +238,12 @@
     <string name="playback_supporting_text">Audio focus, equalizer</string>
     <string name="about_app">About app</string>
     <string name="about_explain">Version, repository, feedback</string>
-    <string name="app_description">LUMENA - Music player for Android. Inspired by African heritage and cultural music traditions.</string>
+    <string name="app_description">LUMENA - Music player for Android. Built in Kenya. Celebrating African music heritage and global music traditions.</string>
     <string name="app_mission">Our Mission: Celebrate music from all cultures with special appreciation for African roots and rhythms</string>
-    <string name="cultural_heritage">Cultural Heritage</string>
-    <string name="cultural_heritage_message">LUMENA draws inspiration from Swahili and East African musical traditions, celebrating the joy of music that connects cultures and communities worldwide.</string>
+    <string name="cultural_heritage">Built in Kenya 🇰🇪</string>
+    <string name="cultural_heritage_message">LUMENA is proudly developed in Kenya, drawing inspiration from Swahili and East African musical traditions. We celebrate African technological innovation while serving music lovers worldwide.</string>
     <string name="acknowledgments">Acknowledgments</string>
-    <string name="acknowledgments_message">Built with appreciation for African cultural heritage and global music traditions. Special thanks to all contributors and the open-source community.</string>
+    <string name="acknowledgments_message">Built with appreciation for African cultural heritage and global music traditions. Proud to contribute African-built technology to the world. Special thanks to all contributors and the open-source community.</string>
     <string name="music_scan">Music scan</string>
     <string name="music_scan_supporting_text">Filter mode, folder management, scanning</string>
 
