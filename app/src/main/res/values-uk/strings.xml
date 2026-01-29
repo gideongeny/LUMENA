@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Назад</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Начать</string>
+    <string name="permissions">Дозволи</string>
+    <string name="audio">Аудіо</string>
+    <string name="explain_audio_permission_requirement">Lumena потребує його, щоб відтворювати вашу чудову музику</string>
+    <string name="grant_permission">Надати дозвіл</string>
+    <string name="next">Далі</string>
+    <string name="grant_permission_in_settings">Будь ласка, надайте дозвіл у налаштуваннях</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Назва</string>
+    <string name="album">Альбом</string>
+    <string name="artist">Виконавець</string>
+    <string name="album_artist">Викон. альбому</string>
+    <string name="genre">Жанр</string>
+    <string name="year">Рік</string>
+    <string name="track_number">Номер треку</string>
+    <string name="bitrate">Бітрейт</string>
+    <string name="duration">Тривалість</string>
+    <string name="size">Розмір</string>
+    <string name="path">Шлях</string>
+    <string name="date_modified">Дата зміни</string>
+
+    <string name="unknown_title">Назва невідома</string>
+    <string name="unknown_album">Альбом невідомий</string>
+    <string name="unknown_artist">Виконавець невідомий</string>
+    <string name="unknown_album_artist">Викон. альбому невідомий</string>
+    <string name="unknown_genre">Жанр невідомий</string>
+    <string name="unknown_year">Рік невідомий</string>
+    <string name="unknown_track_number">Номер треку невідомий</string>
+    <string name="unknown_bitrate">Бітрейт невідомий</string>
+    <string name="unknown">Невідомий</string>
+
+    <!-- Track dropdown menu -->
+    <string name="track_menu_button">Кнопка меню треку</string>
+    <string name="play_next">Відтворити наступним</string>
+    <string name="add_to_queue">Додати у чергу</string>
+    <string name="remove_from_playlist">Видалити з плейлиста</string>
+    <string name="go_to_album">Перейти до альбому</string>
+    <string name="go_to_artist">Перейти до виконавця</string>
+
+    <!-- Tabs' names -->
+    <string name="tracks">Треки</string>
+    <string name="albums">Альбоми</string>
+    <string name="artists">Виконавці</string>
+    <string name="genres">Жанри</string>
+    <string name="playlists">Плейлисти</string>
+    <string name="folders">Папки</string>
+
+    <!-- Sorting dialog -->
+    <string name="sort_order">Порядок сортування</string>
+    <string name="sort_ascending">Сортувати за зростанням</string>
+    <string name="sort_descending">Сортувати за спаданням</string>
+    <string name="track_count">Кількість треків</string>
+
+    <!-- Track search -->
+    <string name="close_track_search">Закрити пошук треку</string>
+    <string name="track_search">Пошук треку</string>
+
+    <!-- Scroll to buttons -->
+    <string name="scroll_to_top">Прокрутити до початку</string>
+    <string name="scroll_to_current_track">Прокрутити до поточного треку</string>
+
+    <!-- Expanded player sheet -->
+    <string name="close_player_sheet">Згорнути плеєр</string>
+    <string name="playback_mode_toggle">Перемкнути режим відтворення</string>
+    <string name="show_lyrics">Показати текст треку</string>
+    <string name="set_sleep_timer">Встановити таймер сну</string>
+    <string name="sleep_timer">Таймер сну</string>
+    <string name="short_minutes">хв</string>
+    <string name="stop_timer">Стоп</string>
+    <string name="start_timer">Страт</string>
+
+    <!-- Play queue -->
+    <string name="remove_from_queue">Прибрати з черги</string>
+    <string name="queue">Черга</string>
+    <string name="show_queue">Показати чергу</string>
+
+    <!-- Track info screen -->
+    <string name="track_info">Про трек</string>
+    <string name="close_track_info_sheet">Закрити екран про трек</string>
+    <string name="look_for_metadata">Шукати метадані</string>
+    <string name="edit_manually">Редагувати вручну</string>
+    <string name="back_to_track_info">Назад до екрану про трек</string>
+
+    <!-- Risks of metadata editing dialog -->
+    <string name="risks_of_metadata_editing">Ризики редагування метаданих</string>
+    <string name="risks_of_metadata_editing_explain">Редагування метаданих є потужною функцією, але іноді все може піти не так, як очікувалося, і теги аудіофайлів можуть поводитися непередбачувано.\n\nМи рекомендуємо створювати резервні копії ваших аудіофайлів перед внесенням змін - краще перестрахуватися, ніж потім шкодувати! \n\nНатискаючи \"Прийняти\", ви погоджуєтеся з тим, що несете відповідальність за свої файли, зробили необхідні резервні копії, і розумієте, що ми не можемо нести відповідальність, якщо трапиться щось непередбачуване.\n\nНатисніть \"Відмінити\", якщо не бажаєте продовжувати.</string>
+    <string name="accept">Прийняти</string>
+    <string name="cancel">Відмінити</string>
+
+    <!-- Metadata search screen -->
+    <string name="search">Пошук</string>
+    <string name="description">Опис</string>
+    <string name="album_description">Опис альбому</string>
+    <string name="no_description">Немає опису</string>
+    <string name="back_to_info_search">Назад до екрану пошуку метаданих</string>
+    <string name="search_menu">Випадаюче меню екрану пошуку метаданих</string>
+    <string name="search_results_provided_by">Результати надані MusicBrainz</string>
+
+    <!-- Search tips dialog -->
+    <string name="got_it">Зрозуміло</string>
+    <string name="search_tips">Поради щодо пошуку</string>
+    <string name="search_explain">Ми використовуємо MusicBrainz API, щоб допомогти Вам знайти інформацію про трек. Ви можете зробити пошук більш точним за допомогою простих фільтрів.</string>
+    <string name="quotes_explain_header">Лапки для точних збігів</string>
+    <string name="quotes_explain">Використовуйте лапки, щоб знайти певні слова або фрази:</string>
+    <string name="quotes_example_1">\"4:44\"</string>
+    <string name="quotes_example_2"><![CDATA[\"7 Weeks & 3 Days\"]]></string>
+    <string name="field_explain_header">Пошук за виконавцем або альбомом</string>
+    <string name="field_explain">Ви можете шукати певного виконавця або альбом таким чином:</string>
+    <string name="field_example_1">artist:\"Jay-Z\"</string>
+    <string name="field_example_2">release:\"Over You\"</string>
+    <string name="combine_explain_header">Об\'єднаня фільтрів</string>
+    <string name="combine_explain">Використовуйте \"AND\" для з\'єднання різних фільтрів:</string>
+    <string name="combine_example">\"4:44\" AND artist:\"Jay-Z\" AND release:\"4:44\"</string>
+
+    <!-- Search errors -->
+    <string name="unknown_error_occurred">Виникла невідома помилка. Будь ласка, спробуйте ще раз.</string>
+    <string name="query_was_corrupted">Запит був пошкоджений. Будь ласка, спробуйте ще раз.</string>
+    <string name="musicbrainz_server_error">Помилка зі сторони MusicBrainz. Будь ласка, спробуйте ще раз.</string>
+    <string name="musicbrainz_is_unavailable">MusicBrainz недоступний. Будь ласка, спробуйте пізніше.</string>
+    <string name="failed_to_parse_response">Не вдалося розібрати відповідь. Будь ласка, спробуйте ще раз.</string>
+    <string name="no_internet">Схоже, Ви не в мережі. Підключіться до інтернету та спробуйте ще раз.</string>
+
+    <!-- Changes screen -->
+    <string name="changes">Зміни</string>
+    <string name="old_cover_art">Стара обкладинка</string>
+    <string name="new_cover_art">Нова обкладинка</string>
+    <string name="overwrite">Перезаписати</string>
+    <string name="select_fields_to_overwrite">Виберіть поля для перезапису:</string>
+    <string name="metadata_change_succeed">Інформацію про трек успішно змінено. Зміни набудуть чинності через кілька секунд.</string>
+    <string name="important_to_know">Важливо знати</string>
+    <string name="artwork_change_note">Якщо на вашому пристрої є обкладинка для альбому з цим треком, вона буде використовуватися незалежно від обраної обкладинки.</string>
+    <string name="cover_art_from_gallery_note">Для відображення обкладинки з галереї може знадобитися перезавантаження додатку або пристрою.</string>
+
+    <!-- Changes errors -->
+    <string name="failed_to_load_cover_art_album_id_corrupted">Не вдалося завантажити обкладинку. Схоже, ідентифікатор альбому для цього треку пошкоджено.</string>
+    <string name="cover_art_not_found">На жаль, обкладинки до цього треку не знайдено.</string>
+    <string name="cover_art_archive_is_unavailable">Не вдалося завантажити обкладинку. Cover Art Archive недоступний. Будь ласка, спробуйте пізніше.</string>
+    <string name="failed_to_load_cover_art_request_timeout">Не вдалося завантажити обкладинку за 3 хвилини. Будь ласка, перевірте якість мережі та спробуйте ще раз.</string>
+
+    <!-- Metadata writing errors -->
+    <string name="write_permission_denied">Не вдалося перезаписати метадані. У дозволі відмовлено. Спробуйте ще раз.</string>
+    <string name="no_read_permission">Немає дозволу на читання. Будь ласка, надайте його або спробуйте ще раз.</string>
+    <string name="no_write_permission">Немає дозволу на запис. Будь ласка, надайте його або спробуйте ще раз.</string>
+    <string name="failed_to_read">Не вдалося прочитати файл. Будь ласка, cпробуйте ще раз.</string>
+    <string name="failed_to_write">Не вдалося записати файл. Будь ласка, cпробуйте ще раз.</string>
+
+    <!-- Manual editing screen -->
+    <string name="edit">Редагування</string>
+    <string name="pick_art">Вибрати обкладинку</string>
+    <string name="restore_art">Відновити</string>
+    <string name="restore_tag">Відновити значення тегу</string>
+
+    <!-- Lyrics control screen -->
+    <string name="lyrics_control">Керування текстом</string>
+    <string name="lyrics_in_tag">Текст в тезі</string>
+    <string name="lyrics_in_tag_explain">Текст, що зберігається в тезі аудіофайлу</string>
+    <string name="lyrics_in_local_database">Текст у локальній базі даних</string>
+    <string name="lyrics_in_local_database_explain">Текст скопійований з тегу, взятий з LRCLIB або доданий з файлу. Це те, що ви бачите на екрані тексту</string>
+    <string name="lyrics_actions">Дії з текстом</string>
+    <string name="lyrics_tools_explained">Дії для керування або модифікації тексту у локальній базі даних</string>
+    <string name="clear_db_entry">Видалити запис у БД</string>
+    <string name="copy_from_tag">Скопіювати з тегу</string>
+    <string name="import_from_file">Імпортувати з файлу</string>
+    <string name="write_to_tag">Записати в тег</string>
+    <string name="fetch_from_lrclib">Взяти з LRCLIB</string>
+    <string name="publish_on_lrclib">Опублікувати на LRCLIB</string>
+    <string name="unable_to_publish">Неможливо опублікувати: не вказано назву, виконавця або альбом.</string>
+    <string name="published_successfully">Успішно опубліковано.</string>
+    <string name="solving_challenge">Вирішуємо задачу...</string>
+
+    <!-- Lyrics sheet -->
+    <string name="lyrics">Текст</string>
+    <string name="close_lyrics_sheet">Закрити текст треку</string>
+    <string name="loading_lyrics">Завантаження тексту</string>
+    <string name="synced">Синхр.</string>
+    <string name="plain">Звичайний</string>
+
+    <!-- Lyrics screen errors -->
+    <string name="cant_look_for_lyrics_title_or_artist_is_missing">Не вдається знайти текст. Для цього треку не вказано назву або виконавця.</string>
+    <string name="lyrics_not_found">На жаль, на LRCLIB текст до цього треку знайти не вдалося.</string>
+    <string name="cant_find_lyrics">Текст не знайдено.</string>
+    <string name="lyrics_provided_by">Текст наданий LRCLIB</string>
+
+    <!-- Playlists related -->
+    <string name="create_playlist">Створити плейлист</string>
+    <string name="add_to_playlist">Додати до плейлисту</string>
+    <string name="back_to_add_to_playlist">Назад до додавання до плейлисту</string>
+    <string name="name">Назва</string>
+    <string name="new_playlist_title_placeholder">напр. Улюблені</string>
+    <string name="create">Створити</string>
+    <string name="reorder_track">Змінити положення треку</string>
+    <string name="delete_playlist">Видалити плейлист</string>
+    <string name="rename_playlist">Перейменувати плейлист</string>
+    <string name="rename">Перейменувати</string>
+    <string name="delete">Видалити</string>
+    <string name="delete_playlist_dialog_title">Видалити плейлист?</string>
+    <string name="delete_playlist_dialog_text">Це не вплине на треки в ньому.</string>
+    <string name="nothing_yet">Поки нічого немає.</string>
+    <string name="unknown_folder">Невідома папка</string>
+    <string name="enable_list_view">Відображати списком</string>
+    <string name="enable_grid_view">Відображати сіткою</string>
+
+    <!-- Playlists errors -->
+    <string name="blank_playlist_name_error">Будь ласка, дайте назву плейлисту.</string>
+    <string name="playlist_already_exists_error">Ця назва вже використана.</string>
+    <string name="track_is_already_on_playlist">Цей трек вже в плейлисті.</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Налаштування</string>
+    <string name="close_settings_sheet">Закрити налаштування</string>
+    <string name="theme">Тема</string>
+    <string name="theme_supporting_text">Оформлення, палітра</string>
+    <string name="lyrics_supporting_text">Параметри шрифту, вирівнювання</string>
+    <string name="playback">Відтворення</string>
+    <string name="playback_supporting_text">Фокус аудіо, еквалайзер</string>
+    <string name="about_app">Про додаток</string>
+    <string name="about_explain">Версія, репозиторій, зворотній зв\'язок</string>
+    <string name="music_scan">Сканування музики</string>
+    <string name="music_scan_supporting_text">Режим фільтру, керування папками, сканування</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Оформлення</string>
+    <string name="appearance_system">Системне</string>
+    <string name="appearance_light">Світле</string>
+    <string name="appearance_dark">Темне</string>
+
+    <string name="palette_style">Стиль палітри</string>
+    <string name="palette_tonal_spot">Тональна пляма</string>
+    <string name="palette_neutral">Нейтральна</string>
+    <string name="palette_vibrant">Яскрава</string>
+    <string name="palette_expressive">Виразна</string>
+    <string name="palette_rainbow">Веселкова</string>
+    <string name="palette_fruit_salad">Фруктовий салат</string>
+    <string name="palette_monochrome">Монохромна</string>
+    <string name="palette_fidelity">Вірність</string>
+    <string name="palette_content">Вміст</string>
+
+    <string name="black_theme">Чорна тема</string>
+    <string name="black_theme_explain">Зробити темну тему справді темною</string>
+    <string name="use_system_key_colors">Системні кольори</string>
+    <string name="use_system_key_colors_explain">Використовувати акцентні кольори системи</string>
+    <string name="use_album_art_color">Колір обкладинки</string>
+    <string name="use_album_art_color_explain">Використовувати домінуючий колір обкладинки поточного треку</string>
+
+    <!-- Playback settings -->
+    <string name="audio_focus">Фокус аудіо</string>
+    <string name="audio_focus_explain">Призупинити відтворення, коли іншому додатку потрібно відтворити аудіо</string>
+    <string name="changes_will_take_effect_on_next_launch">Зміни набудуть чинності з наступного запуску.</string>
+    <string name="equalizer">Еквалайзер</string>
+    <string name="equalizer_explain">Ручне регулювання звуку</string>
+ау    <string name="jump_to_beginning">Перейти до початку</string>
+    <string name="jump_to_beginning_explain">Перезапустити поточний трек при першому натисканні кнопки переходу до попереднього</string>
+
+    <!-- Tabs settings -->
+    <string name="tabs">Вкладки</string>
+    <string name="tabs_supporting_text">Вкладка за замовчуванням та порядок</string>
+    <string name="default_tab_and_order">Вкладка за замовчуванням та порядок</string>
+    <string name="reorder_tab">Змінити порядок вкладки</string>
+
+    <!-- Playlists settings -->
+    <string name="filter_instead_of_search">Фільтр замість пошуку</string>
+    <string name="filter_instead_of_search_explain">Замінити пошук у плейлисті на фільтр</string>
+    <string name="playlists_supporting_text">Поле пошуку, імпорт</string>
+    <string name="filter">Фільтр</string>
+    <string name="import_playlist">Імпортувати плейлист</string>
+    <string name="import_playlist_explain">Додати плейлист з M3U файлу</string>
+    <string name="imported_successfully">Імпортовано успішно</string>
+
+    <!-- Lyrics settings -->
+    <string name="dark_theme_for_lyrics">Темне оформлення для тексту</string>
+    <string name="dark_theme_for_lyrics_explain">Застосовувати темну тему до тексту, навіть якщо світлий режим активний</string>
+    <string name="lyrics_preview_string">Цей дуже дуже дуже довгий рядок показує, як текст треку з цими налаштуваннями виглядатиме на відповідному екрані</string>
+    <string name="font_size">Розмір шрифту</string>
+    <string name="font_weight">Вага шрифту</string>
+    <string name="line_height">Висота рядка</string>
+    <string name="letter_spacing">Інтервал між літерами</string>
+    <string name="alignment">Вирівнювання</string>
+    <string name="start">По лівому краю</string>
+    <string name="center">По центру</string>
+    <string name="end">По правому краю</string>
+    <string name="reset">Зкинути</string>
+
+    <!-- Music scan settings -->
+    <string name="include_music_folder">Включити папку Музика</string>
+    <string name="include_music_folder_explain">Показувати музику з папки "Музика" за замовчуванням</string>
+    <string name="included_folders">Включені папки</string>
+    <string name="pick_folder_to_include_in_scanning">Виберіть папку для включення до сканування</string>
+    <string name="remove_folder_from_included_in_scanning">Видалити папку з числа включених до сканування</string>
+    <string name="folders_with_audio">Папки з аудіо</string>
+    <string name="include_folder_in_scanning">Включити папку до сканування</string>
+    <string name="scan_for_folders_with_audio">Шукати папки з аудіофайлами</string>
+    <string name="filter_mode">Режим фільтру</string>
+    <string name="filter_mode_explain">Показувати музику з вказаних папок або звідусіль, окрім них</string>
+    <string name="inclusive">Включення</string>
+    <string name="exclusive">Виключення</string>
+    <string name="excluded_folders">Виключені папки</string>
+    <string name="pick_folder_to_exclude_from_scanning">Виберіть папку, яку потрібно виключити зі сканування</string>
+    <string name="remove_folder_from_excluded_from_scanning">Видалити папку з виключених для сканування</string>
+    <string name="exclude_folder_from_scanning">Виключити папку зі сканування</string>
+    <string name="scanned_successfully">Сканування успішно завершено</string>
+    <string name="refresh_on_app_launch">Оновлювати при запуску</string>
+    <string name="refresh_on_app_launch_explain">Оновлювати дані в MediaStore при запуску додатку</string>
+    <string name="refresh">Оновити MediaStore</string>
+    <string name="refresh_explain">Оновити дані, які вже є в MediaStore</string>
+    <string name="scan_folder">Відсканувати папку</string>
+    <string name="scan_folder_explain">Відсканувати папку, щоб додати нові дані до MediaStore</string>
+    <string name="failed_to_scan">Сканування не вдалося</string>
+    <string name="nothing_to_refresh">Оновлювати нічого</string>
+    <string name="refreshed_successfully">Успішно оновлено</string>
+    <string name="failed_to_refresh">Не вадлося оновити</string>
+    <string name="ignore_short_tracks">Ігнорувати короткі треки</string>
+    <string name="ignore_short_tracks_explain">Не показувати треки коротше 30 секунд</string>
+
+    <!-- About screen -->
+    <string name="repo">Репозиторій</string>
+    <string name="repo_explain">Ознайомтеся з репозиторієм проекту</string>
+    <string name="feedback">Зворотній зв\'язок</string>
+    <string name="feedback_explain">Зв\'яжіться з нами, щоб запропонувати функцію або повідомити про проблему</string>
+
+    <!-- Open a track with "Open with..." dialog -->
+    <string name="track_is_not_found_in_media_store">На жаль, цей трек недоступний для плеєра. Можливо, це тому, що він знаходиться в папці, яку не було включено до сканування.</string>
+
+    <string name="copy_error">Скопіювати помилку</string>
+    <string name="select_all">Обрати всі</string>
+</resources>

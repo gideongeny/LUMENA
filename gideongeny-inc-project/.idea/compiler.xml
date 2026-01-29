@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="17">
+      <module name="NewPipeExtractor" target="11" />
+      <module name="NewPipeExtractor.extractor" target="11" />
+      <module name="NewPipeExtractor.extractor.main" target="11" />
+      <module name="NewPipeExtractor.extractor.test" target="11" />
+      <module name="NewPipeExtractor.main" target="11" />
+      <module name="NewPipeExtractor.test" target="11" />
+      <module name="NewPipeExtractor.timeago-generator" target="11" />
+      <module name="NewPipeExtractor.timeago-generator.main" target="11" />
+      <module name="NewPipeExtractor.timeago-generator.test" target="11" />
+      <module name="NewPipeExtractor.timeago-parser" target="11" />
+      <module name="NewPipeExtractor.timeago-parser.main" target="11" />
+      <module name="NewPipeExtractor.timeago-parser.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

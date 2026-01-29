@@ -1,0 +1,6 @@
+<b>Features</b>
+<ul><li>Enjoy your favorite music in a variety of formats, including MP3, FLAC, OGG, WAV, and more</li>
+<li>Easily browse tracks, albums, artists, and genres, and create custom playlists</li>
+<li>Enhance your listening experience with synchronized lyrics from LRCLIB</li>
+<li>Manually update track details or fetch accurate info from MusicBrainz</li>
+<li>Designed with Material You and supports dynamic color palettes</li></ul>
