@@ -15,7 +15,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.LaunchedEffect
@@ -25,7 +24,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.core.os.LocaleListCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import android.view.WindowManager
@@ -42,6 +40,7 @@ import coil3.memory.MemoryCache
 import coil3.request.transitionFactory
 import coil3.transition.CrossfadeTransition
 import com.dn0ne.player.app.data.MetadataWriter
+import com.dn0ne.player.core.data.Settings
 import com.dn0ne.player.app.domain.metadata.Metadata
 import com.dn0ne.player.app.domain.result.DataError
 import com.dn0ne.player.app.domain.result.Result
@@ -55,7 +54,6 @@ import com.dn0ne.player.app.presentation.components.snackbar.ScaffoldWithSnackba
 import com.dn0ne.player.app.presentation.components.snackbar.SnackbarController
 import com.dn0ne.player.app.presentation.components.snackbar.SnackbarEvent
 import com.dn0ne.player.core.data.MusicScanner
-import com.dn0ne.player.core.data.Settings
 import com.dn0ne.player.core.presentation.Routes
 import com.dn0ne.player.setup.data.SetupState
 import com.dn0ne.player.setup.presentation.SetupScreen
@@ -110,14 +108,6 @@ class MainActivity : ComponentActivity() {
         // Start frame rate monitor for runtime FPS diagnostics
         frameRateMonitor = FrameRateMonitor("MainActivity", 5000L)
         frameRateMonitor?.start()
-
-        // Apply saved language settings
-        val settings = get<Settings>()
-        val savedLanguage = settings.language
-        if (savedLanguage.isNotEmpty()) {
-            val localeList = LocaleListCompat.forLanguageTags(savedLanguage)
-            AppCompatDelegate.setApplicationLocales(localeList)
-        }
 
         val setupViewModel = getViewModel<SetupViewModel>()
         setupViewModel.onAudioPermissionRequest(checkAudioPermission())
@@ -346,9 +336,9 @@ class MainActivity : ComponentActivity() {
                             }
 
                             val useDynamicColor by viewModel.settings.useDynamicColor.collectAsState()
-                            AccessibilityTheme(
-                                settings = viewModel.settings,
-                                darkTheme = isDarkTheme
+                            MusicPlayerTheme(
+                                darkTheme = isDarkTheme,
+                                dynamicColor = useDynamicColor
                             ) {
                                 PlayerScreen(
                                     viewModel = viewModel,

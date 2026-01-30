@@ -14,7 +14,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.dn0ne.player.setup.presentation.components.AudioPermissionPage
-import com.dn0ne.player.setup.presentation.components.LanguageSelectionPage
 import com.dn0ne.player.setup.presentation.components.MusicScanPage
 import com.dn0ne.player.setup.presentation.components.WelcomePage
 
@@ -50,22 +49,6 @@ fun SetupScreen(
         composable<SetupPage.Welcome> {
             WelcomePage(
                 onGetStartedClick = {
-                    navController.navigate(SetupPage.LanguageSelection)
-                },
-                modifier = modifier
-                    .fillMaxSize()
-                    .background(color = MaterialTheme.colorScheme.background)
-                    .safeDrawingPadding()
-            )
-        }
-
-        composable<SetupPage.LanguageSelection> {
-            LanguageSelectionPage(
-                onBackClick = {
-                    navController.popBackStack()
-                },
-                onLanguageSelected = { languageCode ->
-                    viewModel.onLanguageSelected(languageCode)
                     navController.navigate(SetupPage.AudioPermission)
                 },
                 modifier = modifier
@@ -74,6 +57,8 @@ fun SetupScreen(
                     .safeDrawingPadding()
             )
         }
+
+
 
         composable<SetupPage.AudioPermission> {
             val isAudioPermissionGranted = viewModel.isAudioPermissionGranted.collectAsState()

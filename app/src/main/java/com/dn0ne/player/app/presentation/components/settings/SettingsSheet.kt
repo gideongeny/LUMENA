@@ -121,22 +121,6 @@ fun SettingsSheet(
                     val settings = remember {
                         listOf(
                             SettingsItem(
-                                title = context.resources.getString(R.string.language),
-                                supportingText = context.resources.getString(R.string.language_supporting_text),
-                                icon = Icons.Rounded.Language,
-                                onClick = {
-                                    navController.navigate(SettingsRoutes.Language)
-                                }
-                            ),
-                            SettingsItem(
-                                title = context.resources.getString(R.string.accessibility),
-                                supportingText = context.resources.getString(R.string.accessibility_supporting_text),
-                                icon = Icons.Rounded.Accessibility,
-                                onClick = {
-                                    navController.navigate(SettingsRoutes.Accessibility)
-                                }
-                            ),
-                            SettingsItem(
                                 title = context.resources.getString(R.string.playback),
                                 supportingText = context.resources.getString(R.string.playback_supporting_text),
                                 icon = Icons.Rounded.MusicNote,
@@ -358,28 +342,7 @@ fun SettingsSheet(
                     )
                 }
 
-                composable<SettingsRoutes.Language> {
-                    LanguageSettingsPage(
-                        settings = state.settings,
-                        onBackClick = {
-                            navController.navigateUp()
-                        },
-                        onLanguageChanged = {
-                            // Language changed, settings will be updated
-                        },
-                        modifier = Modifier.fillMaxSize()
-                    )
-                }
 
-                composable<SettingsRoutes.Accessibility> {
-                    AccessibilitySettingsPage(
-                        settings = state.settings,
-                        onBackClick = {
-                            navController.navigateUp()
-                        },
-                        modifier = Modifier.fillMaxSize()
-                    )
-                }
             }
         }
     }
@@ -390,11 +353,7 @@ sealed interface SettingsRoutes {
     @Serializable
     data object Main : SettingsRoutes
 
-    @Serializable
-    data object Language : SettingsRoutes
 
-    @Serializable
-    data object Accessibility : SettingsRoutes
 
     @Serializable
     data object Playback : SettingsRoutes
