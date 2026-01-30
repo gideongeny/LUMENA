@@ -75,6 +75,8 @@ Building LUMENA is part of a broader mission to showcase that innovative, high-q
 - **Material You Design** - Beautiful UI designed with [Material You](https://m3.material.io/) and supports dynamic color palettes
 - **Dark Theme** - Full dark theme support with system integration
 - **Smooth Animations** - Polished animations and transitions throughout the app
+- **Multi-Platform Support** - Optimized for phones, tablets, and Android TV with adaptive layouts
+- **Progressive Web App** - Access Lumena from any browser with offline support and installable PWA
 
 ### Online & Discovery Features
 - **YouTube Search & Streaming** - Find any track on YouTube and stream it instantly (optimized for music content)
