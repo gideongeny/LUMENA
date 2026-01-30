@@ -13,7 +13,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.rounded.Check
-import androidx.compose.material.icons.rounded.Visibility
+import androidx.compose.material.icons.rounded.KeyboardArrowRight
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -38,13 +38,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.dn0ne.player.R
+import com.dn0ne.player.core.data.Settings
 import com.dn0ne.player.setup.presentation.components.supportedLanguages
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LanguageAndAccessibilitySettings(
-    settings: com.dn0ne.player.core.data.Settings,
+fun LanguageSettingsPage(
+    settings: Settings,
     onBackClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -103,11 +104,10 @@ fun LanguageAndAccessibilitySettings(
                         }
                     },
                     trailingContent = {
-                        Text(
-                            text = stringResource(R.string.next),
-                            style = MaterialTheme.typography.labelLarge,
-                            color = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.clickable { showLanguagePicker = true }
+                        Icon(
+                            imageVector = Icons.Rounded.KeyboardArrowRight,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     },
                     modifier = Modifier
@@ -118,49 +118,11 @@ fun LanguageAndAccessibilitySettings(
 
             item {
                 HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-            }
-
-            item {
                 Text(
-                    text = stringResource(R.string.accessibility),
-                    style = MaterialTheme.typography.titleMedium,
+                    text = stringResource(R.string.changes_will_take_effect_on_next_launch),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(vertical = 8.dp)
-                )
-            }
-
-            item {
-                SettingsSwitchItem(
-                    title = stringResource(R.string.screen_reader),
-                    supportingText = stringResource(R.string.screen_reader_explain),
-                    checked = settings.screenReader,
-                    onCheckedChange = { settings.screenReader = it }
-                )
-            }
-
-            item {
-                SettingsSwitchItem(
-                    title = stringResource(R.string.large_text),
-                    supportingText = stringResource(R.string.large_text_explain),
-                    checked = settings.largeText,
-                    onCheckedChange = { settings.largeText = it }
-                )
-            }
-
-            item {
-                SettingsSwitchItem(
-                    title = stringResource(R.string.high_contrast),
-                    supportingText = stringResource(R.string.high_contrast_explain),
-                    checked = settings.highContrast,
-                    onCheckedChange = { settings.highContrast = it }
-                )
-            }
-
-            item {
-                SettingsSwitchItem(
-                    title = stringResource(R.string.voice_control),
-                    supportingText = stringResource(R.string.voice_control_explain),
-                    checked = settings.voiceControl,
-                    onCheckedChange = { settings.voiceControl = it }
                 )
             }
         }
@@ -208,6 +170,89 @@ fun LanguageAndAccessibilitySettings(
                         HorizontalDivider()
                     }
                 }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun AccessibilitySettingsPage(
+    settings: Settings,
+    onBackClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val context = LocalContext.current
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(text = stringResource(R.string.accessibility)) },
+                navigationIcon = {
+                    IconButton(onClick = onBackClick) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.back)
+                        )
+                    }
+                }
+            )
+        },
+        modifier = modifier
+    ) { paddingValues ->
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+                .padding(horizontal = 16.dp)
+        ) {
+            item {
+                Text(
+                    text = stringResource(R.string.accessibility_supporting_text),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(vertical = 8.dp)
+                )
+            }
+
+            item {
+                HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+            }
+
+            item {
+                SettingsSwitchItem(
+                    title = stringResource(R.string.screen_reader),
+                    supportingText = stringResource(R.string.screen_reader_explain),
+                    checked = settings.screenReader,
+                    onCheckedChange = { settings.screenReader = it }
+                )
+            }
+
+            item {
+                SettingsSwitchItem(
+                    title = stringResource(R.string.large_text),
+                    supportingText = stringResource(R.string.large_text_explain),
+                    checked = settings.largeText,
+                    onCheckedChange = { settings.largeText = it }
+                )
+            }
+
+            item {
+                SettingsSwitchItem(
+                    title = stringResource(R.string.high_contrast),
+                    supportingText = stringResource(R.string.high_contrast_explain),
+                    checked = settings.highContrast,
+                    onCheckedChange = { settings.highContrast = it }
+                )
+            }
+
+            item {
+                SettingsSwitchItem(
+                    title = stringResource(R.string.voice_control),
+                    supportingText = stringResource(R.string.voice_control_explain),
+                    checked = settings.voiceControl,
+                    onCheckedChange = { settings.voiceControl = it }
+                )
             }
         }
     }

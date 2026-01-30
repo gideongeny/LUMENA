@@ -125,7 +125,7 @@ fun SettingsSheet(
                                 supportingText = context.resources.getString(R.string.language_supporting_text),
                                 icon = Icons.Rounded.Language,
                                 onClick = {
-                                    navController.navigate(SettingsRoutes.LanguageAndAccessibility)
+                                    navController.navigate(SettingsRoutes.Language)
                                 }
                             ),
                             SettingsItem(
@@ -133,7 +133,7 @@ fun SettingsSheet(
                                 supportingText = context.resources.getString(R.string.accessibility_supporting_text),
                                 icon = Icons.Rounded.Accessibility,
                                 onClick = {
-                                    navController.navigate(SettingsRoutes.LanguageAndAccessibility)
+                                    navController.navigate(SettingsRoutes.Accessibility)
                                 }
                             ),
                             SettingsItem(
@@ -358,8 +358,18 @@ fun SettingsSheet(
                     )
                 }
 
-                composable<SettingsRoutes.LanguageAndAccessibility> {
-                    LanguageAndAccessibilitySettings(
+                composable<SettingsRoutes.Language> {
+                    LanguageSettingsPage(
+                        settings = state.settings,
+                        onBackClick = {
+                            navController.navigateUp()
+                        },
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+
+                composable<SettingsRoutes.Accessibility> {
+                    AccessibilitySettingsPage(
                         settings = state.settings,
                         onBackClick = {
                             navController.navigateUp()
@@ -378,7 +388,10 @@ sealed interface SettingsRoutes {
     data object Main : SettingsRoutes
 
     @Serializable
-    data object LanguageAndAccessibility : SettingsRoutes
+    data object Language : SettingsRoutes
+
+    @Serializable
+    data object Accessibility : SettingsRoutes
 
     @Serializable
     data object Playback : SettingsRoutes
