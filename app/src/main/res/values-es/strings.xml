@@ -364,4 +364,25 @@
     <string name="contact_info_explain">Contactar al desarrollador</string>
     <string name="app_permissions">Permisos de la Aplicación</string>
     <string name="app_permissions_explain">Ver permisos requeridos y sus propósitos</string>
+
+    <!-- Language & Accessibility Settings -->
+    <string name="language">Idioma</string>
+    <string name="language_supporting_text">Elige tu idioma preferido</string>
+    <string name="system_default">Predeterminado del sistema</string>
+    <string name="select_language">Seleccionar idioma</string>
+    <string name="accessibility">Accesibilidad</string>
+    <string name="accessibility_supporting_text">Lector de pantalla, texto grande, alto contraste</string>
+    <string name="screen_reader">Lector de pantalla</string>
+    <string name="screen_reader_explain">Activar TalkBack para usuarios con discapacidad visual</string>
+    <string name="large_text">Texto grande</string>
+    <string name="large_text_explain">Aumentar el tamaño del texto en toda la aplicación</string>
+    <string name="high_contrast">Alto contraste</string>
+    <string name="high_contrast_explain">Colores mejorados para mejor visibilidad</string>
+    <string name="voice_control">Control por voz</string>
+    <string name="voice_control_explain">Controlar la reproducción con comandos de voz</string>
+    <string name="language_change_requires_restart">Los cambios de idioma se aplicarán después de reiniciar la aplicación</string>
+    <string name="restart_required">Reinicio Requerido</string>
+    <string name="restart_app_message">La aplicación debe reiniciarse para que el cambio de idioma surta efecto.</string>
+    <string name="restart_now">Reiniciar Ahora</string>
+    <string name="later">Después</string>
 </resources>

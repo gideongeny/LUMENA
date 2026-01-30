@@ -174,4 +174,9 @@
     <string name="high_contrast_explain">ألوان محسنة لرؤية أفضل</string>
     <string name="voice_control_explain">التحكم في التشغيل بالأوامر الصوتية</string>
     <string name="accessibility_supporting_text">قارئ الشاشة، نص كبير، تباين عالي</string>
+    <string name="language_change_requires_restart">ستصبح تغييرات اللغة سارية المفعول بعد إعادة تشغيل التطبيق</string>
+    <string name="restart_required">إعادة التشغيل مطلوبة</string>
+    <string name="restart_app_message">يجب إعادة تشغيل التطبيق لتطبيق تغيير اللغة.</string>
+    <string name="restart_now">إعادة التشغيل الآن</string>
+    <string name="later">لاحقاً</string>
 </resources>

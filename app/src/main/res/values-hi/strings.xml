@@ -364,4 +364,25 @@
     <string name="contact_info_explain">डेवलपर से संपर्क करें</string>
     <string name="app_permissions">ऐप अनुमतियाँ</string>
     <string name="app_permissions_explain">आवश्यक अनुमतियाँ और उनके उद्देश्य देखें</string>
+
+    <!-- Language & Accessibility Settings -->
+    <string name="language">भाषा</string>
+    <string name="language_supporting_text">अपनी पसंदीदा भाषा चुनें</string>
+    <string name="system_default">सिस्टम डिफ़ॉल्ट</string>
+    <string name="select_language">भाषा चुनें</string>
+    <string name="accessibility">पहुँचनीयता</string>
+    <string name="accessibility_supporting_text">स्क्रीन रीडर, बड़ा टेक्स्ट, उच्च कंट्रास्ट</string>
+    <string name="screen_reader">स्क्रीन रीडर</string>
+    <string name="screen_reader_explain">दृष्टिबाधित उपयोगकर्ताओं के लिए टॉकबैक सक्षम करें</string>
+    <string name="large_text">बड़ा टेक्स्ट</string>
+    <string name="large_text_explain">पूरे ऐप में टेक्स्ट का आकार बढ़ाएं</string>
+    <string name="high_contrast">उच्च कंट्रास्ट</string>
+    <string name="high_contrast_explain">बेहतर दृश्यता के लिए रंग बढ़ाएं</string>
+    <string name="voice_control">आवाज़ नियंत्रण</string>
+    <string name="voice_control_explain">आवाज़ कमांड से प्लेबैक नियंत्रित करें</string>
+    <string name="language_change_requires_restart">भाषा परिवर्तन ऐप को पुनरारंभ करने के बाद प्रभावी होंगे</string>
+    <string name="restart_required">पुनरारंभ आवश्यक</string>
+    <string name="restart_app_message">भाषा परिवर्तन को प्रभावी करने के लिए ऐप को पुनरारंभ करना आवश्यक है।</string>
+    <string name="restart_now">अभी पुनरारंभ करें</string>
+    <string name="later">बाद में</string>
 </resources>

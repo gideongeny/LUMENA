@@ -364,4 +364,25 @@
     <string name="contact_info_explain">联系开发者</string>
     <string name="app_permissions">应用权限</string>
     <string name="app_permissions_explain">查看所需权限及其用途</string>
+
+    <!-- Language & Accessibility Settings -->
+    <string name="language">语言</string>
+    <string name="language_supporting_text">选择您的首选语言</string>
+    <string name="system_default">系统默认</string>
+    <string name="select_language">选择语言</string>
+    <string name="accessibility">无障碍</string>
+    <string name="accessibility_supporting_text">屏幕阅读器、大字体、高对比度</string>
+    <string name="screen_reader">屏幕阅读器</string>
+    <string name="screen_reader_explain">为视障用户启用TalkBack</string>
+    <string name="large_text">大字体</string>
+    <string name="large_text_explain">增加整个应用的字体大小</string>
+    <string name="high_contrast">高对比度</string>
+    <string name="high_contrast_explain">增强颜色以提高可见性</string>
+    <string name="voice_control">语音控制</string>
+    <string name="voice_control_explain">通过语音命令控制播放</string>
+    <string name="language_change_requires_restart">语言更改将在重启应用后生效</string>
+    <string name="restart_required">需要重启</string>
+    <string name="restart_app_message">需要重启应用才能使语言更改生效。</string>
+    <string name="restart_now">立即重启</string>
+    <string name="later">稍后</string>
 </resources>

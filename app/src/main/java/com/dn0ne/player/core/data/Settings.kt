@@ -407,39 +407,51 @@ class Settings(context: Context) {
             }
         }
 
-    var screenReader: Boolean
-        get() = sharedPreferences.getBoolean(screenReaderKey, false)
-        set(value) {
-            with(sharedPreferences.edit()) {
-                putBoolean(screenReaderKey, value)
-                apply()
-            }
+    private val _screenReader = MutableStateFlow(
+        sharedPreferences.getBoolean(screenReaderKey, false)
+    )
+    val screenReader = _screenReader.asStateFlow()
+    fun updateScreenReader(value: Boolean) {
+        _screenReader.update { value }
+        with(sharedPreferences.edit()) {
+            putBoolean(screenReaderKey, value)
+            apply()
         }
+    }
 
-    var largeText: Boolean
-        get() = sharedPreferences.getBoolean(largeTextKey, false)
-        set(value) {
-            with(sharedPreferences.edit()) {
-                putBoolean(largeTextKey, value)
-                apply()
-            }
+    private val _largeText = MutableStateFlow(
+        sharedPreferences.getBoolean(largeTextKey, false)
+    )
+    val largeText = _largeText.asStateFlow()
+    fun updateLargeText(value: Boolean) {
+        _largeText.update { value }
+        with(sharedPreferences.edit()) {
+            putBoolean(largeTextKey, value)
+            apply()
         }
+    }
 
-    var highContrast: Boolean
-        get() = sharedPreferences.getBoolean(highContrastKey, false)
-        set(value) {
-            with(sharedPreferences.edit()) {
-                putBoolean(highContrastKey, value)
-                apply()
-            }
+    private val _highContrast = MutableStateFlow(
+        sharedPreferences.getBoolean(highContrastKey, false)
+    )
+    val highContrast = _highContrast.asStateFlow()
+    fun updateHighContrast(value: Boolean) {
+        _highContrast.update { value }
+        with(sharedPreferences.edit()) {
+            putBoolean(highContrastKey, value)
+            apply()
         }
+    }
 
-    var voiceControl: Boolean
-        get() = sharedPreferences.getBoolean(voiceControlKey, false)
-        set(value) {
-            with(sharedPreferences.edit()) {
-                putBoolean(voiceControlKey, value)
-                apply()
-            }
+    private val _voiceControl = MutableStateFlow(
+        sharedPreferences.getBoolean(voiceControlKey, false)
+    )
+    val voiceControl = _voiceControl.asStateFlow()
+    fun updateVoiceControl(value: Boolean) {
+        _voiceControl.update { value }
+        with(sharedPreferences.edit()) {
+            putBoolean(voiceControlKey, value)
+            apply()
         }
+    }
 }

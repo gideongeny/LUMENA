@@ -364,6 +364,9 @@ fun SettingsSheet(
                         onBackClick = {
                             navController.navigateUp()
                         },
+                        onLanguageChanged = {
+                            // Language changed, settings will be updated
+                        },
                         modifier = Modifier.fillMaxSize()
                     )
                 }

@@ -364,4 +364,25 @@
     <string name="contact_info_explain">Contacter le développeur</string>
     <string name="app_permissions">Autorisations de l\'application</string>
     <string name="app_permissions_explain">Voir les autorisations requises et leurs objectifs</string>
+
+    <!-- Language & Accessibility Settings -->
+    <string name="language">Langue</string>
+    <string name="language_supporting_text">Choisissez votre langue préférée</string>
+    <string name="system_default">Par défaut du système</string>
+    <string name="select_language">Sélectionner la langue</string>
+    <string name="accessibility">Accessibilité</string>
+    <string name="accessibility_supporting_text">Lecteur d\'écran, grand texte, contraste élevé</string>
+    <string name="screen_reader">Lecteur d\'écran</string>
+    <string name="screen_reader_explain">Activer TalkBack pour les utilisateurs malvoyants</string>
+    <string name="large_text">Grand texte</string>
+    <string name="large_text_explain">Augmenter la taille du texte dans toute l\'application</string>
+    <string name="high_contrast">Contraste élevé</string>
+    <string name="high_contrast_explain">Couleurs améliorées pour une meilleure visibilité</string>
+    <string name="voice_control">Contrôle vocal</string>
+    <string name="voice_control_explain">Contrôler la lecture avec des commandes vocales</string>
+    <string name="language_change_requires_restart">Les modifications de langue prendront effet après le redémarrage de l\'application</string>
+    <string name="restart_required">Redémarrage Requis</string>
+    <string name="restart_app_message">L\'application doit être redémarrée pour que le changement de langue prenne effet.</string>
+    <string name="restart_now">Redémarrer Maintenant</string>
+    <string name="later">Plus Tard</string>
 </resources>
