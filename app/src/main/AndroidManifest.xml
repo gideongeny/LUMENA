@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Android Auto permissions -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <!-- Tablet support -->
     <supports-screens
@@ -39,6 +42,11 @@
         android:theme="@style/Theme.MusicPlayer.Splash"
         android:requestLegacyExternalStorage="true"
         tools:targetApi="31">
+        
+        <!-- Android Auto metadata -->
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
         <activity
             android:launchMode="singleTask"
             android:name=".MainActivity"
@@ -69,6 +77,9 @@
             android:permission="android.permission.FOREGROUND_SERVICE">
             <intent-filter>
                 <action android:name="androidx.media3.session.MediaSessionService" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
             </intent-filter>
         </service>
 
