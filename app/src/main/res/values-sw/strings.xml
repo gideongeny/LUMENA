@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">Lumena</string>
+    
+    <!-- Main Navigation -->
+    <string name="tracks">Nyimbo</string>
+    <string name="albums">Albamu</string>
+    <string name="artists">Wasanii</string>
+    <string name="genres">Aina</string>
+    <string name="playlists">Orodha za Kucheza</string>
+    <string name="favorites">Pendwa</string>
+    <string name="recent">Hivi Karibuni</string>
+    
+    <!-- Playback Controls -->
+    <string name="play">Cheza</string>
+    <string name="pause">Simamisha</string>
+    <string name="next">Ifuatayo</string>
+    <string name="previous">Iliyotangulia</string>
+    <string name="shuffle">Changanya</string>
+    <string name="repeat">Rudia</string>
+    <string name="repeat_one">Rudia Moja</string>
+    <string name="repeat_all">Rudia Zote</string>
+    
+    <!-- Queue -->
+    <string name="queue">Foleni</string>
+    <string name="now_playing">Inachezwa Sasa</string>
+    <string name="up_next">Ifuatayo</string>
+    <string name="clear_queue">Futa Foleni</string>
+    
+    <!-- Search -->
+    <string name="search">Tafuta</string>
+    <string name="search_tracks">Tafuta Nyimbo</string>
+    <string name="search_online">Tafuta Mtandaoni</string>
+    <string name="no_results">Hakuna Matokeo</string>
+    
+    <!-- Playlists -->
+    <string name="create_playlist">Unda Orodha ya Kucheza</string>
+    <string name="playlist_name">Jina la Orodha ya Kucheza</string>
+    <string name="add_to_playlist">Ongeza kwenye Orodha ya Kucheza</string>
+    <string name="remove_from_playlist">Ondoa kutoka Orodha ya Kucheza</string>
+    <string name="delete_playlist">Futa Orodha ya Kucheza</string>
+    <string name="export_playlist">Hamisha Orodha ya Kucheza</string>
+    
+    <!-- Track Actions -->
+    <string name="add_to_favorites">Ongeza kwa Pendwa</string>
+    <string name="remove_from_favorites">Ondoa kutoka Pendwa</string>
+    <string name="share">Shiriki</string>
+    <string name="delete">Futa</string>
+    <string name="track_info">Taarifa za Wimbo</string>
+    <string name="edit_metadata">Hariri Metadata</string>
+    
+    <!-- Settings -->
+    <string name="settings">Mipangilio</string>
+    <string name="appearance">Muonekano</string>
+    <string name="theme">Mandhari</string>
+    <string name="dark_theme">Mandhari ya Giza</string>
+    <string name="light_theme">Mandhari ya Mwanga</string>
+    <string name="system_theme">Mandhari ya Mfumo</string>
+    
+    <!-- Audio Settings -->
+    <string name="audio">Sauti</string>
+    <string name="equalizer">Equalizer</string>
+    <string name="crossfade">Crossfade</string>
+    <string name="gapless_playback">Kucheza Bila Pengo</string>
+    <string name="audio_focus">Lengo la Sauti</string>
+    
+    <!-- Sleep Timer -->
+    <string name="sleep_timer">Kipima Muda cha Kulala</string>
+    <string name="set_timer">Weka Kipima Muda</string>
+    <string name="minutes">Dakika</string>
+    <string name="hours">Masaa</string>
+    <string name="cancel_timer">Ghairi Kipima Muda</string>
+    
+    <!-- Lyrics -->
+    <string name="lyrics">Maneno ya Wimbo</string>
+    <string name="show_lyrics">Onyesha Maneno ya Wimbo</string>
+    <string name="hide_lyrics">Ficha Maneno ya Wimbo</string>
+    <string name="no_lyrics">Hakuna Maneno Yanapatikana</string>
+    
+    <!-- About -->
+    <string name="about">Kuhusu</string>
+    <string name="version">Toleo</string>
+    <string name="developer">Msanidi Programu</string>
+    <string name="licenses">Leseni</string>
+    <string name="privacy_policy">Sera ya Faragha</string>
+    
+    <!-- Notifications -->
+    <string name="notification_channel_name">Kucheza Muziki</string>
+    <string name="notification_channel_description">Vidhibiti vya Kucheza Muziki</string>
+    
+    <!-- Permissions -->
+    <string name="permission_required">Ruhusa Inahitajika</string>
+    <string name="storage_permission">Ruhusa ya Hifadhi inahitajika ili kufikia faili za muziki</string>
+    <string name="grant_permission">Toa Ruhusa</string>
+    
+    <!-- Errors -->
+    <string name="error">Hitilafu</string>
+    <string name="error_loading_track">Hitilafu katika kupakia wimbo</string>
+    <string name="error_no_tracks">Hakuna nyimbo zilizopatikana</string>
+    <string name="error_network">Hitilafu ya Mtandao</string>
+    
+    <!-- Actions -->
+    <string name="ok">Sawa</string>
+    <string name="cancel">Ghairi</string>
+    <string name="save">Hifadhi</string>
+    <string name="done">Imekamilika</string>
+    <string name="close">Funga</string>
+    <string name="back">Rudi</string>
+    
+    <!-- Sorting -->
+    <string name="sort_by">Panga kwa</string>
+    <string name="sort_title">Kichwa</string>
+    <string name="sort_artist">Msanii</string>
+    <string name="sort_album">Albamu</string>
+    <string name="sort_date">Tarehe</string>
+    <string name="sort_duration">Muda</string>
+    
+    <!-- Stats -->
+    <string name="play_count">Idadi ya Kucheza</string>
+    <string name="last_played">Ilichezwa Mwisho</string>
+    <string name="duration">Muda</string>
+    <string name="tracks_count">Idadi ya Nyimbo</string>
+    
+    <!-- Online Features -->
+    <string name="youtube_search">Tafuta YouTube</string>
+    <string name="spotify_search">Tafuta Spotify</string>
+    <string name="streaming">Kutiririka</string>
+    <string name="download">Pakua</string>
+    
+    <!-- Accessibility -->
+    <string name="accessibility">Ufikiaji</string>
+    <string name="high_contrast">Tofauti Kubwa</string>
+    <string name="large_text">Maandishi Makubwa</string>
+    <string name="screen_reader">Kisomaji cha Skrini</string>
+    <string name="voice_control">Udhibiti wa Sauti</string>
+    
+    <!-- Widgets -->
+    <string name="widget_name">Widget ya Lumena</string>
+    <string name="widget_description">Vidhibiti vya Kucheza Muziki</string>
+    
+    <!-- Welcome -->
+    <string name="welcome">Karibu Lumena</string>
+    <string name="welcome_message">Kicheza Muziki chako kutoka Kenya</string>
+    <string name="get_started">Anza</string>
+    
+    <!-- Scan -->
+    <string name="scanning">Inachambua...</string>
+    <string name="scan_complete">Uchunguzi Umekamilika</string>
+    <string name="rescan">Chunguza Tena</string>
+    
+    <!-- Empty States -->
+    <string name="no_tracks">Hakuna Nyimbo</string>
+    <string name="no_albums">Hakuna Albamu</string>
+    <string name="no_artists">Hakuna Wasanii</string>
+    <string name="no_playlists">Hakuna Orodha za Kucheza</string>
+    <string name="no_favorites">Hakuna Pendwa</string>
+    
+    <!-- Time -->
+    <string name="just_now">Sasa Hivi</string>
+    <string name="minutes_ago">Dakika %d zilizopita</string>
+    <string name="hours_ago">Masaa %d yaliyopita</string>
+    <string name="days_ago">Siku %d zilizopita</string>
+</resources>

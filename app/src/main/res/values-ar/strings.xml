@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">لومينا</string>
+    
+    <!-- Main Navigation -->
+    <string name="tracks">المقاطع</string>
+    <string name="albums">الألبومات</string>
+    <string name="artists">الفنانون</string>
+    <string name="genres">الأنواع</string>
+    <string name="playlists">قوائم التشغيل</string>
+    <string name="favorites">المفضلة</string>
+    <string name="recent">المشغلة مؤخراً</string>
+    
+    <!-- Playback Controls -->
+    <string name="play">تشغيل</string>
+    <string name="pause">إيقاف مؤقت</string>
+    <string name="next">التالي</string>
+    <string name="previous">السابق</string>
+    <string name="shuffle">عشوائي</string>
+    <string name="repeat">تكرار</string>
+    <string name="repeat_one">تكرار واحد</string>
+    <string name="repeat_all">تكرار الكل</string>
+    
+    <!-- Queue -->
+    <string name="queue">قائمة الانتظار</string>
+    <string name="now_playing">قيد التشغيل الآن</string>
+    <string name="up_next">التالي</string>
+    <string name="clear_queue">مسح قائمة الانتظار</string>
+    
+    <!-- Search -->
+    <string name="search">بحث</string>
+    <string name="search_tracks">بحث عن المقاطع</string>
+    <string name="search_online">بحث عبر الإنترنت</string>
+    <string name="no_results">لا توجد نتائج</string>
+    
+    <!-- Playlists -->
+    <string name="create_playlist">إنشاء قائمة تشغيل</string>
+    <string name="playlist_name">اسم قائمة التشغيل</string>
+    <string name="add_to_playlist">إضافة إلى قائمة التشغيل</string>
+    <string name="remove_from_playlist">إزالة من قائمة التشغيل</string>
+    <string name="delete_playlist">حذف قائمة التشغيل</string>
+    <string name="export_playlist">تصدير قائمة التشغيل</string>
+    
+    <!-- Track Actions -->
+    <string name="add_to_favorites">إضافة إلى المفضلة</string>
+    <string name="remove_from_favorites">إزالة من المفضلة</string>
+    <string name="share">مشاركة</string>
+    <string name="delete">حذف</string>
+    <string name="track_info">معلومات المقطع</string>
+    <string name="edit_metadata">تحرير البيانات الوصفية</string>
+    
+    <!-- Settings -->
+    <string name="settings">الإعدادات</string>
+    <string name="appearance">المظهر</string>
+    <string name="theme">السمة</string>
+    <string name="dark_theme">السمة الداكنة</string>
+    <string name="light_theme">السمة الفاتحة</string>
+    <string name="system_theme">سمة النظام</string>
+    
+    <!-- Audio Settings -->
+    <string name="audio">الصوت</string>
+    <string name="equalizer">المعادل</string>
+    <string name="crossfade">التلاشي المتقاطع</string>
+    <string name="gapless_playback">تشغيل بدون فجوات</string>
+    <string name="audio_focus">تركيز الصوت</string>
+    
+    <!-- Sleep Timer -->
+    <string name="sleep_timer">مؤقت النوم</string>
+    <string name="set_timer">ضبط المؤقت</string>
+    <string name="minutes">دقائق</string>
+    <string name="hours">ساعات</string>
+    <string name="cancel_timer">إلغاء المؤقت</string>
+    
+    <!-- Lyrics -->
+    <string name="lyrics">كلمات الأغنية</string>
+    <string name="show_lyrics">عرض كلمات الأغنية</string>
+    <string name="hide_lyrics">إخفاء كلمات الأغنية</string>
+    <string name="no_lyrics">لا توجد كلمات متاحة</string>
+    
+    <!-- About -->
+    <string name="about">حول</string>
+    <string name="version">الإصدار</string>
+    <string name="developer">المطور</string>
+    <string name="licenses">التراخيص</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    
+    <!-- Notifications -->
+    <string name="notification_channel_name">تشغيل الموسيقى</string>
+    <string name="notification_channel_description">عناصر التحكم في تشغيل الموسيقى</string>
+    
+    <!-- Permissions -->
+    <string name="permission_required">الإذن مطلوب</string>
+    <string name="storage_permission">إذن التخزين مطلوب للوصول إلى ملفات الموسيقى</string>
+    <string name="grant_permission">منح الإذن</string>
+    
+    <!-- Errors -->
+    <string name="error">خطأ</string>
+    <string name="error_loading_track">خطأ في تحميل المقطع</string>
+    <string name="error_no_tracks">لم يتم العثور على مقاطع</string>
+    <string name="error_network">خطأ في الشبكة</string>
+    
+    <!-- Actions -->
+    <string name="ok">موافق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="save">حفظ</string>
+    <string name="done">تم</string>
+    <string name="close">إغلاق</string>
+    <string name="back">رجوع</string>
+    
+    <!-- Sorting -->
+    <string name="sort_by">ترتيب حسب</string>
+    <string name="sort_title">العنوان</string>
+    <string name="sort_artist">الفنان</string>
+    <string name="sort_album">الألبوم</string>
+    <string name="sort_date">التاريخ</string>
+    <string name="sort_duration">المدة</string>
+    
+    <!-- Stats -->
+    <string name="play_count">عدد مرات التشغيل</string>
+    <string name="last_played">آخر تشغيل</string>
+    <string name="duration">المدة</string>
+    <string name="tracks_count">عدد المقاطع</string>
+    
+    <!-- Online Features -->
+    <string name="youtube_search">بحث يوتيوب</string>
+    <string name="spotify_search">بحث سبوتيفاي</string>
+    <string name="streaming">البث</string>
+    <string name="download">تنزيل</string>
+    
+    <!-- Accessibility -->
+    <string name="accessibility">إمكانية الوصول</string>
+    <string name="high_contrast">تباين عالي</string>
+    <string name="large_text">نص كبير</string>
+    <string name="screen_reader">قارئ الشاشة</string>
+    <string name="voice_control">التحكم الصوتي</string>
+    
+    <!-- Widgets -->
+    <string name="widget_name">عنصر واجهة لومينا</string>
+    <string name="widget_description">عناصر التحكم في تشغيل الموسيقى</string>
+    
+    <!-- Welcome -->
+    <string name="welcome">مرحباً بك في لومينا</string>
+    <string name="welcome_message">مشغل الموسيقى الخاص بك من كينيا</string>
+    <string name="get_started">ابدأ</string>
+    
+    <!-- Scan -->
+    <string name="scanning">جاري المسح...</string>
+    <string name="scan_complete">اكتمل المسح</string>
+    <string name="rescan">إعادة المسح</string>
+    
+    <!-- Empty States -->
+    <string name="no_tracks">لا توجد مقاطع</string>
+    <string name="no_albums">لا توجد ألبومات</string>
+    <string name="no_artists">لا يوجد فنانون</string>
+    <string name="no_playlists">لا توجد قوائم تشغيل</string>
+    <string name="no_favorites">لا توجد مفضلات</string>
+    
+    <!-- Time -->
+    <string name="just_now">الآن</string>
+    <string name="minutes_ago">منذ %d دقائق</string>
+    <string name="hours_ago">منذ %d ساعات</string>
+    <string name="days_ago">منذ %d أيام</string>
+</resources>
