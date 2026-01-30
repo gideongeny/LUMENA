@@ -409,4 +409,20 @@
 
     <!-- Open Source Licenses Content -->
     <string name="open_source_licenses_content">Open Source Licenses\n\nLumena Music Player uses the following open source libraries:\n\n1. AndroidX Libraries\n   Licensed under the Apache License 2.0\n   https://developer.android.com/jetpack/androidx\n\n2. Compose BOM\n   Licensed under the Apache License 2.0\n   https://developer.android.com/jetpack/compose\n\n3. Material Design Components\n   Licensed under the Apache License 2.0\n   https://material.io/develop/android\n\n4. Coil (Image Loading)\n   Licensed under the Apache License 2.0\n   https://coil-kt.github.io/coil/\n\n5. Ktor (HTTP Client)\n   Licensed under the Apache License 2.0\n   https://ktor.io/\n\n6. Room (Database)\n   Licensed under the Apache License 2.0\n   https://developer.android.com/training/data-storage/room\n\n7. DataStore\n   Licensed under the Apache License 2.0\n   https://developer.android.com/topic/libraries/architecture/datastore\n\nFor full license texts, please visit the respective project repositories.</string>
+
+    <!-- Language & Accessibility Settings -->
+    <string name="language">Language</string>
+    <string name="language_supporting_text">Choose your preferred language</string>
+    <string name="system_default">System default</string>
+    <string name="select_language">Select Language</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="accessibility_supporting_text">Screen reader, large text, high contrast</string>
+    <string name="screen_reader">Screen reader</string>
+    <string name="screen_reader_explain">Enable talkback for visually impaired users</string>
+    <string name="large_text">Large text</string>
+    <string name="large_text_explain">Increase text size throughout the app</string>
+    <string name="high_contrast">High contrast</string>
+    <string name="high_contrast_explain">Enhanced colors for better visibility</string>
+    <string name="voice_control">Voice control</string>
+    <string name="voice_control_explain">Control playback with voice commands</string>
 </resources>

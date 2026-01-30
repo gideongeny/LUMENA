@@ -21,9 +21,11 @@ import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.PlaylistPlay
+import androidx.compose.material.icons.rounded.Accessibility
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material.icons.rounded.ColorLens
 import androidx.compose.material.icons.rounded.Info
+import androidx.compose.material.icons.rounded.Language
 import androidx.compose.material.icons.rounded.Lyrics
 import androidx.compose.material.icons.rounded.MusicNote
 import androidx.compose.material.icons.rounded.Radar
@@ -118,6 +120,22 @@ fun SettingsSheet(
 
                     val settings = remember {
                         listOf(
+                            SettingsItem(
+                                title = context.resources.getString(R.string.language),
+                                supportingText = context.resources.getString(R.string.language_supporting_text),
+                                icon = Icons.Rounded.Language,
+                                onClick = {
+                                    navController.navigate(SettingsRoutes.LanguageAndAccessibility)
+                                }
+                            ),
+                            SettingsItem(
+                                title = context.resources.getString(R.string.accessibility),
+                                supportingText = context.resources.getString(R.string.accessibility_supporting_text),
+                                icon = Icons.Rounded.Accessibility,
+                                onClick = {
+                                    navController.navigate(SettingsRoutes.LanguageAndAccessibility)
+                                }
+                            ),
                             SettingsItem(
                                 title = context.resources.getString(R.string.playback),
                                 supportingText = context.resources.getString(R.string.playback_supporting_text),
@@ -339,6 +357,16 @@ fun SettingsSheet(
                         modifier = Modifier.fillMaxSize()
                     )
                 }
+
+                composable<SettingsRoutes.LanguageAndAccessibility> {
+                    LanguageAndAccessibilitySettings(
+                        settings = state.settings,
+                        onBackClick = {
+                            navController.navigateUp()
+                        },
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
             }
         }
     }
@@ -348,6 +376,9 @@ fun SettingsSheet(
 sealed interface SettingsRoutes {
     @Serializable
     data object Main : SettingsRoutes
+
+    @Serializable
+    data object LanguageAndAccessibility : SettingsRoutes
 
     @Serializable
     data object Playback : SettingsRoutes

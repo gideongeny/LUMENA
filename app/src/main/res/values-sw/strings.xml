@@ -161,4 +161,17 @@
     <string name="minutes_ago">Dakika %d zilizopita</string>
     <string name="hours_ago">Masaa %d yaliyopita</string>
     <string name="days_ago">Siku %d zilizopita</string>
+    
+    <!-- Language -->
+    <string name="language">Lugha</string>
+    <string name="language_supporting_text">Chagua lugha unayopenda</string>
+    <string name="system_default">Chaguo la Mfumo</string>
+    <string name="select_language">Chagua Lugha</string>
+    
+    <!-- Accessibility explanations -->
+    <string name="screen_reader_explain">Washa talkback kwa watumiaji wenye upofu</string>
+    <string name="large_text_explain">Ongeza ukubwa wa maandishi kote kwenye programu</string>
+    <string name="high_contrast_explain">Rangi zenye nguvu kwa mwonekano bora</string>
+    <string name="voice_control_explain">Dhibiti uchezaji kwa amri za sauti</string>
+    <string name="accessibility_supporting_text">Kisomaji cha skrini, maandishi makubwa, tofauti kubwa</string>
 </resources>

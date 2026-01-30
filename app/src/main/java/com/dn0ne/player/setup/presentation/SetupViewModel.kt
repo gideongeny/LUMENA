@@ -64,4 +64,8 @@ class SetupViewModel(
             settings.updateExcludedScanFolders(settings.extraScanFolders.value + path)
         }
     }
+
+    fun onLanguageSelected(languageCode: String) {
+        settings.language = languageCode
+    }
 }

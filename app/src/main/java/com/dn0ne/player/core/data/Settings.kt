@@ -56,6 +56,16 @@ class Settings(context: Context) {
 
     private val gridPlaylistsKey = "grid-playlists"
 
+    private val languageKey = "language"
+
+    private val screenReaderKey = "screen-reader"
+
+    private val largeTextKey = "large-text"
+
+    private val highContrastKey = "high-contrast"
+
+    private val voiceControlKey = "voice-control"
+
     var handleAudioFocus: Boolean
         get() = sharedPreferences.getBoolean(handleAudioFocusKey, true)
         set(value) {
@@ -387,4 +397,49 @@ class Settings(context: Context) {
             apply()
         }
     }
+
+    var language: String
+        get() = sharedPreferences.getString(languageKey, "") ?: ""
+        set(value) {
+            with(sharedPreferences.edit()) {
+                putString(languageKey, value)
+                apply()
+            }
+        }
+
+    var screenReader: Boolean
+        get() = sharedPreferences.getBoolean(screenReaderKey, false)
+        set(value) {
+            with(sharedPreferences.edit()) {
+                putBoolean(screenReaderKey, value)
+                apply()
+            }
+        }
+
+    var largeText: Boolean
+        get() = sharedPreferences.getBoolean(largeTextKey, false)
+        set(value) {
+            with(sharedPreferences.edit()) {
+                putBoolean(largeTextKey, value)
+                apply()
+            }
+        }
+
+    var highContrast: Boolean
+        get() = sharedPreferences.getBoolean(highContrastKey, false)
+        set(value) {
+            with(sharedPreferences.edit()) {
+                putBoolean(highContrastKey, value)
+                apply()
+            }
+        }
+
+    var voiceControl: Boolean
+        get() = sharedPreferences.getBoolean(voiceControlKey, false)
+        set(value) {
+            with(sharedPreferences.edit()) {
+                putBoolean(voiceControlKey, value)
+                apply()
+            }
+        }
 }

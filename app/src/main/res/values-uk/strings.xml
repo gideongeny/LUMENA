@@ -329,4 +329,20 @@
 
     <string name="copy_error">Скопіювати помилку</string>
     <string name="select_all">Обрати всі</string>
+
+    <!-- Language & Accessibility Settings -->
+    <string name="language">Мова</string>
+    <string name="language_supporting_text">Оберіть бажану мову</string>
+    <string name="system_default">За замовчуванням системи</string>
+    <string name="select_language">Оберіть мову</string>
+    <string name="accessibility">Доступність</string>
+    <string name="accessibility_supporting_text">Зчитувач екрану, великий текст, високий контраст</string>
+    <string name="screen_reader">Зчитувач екрану</string>
+    <string name="screen_reader_explain">Увімкнути talkback для користувачів з порушенням зору</string>
+    <string name="large_text">Великий текст</string>
+    <string name="large_text_explain">Збільшити розмір тексту в додатку</string>
+    <string name="high_contrast">Високий контраст</string>
+    <string name="high_contrast_explain">Покращені кольори для кращої видимості</string>
+    <string name="voice_control">Голосове управління</string>
+    <string name="voice_control_explain">Керувати відтворенням голосовими командами</string>
 </resources>

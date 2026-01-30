@@ -161,4 +161,17 @@
     <string name="minutes_ago">منذ %d دقائق</string>
     <string name="hours_ago">منذ %d ساعات</string>
     <string name="days_ago">منذ %d أيام</string>
+    
+    <!-- Language -->
+    <string name="language">اللغة</string>
+    <string name="language_supporting_text">اختر لغتك المفضلة</string>
+    <string name="system_default">افتراضي النظام</string>
+    <string name="select_language">اختر اللغة</string>
+    
+    <!-- Accessibility explanations -->
+    <string name="screen_reader_explain">تفعيل talkback للمستخدمين المكفوفين</string>
+    <string name="large_text_explain">زيادة حجم النص في جميع أنحاء التطبيق</string>
+    <string name="high_contrast_explain">ألوان محسنة لرؤية أفضل</string>
+    <string name="voice_control_explain">التحكم في التشغيل بالأوامر الصوتية</string>
+    <string name="accessibility_supporting_text">قارئ الشاشة، نص كبير، تباين عالي</string>
 </resources>
