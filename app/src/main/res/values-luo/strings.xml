@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Po</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Kae</string>
+    <string name="permissions">Miro</string>
+    <string name="audio">Suna</string>
+    <string name="grant_permission">Keto migolo</string>
+    <string name="next">Eka</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Nyingho</string>
+    <string name="album">Kitabu</string>
+    <string name="artist">Ngoko</string>
+    <string name="genre">Miholo</string>
+    <string name="year">Higa</string>
+    <string name="duration">Nindo</string>
+
+    <string name="unknown_title">Nyingho man\'g\'en</string>
+    <string name="unknown_album">Kitabu man\'g\'en</string>
+    <string name="unknown_artist">Ngoko man\'g\'en</string>
+    <string name="unknown">Man\'g\'en</string>
+
+    <!-- Tabs names -->
+    <string name="tracks">Nyimbe</string>
+    <string name="albums">Matabu</string>
+    <string name="artists">Angoko</string>
+    <string name="playlists">Riek miku</string>
+    <string name="folders">Mapuota</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Ng\'eche</string>
+    <string name="theme">Ratego</string>
+    <string name="playback">Kitek</string>
+    <string name="about_app">Rieko e app</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Nen</string>
+    <string name="appearance_system">Sistemo</string>
+    <string name="appearance_light">Maling</string>
+    <string name="appearance_dark">Ari</string>
+
+    <!-- Playlists settings -->
+    <string name="favorites">Mafie</string>
+    <string name="add_to_favorites">Juo kama mafie</string>
+    <string name="remove_from_favorites">Tuo kama mafie</string>
+
+    <!-- About screen -->
+    <string name="repo">Mbaka</string>
+    <string name="feedback">Pawacho</string>
+    <string name="developer">Ng\'iewo</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+
+    <!-- Common actions -->
+    <string name="play">Luw</string>
+    <string name="search">Loyo</string>
+    <string name="delete">Yiero</string>
+    <string name="create">Rieko</string>
+    <string name="cancel">Lah</string>
+    <string name="reset">Pog</string>
+</resources>

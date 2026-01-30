@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Nyuma</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Tongoria</string>
+    <string name="permissions">Mithemo</string>
+    <string name="audio">Ui</string>
+    <string name="grant_permission">Kuvunja mithemo</string>
+    <string name="next">Ituku</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Mbutu</string>
+    <string name="album">Kiwanio</string>
+    <string name="artist">Mimi wa ui</string>
+    <string name="genre">Mua</string>
+    <string name="year">Mwaka</string>
+    <string name="duration">Maa</string>
+
+    <string name="unknown_title">Mbutu nza</string>
+    <string name="unknown_album">Kiwanio nza</string>
+    <string name="unknown_artist">Mimi wa ui nza</string>
+    <string name="unknown">Nza</string>
+
+    <!-- Tabs names -->
+    <string name="tracks">Masimi</string>
+    <string name="albums">Iviwanio</string>
+    <string name="artists">Atimi wa ui</string>
+    <string name="playlists">Mialolo ya ui</string>
+    <string name="folders">Mafoda</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Mibato</string>
+    <string name="theme">Ntina</string>
+    <string name="playback">Kuiyukia</string>
+    <string name="about_app">Buri wa app</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Kukolwa</string>
+    <string name="appearance_system">Mausiyu</string>
+    <string name="appearance_light">Mau</string>
+    <string name="appearance_dark">Kingi</string>
+
+    <!-- Playlists settings -->
+    <string name="favorites">Mathina</string>
+    <string name="add_to_favorites">Y添加 mathina</string>
+    <string name="remove_from_favorites">Y取回 mathina</string>
+
+    <!-- About screen -->
+    <string name="repo">Mbaka</string>
+    <string name="feedback">Maungwi</string>
+    <string name="developer">Muthengwa</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+
+    <!-- Common actions -->
+    <string name="play">Yoka</string>
+    <string name="search">Sema</string>
+    <string name="delete">Tula</string>
+    <string name="create">Itukusa</string>
+    <string name="cancel">Yola</string>
+    <string name="reset">Tula mbaka</string>
+</resources>

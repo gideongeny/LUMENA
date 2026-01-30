@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Ang\'wan</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Kosub</string>
+    <string name="permissions">Murego</string>
+    <string name="audio">Chepngetuny</string>
+    <string name="grant_permission">Kugole murego</string>
+    <string name="next">Aeng</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Kipngetab kalkoi</string>
+    <string name="album">Album</string>
+    <string name="artist">Kipngetab kelyetab</string>
+    <string name="genre">Keta</string>
+    <string name="year">Eit</string>
+    <string name="duration">Soman</string>
+
+    <string name="unknown_title">Kipngetab kalkoi che ng\'en</string>
+    <string name="unknown_album">Album che ng\'en</string>
+    <string name="unknown_artist">Kipngetab kelyetab che ng\'en</string>
+    <string name="unknown">Ng\'en</string>
+
+    <!-- Tabs names -->
+    <string name="tracks">Chum</string>
+    <string name="albums">Albumsek</string>
+    <string name="artists">Kelyetabsek</string>
+    <string name="playlists">Playlistek</string>
+    <string name="folders">Foldersek</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Sosop</string>
+    <string name="theme">Tait</string>
+    <string name="playback">Kigol</string>
+    <string name="about_app">Kang\'wana che mising</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Murat</string>
+    <string name="appearance_system">System</string>
+    <string name="appearance_light">Koruet</string>
+    <string name="appearance_dark">Kosom</string>
+
+    <!-- Playlists settings -->
+    <string name="favorites">Kipsong\'unik</string>
+    <string name="add_to_favorites">Yeng\'uu kipsong\'unik</string>
+    <string name="remove_from_favorites">Yemuu kipsong\'unik</string>
+
+    <!-- About screen -->
+    <string name="repo">Repo</string>
+    <string name="feedback">Feedback</string>
+    <string name="developer">Kipnyigul</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+
+    <!-- Common actions -->
+    <string name="play">Sirg\'</string>
+    <string name="search">Muu</string>
+    <string name="delete">Tog\'</string>
+    <string name="create">Kor</string>
+    <string name="cancel">Ngel\'</string>
+    <string name="reset">Yay</string>
+</resources>

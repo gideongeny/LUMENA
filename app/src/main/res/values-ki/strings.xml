@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Nyuma</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Tongoria</string>
+    <string name="permissions">Mithemo</string>
+    <string name="audio">Githo</string>
+    <string name="grant_permission">Kũhũithia mũthemo</string>
+    <string name="next">Ũgoro</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Mũthomo</string>
+    <string name="album">Ibarathi</string>
+    <string name="artist">Mũrumi</string>
+    <string name="genre">Mũhianĩ</string>
+    <string name="year">Mwaka</string>
+    <string name="duration">Kĩega</string>
+
+    <string name="unknown_title">Mũthomo ũgoro</string>
+    <string name="unknown_album">Ibarathi ĩgoro</string>
+    <string name="unknown_artist">Mũrumi ũgoro</string>
+    <string name="unknown">Kĩgoro</string>
+
+    <!-- Tabs names -->
+    <string name="tracks">Maitho</string>
+    <string name="albums">Ibarathi</string>
+    <string name="artists">Arumi</string>
+    <string name="playlists">Mĩrongo ya githo</string>
+    <string name="folders">Mafoloda</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Mibato</string>
+    <string name="theme">Kũrũma</string>
+    <string name="playback">Kũrũma</string>
+    <string name="about_app">Bũriithi wa app</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Kũboora</string>
+    <string name="appearance_system">Mũthirĩo</string>
+    <string name="appearance_light">Rũhu</string>
+    <string name="appearance_dark">Mũira</string>
+
+    <!-- Playlists settings -->
+    <string name="favorites">Maitũ</string>
+    <string name="add_to_favorites">Ũrũire kĩhandũ</string>
+    <string name="remove_from_favorites">Tũraga kĩhandũ</string>
+
+    <!-- About screen -->
+    <string name="repo">Mũra</string>
+    <string name="feedback">Maũndũ ma gĩthaka</string>
+    <string name="developer">Mũhũki</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+
+    <!-- Common actions -->
+    <string name="play">Tũma</string>
+    <string name="search">Rĩaria</string>
+    <string name="delete">Tũraga</string>
+    <string name="create">Rĩtũra</string>
+    <string name="cancel">Tũhĩtia</string>
+    <string name="reset">Tũkania</string>
+</resources>

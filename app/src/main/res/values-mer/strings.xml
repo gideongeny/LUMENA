@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Igoro</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Tongoria</string>
+    <string name="permissions">Mithemo</string>
+    <string name="audio">Kihoro</string>
+    <string name="grant_permission">Kuhura mithemo</string>
+    <string name="next">Kumwe</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Mweri</string>
+    <string name="album">Mwiki</string>
+    <string name="artist">Mũhiki</string>
+    <string name="genre">Mũhianĩ</string>
+    <string name="year">Mwaka</string>
+    <string name="duration">Maa</string>
+
+    <string name="unknown_title">Mweri taa</string>
+    <string name="unknown_album">Mwiki taa</string>
+    <string name="unknown_artist">Mũhiki taa</string>
+    <string name="unknown">Taa</string>
+
+    <!-- Tabs names -->
+    <string name="tracks">Matho</string>
+    <string name="albums">Amwiki</string>
+    <string name="artists">Ahiki</string>
+    <string name="playlists">Mithango ya kihoro</string>
+    <string name="folders">Mafolder</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Mibato</string>
+    <string name="theme">Goro</string>
+    <string name="playback">Kuhota</string>
+    <string name="about_app">Kuria goro</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Kurora</string>
+    <string name="appearance_system">Sistemo</string>
+    <string name="appearance_light">Thaa</string>
+    <string name="appearance_dark">Kira</string>
+
+    <!-- Playlists settings -->
+    <string name="favorites">Mahaabira</string>
+    <string name="add_to_favorites">Kurega mahaabira</string>
+    <string name="remove_from_favorites">Kuhura mahaabira</string>
+
+    <!-- About screen -->
+    <string name="repo">Repo</string>
+    <string name="feedback">Feedback</string>
+    <string name="developer">Mũhũki</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+
+    <!-- Common actions -->
+    <string name="play">Tũma</string>
+    <string name="search">Rũaria</string>
+    <string name="delete">Tũraga</string>
+    <string name="create">Kũrũma</string>
+    <string name="cancel">Tũhĩtia</string>
+    <string name="reset">Kũkania</string>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Emanyani</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Simukia</string>
+    <string name="permissions">Mafundso</string>
+    <string name="audio">Sauti</string>
+    <string name="grant_permission">Kufundsa mafundso</string>
+    <string name="next">Thatani</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Sikhali</string>
+    <string name="album">Buku</string>
+    <string name="artist">Mumanyis</string>
+    <string name="genre">Khumba</string>
+    <string name="year">Omwaka</string>
+    <string name="duration">Mule</string>
+
+    <string name="unknown_title">Sikhali syabusala</string>
+    <string name="unknown_album">Buku syabusala</string>
+    <string name="unknown_artist">Mumanyis syabusala</string>
+    <string name="unknown">Busala</string>
+
+    <!-- Tabs names -->
+    <string name="tracks">Nyimbo</string>
+    <string name="albums">Mabuku</string>
+    <string name="artists">Abamanyis</string>
+    <string name="playlists">Mialo ya nyimbo</string>
+    <string name="folders">Mafwanda</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Mafundopto</string>
+    <string name="theme">Nguvu</string>
+    <string name="playback">Khusongo</string>
+    <string name="about_app">Buli wa app</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Kulabaka</string>
+    <string name="appearance_system">Mirs</string>
+    <string name="appearance_light">Mache</string>
+    <string name="appearance_dark">Kulunda</string>
+
+    <!-- Playlists settings -->
+    <string name="favorites">Fungwa</string>
+    <string name="add_to_favorites">Yeka kufungwa</string>
+    <string name="remove_from_favorites">Yeka kutulula</string>
+
+    <!-- About screen -->
+    <string name="repo">Kivuli</string>
+    <string name="feedback">Bunukachi</string>
+    <string name="developer">Musubuli</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+
+    <!-- Common actions -->
+    <string name="play">Lola</string>
+    <string name="search">Shaka</string>
+    <string name="delete">Sola</string>
+    <string name="create">Lolesa</string>
+    <string name="cancel">Simula</string>
+    <string name="reset">Sikha</string>
+</resources>
