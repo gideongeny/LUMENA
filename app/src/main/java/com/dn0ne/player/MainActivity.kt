@@ -348,7 +348,7 @@ class MainActivity : ComponentActivity() {
                             val useDynamicColor by viewModel.settings.useDynamicColor.collectAsState()
                             AccessibilityTheme(
                                 settings = viewModel.settings,
-                                dominantColorState = if (useDynamicColor) null else null
+                                darkTheme = isDarkTheme
                             ) {
                                 PlayerScreen(
                                     viewModel = viewModel,

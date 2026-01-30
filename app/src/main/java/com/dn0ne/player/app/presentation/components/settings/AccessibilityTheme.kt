@@ -66,11 +66,11 @@ private val HighContrastDarkColors = darkColorScheme(
 @Composable
 fun AccessibilityTheme(
     settings: Settings,
+    darkTheme: Boolean = isSystemInDarkTheme(),
     dominantColorState: DominantColorState<Color>? = null,
     content: @Composable () -> Unit
 ) {
     val view = LocalView.current
-    val isSystemDark = isSystemInDarkTheme()
     
     // Collect accessibility settings
     val largeText by settings.largeText.collectAsState()
@@ -89,11 +89,11 @@ fun AccessibilityTheme(
     
     // Get color scheme
     val colorScheme = when {
-        useHighContrast && isSystemDark -> HighContrastDarkColors
+        useHighContrast && darkTheme -> HighContrastDarkColors
         useHighContrast -> HighContrastLightColors
         dominantColorState != null -> {
             val dominantColor = dominantColorState.color
-            if (isSystemDark) {
+            if (darkTheme) {
                 darkColorScheme(
                     primary = dominantColor,
                     onPrimary = Color.Black,
@@ -113,7 +113,7 @@ fun AccessibilityTheme(
                 )
             }
         }
-        else -> if (isSystemDark) darkColorScheme() else lightColorScheme()
+        else -> if (darkTheme) darkColorScheme() else lightColorScheme()
     }
     
     if (useHighContrast) {
