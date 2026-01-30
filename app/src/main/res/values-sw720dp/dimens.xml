@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tablet 10" dimensions -->
+    <dimen name="text_size_large">28sp</dimen>
+    <dimen name="text_size_medium">20sp</dimen>
+    <dimen name="text_size_small">16sp</dimen>
+    <dimen name="padding_large">32dp</dimen>
+    <dimen name="padding_medium">20dp</dimen>
+    <dimen name="padding_small">16dp</dimen>
+    <dimen name="icon_size">56dp</dimen>
+    <dimen name="cover_art_size">400dp</dimen>
+</resources>
