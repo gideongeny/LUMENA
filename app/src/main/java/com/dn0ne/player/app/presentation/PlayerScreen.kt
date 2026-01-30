@@ -168,6 +168,7 @@ fun PlayerScreen(
     val appearance by viewModel.settings.appearance.collectAsState()
     val amoledDarkTheme by viewModel.settings.amoledDarkTheme.collectAsState()
     val paletteStyle by viewModel.settings.paletteStyle.collectAsState()
+    
     DynamicMaterialTheme(
         seedColor = colorToApply,
         primary = colorToApply.takeIf { it.toHct().chroma <= 20 },

@@ -382,7 +382,8 @@
     <string name="voice_control_explain">Contrôler la lecture avec des commandes vocales</string>
     <string name="language_change_requires_restart">Les modifications de langue prendront effet après le redémarrage de l\'application</string>
     <string name="restart_required">Redémarrage Requis</string>
-    <string name="restart_app_message">L\'application doit être redémarrée pour que le changement de langue prenne effet.</string>
+    <string name="restart_app_message">L\'application doit être redémarrée pour que les modifications prennent effet.</string>
     <string name="restart_now">Redémarrer Maintenant</string>
     <string name="later">Plus Tard</string>
+    <string name="restart_for_changes">Redémarrez l\'application pour appliquer les paramètres d\'accessibilité</string>
 </resources>

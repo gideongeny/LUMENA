@@ -427,7 +427,8 @@
     <string name="voice_control_explain">Control playback with voice commands</string>
     <string name="language_change_requires_restart">Language changes will take effect after restarting the app</string>
     <string name="restart_required">Restart Required</string>
-    <string name="restart_app_message">The app needs to be restarted for the language change to take effect.</string>
+    <string name="restart_app_message">The app needs to be restarted for the changes to take effect.</string>
     <string name="restart_now">Restart Now</string>
     <string name="later">Later</string>
+    <string name="restart_for_changes">Restart the app to apply accessibility settings</string>
 </resources>

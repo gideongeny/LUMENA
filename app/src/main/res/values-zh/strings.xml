@@ -382,7 +382,8 @@
     <string name="voice_control_explain">通过语音命令控制播放</string>
     <string name="language_change_requires_restart">语言更改将在重启应用后生效</string>
     <string name="restart_required">需要重启</string>
-    <string name="restart_app_message">需要重启应用才能使语言更改生效。</string>
+    <string name="restart_app_message">需要重启应用才能使更改生效。</string>
     <string name="restart_now">立即重启</string>
     <string name="later">稍后</string>
+    <string name="restart_for_changes">重启应用以应用无障碍设置</string>
 </resources>

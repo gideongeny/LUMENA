@@ -382,7 +382,8 @@
     <string name="voice_control_explain">Controlar la reproducción con comandos de voz</string>
     <string name="language_change_requires_restart">Los cambios de idioma se aplicarán después de reiniciar la aplicación</string>
     <string name="restart_required">Reinicio Requerido</string>
-    <string name="restart_app_message">La aplicación debe reiniciarse para que el cambio de idioma surta efecto.</string>
+    <string name="restart_app_message">La aplicación debe reiniciarse para que los cambios surtan efecto.</string>
     <string name="restart_now">Reiniciar Ahora</string>
     <string name="later">Después</string>
+    <string name="restart_for_changes">Reinicie la aplicación para aplicar la configuración de accesibilidad</string>
 </resources>

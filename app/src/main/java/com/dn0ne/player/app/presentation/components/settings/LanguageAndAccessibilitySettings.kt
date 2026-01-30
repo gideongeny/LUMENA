@@ -213,10 +213,13 @@ fun AccessibilitySettingsPage(
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     val screenReader by settings.screenReader.collectAsState()
     val largeText by settings.largeText.collectAsState()
     val highContrast by settings.highContrast.collectAsState()
     val voiceControl by settings.voiceControl.collectAsState()
+    
+    var showRestartDialog by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -258,7 +261,10 @@ fun AccessibilitySettingsPage(
                     title = stringResource(R.string.screen_reader),
                     supportingText = stringResource(R.string.screen_reader_explain),
                     checked = screenReader,
-                    onCheckedChange = { settings.updateScreenReader(it) }
+                    onCheckedChange = { 
+                        settings.updateScreenReader(it)
+                        showRestartDialog = true
+                    }
                 )
             }
 
@@ -267,7 +273,10 @@ fun AccessibilitySettingsPage(
                     title = stringResource(R.string.large_text),
                     supportingText = stringResource(R.string.large_text_explain),
                     checked = largeText,
-                    onCheckedChange = { settings.updateLargeText(it) }
+                    onCheckedChange = { 
+                        settings.updateLargeText(it)
+                        showRestartDialog = true
+                    }
                 )
             }
 
@@ -276,7 +285,10 @@ fun AccessibilitySettingsPage(
                     title = stringResource(R.string.high_contrast),
                     supportingText = stringResource(R.string.high_contrast_explain),
                     checked = highContrast,
-                    onCheckedChange = { settings.updateHighContrast(it) }
+                    onCheckedChange = { 
+                        settings.updateHighContrast(it)
+                        showRestartDialog = true
+                    }
                 )
             }
 
@@ -285,10 +297,49 @@ fun AccessibilitySettingsPage(
                     title = stringResource(R.string.voice_control),
                     supportingText = stringResource(R.string.voice_control_explain),
                     checked = voiceControl,
-                    onCheckedChange = { settings.updateVoiceControl(it) }
+                    onCheckedChange = { 
+                        settings.updateVoiceControl(it)
+                        showRestartDialog = true
+                    }
+                )
+            }
+            
+            item {
+                HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+                Text(
+                    text = stringResource(R.string.restart_for_changes),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(vertical = 8.dp)
                 )
             }
         }
+    }
+
+    if (showRestartDialog) {
+        AlertDialog(
+            onDismissRequest = { showRestartDialog = false },
+            title = { Text(stringResource(R.string.restart_required)) },
+            text = { Text(stringResource(R.string.restart_app_message)) },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showRestartDialog = false
+                        // Restart the app
+                        val intent = context.packageManager.getLaunchIntentForPackage(context.packageName)
+                        intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                        context.startActivity(intent)
+                    }
+                ) {
+                    Text(stringResource(R.string.restart_now))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showRestartDialog = false }) {
+                    Text(stringResource(R.string.later))
+                }
+            }
+        )
     }
 }
 

@@ -14,9 +14,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import com.dn0ne.player.R
 
@@ -34,11 +33,11 @@ fun WelcomePage(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // App logo - using the animated logo vector
+            // App logo - using the Play Store launcher icon
             Image(
-                imageVector = ImageVector.vectorResource(R.drawable.ic_launcher_foreground),
+                painter = painterResource(R.mipmap.ic_launcher_playstore),
                 contentDescription = stringResource(R.string.app_name),
-                modifier = Modifier.size(150.dp)
+                modifier = Modifier.size(180.dp)
             )
 
             Spacer(modifier = Modifier.height(24.dp))
