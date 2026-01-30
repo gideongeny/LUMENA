@@ -1,6 +1,7 @@
 package com.dn0ne.player.app.presentation.components.settings
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.os.LocaleListCompat
 import com.dn0ne.player.R
 import com.dn0ne.player.core.data.Settings
 import com.dn0ne.player.setup.presentation.components.supportedLanguages
@@ -54,7 +56,6 @@ fun LanguageSettingsPage(
     val scope = rememberCoroutineScope()
     var selectedLanguage by remember { mutableStateOf(settings.language) }
     var showLanguagePicker by remember { mutableStateOf(false) }
-    var showRestartDialog by remember { mutableStateOf(false) }
     val sheetState = rememberModalBottomSheetState()
 
     Scaffold(
@@ -163,7 +164,15 @@ fun LanguageSettingsPage(
                                 .clickable {
                                     selectedLanguage = language.code
                                     settings.language = language.code
-                                    showRestartDialog = true
+                                    
+                                    // Apply language change using AppCompatDelegate
+                                    val localeList = if (language.code.isEmpty()) {
+                                        LocaleListCompat.getEmptyLocaleList()
+                                    } else {
+                                        LocaleListCompat.forLanguageTags(language.code)
+                                    }
+                                    AppCompatDelegate.setApplicationLocales(localeList)
+                                    
                                     scope.launch {
                                         sheetState.hide()
                                         showLanguagePicker = false
@@ -176,32 +185,7 @@ fun LanguageSettingsPage(
             }
         }
 
-        if (showRestartDialog) {
-            AlertDialog(
-                onDismissRequest = { showRestartDialog = false },
-                title = { Text(stringResource(R.string.restart_required)) },
-                text = { Text(stringResource(R.string.restart_app_message)) },
-                confirmButton = {
-                    TextButton(
-                        onClick = {
-                            showRestartDialog = false
-                            onLanguageChanged()
-                            // Restart the app
-                            val intent = context.packageManager.getLaunchIntentForPackage(context.packageName)
-                            intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                            context.startActivity(intent)
-                        }
-                    ) {
-                        Text(stringResource(R.string.restart_now))
-                    }
-                },
-                dismissButton = {
-                    TextButton(onClick = { showRestartDialog = false }) {
-                        Text(stringResource(R.string.later))
-                    }
-                }
-            )
-        }
+
     }
 }
 
