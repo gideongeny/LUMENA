@@ -15,6 +15,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.LaunchedEffect
@@ -24,6 +25,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.core.os.LocaleListCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import android.view.WindowManager
@@ -108,6 +110,14 @@ class MainActivity : ComponentActivity() {
         // Start frame rate monitor for runtime FPS diagnostics
         frameRateMonitor = FrameRateMonitor("MainActivity", 5000L)
         frameRateMonitor?.start()
+
+        // Apply saved language settings
+        val settings = get<Settings>()
+        val savedLanguage = settings.language
+        if (savedLanguage.isNotEmpty()) {
+            val localeList = LocaleListCompat.forLanguageTags(savedLanguage)
+            AppCompatDelegate.setApplicationLocales(localeList)
+        }
 
         val setupViewModel = getViewModel<SetupViewModel>()
         setupViewModel.onAudioPermissionRequest(checkAudioPermission())
@@ -336,8 +346,9 @@ class MainActivity : ComponentActivity() {
                             }
 
                             val useDynamicColor by viewModel.settings.useDynamicColor.collectAsState()
-                            MusicPlayerTheme(
-                                dynamicColor = useDynamicColor
+                            AccessibilityTheme(
+                                settings = viewModel.settings,
+                                dominantColorState = if (useDynamicColor) null else null
                             ) {
                                 PlayerScreen(
                                     viewModel = viewModel,
