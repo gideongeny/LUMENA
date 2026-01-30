@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">ወደ ኃላ</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">ጀምር</string>
+    <string name="permissions">ፈቃዶች</string>
+    <string name="audio">ድምፅ</string>
+    <string name="explain_audio_permission_requirement">ልብዙኃውን ሙዚቃዎን ለማጫወት Lumena ይህን ይፈልጋል</string>
+    <string name="grant_permission">ፈቃድ ስጥ</string>
+    <string name="next">ቀጣይ</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">ርዕስ</string>
+    <string name="album">አልበም</string>
+    <string name="artist">አርቲስት</string>
+    <string name="album_artist">የአልበም አርቲስት</string>
+    <string name="genre">ምዕራብ</string>
+    <string name="year">ዓመት</string>
+    <string name="track_number">ቁጥር ማውጫ</string>
+    <string name="duration">ርዝማኔ</string>
+    <string name="size">መጠን</string>
+    <string name="path">መንገድ</string>
+
+    <string name="unknown_title">ያልታወቀ ርዕስ</string>
+    <string name="unknown_album">ያልታወቀ አልበም</string>
+    <string name="unknown_artist">ያልታወቀ አርቲስት</string>
+    <string name="unknown">ያልታወቀ</string>
+
+    <!-- Tabs' names -->
+    <string name="tracks">ማውጫዎች</string>
+    <string name="albums">አልበሞች</string>
+    <string name="artists">አርቲስቶች</string>
+    <string name="playlists">የሙዚቃ ዝርዝሮች</string>
+    <string name="folders">ፎልደሮች</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">ቅንብሮች</string>
+    <string name="theme">ገጽታ</string>
+    <string name="playback">ማጫወት</string>
+    <string name="about_app">ስለ መተግበሪያ</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">ገጽታ</string>
+    <string name="appearance_system">ስርዓት</string>
+    <string name="appearance_light">ብርሃን</string>
+    <string name="appearance_dark">ጨለማ</string>
+
+    <!-- Playlists settings -->
+    <string name="favorites">ተወደዶች</string>
+    <string name="add_to_favorites">ተወደዶች ላይ አክል</string>
+    <string name="remove_from_favorites">ከተወደዶች አስወግ</string>
+
+    <!-- About screen -->
+    <string name="repo">ማከማቻ</string>
+    <string name="feedback">አስተያየት</string>
+    <string name="developer">ገንቢ</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+
+    <!-- Common actions -->
+    <string name="play">አጫውት</string>
+    <string name="previous">ቀዳሚ</string>
+    <string name="search">ፈልግ</string>
+    <string name="delete">ሰርዝ</string>
+    <string name="create">ፍጠር</string>
+    <string name="cancel">ተከላክል</string>
+    <string name="reset">ተመልስ</string>
+</resources>

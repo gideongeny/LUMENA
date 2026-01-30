@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Padà</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Bẹ̀rẹ̀</string>
+    <string name="permissions">Ìyọ̀ọ̀dá</string>
+    <string name="audio">Ohùn</string>
+    <string name="grant_permission">Fun ní ìyọ̀ọ̀dá</string>
+    <string name="next">Ìkọ́</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Àkọ́lé</string>
+    <string name="album">Àlùbọ́sà</string>
+    <string name="artist">Olùdarí</string>
+    <string name="genre">Ìdílé</string>
+    <string name="year">Ọdún</string>
+    <string name="duration">Ìgbà</string>
+    <string name="size">Iwọ̀n</string>
+
+    <string name="unknown_title">Àkọ́lé àìmọ̀</string>
+    <string name="unknown_album">Àlùbọ́sà àìmọ̀</string>
+    <string name="unknown_artist">Olùdarí àìmọ̀</string>
+    <string name="unknown">Àìmọ̀</string>
+
+    <!-- Tabs' names -->
+    <string name="tracks">Awọn orin</string>
+    <string name="albums">Àlùbọ́sà</string>
+    <string name="artists">Awọn olùdarí</string>
+    <string name="playlists">Àwọn àṣà orin</string>
+    <string name="folders">Awọn folda</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Ètò</string>
+    <string name="theme">Àwọ̀</string>
+    <string name="playback">Ìparí orin</string>
+    <string name="about_app">Nípa app</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Àwòrán</string>
+    <string name="appearance_system">Ọ̀rọ̀ ètò</string>
+    <string name="appearance_light">Mọ́ọ̀kan</string>
+    <string name="appearance_dark">Dídùn</string>
+
+    <!-- Playlists settings -->
+    <string name="favorites">Ohun àyọ̀</string>
+    <string name="add_to_favorites">Ṣe àfikún sí ohun àyọ̀</string>
+    <string name="remove_from_favorites">Yọ kúrò ní ohun àyọ̀</string>
+
+    <!-- About screen -->
+    <string name="repo">Ibi ipamọ́</string>
+    <string name="feedback">Àsà</string>
+    <string name="developer">Oníşe</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+
+    <!-- Common actions -->
+    <string name="play">Darí orin</string>
+    <string name="search">Wá</string>
+    <string name="delete">Yọ̀</string>
+    <string name="create">Ṣẹ̀dá</string>
+    <string name="cancel">Fọ́</string>
+    <string name="reset">Tún bẹ̀rẹ̀</string>
+</resources>

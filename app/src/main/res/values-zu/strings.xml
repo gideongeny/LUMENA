@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Emuva</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Qala</string>
+    <string name="permissions">Imvume</string>
+    <string name="audio">Umlomo</string>
+    <string name="grant_permission">Nikeza imvume</string>
+    <string name="next">Okulandelayo</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Isihloko</string>
+    <string name="album">I-album</string>
+    <string name="artist">Umculi</string>
+    <string name="genre">Uhlobo</string>
+    <string name="year">Umnyaka</string>
+    <string name="duration">Isikhathi</string>
+
+    <string name="unknown_title">Isihloko esingaziwa</string>
+    <string name="unknown_album">I-album engaziwa</string>
+    <string name="unknown_artist">Umculi ongaziwa</string>
+    <string name="unknown">Engaziwa</string>
+
+    <!-- Tabs' names -->
+    <string name="tracks">Amaculo</string>
+    <string name="albums">I-album</string>
+    <string name="artists">Abaculi</string>
+    <string name="playlists">Uhlu lwamaculo</string>
+    <string name="folders">Amafolda</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Izilungiselelo</string>
+    <string name="theme">Isifundo</string>
+    <string name="playback">Ukudlala</string>
+    <string name="about_app">Mayelana ne-app</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Ukubukeka</string>
+    <string name="appearance_system">Isistimu</string>
+    <string name="appearance_light">Ukukhanya</string>
+    <string name="appearance_dark">Mnyama</string>
+
+    <!-- Playlists settings -->
+    <string name="favorites">Okuthandayo</string>
+    <string name="add_to_favorites">Engeza ekuthandweni</string>
+    <string name="remove_from_favorites">Susa ekuthandweni</string>
+
+    <!-- About screen -->
+    <string name="repo">Iqhaza</string>
+    <string name="feedback">Imibono</string>
+    <string name="developer">Umthuthukisi</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+
+    <!-- Common actions -->
+    <string name="play">Dlala</string>
+    <string name="search">Sesha</string>
+    <string name="delete">Susa</string>
+    <string name="create">Dala</string>
+    <string name="cancel">Hoxa</string>
+    <string name="reset">Setha kabusha</string>
+</resources>

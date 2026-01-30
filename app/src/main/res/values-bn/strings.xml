@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">পেছনে</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">শুরু করুন</string>
+    <string name="permissions">অনুমতি</string>
+    <string name="audio">অডিও</string>
+    <string name="explain_audio_permission_requirement">আপনার দুর্দান্ত সংগীত বাজাতে Lumena-এর এটি প্রয়োজন</string>
+    <string name="grant_permission">অনুমতি দিন</string>
+    <string name="next">পরবর্তী</string>
+    <string name="grant_permission_in_settings">অনুগ্রহ করে সেটিংসে অনুমতি দিন</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">শিরোনাম</string>
+    <string name="album">অ্যালবাম</string>
+    <string name="artist">শিল্পী</string>
+    <string name="album_artist">অ্যালবাম শিল্পী</string>
+    <string name="genre">ধরন</string>
+    <string name="year">বছর</string>
+    <string name="track_number">ট্র্যাক নম্বর</string>
+    <string name="bitrate">বিটরেট</string>
+    <string name="duration">সময়কাল</string>
+    <string name="size">আকার</string>
+    <string name="path">পথ</string>
+    <string name="date_modified">পরিবর্তনের তারিখ</string>
+
+    <string name="unknown_title">অজানা শিরোনাম</string>
+    <string name="unknown_album">অজানা অ্যালবাম</string>
+    <string name="unknown_artist">অজানা শিল্পী</string>
+    <string name="unknown_album_artist">অজানা অ্যালবাম শিল্পী</string>
+    <string name="unknown_genre">অজানা ধরন</string>
+    <string name="unknown_year">অজানা বছর</string>
+    <string name="unknown_track_number">অজানা ট্র্যাক নম্বর</string>
+    <string name="unknown_bitrate">অজানা বিটরেট</string>
+    <string name="unknown">অজানা</string>
+
+    <!-- Track dropdown menu -->
+    <string name="track_menu_button">ট্র্যাক মেনু বাটন</string>
+    <string name="play_next">পরবর্তীতে চালান</string>
+    <string name="add_to_queue">কিউতে যোগ করুন</string>
+    <string name="remove_from_playlist">প্লেলিস্ট থেকে সরান</string>
+    <string name="go_to_album">অ্যালবামে যান</string>
+    <string name="go_to_artist">শিল্পীতে যান</string>
+
+    <!-- Tabs' names -->
+    <string name="tracks">ট্র্যাক</string>
+    <string name="albums">অ্যালবাম</string>
+    <string name="artists">শিল্পী</string>
+    <string name="genres">ধরন</string>
+    <string name="playlists">প্লেলিস্ট</string>
+    <string name="folders">ফোল্ডার</string>
+
+    <!-- Sorting dialog -->
+    <string name="sort_order">ক্রমানুসার</string>
+    <string name="sort_ascending">আরোহী ক্রম</string>
+    <string name="sort_descending">অবরোহী ক্রম</string>
+    <string name="track_count">ট্র্যাক সংখ্যা</string>
+
+    <!-- Track search -->
+    <string name="close_track_search">ট্র্যাক অনুসন্ধান বন্ধ করুন</string>
+    <string name="track_search">ট্র্যাক অনুসন্ধান</string>
+
+    <!-- Scroll to buttons -->
+    <string name="scroll_to_top">উপরে স্ক্রোল করুন</string>
+    <string name="scroll_to_current_track">বর্তমান ট্র্যাকে স্ক্রোল করুন</string>
+
+    <!-- Expanded player sheet -->
+    <string name="close_player_sheet">প্লেয়ার বন্ধ করুন</string>
+    <string name="playback_mode_toggle">প্লেব্যাক মোড পরিবর্তন করুন</string>
+    <string name="show_lyrics">গানের কথা দেখান</string>
+    <string name="set_sleep_timer">স্লিপ টাইমার সেট করুন</string>
+    <string name="sleep_timer">স্লিপ টাইমার</string>
+    <string name="short_minutes">মিনিট</string>
+    <string name="stop_timer">থামুন</string>
+    <string name="start_timer">শুরু করুন</string>
+
+    <!-- Play queue -->
+    <string name="remove_from_queue">কিউ থেকে সরান</string>
+    <string name="queue">কিউ</string>
+    <string name="show_queue">কিউ দেখান</string>
+
+    <!-- Track info screen -->
+    <string name="track_info">ট্র্যাক তথ্য</string>
+    <string name="close_track_info_sheet">ট্র্যাক তথ্য বন্ধ করুন</string>
+    <string name="look_for_metadata">মেটাডেটা খুঁজুন</string>
+    <string name="edit_manually">ম্যানুয়ালি সম্পাদনা করুন</string>
+    <string name="back_to_track_info">ট্র্যাক তথ্যে ফিরে যান</string>
+
+    <!-- Risks of metadata editing dialog -->
+    <string name="risks_of_metadata_editing">মেটাডেটা সম্পাদনার ঝুঁকি</string>
+    <string name="risks_of_metadata_editing_explain">মেটাডেটা সম্পাদনা একটি শক্তিশালী বৈশিষ্ট্য, কিন্তু কখনও কখনও জিনিস ভুল হতে পারে এবং অডিও ফাইল ট্যাগ প্রত্যাশিত আচরণ নাও করতে পারে।\n\nআমরা পরিবর্তন করার আগে আপনার অডিও ফাইলগুলির ব্যাকআপ নেওয়ার পরামর্শ দিচ্ছি - নিরাপদে থাকা উচিত!\n\n"গ্রহণ করুন" ক্লিক করে, আপনি স্বীকার করছেন যে আপনি আপনার ফাইলগুলির জন্য দায়ী, প্রয়োজনীয় ব্যাকআপ করেছেন এবং বুঝতে পেরেছেন যে কিছু অপ্রত্যাশিত ঘটলে আমরা দায়ী হতে পারি না।\n\nআপনি যদি এগিয়ে যেতে না চান তাহলে "বাতিল" ক্লিক করুন।</string>
+    <string name="accept">গ্রহণ করুন</string>
+    <string name="cancel">বাতিল করুন</string>
+
+    <!-- Metadata search screen -->
+    <string name="search">খুঁজুন</string>
+    <string name="description">বিবরণ</string>
+    <string name="album_description">অ্যালবাম বিবরণ</string>
+    <string name="no_description">কোনো বিবরণ নেই</string>
+    <string name="back_to_info_search">তথ্য অনুসন্ধানে ফিরে যান</string>
+    <string name="search_menu">তথ্য অনুসন্ধান ড্রপডাউন মেনু</string>
+    <string name="search_results_provided_by">ফলাফল MusicBrainz দ্বারা প্রদত্ত</string>
+
+    <!-- Search tips dialog -->
+    <string name="got_it">বুঝেছি</string>
+    <string name="search_tips">অনুসন্ধান টিপস</string>
+    <string name="search_explain">আমরা ট্র্যাক তথ্য খুঁজে পেতে আপনাকে সাহায্য করতে MusicBrainz API ব্যবহার করি। আপনি সহজ ফিল্টার ব্যবহার করে আপনার অনুসন্ধানগুলি আরও সুনির্দিষ্ট করতে পারেন।</string>
+    <string name="quotes_explain_header">সঠিক মিলের জন্য উদ্ধৃতি চিহ্ন</string>
+    <string name="quotes_explain">নির্দিষ্ট শব্দ বা বাক্যাংশ খুঁজে পেতে উদ্ধৃতি চিহ্ন ব্যবহার করুন:</string>
+    <string name="quotes_example_1">"4:44"</string>
+    <string name="quotes_example_2"><![CDATA["7 Weeks & 3 Days"]]></string>
+    <string name="field_explain_header">শিল্পী বা অ্যালবাম দ্বারা খুঁজুন</string>
+    <string name="field_explain">আপনি এইভাবে একটি নির্দিষ্ট শিল্পী বা অ্যালবাম খুঁজতে পারেন:</string>
+    <string name="field_example_1">artist:"Jay-Z"</string>
+    <string name="field_example_2">release:"Over You"</string>
+    <string name="combine_explain_header">অনুসন্ধানগুলি একত্রিত করুন</string>
+    <string name="combine_explain">বিভিন্ন অনুসন্ধান শব্দ সংযুক্ত করতে "AND" ব্যবহার করুন:</string>
+    <string name="combine_example">"4:44" AND artist:"Jay-Z" AND release:"4:44"</string>
+
+    <!-- Search errors -->
+    <string name="unknown_error_occurred">একটি অজানা ত্রুটি হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।</string>
+    <string name="query_was_corrupted">কোয়ারি দূষিত হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।</string>
+    <string name="musicbrainz_server_error">MusicBrainz সার্ভার ত্রুটি। অনুগ্রহ করে আবার চেষ্টা করুন।</string>
+    <string name="musicbrainz_is_unavailable">MusicBrainz অনুপলব্ধ। অনুগ্রহ করে পরে আবার চেষ্টা করুন।</string>
+    <string name="failed_to_parse_response">প্রতিক্রিয়া পার্স করতে ব্যর্থ। অনুগ্রহ করে আবার চেষ্টা করুন।</string>
+    <string name="no_internet">মনে হচ্ছে আপনি অফলাইনে আছেন। ইন্টারনেটে সংযুক্ত হন এবং আবার চেষ্টা করুন।</string>
+
+    <!-- Changes screen -->
+    <string name="changes">পরিবর্তন</string>
+    <string name="old_cover_art">পুরনো কভার আর্ট</string>
+    <string name="new_cover_art">নতুন কভার আর্ট</string>
+    <string name="overwrite">ওভাররাইট</string>
+    <string name="select_fields_to_overwrite">ওভাররাইট করার জন্য ফিল্ড নির্বাচন করুন:</string>
+    <string name="metadata_change_succeed">ট্র্যাক তথ্য সফলভাবে পরিবর্তিত হয়েছে। পরিবর্তনগুলি কয়েক সেকেন্ডের মধ্যে কার্যকর হবে।</string>
+    <string name="important_to_know">জানা গুরুত্বপূর্ণ</string>
+    <string name="artwork_change_note">যদি এই ট্র্যাকের অ্যালবামের কভার আর্ট আপনার ডিভাইসে উপস্থিত থাকে, তাহলে নির্বাচিত কভার আর্ট নির্বিশেষে এটি ব্যবহার করা হবে।</string>
+    <string name="cover_art_from_gallery_note">গ্যালারি থেকে কভার আর্ট প্রদর্শন করতে, আপনাকে অ্যাপ বা ডিভাইস পুনরায় চালু করতে হতে পারে।</string>
+
+    <!-- Changes errors -->
+    <string name="failed_to_load_cover_art_album_id_corrupted">কভার আর্ট লোড করতে ব্যর্থ। মনে হচ্ছে এই রেকর্ডিংয়ের অ্যালবাম আইডি দূষিত।</string>
+    <string name="cover_art_not_found">দুঃখিত, এই রেকর্ডিংয়ের কভার আর্ট পাওয়া যায়নি।</string>
+    <string name="cover_art_archive_is_unavailable">কভার আর্ট লোড করতে ব্যর্থ। Cover Art Archive অনুপলব্ধ। অনুগ্রহ করে পরে আবার চেষ্টা করুন।</string>
+    <string name="failed_to_load_cover_art_request_timeout">3 মিনিটে কভার আর্ট লোড করতে ব্যর্থ। অনুগ্রহ করে নেটওয়ার্ক মান পরীক্ষা করুন এবং আবার চেষ্টা করুন।</string>
+
+    <!-- Metadata writing errors -->
+    <string name="write_permission_denied">মেটাডেটা ওভাররাইট করতে ব্যর্থ। অনুমতি অস্বীকৃত। অনুগ্রহ করে আবার চেষ্টা করুন।</string>
+    <string name="no_read_permission">কোনো পড়ার অনুমতি নেই। অনুগ্রহ করে অনুমতি দিন বা আবার চেষ্টা করুন।</string>
+    <string name="no_write_permission">কোনো লেখার অনুমতি নেই। অনুগ্রহ করে অনুমতি দিন বা আবার চেষ্টা করুন।</string>
+    <string name="failed_to_read">ফাইল পড়তে ব্যর্থ। অনুগ্রহ করে আবার চেষ্টা করুন।</string>
+    <string name="failed_to_write">ফাইল লিখতে ব্যর্থ। অনুগ্রহ করে আবার চেষ্টা করুন।</string>
+
+    <!-- Manual editing screen -->
+    <string name="edit">সম্পাদনা করুন</string>
+    <string name="pick_art">কভার বাছাই করুন</string>
+    <string name="restore_art">পুনরুদ্ধার করুন</string>
+    <string name="restore_tag">ট্যাগ মান পুনরুদ্ধার করুন</string>
+
+    <!-- Lyrics control screen -->
+    <string name="lyrics_control">গানের কথা নিয়ন্ত্রণ</string>
+    <string name="lyrics_in_tag">ট্যাগে গানের কথা</string>
+    <string name="lyrics_in_tag_explain">অডিও ফাইল ট্যাগে সংরক্ষিত গানের কথা</string>
+    <string name="lyrics_in_local_database">স্থানीय ডাটাবেসে গানের কথা</string>
+    <string name="lyrics_in_local_database_explain">ট্যাগ থেকে কপি করা, LRCLIB থেকে নেওয়া বা ফাইল থেকে যোগ করা গানের কথা। আপনি গানের কথার স্ক্রিনে যা দেখছেন তা</string>
+    <string name="lyrics_actions">গানের কথা ক্রিয়া</string>
+    <string name="lyrics_tools_explained">স্থানीय ডাটাবেসে গানের কথা পরিচালনা বা পরিবর্তন করার ক্রিয়া</string>
+    <string name="clear_db_entry">ডাটাবেস এন্ট্রি সাফ করুন</string>
+    <string name="copy_from_tag">ট্যাগ থেকে কপি করুন</string>
+    <string name="import_from_file">ফাইল থেকে আমদানি করুন</string>
+    <string name="write_to_tag">ট্যাগে লিখুন</string>
+    <string name="fetch_from_lrclib">LRCLIB থেকে আনুন</string>
+    <string name="publish_on_lrclib">LRCLIB-এ প্রকাশ করুন</string>
+    <string name="unable_to_publish">প্রকাশ করতে অক্ষম: শিরোনাম, শিল্পী বা অ্যালবাম নির্দিষ্ট করা হয়নি।</string>
+    <string name="published_successfully">সফলভাবে প্রকাশিত।</string>
+    <string name="solving_challenge">চ্যালেঞ্জ সমাধান করা হচ্ছে...</string>
+
+    <!-- Lyrics sheet -->
+    <string name="lyrics">গানের কথা</string>
+    <string name="close_lyrics_sheet">গানের কথা শীট বন্ধ করুন</string>
+    <string name="loading_lyrics">গানের কথা লোড হচ্ছে</string>
+    <string name="synced">সিঙ্ক করা</string>
+    <string name="plain">সাধারণ</string>
+
+    <!-- Lyrics screen errors -->
+    <string name="cant_look_for_lyrics_title_or_artist_is_missing">গানের কথা খুঁজতে পারছি না। এই ট্র্যাকের জন্য শিরোনাম বা শিল্পী নির্দিষ্ট করা হয়নি।</string>
+    <string name="lyrics_not_found">দুঃখিত, LRCLIB-এ এই ট্র্যাকের গানের কথা পাওয়া যায়নি।</string>
+    <string name="cant_find_lyrics">গানের কথা খুঁজে পাচ্ছি না।</string>
+    <string name="lyrics_provided_by">গানের কথা LRCLIB দ্বারা প্রদত্ত</string>
+
+    <!-- Playlists related -->
+    <string name="create_playlist">প্লেলিস্ট তৈরি করুন</string>
+    <string name="add_to_playlist">প্লেলিস্টে যোগ করুন</string>
+    <string name="back_to_add_to_playlist">প্লেলিস্টে যোগ করতে ফিরে যান</string>
+    <string name="name">নাম</string>
+    <string name="new_playlist_title_placeholder">যেমন: প্রিয়</string>
+    <string name="create">তৈরি করুন</string>
+    <string name="reorder_track">ট্র্যাক পুনর্বিন্যাস করুন</string>
+    <string name="delete_playlist">প্লেলিস্ট মুছুন</string>
+    <string name="rename_playlist">প্লেলিস্টের নাম পরিবর্তন করুন</string>
+    <string name="rename">নাম পরিবর্তন করুন</string>
+    <string name="delete">মুছুন</string>
+    <string name="delete_playlist_dialog_title">প্লেলিস্ট মুছুন?</string>
+    <string name="delete_playlist_dialog_text">এতে থাকা ট্র্যাকগুলি প্রভাবিত হবে না।</string>
+    <string name="nothing_yet">এখনো কিছু নেই।</string>
+    <string name="unknown_folder">অজানা ফোল্ডার</string>
+    <string name="enable_list_view">তালিকা ভিউ সক্ষম করুন</string>
+    <string name="enable_grid_view">গ্রিড ভিউ সক্ষম করুন</string>
+
+    <!-- Playlists errors -->
+    <string name="blank_playlist_name_error">অনুগ্রহ করে প্লেলিস্টের নাম দিন।</string>
+    <string name="playlist_already_exists_error">এই নাম ইতিমধ্যে ব্যবহৃত হয়েছে।</string>
+    <string name="track_is_already_on_playlist">এই ট্র্যাক ইতিমধ্যে প্লেলিস্টে আছে।</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">সেটিংস</string>
+    <string name="close_settings_sheet">সেটিংস বন্ধ করুন</string>
+    <string name="theme">থিম</string>
+    <string name="theme_supporting_text">চেহারা, প্যালেট</string>
+    <string name="lyrics_supporting_text">ফন্ট সেটিংস, সারিবদ্ধতা</string>
+    <string name="playback">প্লেব্যাক</string>
+    <string name="playback_supporting_text">অডিও ফোকাস, ইকোয়ালাইজার</string>
+    <string name="about_app">অ্যাপ সম্পর্কে</string>
+    <string name="about_explain">সংস্করণ, রেপো, ফিডব্যাক</string>
+    <string name="music_scan">সংগীত স্ক্যান</string>
+    <string name="music_scan_supporting_text">ফিল্টার মোড, ফোল্ডার ব্যবস্থাপনা, স্ক্যানিং</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">চেহারা</string>
+    <string name="appearance_system">সিস্টেম</string>
+    <string name="appearance_light">লাইট</string>
+    <string name="appearance_dark">ডার্ক</string>
+
+    <string name="palette_style">প্যালেট স্টাইল</string>
+    <string name="palette_tonal_spot">টোনাল স্পট</string>
+    <string name="palette_neutral">নিউট্রাল</string>
+    <string name="palette_vibrant">ভাইব্রেন্ট</string>
+    <string name="palette_expressive">এক্সপ্রেসিভ</string>
+    <string name="palette_rainbow">রেইনবো</string>
+    <string name="palette_fruit_salad">ফ্রুট সালাদ</string>
+    <string name="palette_monochrome">মোনোক্রোম</string>
+    <string name="palette_fidelity">ফিডেলিটি</string>
+    <string name="palette_content">কন্টেন্ট</string>
+
+    <string name="black_theme">ব্ল্যাক থিম</string>
+    <string name="black_theme_explain">ডার্ক থিমকে সত্যিকারের কালো করুন</string>
+    <string name="use_system_key_colors">সিস্টেম রঙ</string>
+    <string name="use_system_key_colors_explain">সিস্টেম অ্যাকসেন্ট রঙ ব্যবহার করুন</string>
+    <string name="use_album_art_color">কভার আর্ট রঙ</string>
+    <string name="use_album_art_color_explain">বর্তমান ট্র্যাকের কভার আর্টের প্রভাবশালী রঙ ব্যবহার করুন</string>
+
+    <!-- Playback settings -->
+    <string name="audio_focus">অডিও ফোকাস</string>
+    <string name="audio_focus_explain">অন্য অ্যাপকে অডিও বাজাতে হলে প্লেব্যাক পজ করুন</string>
+    <string name="changes_will_take_effect_on_next_launch">পরবর্তী চালু করার সময় পরিবর্তনগুলি কার্যকর হবে।</string>
+    <string name="equalizer">ইকোয়ালাইজার</string>
+    <string name="equalizer_explain">সাউন্ড ম্যানুয়ালি সমন্বয় করুন</string>
+    <string name="jump_to_beginning">শুরুতে যান</string>
+    <string name="jump_to_beginning_explain">পূর্ববর্তী বাটনের প্রথম চাপে বর্তমান ট্র্যাক পুনরায় চালু করুন</string>
+
+    <!-- Tabs settings -->
+    <string name="tabs">ট্যাব</string>
+    <string name="tabs_supporting_text">ডিফল্ট ট্যাব এবং ক্রম</string>
+    <string name="default_tab_and_order">ডিফল্ট ট্যাব এবং ক্রম</string>
+    <string name="reorder_tab">ট্যাব পুনর্বিন্যাস করুন</string>
+
+    <!-- Playlists settings -->
+    <string name="filter_instead_of_search">অনুসন্ধানের বদলে ফিল্টার করুন</string>
+    <string name="filter_instead_of_search_explain">প্লেলিস্ট অনুসন্ধানকে ফিল্টার দিয়ে প্রতিস্থাপন করুন</string>
+    <string name="playlists_supporting_text">অনুসন্ধান ক্ষেত্র, আমদানি</string>
+    <string name="filter">ফিল্টার</string>
+    <string name="import_playlist">প্লেলিস্ট আমদানি করুন</string>
+    <string name="import_playlist_explain">M3U ফাইল থেকে প্লেলিস্ট যোগ করুন</string>
+    <string name="imported_successfully">সফলভাবে আমদানি করা হয়েছে।</string>
+    <string name="export_playlist">প্লেলিস্ট রপ্তানি করুন</string>
+    <string name="export_playlist_explain">প্লেলিস্টকে M3U ফাইল হিসাবে সংরক্ষণ করুন</string>
+    <string name="exported_successfully">সফলভাবে রপ্তানি করা হয়েছে।</string>
+    <string name="failed_to_export_playlist">প্লেলিস্ট রপ্তানি করতে ব্যর্থ</string>
+    <string name="favorites">প্রিয়</string>
+    <string name="recently_played">সম্প্রতি বাজানো</string>
+    <string name="add_to_favorites">প্রিয়তে যোগ করুন</string>
+    <string name="remove_from_favorites">প্রিয় থেকে সরান</string>
+
+    <!-- Lyrics settings -->
+    <string name="dark_theme_for_lyrics">গানের কথার জন্য ডার্ক থিম</string>
+    <string name="dark_theme_for_lyrics_explain">লাইট মোড সক্রিয় থাকলেও গানের কথার স্ক্রিনে ডার্ক থিম প্রয়োগ করুন</string>
+    <string name="lyrics_preview_string">এই খুব দীর্ঘ লাইনটি দেখায় যে এই সেটিংস সহ গানের কথা সংশ্লিষ্ট স্ক্রিনে কেমন দেখাবে</string>
+    <string name="font_size">ফন্ট আকার</string>
+    <string name="font_weight">ফন্ট ওজন</string>
+    <string name="line_height">লাইন উচ্চতা</string>
+    <string name="letter_spacing">লেটার স্পেসিং</string>
+    <string name="alignment">সারিবদ্ধতা</string>
+    <string name="start">শুরু</string>
+    <string name="center">কেন্দ্র</string>
+    <string name="end">শেষ</string>
+    <string name="reset">রিসেট</string>
+
+    <!-- Music scan settings -->
+    <string name="include_music_folder">সংগীত ফোল্ডার অন্তর্ভুক্ত করুন</string>
+    <string name="include_music_folder_explain">ডিফল্ট সংগীত ফোল্ডার থেকে সংগীত দেখান</string>
+    <string name="included_folders">অন্তর্ভুক্ত ফোল্ডার</string>
+    <string name="pick_folder_to_include_in_scanning">স্ক্যানে অন্তর্ভুক্ত করার জন্য ফোল্ডার বাছাই করুন</string>
+    <string name="remove_folder_from_included_in_scanning">স্ক্যান থেকে অন্তর্ভুক্ত ফোল্ডার সরান</string>
+    <string name="folders_with_audio">অডিও সহ ফোল্ডার</string>
+    <string name="include_folder_in_scanning">ফোল্ডারকে স্ক্যানে অন্তর্ভুক্ত করুন</string>
+    <string name="scan_for_folders_with_audio">অডিও সহ ফোল্ডারের জন্য স্ক্যান করুন</string>
+    <string name="filter_mode">ফিল্টার মোড</string>
+    <string name="filter_mode_explain">নির্দিষ্ট ফোল্ডার থেকে বা তাদের ছাড়া সর্বত্র থেকে সংগীত দেখান</string>
+    <string name="inclusive">অন্তর্ভুক্তিমূলক</string>
+    <string name="exclusive">এক্সক্লুসিভ</string>
+    <string name="excluded_folders">বাদ দেওয়া ফোল্ডার</string>
+    <string name="pick_folder_to_exclude_from_scanning">স্ক্যান থেকে বাদ দেওয়ার জন্য ফোল্ডার বাছাই করুন</string>
+    <string name="remove_folder_from_excluded_from_scanning">স্ক্যান থেকে বাদ দেওয়া ফোল্ডার সরান</string>
+    <string name="exclude_folder_from_scanning">ফোল্ডারকে স্ক্যান থেকে বাদ দিন</string>
+    <string name="scanned_successfully">সফলভাবে স্ক্যান করা হয়েছে</string>
+    <string name="refresh_on_app_launch">চালু করার সময় রিফ্রেশ করুন</string>
+    <string name="refresh_on_app_launch_explain">চালু করার সময় MediaStore-এ ডেটা রিফ্রেশ করুন</string>
+    <string name="refresh">MediaStore রিফ্রেশ করুন</string>
+    <string name="refresh_explain">MediaStore-এ ইতিমধ্যে উপস্থিত ডেটা রিফ্রেশ করুন</string>
+    <string name="scan_folder">ফোল্ডার স্ক্যান করুন</string>
+    <string name="scan_folder_explain">MediaStore-এ নতুন ডেটা অন্তর্ভুক্ত করতে অডিও ফোল্ডার স্ক্যান করুন</string>
+    <string name="failed_to_scan">স্ক্যান করতে ব্যর্থ</string>
+    <string name="nothing_to_refresh">রিফ্রেশ করার মতো কিছু নেই</string>
+    <string name="refreshed_successfully">সফলভাবে রিফ্রেশ করা হয়েছে</string>
+    <string name="failed_to_refresh">রিফ্রেশ করতে ব্যর্থ</string>
+    <string name="ignore_short_tracks">ছোট ট্র্যাক উপেক্ষা করুন</string>
+    <string name="ignore_short_tracks_explain">30 সেকেন্ডের কম লম্বা ট্র্যাক দেখাবেন না</string>
+
+    <!-- About screen -->
+    <string name="repo">রেপো</string>
+    <string name="repo_explain">প্রজেক্টের রেপো দেখুন</string>
+    <string name="feedback">ফিডব্যাক</string>
+    <string name="feedback_explain">একটি ফিচার সuggest করতে বা সমস্যা রিপোর্ট করতে যোগাযোগ করুন</string>
+    <string name="privacy_policy">গোপনীয়তা নীতি</string>
+    <string name="privacy_policy_explain">আমাদের গোপনীয়তা নীতি পড়ুন</string>
+    <string name="donate">দান করুন</string>
+    <string name="donate_explain">উন্নয়নে সহায়তা করুন</string>
+    <string name="developer">ডেভেলপার</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+    <string name="features">ফিচার</string>
+    <string name="features_explain">অ্যাপ ক্ষমতা অন্বেষণ করুন</string>
+    <string name="changelog">চেঞ্জলগ</string>
+    <string name="changelog_explain">সাম্প্রতিক আপডেট এবং উন্নতি দেখুন</string>
+
+    <!-- Open a track with "Open with..." dialog -->
+    <string name="track_is_not_found_in_media_store">দুঃখিত, এই ট্র্যাক প্লেয়ারের জন্য উপলব্ধ নেই। হয়তো এটি এমন একটি ফোল্ডারে আছে যা স্ক্যানে অন্তর্ভুক্ত নয়।</string>
+
+    <string name="copy_error">কপি ত্রুটি</string>
+    <string name="select_all">সব নির্বাচন করুন</string>
+    <string name="album_art">অ্যালবাম আর্ট</string>
+    <string name="previous_track">পূর্ববর্তী ট্র্যাক</string>
+    <string name="play">চালান</string>
+    <string name="next_track">পরবর্তী ট্র্যাক</string>
+    <string name="widget_description">Lumena মিউজিক প্লেয়ার উইজেট</string>
+    <string name="play_count">প্লে কাউন্ট</string>
+    <string name="last_played">সর্বশেষ বাজানো</string>
+
+    <!-- Google Play Store Compliance -->
+    <string name="open_source_licenses">ওপেন সোর্স লাইসেন্স</string>
+    <string name="open_source_licenses_explain">ব্যবহৃত ওপেন সোর্স লাইব্রেরির লাইসেন্স দেখুন</string>
+    <string name="terms_of_service">সেবার শর্তাবলী</string>
+    <string name="terms_of_service_explain">এই অ্যাপ ব্যবহারের শর্তাবলী পড়ুন</string>
+    <string name="contact_info">যোগাযোগের তথ্য</string>
+    <string name="contact_info_explain">ডেভেলপারের সাথে যোগাযোগ করুন</string>
+    <string name="app_permissions">অ্যাপ অনুমতি</string>
+    <string name="app_permissions_explain">প্রয়োজনীয় অনুমতি এবং তাদের উদ্দেশ্য দেখুন</string>
+</resources>

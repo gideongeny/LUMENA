@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Bali</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Miwiti</string>
+    <string name="permissions">Ijin</string>
+    <string name="audio">Audio</string>
+    <string name="explain_audio_permission_requirement">Lumena butuh kasebut kanggo maemake music anyarmu</string>
+    <string name="grant_permission">K赐i ijin</string>
+    <string name="next">Sabanjure</string>
+    <string name="grant_permission_in_settings">Mangga, k赐i ijin ing Setelan</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Titre</string>
+    <string name="album">Album</string>
+    <string name="artist">Artis</string>
+    <string name="album_artist">Artis Album</string>
+    <string name="genre">Genre</string>
+    <string name="year">Taun</string>
+    <string name="track_number">Nomer trek</string>
+    <string name="bitrate">Bitrate</string>
+    <string name="duration">Katrapan</string>
+    <string name="size">Ukuran</string>
+    <string name="path">Dalan</string>
+    <string name="date_modified">Tanggal diowahi</string>
+
+    <string name="unknown_title">Titre ora dingerteni</string>
+    <string name="unknown_album">Album ora dingerteni</string>
+    <string name="unknown_artist">Artis ora dingerteni</string>
+    <string name="unknown_album_artist">Artis Album ora dingerteni</string>
+    <string name="unknown_genre">Genre ora dingerteni</string>
+    <string name="unknown_year">Taun ora dingerteni</string>
+    <string name="unknown_track_number">Nomer trek ora dingerteni</string>
+    <string name="unknown_bitrate">Bitrate ora dingerteni</string>
+    <string name="unknown">Ora dingerteni</string>
+
+    <!-- Track dropdown menu -->
+    <string name="track_menu_button">Tombol menu trek</string>
+    <string name="play_next">Main sabanjure</string>
+    <string name="add_to_queue">Tambahake ing antrian</string>
+    <string name="remove_from_playlist">Busak saka playlist</string>
+    <string name="go_to_album">Pindhah menyang album</string>
+    <string name="go_to_artist">Pindhah menyang artis</string>
+
+    <!-- Tabs' names -->
+    <string name="tracks">Trek</string>
+    <string name="albums">Album</string>
+    <string name="artists">Artis</string>
+    <string name="genres">Genre</string>
+    <string name="playlists">Playlist</string>
+    <string name="folders">Folder</string>
+
+    <!-- Sorting dialog -->
+    <string name="sort_order">urutane</string>
+    <string name="sort_ascending">Urut Ascending</string>
+    <string name="sort_descending">Urut Descending</string>
+    <string name="track_count"> jumlah trek</string>
+
+    <!-- Track search -->
+    <string name="close_track_search">Nutup telusuran trek</string>
+    <string name="track_search">Telusuran trek</string>
+
+    <!-- Scroll to buttons -->
+    <string name="scroll_to_top">Gulung ing ndhuwur</string>
+    <string name="scroll_to_current_track">Gulung menyang trek saiki</string>
+
+    <!-- Expanded player sheet -->
+    <string name="close_player_sheet">Nutup player</string>
+    <string name="playback_mode_toggle">Ganti mode main</string>
+    <string name="show_lyrics">Tampilake teks</string>
+    <string name="set_sleep_timer">Setel timer turu</string>
+    <string name="sleep_timer">Timer turu</string>
+    <string name="short_minutes">mnt</string>
+    <string name="stop_timer">Emoji</string>
+    <string name="start_timer">Miwiti</string>
+
+    <!-- Play queue -->
+    <string name="remove_from_queue">Busak saka antrian</string>
+    <string name="queue">Antrian</string>
+    <string name="show_queue">Tampilake antrian</string>
+
+    <!-- Track info screen -->
+    <string name="track_info">Informasi trek</string>
+    <string name="close_track_info_sheet">Nutup informasi trek</string>
+    <string name="look_for_metadata"> golek metadata</string>
+    <string name="edit_manually">Edit manual</string>
+    <string name="back_to_track_info">Bali menyang informasi trek</string>
+
+    <!-- Risks of metadata editing dialog -->
+    <string name="risks_of_metadata_editing">Risiko edit metadata</string>
+    <string name="risks_of_metadata_editing_explain">Edit metadata iku fitur sing kuat, nanging kadang-kadang bisa gagal lan tag file audio bisa ora nduwe lelagon sing dikarepake.\n\nKita ngandikan nggawe backup file audio sadurunge ngganti - luwih becik ati-ati!\n\nKlik \"Terima\" tegese sampeyan setuju yen sampeyan tanggung jawab file sampeyan, wis nggawe backup sing dibutuhake, lan ngerteni yen kita ora bisa digugat yen ana kedadeyan sing ora dikarepake.\n\nKlik \"Batal\" yen sampeyan ora arep nerusake.</string>
+    <string name="accept">Terima</string>
+    <string name="cancel">Batal</string>
+
+    <!-- Metadata search screen -->
+    <string name="search">Golek</string>
+    <string name="description">Katrangan</string>
+    <string name="album_description">Katrangan Album</string>
+    <string name="no_description">Ora ana katrangan</string>
+    <string name="back_to_info_search">Bali menyang golek informasi</string>
+    <string name="search_menu">Menu dropdown golek informasi</string>
+    <string name="search_results_provided_by">Asil diwenehake dening MusicBrainz</string>
+
+    <!-- Search tips dialog -->
+    <string name="got_it">清楚了</string>
+    <string name="search_tips">Tips Telusuran</string>
+    <string name="search_explain">Kita nggunakake API MusicBrainz kanggo mbantu sampeyan nemokake informasi trek. Sampeyan bisa nggawe telusuran luwih presisi nggunakake filter prasaja.</string>
+    <string name="quotes_explain_header">Tanda kutip kanggo cocog sing pas</string>
+    <string name="quotes_explain">Gunakake tanda kutip golek tembung utawa frasa tartamtu:</string>
+    <string name="quotes_example_1">"4:44"</string>
+    <string name="quotes_example_2"><![CDATA["7 Weeks & 3 Days"]]></string>
+    <string name="field_explain_header">Golek dening artis utawa album</string>
+    <string name="field_explain">Sampeyan bisa golek artis utawa album tartamtu kaya mangkene:</string>
+    <string name="field_example_1">artist:"Jay-Z"</string>
+    <string name="field_example_2">release:"Over You"</string>
+    <string name="combine_explain_header">Gabungake telusuran</string>
+    <string name="combine_explain">Gunakake "AND" kanggo nyambungake istilah telusuran sing béla:</string>
+    <string name="combine_example">"4:44" AND artist:"Jay-Z" AND release:"4:44"</string>
+
+    <!-- Search errors -->
+    <string name="unknown_error_occurred">Ana kesalahan sing ora dingerteni. Mangga, coba maneh.</string>
+    <string name="query_was_corrupted">Query wis rusak. Mangga, coba maneh.</string>
+    <string name="musicbrainz_server_error">Ana kesalahan server MusicBrainz. Mangga, coba maneh.</string>
+    <string name="musicbrainz_is_unavailable">MusicBrainz ora kasedhiya. Mangga, coba maneh mengko.</string>
+    <string name="failed_to_parse_response">Gagal parse wangsulan. Mangga, coba maneh.</string>
+    <string name="no_internet">Kaya-kaya sampeyan offline. Sambungake internet lan coba maneh.</string>
+
+    <!-- Changes screen -->
+    <string name="changes">Owahan</string>
+    <string name="old_cover_art">Cover lawas</string>
+    <string name="new_cover_art">Cover anyar</string>
+    <string name="overwrite">Tulisane</string>
+    <string name="select_fields_to_overwrite">Pilih kolom kanggo ditulis:</string>
+    <string name="metadata_change_succeed">Informasi trek wis owahan sukses. Owahan bakal efektif ing sawetara detik.</string>
+    <string name="important_to_know">Penting kanggo dingerteni</string>
+    <string name="artwork_change_note">Yen cover album saka trek iki ana ing piranti sampeyan, bakal digunakake ora preduli cover sing dipilih.</string>
+    <string name="cover_art_from_gallery_note">Kanggo nampilake cover saka galeri sampeyan mungkin kudu mbaleni app utawa piranti.</string>
+
+    <!-- Changes errors -->
+    <string name="failed_to_load_cover_art_album_id_corrupted">Gagal mbukak cover. Kaya-kaya ID album kanggo rekaman iki rusak.</string>
+    <string name="cover_art_not_found">Kajatine, cover rekaman iki ora ketemu.</string>
+    <string name="cover_art_archive_is_unavailable">Gagal mbukak cover. Cover Art Archive ora kasedhiya. Mangga, coba maneh mengko.</string>
+    <string name="failed_to_load_cover_art_request_timeout">Gagal mbukak cover ing 3 menit. Mangga, priksa kualitas jaringan lan coba maneh.</string>
+
+    <!-- Metadata writing errors -->
+    <string name="write_permission_denied">Gagal nulis metadata. Ijin kapinggih. Mangga, coba maneh.</string>
+    <string name="no_read_permission">Ora ana ijin maca. Mangga, k赐i ijin utawa coba maneh.</string>
+    <string name="no_write_permission">Ora ana ijin nulis. Mangga, k赐i ijin utawa coba maneh.</string>
+    <string name="failed_to_read">Gagal maca file. Mangga, coba maneh.</string>
+    <string name="failed_to_write">Gagal nulis file. Mangga, coba maneh.</string>
+
+    <!-- Manual editing screen -->
+    <string name="edit">Edit</string>
+    <string name="pick_art">Pilih cover</string>
+    <string name="restore_art">Balikake</string>
+    <string name="restore_tag">Balikake nilai tag</string>
+
+    <!-- Lyrics control screen -->
+    <string name="lyrics_control">Kontrol teks</string>
+    <string name="lyrics_in_tag">Teks ing tag</string>
+    <string name="lyrics_in_tag_explain">Teks sing disimpen ing tag file audio</string>
+    <string name="lyrics_in_local_database">Teks ing database lokal</string>
+    <string name="lyrics_in_local_database_explain">Teks sing disalin saka tag, dijupuk saka LRCLIB utawa ditambah saka file. Iki sing sampeyan deleng ing layar teks</string>
+    <string name="lyrics_actions">Tindakan teks</string>
+    <string name="lyrics_tools_explained">Tindakan kanggo ngatur utawa ngowahi teks ing database lokal</string>
+    <string name="clear_db_entry">Busak entri DB</string>
+    <string name="copy_from_tag">Salin saka tag</string>
+    <string name="import_from_file">Impor saka file</string>
+    <string name="write_to_tag">Nulis ing tag</string>
+    <string name="fetch_from_lrclib">njupuk saka LRCLIB</string>
+    <string name="publish_on_lrclib">Publish ing LRCLIB</string>
+    <string name="unable_to_publish"> Ora bisa publish: titre, artis utawa album ora ditemtokake.</string>
+    <string name="published_successfully">Publish sukses.</string>
+    <string name="solving_challenge">Nggarap tantangan...</string>
+
+    <!-- Lyrics sheet -->
+    <string name="lyrics">Teks</string>
+    <string name="close_lyrics_sheet">Nutup sheet teks</string>
+    <string name="loading_lyrics">Loading teks</string>
+    <string name="synced">Sinkron</string>
+    <string name="plain"> prasaja</string>
+
+    <!-- Lyrics screen errors -->
+    <string name="cant_look_for_lyrics_title_or_artist_is_missing">Ora bisa golek teks. Titre utawa artis ora ditemtokake kanggo trek iki.</string>
+    <string name="lyrics_not_found">Kajatine, teks trek iki ora bisa ketemu ing LRCLIB.</string>
+    <string name="cant_find_lyrics">Ora bisa nemokake teks.</string>
+    <string name="lyrics_provided_by">Teks diwenehake dening LRCLIB</string>
+
+    <!-- Playlists related -->
+    <string name="create_playlist">Nggawe playlist</string>
+    <string name="add_to_playlist">Tambahake menyang playlist</string>
+    <string name="back_to_add_to_playlist">Bali nambahake menyang playlist</string>
+    <string name="name">Jeneng</string>
+    <string name="new_playlist_title_placeholder"> tuladha: Favorit</string>
+    <string name="create">Nggawe</string>
+    <string name="reorder_track">Atur maneh trek</string>
+    <string name="delete_playlist">Busak playlist</string>
+    <string name="rename_playlist">Ganti jeneng playlist</string>
+    <string name="rename">Ganti jeneng</string>
+    <string name="delete">Busak</string>
+    <string name="delete_playlist_dialog_title">Busak playlist?</string>
+    <string name="delete_playlist_dialog_text">Iki ora bakal mengaruhi trek ing saikine.</string>
+    <string name="nothing_yet">Belum ana.</string>
+    <string name="unknown_folder">Folder ora dingerteni</string>
+    <string name="enable_list_view">Aktifake mode dhaptar</string>
+    <string name="enable_grid_view">Aktifake mode kisi</string>
+
+    <!-- Playlists errors -->
+    <string name="blank_playlist_name_error">Mangga, jenengi playlist.</string>
+    <string name="playlist_already_exists_error">Jeneng iki wis dienggo.</string>
+    <string name="track_is_already_on_playlist">Trek iki wis ana ing playlist.</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Setelan</string>
+    <string name="close_settings_sheet">Nutup setelan</string>
+    <string name="theme">Tema</string>
+    <string name="theme_supporting_text">Katon, palet</string>
+    <string name="lyrics_supporting_text">Setelan font, raport</string>
+    <string name="playback">Main</string>
+    <string name="playback_supporting_text">Fokus audio, equalizer</string>
+    <string name="about_app"> babagan app</string>
+    <string name="about_explain">Versi, repo, feedback</string>
+    <string name="music_scan">Scan music</string>
+    <string name="music_scan_supporting_text">Mode saringan, ngatur folder, scanning</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Katon</string>
+    <string name="appearance_system">Sistem</string>
+    <string name="appearance_light">Cahya</string>
+    <string name="appearance_dark">Peteng</string>
+
+    <string name="palette_style">Gaya palet</string>
+    <string name="palette_tonal_spot">Tonal Spot</string>
+    <string name="palette_neutral">Netral</string>
+    <string name="palette_vibrant">Cahya</string>
+    <string name="palette_expressive">Ekspresif</string>
+    <string name="palette_rainbow">Klawu</string>
+    <string name="palette_fruit_salad">Salad Buah</string>
+    <string name="palette_monochrome">Monochrome</string>
+    <string name="palette_fidelity">Ketrustan</string>
+    <string name="palette_content">Konten</string>
+
+    <string name="black_theme">Tema peteng</string>
+    <string name="black_theme_explain">Dadekake tema peteng dadi bener-bener peteng</string>
+    <string name="use_system_key_colors">Warna sistem</string>
+    <string name="use_system_key_colors_explain">Gunakake warna aksen sistem</string>
+    <string name="use_album_art_color">Warna cover</string>
+    <string name="use_album_art_color_explain">Gunakake warna dominan cover trek saiki</string>
+
+    <!-- Playback settings -->
+    <string name="audio_focus">Fokus audio</string>
+    <string name="audio_focus_explain">istirahetake main nalika app liyane perlu maemake audio</string>
+    <string name="changes_will_take_effect_on_next_launch">Owahan bakal efektif ing kanca sabanjure.</string>
+    <string name="equalizer">Equalizer</string>
+    <string name="equalizer_explain">Atur swara manual</string>
+    <string name="jump_to_beginning">Balik menyang wiwitan</string>
+    <string name="jump_to_beginning_explain">Balik maneh trek saiki ing tekanane kapisan tombol sadurunge</string>
+
+    <!-- Tabs settings -->
+    <string name="tabs">Tab</string>
+    <string name="tabs_supporting_text">Tab standar lan urutan</string>
+    <string name="default_tab_and_order">Tab standar lan urutan</string>
+    <string name="reorder_tab">Atur maneh tab</string>
+
+    <!-- Playlists settings -->
+    <string name="filter_instead_of_search">Saring tinimbang golek</string>
+    <string name="filter_instead_of_search_explain">Ganti telusuran playlist nganggo saringan</string>
+    <string name="playlists_supporting_text">Kolom telusuran, impor</string>
+    <string name="filter">Saring</string>
+    <string name="import_playlist">Impor playlist</string>
+    <string name="import_playlist_explain">Tambahake playlist saka file M3U</string>
+    <string name="imported_successfully">Impor sukses.</string>
+    <string name="export_playlist">Ekspor playlist</string>
+    <string name="export_playlist_explain">Simpen playlist minangka file M3U</string>
+    <string name="exported_successfully">Ekspor sukses.</string>
+    <string name="failed_to_export_playlist">Gagal ekspor playlist</string>
+    <string name="favorites">Favorit</string>
+    <string name="recently_played">Main sakwise</string>
+    <string name="add_to_favorites">Tambahake ing favorit</string>
+    <string name="remove_from_favorites">Busak saka favorit</string>
+
+    <!-- Lyrics settings -->
+    <string name="dark_theme_for_lyrics">Tema peteng kanggo teks</string>
+    <string name="dark_theme_for_lyrics_explain">Gunakake tema peteng ing layar teks, sanajan mode cahya aktif</string>
+    <string name="lyrics_preview_string">Baris iki dawa banget nandakake carane teks lagu karo setelan iki katon ing layar sing cocog</string>
+    <string name="font_size">Ukuran font</string>
+    <string name="font_weight">Bobot font</string>
+    <string name="line_height">Dhuwur baris</string>
+    <string name="letter_spacing">Spasi aksara</string>
+    <string name="alignment">Raport</string>
+    <string name="start">Miwiti</string>
+    <string name="center"> tengah</string>
+    <string name="end">Ing Pungkasan</string>
+    <string name="reset">Balikake</string>
+
+    <!-- Music scan settings -->
+    <string name="include_music_folder">Kalebu folder Music</string>
+    <string name="include_music_folder_explain">Tampilake music saka folder Music standar</string>
+    <string name="included_folders">Folder kalebu</string>
+    <string name="pick_folder_to_include_in_scanning">Pilih folder kanggo kalebu ing scanning</string>
+    <string name="remove_folder_from_included_in_scanning">Busak folder kalebu saka scanning</string>
+    <string name="folders_with_audio">Folder nganggo audio</string>
+    <string name="include_folder_in_scanning">Kalebu folder ing scanning</string>
+    <string name="scan_for_folders_with_audio">Scan kanggo folder nganggo audio</string>
+    <string name="filter_mode">Mode saringan</string>
+    <string name="filter_mode_explain">Tampilake music saka folder sing ditemtokake utawa saka kabeh panggonan kajaba iku</string>
+    <string name="inclusive">Kalebu</string>
+    <string name="exclusive"> ora kalebu</string>
+    <string name="excluded_folders">Folder ora kalebu</string>
+    <string name="pick_folder_to_exclude_from_scanning">Pilih folder kanggo ora kalebu ing scanning</string>
+    <string name="remove_folder_from_excluded_from_scanning">Busak folder ora kalebu saka scanning</string>
+    <string name="exclude_folder_from_scanning"> ora kalebu folder ing scanning</string>
+    <string name="scanned_successfully">Scan sukses</string>
+    <string name="refresh_on_app_launch">Refresh ing miwiti</string>
+    <string name="refresh_on_app_launch_explain">Refresh data ing MediaStore ing miwiti</string>
+    <string name="refresh">Refresh MediaStore</string>
+    <string name="refresh_explain">Refresh data sing wis ana ing MediaStore</string>
+    <string name="scan_folder">Scan folder</string>
+    <string name="scan_folder_explain">Scan folder audio kanggo kalebu data anyar ing MediaStore</string>
+    <string name="failed_to_scan">Gagal scan</string>
+    <string name="nothing_to_refresh">Ora ana apa-apa kanggo di-refresh</string>
+    <string name="refreshed_successfully">Refresh sukses</string>
+    <string name="failed_to_refresh">Gagal refresh</string>
+    <string name="ignore_short_tracks">Abaikan trek cendhak</string>
+    <string name="ignore_short_tracks_explain">Aja nampilake trek kurang saka 30 detik</string>
+
+    <!-- About screen -->
+    <string name="repo">Repo</string>
+    <string name="repo_explain">Deleng repo proyek</string>
+    <string name="feedback">Feedback</string>
+    <string name="feedback_explain">Hubungi kanggo ngartekake fitur utawa nglaporake masalah</string>
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="privacy_policy_explain">Waca kebijakan privasi kita</string>
+    <string name="donate">Donasi</string>
+    <string name="donate_explain">Dhukung pangembangan</string>
+    <string name="developer">Pengembang</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+    <string name="features">Fitur</string>
+    <string name="features_explain">Jelajahi kemampuan app</string>
+    <string name="changelog">Log owahan</string>
+    <string name="changelog_explain">Deleng update lan pangowahan anyar</string>
+
+    <!-- Open a track with "Open with..." dialog -->
+    <string name="track_is_not_found_in_media_store">Kajatine, trek iki ora kasedhiya kanggo player. Muga-muga amarga ana ing folder ora kalebu ing scan.</string>
+
+    <string name="copy_error"> kesalahan nyalin</string>
+    <string name="select_all">Pilih kabeh</string>
+    <string name="album_art">Cover album</string>
+    <string name="previous_track">Trek sadurunge</string>
+    <string name="play">Main</string>
+    <string name="next_track">Trek sabanjure</string>
+    <string name="widget_description">Widget Music Player Lumena</string>
+    <string name="play_count"> jumlah main</string>
+    <string name="last_played">Main sakwise</string>
+
+    <!-- Google Play Store Compliance -->
+    <string name="open_source_licenses">Lisensi Open Source</string>
+    <string name="open_source_licenses_explain">Deleng lisensi perpustakaan open source sing digunakake</string>
+    <string name="terms_of_service">Ketentuan Layanan</string>
+    <string name="terms_of_service_explain">Waca ketentuan layanan kanggo nggunakake app iki</string>
+    <string name="contact_info">Informasi Kontak</string>
+    <string name="contact_info_explain">Hubungi pengembang</string>
+    <string name="app_permissions">Ijin App</string>
+    <string name="app_permissions_explain">Deleng ijin sing dibutuhake lan tujuane</string>
+</resources>

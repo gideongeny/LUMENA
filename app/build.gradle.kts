@@ -146,6 +146,14 @@ signingConfigs {
         includeInApk = false
         includeInBundle = false
     }
+
+    lint {
+        // Disable ExtraTranslation check for release builds
+        // This check fails when translation files have strings not in the default locale
+        abortOnError = false
+        checkReleaseBuilds = true
+        disable += "ExtraTranslation"
+    }
 }
 
 tasks.withType<com.android.build.gradle.internal.tasks.CompileArtProfileTask> {

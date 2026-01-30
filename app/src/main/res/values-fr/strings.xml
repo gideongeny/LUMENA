@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Retour</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Commencer</string>
+    <string name="permissions">Autorisations</string>
+    <string name="audio">Audio</string>
+    <string name="explain_audio_permission_requirement">Lumena en a besoin pour lire votre merveilleuse musique</string>
+    <string name="grant_permission">Accorder l\'autorisation</string>
+    <string name="next">Suivant</string>
+    <string name="grant_permission_in_settings">Veuillez accorder l\'autorisation dans les Paramètres</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Titre</string>
+    <string name="album">Album</string>
+    <string name="artist">Artiste</string>
+    <string name="album_artist">Artiste de l\'album</string>
+    <string name="genre">Genre</string>
+    <string name="year">Année</string>
+    <string name="track_number">Numéro de piste</string>
+    <string name="bitrate">Débit</string>
+    <string name="duration">Durée</string>
+    <string name="size">Taille</string>
+    <string name="path">Chemin</string>
+    <string name="date_modified">Date de modification</string>
+
+    <string name="unknown_title">Titre inconnu</string>
+    <string name="unknown_album">Album inconnu</string>
+    <string name="unknown_artist">Artiste inconnu</string>
+    <string name="unknown_album_artist">Artiste de l\'album inconnu</string>
+    <string name="unknown_genre">Genre inconnu</string>
+    <string name="unknown_year">Année inconnue</string>
+    <string name="unknown_track_number">Numéro de piste inconnu</string>
+    <string name="unknown_bitrate">Débit inconnu</string>
+    <string name="unknown">Inconnu</string>
+
+    <!-- Track dropdown menu -->
+    <string name="track_menu_button">Bouton du menu de la piste</string>
+    <string name="play_next">Lire ensuite</string>
+    <string name="add_to_queue">Ajouter à la file d\'attente</string>
+    <string name="remove_from_playlist">Retirer de la playlist</string>
+    <string name="go_to_album">Aller à l\'album</string>
+    <string name="go_to_artist">Aller à l\'artiste</string>
+
+    <!-- Tabs' names -->
+    <string name="tracks">Pistes</string>
+    <string name="albums">Albums</string>
+    <string name="artists">Artistes</string>
+    <string name="genres">Genres</string>
+    <string name="playlists">Playlists</string>
+    <string name="folders">Dossiers</string>
+
+    <!-- Sorting dialog -->
+    <string name="sort_order">Ordre de tri</string>
+    <string name="sort_ascending">Tri croissant</string>
+    <string name="sort_descending">Tri décroissant</string>
+    <string name="track_count">Nombre de pistes</string>
+
+    <!-- Track search -->
+    <string name="close_track_search">Fermer la recherche de piste</string>
+    <string name="track_search">Recherche de piste</string>
+
+    <!-- Scroll to buttons -->
+    <string name="scroll_to_top">Faire défiler vers le haut</string>
+    <string name="scroll_to_current_track">Faire défiler vers la piste actuelle</string>
+
+    <!-- Expanded player sheet -->
+    <string name="close_player_sheet">Fermer le lecteur</string>
+    <string name="playback_mode_toggle">Basculer le mode de lecture</string>
+    <string name="show_lyrics">Afficher les paroles</string>
+    <string name="set_sleep_timer">Régler le minuteur de veille</string>
+    <string name="sleep_timer">Minuteur de veille</string>
+    <string name="short_minutes">min</string>
+    <string name="stop_timer">Arrêter</string>
+    <string name="start_timer">Démarrer</string>
+
+    <!-- Play queue -->
+    <string name="remove_from_queue">Retirer de la file d\'attente</string>
+    <string name="queue">File d\'attente</string>
+    <string name="show_queue">Afficher la file d\'attente</string>
+
+    <!-- Track info screen -->
+    <string name="track_info">Informations sur la piste</string>
+    <string name="close_track_info_sheet">Fermer les informations sur la piste</string>
+    <string name="look_for_metadata">Rechercher des métadonnées</string>
+    <string name="edit_manually">Modifier manuellement</string>
+    <string name="back_to_track_info">Retour aux informations sur la piste</string>
+
+    <!-- Risks of metadata editing dialog -->
+    <string name="risks_of_metadata_editing">Risques de l\'édition des métadonnées</string>
+    <string name="risks_of_metadata_editing_explain">L\'édition des métadonnées est une fonctionnalité puissante, mais parfois les choses peuvent mal tourner et les balises des fichiers audio peuvent ne pas se comporter comme prévu.\n\nNous vous recommandons de sauvegarder vos fichiers audio avant de faire des modifications - mieux vaut prévenir que guérir !\n\nEn cliquant sur \"Accepter\", vous reconnaissez que vous êtes responsable de vos fichiers, que vous avez fait les sauvegardes nécessaires et que vous comprenez que nous ne pouvons être tenus responsables si quelque chose d\'inattendu se produit.\n\nCliquez sur \"Annuler\" si vous préférez ne pas procéder.</string>
+    <string name="accept">Accepter</string>
+    <string name="cancel">Annuler</string>
+
+    <!-- Metadata search screen -->
+    <string name="search">Rechercher</string>
+    <string name="description">Description</string>
+    <string name="album_description">Description de l\'album</string>
+    <string name="no_description">Aucune description</string>
+    <string name="back_to_info_search">Retour à la recherche d\'informations</string>
+    <string name="search_menu">Menu déroulant de recherche d\'informations</string>
+    <string name="search_results_provided_by">Résultats fournis par MusicBrainz</string>
+
+    <!-- Search tips dialog -->
+    <string name="got_it">Compris</string>
+    <string name="search_tips">Conseils de recherche</string>
+    <string name="search_explain">Nous utilisons l\'API MusicBrainz pour vous aider à trouver les informations sur les pistes. Vous pouvez rendre vos recherches plus précises en utilisant des filtres simples.</string>
+    <string name="quotes_explain_header">Guillemets pour les correspondances exactes</string>
+    <string name="quotes_explain">Utilisez des guillemets pour trouver des mots ou des phrases spécifiques :</string>
+    <string name="quotes_example_1">"4:44"</string>
+    <string name="quotes_example_2"><![CDATA["7 Weeks & 3 Days"]]></string>
+    <string name="field_explain_header">Rechercher par artiste ou album</string>
+    <string name="field_explain">Vous pouvez rechercher un artiste ou un album spécifique comme ceci :</string>
+    <string name="field_example_1">artist:"Jay-Z"</string>
+    <string name="field_example_2">release:"Over You"</string>
+    <string name="combine_explain_header">Combiner les recherches</string>
+    <string name="combine_explain">Utilisez \"AND\" pour connecter différents termes de recherche :</string>
+    <string name="combine_example">"4:44" AND artist:"Jay-Z" AND release:"4:44"</string>
+
+    <!-- Search errors -->
+    <string name="unknown_error_occurred">Une erreur inconnue s\'est produite. Veuillez réessayer.</string>
+    <string name="query_was_corrupted">La requête a été corrompue. Veuillez réessayer.</string>
+    <string name="musicbrainz_server_error">Erreur du serveur MusicBrainz. Veuillez réessayer.</string>
+    <string name="musicbrainz_is_unavailable">MusicBrainz n\'est pas disponible. Veuillez réessayer plus tard.</string>
+    <string name="failed_to_parse_response">Échec de l\'analyse de la réponse. Veuillez réessayer.</string>
+    <string name="no_internet">Vous semblez être hors ligne. Connectez-vous à Internet et réessayez.</string>
+
+    <!-- Changes screen -->
+    <string name="changes">Modifications</string>
+    <string name="old_cover_art">Ancienne pochette</string>
+    <string name="new_cover_art">Nouvelle pochette</string>
+    <string name="overwrite">Écraser</string>
+    <string name="select_fields_to_overwrite">Sélectionnez les champs à écraser :</string>
+    <string name="metadata_change_succeed">Les informations sur la piste ont été modifiées avec succès. Les modifications prendront effet dans quelques secondes.</string>
+    <string name="important_to_know">Important à savoir</string>
+    <string name="artwork_change_note">Si la pochette de l\'album de cette piste est présente sur votre appareil, elle sera utilisée indépendamment de la pochette sélectionnée.</string>
+    <string name="cover_art_from_gallery_note">Pour afficher la pochette depuis la galerie, vous devrez peut-être redémarrer l\'application ou l\'appareil.</string>
+
+    <!-- Changes errors -->
+    <string name="failed_to_load_cover_art_album_id_corrupted">Échec du chargement de la pochette. L\'identifiant de l\'album pour cet enregistrement semble être corrompu.</string>
+    <string name="cover_art_not_found">Malheureusement, la pochette de cet enregistrement n\'a pas été trouvée.</string>
+    <string name="cover_art_archive_is_unavailable">Échec du chargement de la pochette. Cover Art Archive n\'est pas disponible. Veuillez réessayer plus tard.</string>
+    <string name="failed_to_load_cover_art_request_timeout">Échec du chargement de la pochette en 3 minutes. Veuillez vérifier la qualité du réseau et réessayer.</string>
+
+    <!-- Metadata writing errors -->
+    <string name="write_permission_denied">Échec de l\'écriture des métadonnées. Autorisation refusée. Veuillez réessayer.</string>
+    <string name="no_read_permission">Aucune autorisation de lecture. Veuillez l\'accorder ou réessayer.</string>
+    <string name="no_write_permission">Aucune autorisation d\'écriture. Veuillez l\'accorder ou réessayer.</string>
+    <string name="failed_to_read">Échec de la lecture du fichier. Veuillez réessayer.</string>
+    <string name="failed_to_write">Échec de l\'écriture du fichier. Veuillez réessayer.</string>
+
+    <!-- Manual editing screen -->
+    <string name="edit">Modifier</string>
+    <string name="pick_art">Choisir la pochette</string>
+    <string name="restore_art">Restaurer</string>
+    <string name="restore_tag">Restaurer la valeur de la balise</string>
+
+    <!-- Lyrics control screen -->
+    <string name="lyrics_control">Contrôle des paroles</string>
+    <string name="lyrics_in_tag">Paroles dans la balise</string>
+    <string name="lyrics_in_tag_explain">Paroles stockées dans la balise du fichier audio</string>
+    <string name="lyrics_in_local_database">Paroles dans la base de données locale</string>
+    <string name="lyrics_in_local_database_explain">Paroles copiées depuis une balise, prises sur LRCLIB ou ajoutées depuis un fichier. C\'est ce que vous voyez sur l\'écran des paroles</string>
+    <string name="lyrics_actions">Actions sur les paroles</string>
+    <string name="lyrics_tools_explained">Actions pour gérer ou modifier les paroles dans la base de données locale</string>
+    <string name="clear_db_entry">Effacer l\'entrée de la base de données</string>
+    <string name="copy_from_tag">Copier depuis la balise</string>
+    <string name="import_from_file">Importer depuis un fichier</string>
+    <string name="write_to_tag">Écrire dans la balise</string>
+    <string name="fetch_from_lrclib">Récupérer depuis LRCLIB</string>
+    <string name="publish_on_lrclib">Publier sur LRCLIB</string>
+    <string name="unable_to_publish">Impossible de publier : titre, artiste ou album non spécifié.</string>
+    <string name="published_successfully">Publié avec succès.</string>
+    <string name="solving_challenge">Résolution du défi...</string>
+
+    <!-- Lyrics sheet -->
+    <string name="lyrics">Paroles</string>
+    <string name="close_lyrics_sheet">Fermer les paroles</string>
+    <string name="loading_lyrics">Chargement des paroles</string>
+    <string name="synced">Synchronisées</string>
+    <string name="plain">Simple</string>
+
+    <!-- Lyrics screen errors -->
+    <string name="cant_look_for_lyrics_title_or_artist_is_missing">Impossible de rechercher les paroles. Le titre ou l\'artiste n\'est pas spécifié pour cette piste.</string>
+    <string name="lyrics_not_found">Malheureusement, les paroles de cette piste ne peuvent pas être trouvées sur LRCLIB.</string>
+    <string name="cant_find_lyrics">Impossible de trouver les paroles.</string>
+    <string name="lyrics_provided_by">Paroles fournies par LRCLIB</string>
+
+    <!-- Playlists related -->
+    <string name="create_playlist">Créer une playlist</string>
+    <string name="add_to_playlist">Ajouter à la playlist</string>
+    <string name="back_to_add_to_playlist">Retour à l\'ajout à la playlist</string>
+    <string name="name">Nom</string>
+    <string name="new_playlist_title_placeholder">ex: Favoris</string>
+    <string name="create">Créer</string>
+    <string name="reorder_track">Réordonner la piste</string>
+    <string name="delete_playlist">Supprimer la playlist</string>
+    <string name="rename_playlist">Renommer la playlist</string>
+    <string name="rename">Renommer</string>
+    <string name="delete">Supprimer</string>
+    <string name="delete_playlist_dialog_title">Supprimer la playlist ?</string>
+    <string name="delete_playlist_dialog_text">Cela n\'affectera pas les pistes qu\'elle contient.</string>
+    <string name="nothing_yet">Rien pour le moment.</string>
+    <string name="unknown_folder">Dossier inconnu</string>
+    <string name="enable_list_view">Activer la vue liste</string>
+    <string name="enable_grid_view">Activer la vue grille</string>
+
+    <!-- Playlists errors -->
+    <string name="blank_playlist_name_error">Veuillez nommer la playlist.</string>
+    <string name="playlist_already_exists_error">Ce nom est déjà utilisé.</string>
+    <string name="track_is_already_on_playlist">Cette piste est déjà sur la playlist.</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Paramètres</string>
+    <string name="close_settings_sheet">Fermer les paramètres</string>
+    <string name="theme">Thème</string>
+    <string name="theme_supporting_text">Apparence, palette</string>
+    <string name="lyrics_supporting_text">Paramètres de police, alignement</string>
+    <string name="playback">Lecture</string>
+    <string name="playback_supporting_text">Focus audio, égaliseur</string>
+    <string name="about_app">À propos de l\'application</string>
+    <string name="about_explain">Version, dépôt, feedback</string>
+    <string name="music_scan">Analyse de la musique</string>
+    <string name="music_scan_supporting_text">Mode de filtrage, gestion des dossiers, analyse</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Apparence</string>
+    <string name="appearance_system">Système</string>
+    <string name="appearance_light">Clair</string>
+    <string name="appearance_dark">Sombre</string>
+
+    <string name="palette_style">Style de palette</string>
+    <string name="palette_tonal_spot">Tonal Spot</string>
+    <string name="palette_neutral">Neutre</string>
+    <string name="palette_vibrant">Vibrant</string>
+    <string name="palette_expressive">Expressif</string>
+    <string name="palette_rainbow">Arc-en-ciel</string>
+    <string name="palette_fruit_salad">Salade de fruits</string>
+    <string name="palette_monochrome">Monochrome</string>
+    <string name="palette_fidelity">Fidélité</string>
+    <string name="palette_content">Contenu</string>
+
+    <string name="black_theme">Thème noir</string>
+    <string name="black_theme_explain">Faire en sorte que le thème sombre soit vraiment sombre</string>
+    <string name="use_system_key_colors">Couleurs du système</string>
+    <string name="use_system_key_colors_explain">Utiliser les couleurs d\'accentuation du système</string>
+    <string name="use_album_art_color">Couleur de la pochette</string>
+    <string name="use_album_art_color_explain">Utiliser la couleur dominante de la pochette de la piste actuelle</string>
+
+    <!-- Playback settings -->
+    <string name="audio_focus">Focus audio</string>
+    <string name="audio_focus_explain">Mettre en pause la lecture lorsqu\'une autre application a besoin de lire de l\'audio</string>
+    <string name="changes_will_take_effect_on_next_launch">Les modifications prendront effet au prochain lancement.</string>
+    <string name="equalizer">Égaliseur</string>
+    <string name="equalizer_explain">Ajuster le son manuellement</string>
+    <string name="jump_to_beginning">Retour au début</string>
+    <string name="jump_to_beginning_explain">Redémarrer la piste actuelle lors de la première pression sur le bouton précédent</string>
+
+    <!-- Tabs settings -->
+    <string name="tabs">Onglets</string>
+    <string name="tabs_supporting_text">Onglet par défaut et ordre</string>
+    <string name="default_tab_and_order">Onglet par défaut et ordre</string>
+    <string name="reorder_tab">Réordonner l\'onglet</string>
+
+    <!-- Playlists settings -->
+    <string name="filter_instead_of_search">Filtrer au lieu de rechercher</string>
+    <string name="filter_instead_of_search_explain">Remplacer la recherche dans la playlist par un filtre</string>
+    <string name="playlists_supporting_text">Champ de recherche, importation</string>
+    <string name="filter">Filtrer</string>
+    <string name="import_playlist">Importer une playlist</string>
+    <string name="import_playlist_explain">Ajouter une playlist depuis un fichier M3U</string>
+    <string name="imported_successfully">Importé avec succès.</string>
+    <string name="export_playlist">Exporter une playlist</string>
+    <string name="export_playlist_explain">Enregistrer la playlist comme fichier M3U</string>
+    <string name="exported_successfully">Exporté avec succès.</string>
+    <string name="failed_to_export_playlist">Échec de l\'exportation de la playlist</string>
+    <string name="favorites">Favoris</string>
+    <string name="recently_played">Récemment jouées</string>
+    <string name="add_to_favorites">Ajouter aux favoris</string>
+    <string name="remove_from_favorites">Retirer des favoris</string>
+
+    <!-- Lyrics settings -->
+    <string name="dark_theme_for_lyrics">Thème sombre pour les paroles</string>
+    <string name="dark_theme_for_lyrics_explain">Appliquer le thème sombre à l\'écran des paroles, même si le mode clair est actif</string>
+    <string name="lyrics_preview_string">Cette ligne très très longue montre à quoi ressembleront les paroles de la chanson avec ces paramètres sur l\'écran correspondant</string>
+    <string name="font_size">Taille de police</string>
+    <string name="font_weight">Graisse de police</string>
+    <string name="line_height">Interligne</string>
+    <string name="letter_spacing">Espacement des lettres</string>
+    <string name="alignment">Alignement</string>
+    <string name="start">Début</string>
+    <string name="center">Centre</string>
+    <string name="end">Fin</string>
+    <string name="reset">Réinitialiser</string>
+
+    <!-- Music scan settings -->
+    <string name="include_music_folder">Inclure le dossier Musique</string>
+    <string name="include_music_folder_explain">Afficher la musique du dossier Musique par défaut</string>
+    <string name="included_folders">Dossiers inclus</string>
+    <string name="pick_folder_to_include_in_scanning">Choisir le dossier à inclure dans l\'analyse</string>
+    <string name="remove_folder_from_included_in_scanning">Retirer le dossier de l\'analyse</string>
+    <string name="folders_with_audio">Dossiers avec audio</string>
+    <string name="include_folder_in_scanning">Inclure le dossier dans l\'analyse</string>
+    <string name="scan_for_folders_with_audio">Rechercher des dossiers avec audio</string>
+    <string name="filter_mode">Mode de filtrage</string>
+    <string name="filter_mode_explain">Afficher la musique des dossiers spécifiés ou de partout sauf ceux-ci</string>
+    <string name="inclusive">Inclusif</string>
+    <string name="exclusive">Exclusif</string>
+    <string name="excluded_folders">Dossiers exclus</string>
+    <string name="pick_folder_to_exclude_from_scanning">Choisir le dossier à exclure de l\'analyse</string>
+    <string name="remove_folder_from_excluded_from_scanning">Retirer le dossier des exclus</string>
+    <string name="exclude_folder_from_scanning">Exclure le dossier de l\'analyse</string>
+    <string name="scanned_successfully">Analyse réussie</string>
+    <string name="refresh_on_app_launch">Actualiser au lancement</string>
+    <string name="refresh_on_app_launch_explain">Actualiser les données dans MediaStore au lancement</string>
+    <string name="refresh">Actualiser MediaStore</string>
+    <string name="refresh_explain">Actualiser les données déjà présentes dans MediaStore</string>
+    <string name="scan_folder">Analyser le dossier</string>
+    <string name="scan_folder_explain">Analyser le dossier audio pour inclure de nouvelles données dans MediaStore</string>
+    <string name="failed_to_scan">Échec de l\'analyse</string>
+    <string name="nothing_to_refresh">Rien à actualiser</string>
+    <string name="refreshed_successfully">Actualisé avec succès</string>
+    <string name="failed_to_refresh">Échec de l\'actualisation</string>
+    <string name="ignore_short_tracks">Ignorer les pistes courtes</string>
+    <string name="ignore_short_tracks_explain">Ne pas afficher les pistes de moins de 30 secondes</string>
+
+    <!-- About screen -->
+    <string name="repo">Dépôt</string>
+    <string name="repo_explain">Consulter le dépôt du projet</string>
+    <string name="feedback">Feedback</string>
+    <string name="feedback_explain">Contactez-nous pour suggérer une fonctionnalité ou signaler un problème</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="privacy_policy_explain">Lire notre politique de confidentialité</string>
+    <string name="donate">Faire un don</string>
+    <string name="donate_explain">Soutenir le développement</string>
+    <string name="developer">Développeur</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+    <string name="features">Fonctionnalités</string>
+    <string name="features_explain">Explorer les capacités de l\'application</string>
+    <string name="changelog">Journal des modifications</string>
+    <string name="changelog_explain">Voir les mises à jour et améliorations récentes</string>
+
+    <!-- Open a track with "Open with..." dialog -->
+    <string name="track_is_not_found_in_media_store">Malheureusement, cette piste n\'est pas disponible pour le lecteur. C\'est peut-être parce qu\'elle se trouve dans un dossier non inclus dans l\'analyse.</string>
+
+    <string name="copy_error">Erreur de copie</string>
+    <string name="select_all">Tout sélectionner</string>
+    <string name="album_art">Pochette d\'album</string>
+    <string name="previous_track">Piste précédente</string>
+    <string name="play">Lecture</string>
+    <string name="next_track">Piste suivante</string>
+    <string name="widget_description">Widget Lecteur de Musique Lumena</string>
+    <string name="play_count">Nombre de lectures</string>
+    <string name="last_played">Dernière lecture</string>
+
+    <!-- Google Play Store Compliance -->
+    <string name="open_source_licenses">Licences Open Source</string>
+    <string name="open_source_licenses_explain">Voir les licences des bibliothèques open source utilisées</string>
+    <string name="terms_of_service">Conditions d\'utilisation</string>
+    <string name="terms_of_service_explain">Lire les conditions d\'utilisation de cette application</string>
+    <string name="contact_info">Coordonnées</string>
+    <string name="contact_info_explain">Contacter le développeur</string>
+    <string name="app_permissions">Autorisations de l\'application</string>
+    <string name="app_permissions_explain">Voir les autorisations requises et leurs objectifs</string>
+</resources>

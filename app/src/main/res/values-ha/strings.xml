@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common back button -->
+    <string name="back">Baya</string>
+
+    <!-- Setup screens -->
+    <string name="get_started">Fara</string>
+    <string name="permissions">Izni</string>
+    <string name="audio">Audio</string>
+    <string name="explain_audio_permission_requirement">Lumena na buƙata wannan don yawo wahalar ki</string>
+    <string name="grant_permission">Ba da izinin</string>
+    <string name="next">Na gaba</string>
+    <string name="grant_permission_in_settings">Don Allah, ba da izinin a Saituna</string>
+
+    <!-- Track metadata fields -->
+    <string name="title">Take</string>
+    <string name="album">Album</string>
+    <string name="artist">Mawaqa</string>
+    <string name="album_artist">Mawaqan Album</string>
+    <string name="genre">Genre</string>
+    <string name="year">Shekara</string>
+    <string name="track_number">Lambobin Track</string>
+    <string name="bitrate">Bitrate</string>
+    <string name="duration">Tsawon lokaci</string>
+    <string name="size">Girme</string>
+    <string name="path">Hanya</string>
+    <string name="date_modified">Ranar gyara</string>
+
+    <string name="unknown_title">Ba a san take ba</string>
+    <string name="unknown_album">Ba a san album ba</string>
+    <string name="unknown_artist">Ba a san mawaqa ba</string>
+    <string name="unknown_album_artist">Ba a san mawaqan album ba</string>
+    <string name="unknown_genre">Ba a san genre ba</string>
+    <string name="unknown_year">Ba a san shekara ba</string>
+    <string name="unknown_track_number">Ba a san lambobin track ba</string>
+    <string name="unknown_bitrate">Ba a san bitrate ba</string>
+    <string name="unknown">Ba a sani ba</string>
+
+    <!-- Track dropdown menu -->
+    <string name="track_menu_button">Maballin menu na track</string>
+    <string name="play_next">Kara na gaba</string>
+    <string name="add_to_queue">Qara da jerin</string>
+    <string name="remove_from_playlist">Cire daga playlist</string>
+    <string name="go_to_album">Je album</string>
+    <string name="go_to_artist">Je mawaqa</string>
+
+    <!-- Tabs names -->
+    <string name="tracks">Tracks</string>
+    <string name="albums">Albums</string>
+    <string name="artists">Mawaqa</string>
+    <string name="genres">Genres</string>
+    <string name="playlists">Playlists</string>
+    <string name="folders">Fayiloli</string>
+
+    <!-- Sorting dialog -->
+    <string name="sort_order">Tsarin gargadi</string>
+    <string name="sort_ascending">Hada sama</string>
+    <string name="sort_descending">Hada qasa</string>
+    <string name="track_count">Adadin tracks</string>
+
+    <!-- Track search -->
+    <string name="close_track_search">Rufe binciken track</string>
+    <string name="track_search">Binciken track</string>
+
+    <!-- Scroll to buttons -->
+    <string name="scroll_to_top">Scroll zuwa sama</string>
+    <string name="scroll_to_current_track">Scroll zuwa track na yanzu</string>
+
+    <!-- Expanded player sheet -->
+    <string name="close_player_sheet">Rufe mai kunnawa</string>
+    <string name="playback_mode_toggle">Canja mode yawo</string>
+    <string name="show_lyrics">Nuna waqa</string>
+    <string name="set_sleep_timer">Saita ajalin barci</string>
+    <string name="sleep_timer">Ajalin barci</string>
+    <string name="short_minutes">minti</string>
+    <string name="stop_timer">Tsaya</string>
+    <string name="start_timer">Fara</string>
+
+    <!-- Play queue -->
+    <string name="remove_from_queue">Cire daga jerin</string>
+    <string name="queue">Jeri</string>
+    <string name="show_queue">Nuna jeri</string>
+
+    <!-- Track info screen -->
+    <string name="track_info">Bayani na track</string>
+    <string name="close_track_info_sheet">Rufe bayanin track</string>
+    <string name="look_for_metadata">Neman metadata</string>
+    <string name="edit_manually">Gyara da hannu</string>
+    <string name="back_to_track_info">Koma bayanin track</string>
+
+    <!-- Settings sheet -->
+    <string name="settings">Saituna</string>
+    <string name="close_settings_sheet">Rufe saituna</string>
+    <string name="theme">Jigo</string>
+    <string name="playback">Kunnawa</string>
+    <string name="about_app">Game da app</string>
+    <string name="music_scan">Binciken kida</string>
+
+    <!-- Theme settings -->
+    <string name="appearance">Kamanni</string>
+    <string name="appearance_system">Tsarin</string>
+    <string name="appearance_light">Haske</string>
+    <string name="appearance_dark">Duhu</string>
+
+    <!-- Playback settings -->
+    <string name="audio_focus">Mai ba da audio</string>
+    <string name="equalizer">Equalizer</string>
+
+    <!-- Playlists settings -->
+    <string name="favorites">Abin da ake so</string>
+    <string name="add_to_favorites">Qara abin da ake so</string>
+    <string name="remove_from_favorites">Cire daga abin da ake so</string>
+
+    <!-- Lyrics settings -->
+    <string name="lyrics">Waqa</string>
+
+    <!-- About screen -->
+    <string name="repo">Maji</string>
+    <string name="feedback">Martani</string>
+    <string name="privacy_policy">Manufar Sirri</string>
+    <string name="donate">Ba da agaji</string>
+    <string name="developer">Mai habakawa</string>
+    <string name="developer_name">Gideon C. Ngeno</string>
+
+    <!-- Open a track with Open with dialog -->
+    <string name="track_is_not_found_in_media_store">Duwawu, wannan track ba zai samu ba don mai kunnawa. Watakila saboda yana fayil din da ba a haɗa ba cikin bincike.</string>
+
+    <string name="play">Kunnawa</string>
+    <string name="next_track">Track na gaba</string>
+    <string name="previous_track">Track na baya</string>
+    <string name="search">Bincika</string>
+    <string name="delete">Goge</string>
+    <string name="create">Qirƙira</string>
+    <string name="cancel">Soke</string>
+    <string name="reset">Saitawa</string>
+</resources>
