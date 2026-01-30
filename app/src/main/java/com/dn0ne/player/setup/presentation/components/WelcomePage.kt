@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.dn0ne.player.R
 
@@ -35,7 +34,7 @@ fun WelcomePage(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // App logo/icon - using the animated logo vector
+            // App logo - using the animated logo vector
             Image(
                 imageVector = ImageVector.vectorResource(R.drawable.ic_launcher_foreground),
                 contentDescription = stringResource(R.string.app_name),

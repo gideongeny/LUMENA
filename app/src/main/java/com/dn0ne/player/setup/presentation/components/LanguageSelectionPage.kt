@@ -1,9 +1,8 @@
 package com.dn0ne.player.setup.presentation.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -32,13 +31,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.dn0ne.player.R
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 data class Language(
     val code: String,
@@ -79,11 +78,18 @@ fun LanguageSelectionPage(
     onLanguageSelected: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val context = LocalContext.current
+    val configuration = LocalConfiguration.current
     var selectedLanguage by remember { mutableStateOf("") }
     var showLanguagePicker by remember { mutableStateOf(false) }
     val sheetState = rememberModalBottomSheetState()
     val scope = rememberCoroutineScope()
+
+    // Get current locale from configuration
+    val currentLanguageCode = if (selectedLanguage.isEmpty()) {
+        if (configuration.locales[0].language.isEmpty()) "" else configuration.locales[0].language
+    } else {
+        selectedLanguage
+    }
 
     Scaffold(
         topBar = {
@@ -119,7 +125,7 @@ fun LanguageSelectionPage(
                 onClick = { showLanguagePicker = true },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                val currentLang = supportedLanguages.find { it.code == selectedLanguage }
+                val currentLang = supportedLanguages.find { it.code == currentLanguageCode }
                 Text(
                     text = currentLang?.nativeName ?: currentLang?.name ?: stringResource(R.string.system_default)
                 )
@@ -128,7 +134,9 @@ fun LanguageSelectionPage(
             Spacer(modifier = Modifier.height(24.dp))
 
             Button(
-                onClick = { onLanguageSelected(selectedLanguage) },
+                onClick = {
+                    onLanguageSelected(currentLanguageCode)
+                },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(text = stringResource(R.string.next))
@@ -156,7 +164,7 @@ fun LanguageSelectionPage(
                                 }
                             },
                             trailingContent = {
-                                if (selectedLanguage == language.code) {
+                                if (currentLanguageCode == language.code) {
                                     Icon(
                                         imageVector = Icons.Rounded.Check,
                                         contentDescription = null,
@@ -168,6 +176,18 @@ fun LanguageSelectionPage(
                                 .fillMaxWidth()
                                 .clickable {
                                     selectedLanguage = language.code
+                                    
+                                    // Update locale immediately
+                                    val newLocale = if (language.code.isEmpty()) {
+                                        Locale.getDefault()
+                                    } else {
+                                        Locale(language.code)
+                                    }
+                                    Locale.setDefault(newLocale)
+                                    
+                                    // Update configuration
+                                    configuration.setLocale(newLocale)
+                                    
                                     scope.launch {
                                         sheetState.hide()
                                         showLanguagePicker = false

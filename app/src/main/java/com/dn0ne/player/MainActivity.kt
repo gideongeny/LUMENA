@@ -21,6 +21,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -45,12 +46,14 @@ import com.dn0ne.player.app.domain.result.Result
 import com.dn0ne.player.app.domain.track.Track
 import com.dn0ne.player.app.presentation.PlayerScreen
 import com.dn0ne.player.app.presentation.PlayerViewModel
+import com.dn0ne.player.app.presentation.components.settings.AccessibilityTheme
 import com.dn0ne.player.app.presentation.components.settings.Theme
 import com.dn0ne.player.app.presentation.components.snackbar.ObserveAsEvents
 import com.dn0ne.player.app.presentation.components.snackbar.ScaffoldWithSnackbarEvents
 import com.dn0ne.player.app.presentation.components.snackbar.SnackbarController
 import com.dn0ne.player.app.presentation.components.snackbar.SnackbarEvent
 import com.dn0ne.player.core.data.MusicScanner
+import com.dn0ne.player.core.data.Settings
 import com.dn0ne.player.core.presentation.Routes
 import com.dn0ne.player.setup.data.SetupState
 import com.dn0ne.player.setup.presentation.SetupScreen
@@ -245,7 +248,9 @@ class MainActivity : ComponentActivity() {
         } else Routes.Setup
 
         setContent {
-            MusicPlayerTheme {
+            val settings = remember { Settings(this@MainActivity) }
+            
+            AccessibilityTheme(settings = settings) {
                 ScaffoldWithSnackbarEvents(modifier = Modifier.fillMaxSize()) {
 
                     val navController = rememberNavController()
